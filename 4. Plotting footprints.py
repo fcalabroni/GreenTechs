@@ -14,7 +14,7 @@ Created on Tue Apr 18 2023
 import pandas as pd
 import plotly.express as px
 
-user = "LR"
+user = "NG"
 sN = slice(None)
 
 paths = 'Paths.xlsx'
@@ -305,3 +305,42 @@ for plot,properties in to_plot.items():
             fig.write_html(f"{pd.read_excel(paths, index_col=[0]).loc['Plots',user]}\\{act}_{name['name']}.html", auto_open=auto)
     
     
+#%% Plotting general results
+import plotly.express as px
+
+Act_to = "Electricity by wind"
+Sat = "GHGs"
+
+df = f[Sat].reset_index().query(f"`Activity to` == '{Act_to}'")
+
+res = df.groupby(['Scenario','Year','Performance']).sum().reset_index()
+fig = px.line(res, x="Year", y="Value", color="Performance", facet_col="Scenario")
+fig.show()
+
+#%% One boxplot per Act_to
+import plotly.express as px
+
+df = f[Sat].groupby(['Scenario','Year','Performance','Unit','Activity to']).sum().reset_index()
+
+fig = px.box(df, x="Scenario", y="Value", color="Performance", facet_col="Activity to", facet_row="Unit")
+fig.show()
+fig.write_html('Plots/boxplot.html', auto_open=True)
+
+# %% Exploring one characteristic result
+
+Act_to = "Electricity by PV"
+Sat = "GHGs"
+Perf = "Average"
+Scenario = "IEA"
+Year = 2018
+
+df = f[Sat].reset_index().query(f"`Activity to` == '{Act_to}' & Performance == '{Perf}' & Year == '{Year}' & Scenario == '{Scenario}'")
+fig = px.bar(df, x="Region from", y="Value", color="Commodity")
+
+tot_fot = round(df.loc[:,'Value'].sum(),2)
+
+fig.update_layout(title=f"{Sat} footprint per unit of {Act_to} in {Scenario}, {Year}, {Perf}<br>{tot_fot} {df.loc[[df.index[0]],'Unit'].values[0]}")
+fig.show()
+fig.write_html('Plots/')
+
+# %%
