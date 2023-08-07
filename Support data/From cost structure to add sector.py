@@ -2,14 +2,19 @@
 import pandas as pd
 
 # read the file excel LCI.xlsx as a dictionary of dataframes, one for each sheet
-df = pd.read_excel('Offshore wind.xlsx', sheet_name=None)
+df = pd.read_excel(
+    # 'Offshore wind.xlsx', 
+    # 'Photovoltaics.xlsx', 
+    'Onshore wind.xlsx', 
+    sheet_name=None,
+    )
 # %% assign the keys of df to a list but drop all the keys that starts with "_"
 keys = list(df.keys())
 keys = [x for x in keys if not x.startswith('_')]
 # %%
 # I want to query df['Subcomponent'] for all the rows where Subcomponent == 'Tower' and get the value of column "Weight"
 # df['Subcomponent'].query('Subcomponent == "Tower"')['Weight']
-
+ 
 
 levels = ['Factor of production','Commodity']
 highest = 'Technology'
