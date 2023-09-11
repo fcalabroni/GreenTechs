@@ -47,10 +47,10 @@ for level in levels:
     df[lowest]['Coeff'] = df[lowest]['Weight']* df[lowest]['wSUBCinCOMP'] * df[lowest]['wCOMPinSECT'] * df[lowest]['wSECTinTECH']
     
     if lowest == 'Factor of production':
-        res[level] = df[level].loc[:,(lowest,'Coeff')]
+        res[level] = df[level].loc[:,(lowest,'Coeff')].groupby(['Factor of production']).sum()
 
     else:
-        res[level] = df[level].loc[:,(lowest,'Region','Coeff')]
+        res[level] = df[level].loc[:,(lowest,'Region','Coeff')].groupby(['Commodity','Region']).sum()
 
     res[level].set_index([x for x in res[level].columns if x != 'Coeff'], inplace=True)
 
