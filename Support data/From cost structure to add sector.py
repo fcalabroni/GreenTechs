@@ -4,7 +4,7 @@ import pandas as pd
 # read the file excel LCI.xlsx as a dictionary of dataframes, one for each sheet
 df = pd.read_excel(
     # 'Offshore wind.xlsx', 
-    # 'Photovoltaics.xlsx', 
+    # 'Photovoltaic.xlsx', 
     'Onshore wind.xlsx', 
     sheet_name=None,
     )
@@ -47,13 +47,15 @@ for level in levels:
     df[lowest]['Coeff'] = df[lowest]['Weight']* df[lowest]['wSUBCinCOMP'] * df[lowest]['wCOMPinSECT'] * df[lowest]['wSECTinTECH']
     
     if lowest == 'Factor of production':
-        res[level] = df[level].loc[:,(lowest,'Coeff')].groupby(['Factor of production']).sum()
+        res[level] = df[level].loc[:,(lowest,'Coeff')]
 
     else:
-        res[level] = df[level].loc[:,(lowest,'Region','Coeff')].groupby(['Commodity','Region']).sum()
+        res[level] = df[level].loc[:,(lowest,'Region','Coeff')]
 
     res[level].set_index([x for x in res[level].columns if x != 'Coeff'], inplace=True)
 
 
 
+# %%
+print(res['Factor of production'].sum() + res['Commodity'].sum())
 # %%

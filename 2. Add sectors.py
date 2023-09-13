@@ -14,7 +14,7 @@ Created on Tue Apr 18 2023
 import mario
 import pandas as pd
 
-user = "LR"
+user = "NG"
 sN = slice(None)
 years = range(2011,2020)
 
@@ -29,37 +29,26 @@ for year in years:
 new_sectors = {
     'commodities': [
         'Photovoltaic plants',
-        'Photovoltaic modules',
-        'Mono-Si and poli-Si cells',
-        'Raw silicon',
         'Onshore wind plants',
-        'DFIG generators',
-        'Offshore wind plants',
-        'PMG generators',
-        'Neodymium',
-        'Dysprosium',
+        'Offshore wind plants'
         ],
     'activities': [
         'Production of photovoltaic plants',
-        'Production of photovoltaic modules',
-        'Production of mono-Si and poli-Si cells',
         'Production of onshore wind plants',
-        'Production of DFIG generators',
-        'Production of offshore wind plants',
-        'Production of PMG generators'
+        'Production of offshore wind plants'
         ]
     }
 
 #%% Getting excel templates to add new commodities
 path_commodities = f"{pd.read_excel(paths, index_col=[0]).loc['Add Sectors',user]}\\new_commodities.xlsx"
 path_activities  = f"{pd.read_excel(paths, index_col=[0]).loc['Add Sectors',user]}\\new_activities.xlsx"
-# world[year].get_add_sectors_excel(new_sectors = new_sectors['commodities'],regions= world.get_index('Region'),path=path_commodities, item='Commodity')
-# world[year].get_add_sectors_excel(new_sectors = new_sectors['activities'],regions= world.get_index('Region'),path=path_activities, item='Activity')
+world[year].get_add_sectors_excel(new_sectors = new_sectors['commodities'],regions= [world[year].get_index('Region')[0]],path=path_commodities, item='Commodity')
+world[year].get_add_sectors_excel(new_sectors = new_sectors['activities'],regions= [world[year].get_index('Region')[0]],path=path_activities, item='Activity')
 
 #%% Adding new commodities and activities
 for year in years:
-    world[year].add_sectors(io=path_commodities, new_sectors= new_sectors['commodities'], regions= world[year].get_index('Region'), item= 'Commodity', inplace=True)
-    world[year].add_sectors(io=path_activities,  new_sectors= new_sectors['activities'],  regions= world[year].get_index('Region'), item= 'Activity',  inplace=True)
+    world[year].add_sectors(io=path_commodities, new_sectors= new_sectors['commodities'], regions= [world[year].get_index('Region')[0]], item= 'Commodity', inplace=True)
+    world[year].add_sectors(io=path_activities,  new_sectors= new_sectors['activities'],  regions= [world[year].get_index('Region')[0]], item= 'Activity',  inplace=True)
 
 #%% Aggregated database with new sectors to excel
 for year in years:
