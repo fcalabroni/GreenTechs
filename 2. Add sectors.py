@@ -14,7 +14,7 @@ Created on Tue Apr 18 2023
 import mario
 import pandas as pd
 
-user = "NG"
+user = "LR"
 sN = slice(None)
 years = range(2011,2020)
 
@@ -42,8 +42,8 @@ new_sectors = {
 #%% Getting excel templates to add new commodities
 path_commodities = f"{pd.read_excel(paths, index_col=[0]).loc['Add Sectors',user]}\\new_commodities.xlsx"
 path_activities  = f"{pd.read_excel(paths, index_col=[0]).loc['Add Sectors',user]}\\new_activities.xlsx"
-world[year].get_add_sectors_excel(new_sectors = new_sectors['commodities'],regions= [world[year].get_index('Region')[0]],path=path_commodities, item='Commodity')
-world[year].get_add_sectors_excel(new_sectors = new_sectors['activities'],regions= [world[year].get_index('Region')[0]],path=path_activities, item='Activity')
+# world[year].get_add_sectors_excel(new_sectors = new_sectors['commodities'],regions= [world[year].get_index('Region')[0]],path=path_commodities, item='Commodity')
+# world[year].get_add_sectors_excel(new_sectors = new_sectors['activities'],regions= [world[year].get_index('Region')[0]],path=path_activities, item='Activity')
 
 #%% Adding new commodities and activities
 for year in years:

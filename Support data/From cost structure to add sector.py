@@ -1,6 +1,8 @@
 #%%
 import pandas as pd
 
+user = 'LR'
+
 # Create a dictionary with the name of tech and level file with key equal to something.xlsx, column_pos equale to 0 and PV, onshore_wind and offshore_wind as keys
 
 tech = 'Offshore wind'
@@ -90,9 +92,16 @@ for e in ['Commodity', 'Factor of production']:
 # %% Now write on excel
 # Commodity input
 from openpyxl import load_workbook
-path =r'C:\Users\nicog\Desktop\Nicolò\GitHub\GreenTechs'
+
+
+path = {
+    'NG': r'C:\Users\nicog\Desktop\Nicolò\GitHub\GreenTechs',
+    'LR': r'C:\Users\loren\Documents\GitHub\MARIO Organization\GreenTechs',
+    }
+
+
 sheet_names = ['input_from', 'Factor of production']
-workbook = load_workbook(filename=path+'\Add Sectors/new_activities.xlsx')
+workbook = load_workbook(filename=path[user]+'\Add Sectors/new_activities.xlsx')
 
 
 
@@ -126,5 +135,5 @@ for s in sheet_names:
                 worksheet.cell(row=pos_f+4, column=tech_dict[t]['column_pos']-2, value=row_f.loc[t])
 
 # Save the changes to the file
-workbook.save(filename=path+'\Add Sectors/new_activities.xlsx')
+workbook.save(filename=path[user]+'\Add Sectors/new_activities.xlsx')
 # %%

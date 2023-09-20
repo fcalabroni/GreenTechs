@@ -162,13 +162,9 @@ Activity,"Recreational, cultural and sporting activities (92)",EUR
 Activity,Other service activities (93),EUR
 Activity,Private households with employed persons (95),EUR
 Activity,Extra-territorial organizations and bodies,EUR
-Activity,Production of photovoltaic plants,EUR
-Activity,Production of photovoltaic modules,EUR
-Activity,Production of mono-Si and poli-Si cells,EUR
-Activity,Production of onshore wind plants,EUR
-Activity,Production of DFIG generators,EUR
-Activity,Production of offshore wind plants,EUR
-Activity,Production of PMG generators,EUR
+Activity,Production of photovoltaic plants,0.0
+Activity,Production of onshore wind plants,0.0
+Activity,Production of offshore wind plants,0.0
 Commodity,Paddy rice,EUR
 Commodity,Wheat,EUR
 Commodity,Cereal grains nec,EUR
@@ -369,16 +365,9 @@ Commodity,"Recreational, cultural and sporting services (92)",EUR
 Commodity,Other services (93),EUR
 Commodity,Private households with employed persons (95),EUR
 Commodity,Extra-territorial organizations and bodies,EUR
-Commodity,Photovoltaic plants,EUR
-Commodity,Photovoltaic modules,EUR
-Commodity,Mono-Si and poli-Si cells,EUR
-Commodity,Raw silicon,EUR
-Commodity,Onshore wind plants,EUR
-Commodity,DFIG generators,EUR
-Commodity,Offshore wind plants,EUR
-Commodity,PMG generators,EUR
-Commodity,Neodymium,EUR
-Commodity,Dysprosium,EUR
+Commodity,Photovoltaic plants,0.0
+Commodity,Onshore wind plants,0.0
+Commodity,Offshore wind plants,0.0
 Factor of production,Taxes less subsidies on products purchased: Total,EUR
 Factor of production,Taxes on products purchased,EUR
 Factor of production,Subsidies on products purchased,EUR
