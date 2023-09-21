@@ -14,7 +14,7 @@ Created on Tue Apr 18 2023
 import pandas as pd
 import plotly.express as px
 
-user = "NG"
+user = "LR"
 sN = slice(None)
 
 paths = 'Paths.xlsx'
@@ -133,17 +133,25 @@ for y in years:
 #     f[sa] = f[sa].groupby(level=f[sa].index.names).mean()
     
 #%% Conversions to physical units
+# # import time
+# # start = time.time()
+# shockmaster = pd.read_excel(f"{pd.read_excel(paths, index_col=[0]).loc['ShockMaster',user]}", sheet_name=None, index_col=[0])
+# ee_prices = {i:x for i,x in shockmaster.items() if 'prices' in i}
+
 # for sa,footprint in f.items():
+#     counter = 0
 #     for i in footprint.index:
 #         footprint.loc[i,"Unit"] = f"{units['Satellite account'][sa]['new']}/{units['Commodity'][i[3]]['new']}"
 #         if units['Commodity'][i[3]]['conv'] == 'price':
-#             ee_price = pd.read_excel(f"{pd.read_excel(paths, index_col=[0]).loc['ShockMaster',user]}", sheet_name=f"{i[4].split(' - ')[0]}_Electricity prices", index_col=[0]).loc[i[2],int(i[4].split(' - ')[1])]
-#             footprint.loc[i,"Value"] *= units['Satellite account'][sa]['conv']*ee_price*1e6
+#             price = ee_prices[f"{i[4].split(' - ')[0]}_Electricity prices"].loc[i[2],int(i[4].split(' - ')[1])]
+#             footprint.loc[i,"Value"] *= units['Satellite account'][sa]['conv']*price*1e6
 #         else:
 #             footprint.loc[i,"Value"] *= units['Satellite account'][sa]['conv']*units['Commodity'][i[3]]['conv']
-#     footprint.set_index(['Unit'], append=True, inplace=True)
-    
-    
+#     footprint.set_index(['Unit'], append=True, inplace=True)   
+
+# # end = time.time()
+# # print(round(end-start,2))
+
 #%% Saving converted footprints
 # writer = pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units.xlsx", engine='openpyxl', mode='w')
 # for sa,footprint in f.items():
@@ -315,6 +323,7 @@ df = f[Sat].reset_index().query(f"`Activity to` == '{Act_to}'")
 
 res = df.groupby(['Scenario','Year','Performance']).sum().reset_index()
 fig = px.line(res, x="Year", y="Value", color="Performance", facet_col="Scenario")
+fig.write_html('Plots/line.html', auto_open=True)
 fig.show()
 
 #%% One boxplot per Act_to

@@ -28,7 +28,7 @@ world = {}
 price_logics = ['Constant', 'IEA', 'EXIOHSUT']
 tech_performances = ['Worst','Average','Best']
 
-#%% Parse aggregated  with new sectors database from excel
+#%% Parse aggregated  with new sectors database from txt
 # for year in years:
 #     world[year] = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\b. Aggregated & new sectors SUT\\{year}\\coefficients", table='SUT', mode="coefficients")
 
@@ -39,19 +39,19 @@ tech_performances = ['Worst','Average','Best']
 # for year in years:
 #     world[year].shock_calc(f"{pd.read_excel(paths, index_col=[0]).loc['Shocks',user]}\\Raw dataset to Baseline model.xlsx", v=True, e=True, z=True, scenario="shock 0")
 
-# %% Baseline database to excel
+# %% Baseline database to txt
 # for year in years:
 #     world[year].to_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\c. Baseline\\{year}", scenario="shock 0", flows=False, coefficients=True)
 
-#%% Parse baseline from excel
+#%% Parse baseline from txt
 for year in years:
     world[year] = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\c. Baseline\\{year}\\coefficients", table='SUT', mode="coefficients")
     
 #%% Getting shock templates
-for logic in price_logics:
+for scen in price_logics:
     for year in years:
         for tech in tech_performances:
-            world[year].get_shock_excel(f"{pd.read_excel(paths, index_col=[0]).loc['Shocks',user]}\\Shock_files\\{logic}_{year}_{tech}.xlsx")
+            world[year].get_shock_excel(f"{pd.read_excel(paths, index_col=[0]).loc['Shocks',user]}\\Shock_files\\{scen}_{year}_{tech}.xlsx")
 
 #%% Filling shock templates
 ShockMaster = pd.read_excel(f"{pd.read_excel(paths, index_col=[0]).loc['ShockMaster',user]}", sheet_name="ShockMaster", index_col=[0,1,2,3,4,5,6,7,8,9,10,11])
@@ -100,16 +100,17 @@ ShockInput.set_index(['Scenario','Year','Performance','SceMARIO','Production reg
 for scen in price_logics:
     for year in years:
         for tech in tech_performances:
-            workbook = load_workbook(f"{pd.read_excel(paths, index_col=[0]).loc['Shocks',user]}\\Shock_files\\{logic}_{year}_{tech}.xlsx")
+            workbook = load_workbook(f"{pd.read_excel(paths, index_col=[0]).loc['Shocks',user]}\\Shock_files\\{scen}_{year}_{tech}.xlsx")
     
-            add_data_s = ShockInput[ShockInput.index.get_level_values('Scenario') == scen].fillna(0)
-            add_data_s = add_data_s[add_data_s.index.get_level_values('Year') == year].fillna(0)
-            add_data_s = add_data_s[add_data_s.index.get_level_values('Performance') == tech].fillna(0)
+            add_data_s = ShockInput.query(f"Scenario=='{scen}' & Year=={year} & Performance==@tech")
+            # add_data_s = ShockInput[ShockInput.index.get_level_values('Scenario') == scen].fillna(0)
+            # add_data_s = add_data_s[add_data_s.index.get_level_values('Year') == int(year)].fillna(0)
+            # add_data_s = add_data_s[add_data_s.index.get_level_values('Performance') == tech].fillna(0)
             matrices = sorted(list(set(add_data_s.index.get_level_values('Matrix'))))
             
             s=0            
             for m in matrices:
-                add_data_sm = add_data_s[add_data_s.index.get_level_values('Matrix') == m].fillna(0)
+                add_data_sm = add_data_s.query(f"Matrix=='{m}'")
         
                 if m == 's':
                     for k in range(len(add_data_sm)):
@@ -162,14 +163,14 @@ for scen in price_logics:
                         workbook['e']['E'+str(i+2)] = 'Update'
                         workbook['e']['F'+str(i+2)] = add_data_sm.iloc[i,-1]
                         
-            workbook.save(f"{pd.read_excel(paths, index_col=[0]).loc['Shocks',user]}\\Shock_files\\{logic}_{year}_{tech}.xlsx")
+            workbook.save(f"{pd.read_excel(paths, index_col=[0]).loc['Shocks',user]}\\Shock_files\\{scen}_{year}_{tech}.xlsx")
             workbook.close()
         
 #%% Implementing endogenization of capital
 for scen in price_logics:
     for year in years:
         for tech in tech_performances:
-            world[year].shock_calc(f"{pd.read_excel(paths, index_col=[0]).loc['Shocks',user]}\\Shock_files\\{logic}_{year}_{tech}.xlsx", z=True, v=True, scenario=f"{scen} - {year} - {tech}")
+            world[year].shock_calc(f"{pd.read_excel(paths, index_col=[0]).loc['Shocks',user]}\\Shock_files\\{scen}_{year}_{tech}.xlsx", z=True, v=True, scenario=f"{scen} - {year} - {tech}")
 
 #%%
 path_aggr  = r"Aggregations\Aggregation_postprocess.xlsx"
@@ -188,12 +189,12 @@ for year in years:
     
     commodities = [
             'PV plants',
-            'PV modules',
-            'Si cells',
+            # 'PV modules',
+            # 'Si cells',
             'Onshore wind plants',
-            'DFIG generators',
+            # 'DFIG generators',
             'Offshore wind plants',
-            'PMG generators',
+            # 'PMG generators',
             'Electricity by wind',
             'Electricity by solar photovoltaic'        
        ]
@@ -223,6 +224,7 @@ for year in years:
         if not os.path.exists(subfolder):
             os.mkdir(subfolder)
         f['GHGs'][s].to_csv(f"{subfolder}\\{k}.csv")
+
 
 #%% Linkages
 linkages = {}
@@ -264,7 +266,8 @@ for year in years:
 linkages_df.reset_index(inplace=True)
 linkages_df.to_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Linkages.csv", index=False)
             
-#%% Endogenization of capital database to excel
+
+#%% Endogenization of capital database to txt
 for year in years:
     for scen in price_logics:
         for tech in tech_performances:
@@ -273,6 +276,7 @@ for year in years:
             if not os.path.exists(folder_name):
                 os.mkdir(folder_name)
             world[year].to_txt(folder_name, scenario=f"{scen} - {year} - {tech}", flows=False, coefficients=True)
+
 
 #%%
 
