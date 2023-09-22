@@ -318,8 +318,8 @@ for unit in sorted(list(set(f_ghg['Unit']))):
 col = 1
 for unit in sorted(list(set(f_ghg['Unit']))): 
     for s in ['IEA']: #sorted(list(set(f[sat].index.get_level_values('Scenario')))):
-        for y in sorted(list(set(f[sat].index.get_level_values('Year'))))[-1::]:
-            for p in sorted(list(set(f[sat].index.get_level_values('Performance'))))[-1::]:
+        for y in sorted(list(set(f[sat].index.get_level_values('Year')))):
+            for p in sorted(list(set(f[sat].index.get_level_values('Performance')))):
                 
                 tots = f[sat].reset_index().query(f"Unit=='{unit}' & Year=='{y}' & Scenario=='{s}' & Performance=='{p}'").groupby(['Activity to']).sum().reset_index()
                 
@@ -348,8 +348,7 @@ fig.update_layout(
     # font_size=10,
     title = 'GHGs footprints per unit of electricity produced by source (kWh) and technology capacity (W). Breakdown by region and commodity of origin',
     template = 'plotly_white',
-    legend_tracegroupgap = 0.1,
-    legend_traceorder = 'reversed',
+    legend_tracegroupgap = 0.1
     )
 
 fig.write_html('Plots/GHGs emissions.html', auto_open=True)
@@ -390,9 +389,18 @@ f_delta = f_delta.groupby(groupby).sum().reset_index()
 
 fig = go.Figure()
 
+fig.add_trace(go.Bar(
+    x =  f_scen.query("Scenario=='Baseline'")['Activity to'].values,
+    y =  f_scen.query("Scenario=='Baseline'")['Value'].values,
+    name = 'Baseline',
+    showlegend = True,
+    marker_color = '#9a8c98',
+    marker_line = dict(color='black',width=1),
+    ))
+
 legend_labels = []
-for commodity in sorted(list(set(f_delta['Commodity'])))[-1::]:
-    for region in sorted(list(set(f_delta.query(f"Commodity=='{commodity}'")['Region from'])))[-1::]:
+for commodity in sorted(list(set(f_delta['Commodity']))):
+    for region in sorted(list(set(f_delta.query(f"Commodity=='{commodity}'")['Region from']))):
         to_plot = f_delta.query(f"Commodity=='{commodity}' & `Region from` == '{region}'")                                            
         name = f"Delta: {commodity} - {region}"
         showlegend = False
@@ -411,22 +419,12 @@ for commodity in sorted(list(set(f_delta['Commodity'])))[-1::]:
             showlegend = showlegend
             ))
 
-fig.add_trace(go.Bar(
-    x =  f_scen.query("Scenario=='Baseline'")['Activity to'].values,
-    y =  f_scen.query("Scenario=='Baseline'")['Value'].values,
-    name = 'Baseline',
-    showlegend = True,
-    marker_color = '#9a8c98',
-    marker_line = dict(color='black',width=1),
-    ))
-
 fig.update_layout(
     barmode='stack',
     font_family='HelveticaNeue Light', 
     title = 'GHGs footprints per unit of electricity produced by source (kWh). Baseline Exiobase vs fixed Exiobase',
     template = 'plotly_white',
     legend_tracegroupgap = 0.1,
-    legend_traceorder = 'reversed',
     )
 
 fig.write_html('Plots/GHGs delta.html', auto_open=True)
