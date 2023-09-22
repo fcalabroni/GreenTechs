@@ -199,7 +199,7 @@ for sa,v in f.items():
     v = v.groupby(level=index_names, axis=0).sum()
     f[sa] = v
 
-#%% Plotting 
+#%% Plot: ghgs footprints by region&commodity. Subplots by unit of measures
 sat = 'GHGs'
 year = 2019
 scenario = 'IEA'
@@ -215,28 +215,108 @@ groupby = ["Region from", "Commodity", "Region to", "Activity to", "Unit"]
 f_ghg = f[sat].reset_index().query(query)
 for region in list(set(f_ghg['Region from'])):
     if region not in ['EU27+UK','China']:
-        f_ghg = f_ghg.replace(region,'Rest of the World')
+        f_ghg = f_ghg.replace(region,'RoW')
 f_ghg = f_ghg.groupby(groupby).sum().reset_index()
 
 
-fig = px.bar(
-    f_ghg,
-    x="Activity to",
-    y='Value',
-    color="Commodity",
-    pattern_shape='Region from',
-    facet_row='Unit',
+fig = make_subplots(rows=1, cols=len(set(f_ghg['Unit'])), subplot_titles=["Electricity (gCO2eq/kWh)","Capacity (gCO2eq/W)"])
+
+colors = {
+    'Agriculture, cattling & fishering': '#54478c',
+    'Chemicals': '#2c699a',
+    'Electricity': '#048ba8',
+    'Food': '#0db39e',
+    'Fuels refinery': '#16db93',
+    'Metals': '#83e377',
+    'Mining & quarrying': '#b9e769',
+    'Other manufacturing': '#efea5a',
+    'Services': '#f1c453',
+    'Transport': '#f29e4c',
+    }
+
+years_colors = {
+    2011: '#e9ecef',
+    2012: '#dee2e6',
+    2013: '#ced4da',
+    2014: '#adb5bd',
+    2015: '#6c757d',
+    2016: '#495057',
+    2017: '#343a40',
+    2018: '#212529',
+    2019: '#000000',
+    }
+
+patterns = {
+    'EU27+UK': '',
+    'China': 'x',
+    'RoW': '.',
+    }
+
+col = 1
+legend_labels = []
+for unit in sorted(list(set(f_ghg['Unit']))):   
+    for commodity in sorted(list(set(f_ghg.query(f"Unit=='{unit}'")['Commodity']))):
+        for region in sorted(list(set(f_ghg.query(f"Unit=='{unit}' & Commodity=='{commodity}'")['Region from']))):
+            to_plot = f_ghg.query(f"Unit=='{unit}' & Commodity=='{commodity}' & `Region from` == '{region}'")                                            
+            name = f"{commodity} - {region}"
+            showlegend = False
+            if name not in legend_labels:
+                legend_labels += [name]
+                showlegend = True
+            
+            fig.add_trace(go.Bar(
+                x = to_plot['Activity to'],
+                y = to_plot['Value'],
+                name = name,
+                marker_color = colors[commodity],
+                marker_pattern_shape = patterns[region],
+                legendgroup = name,
+                showlegend = showlegend
+                ),
+                row = 1,
+                col = col,
+                )
+
+    col += 1
+
+
+col = 1
+for unit in sorted(list(set(f_ghg['Unit']))): 
+    for s in ['IEA']: #sorted(list(set(f[sat].index.get_level_values('Scenario')))):
+        for y in sorted(list(set(f[sat].index.get_level_values('Year')))):
+            for p in sorted(list(set(f[sat].index.get_level_values('Performance')))):
+                
+                tots = f[sat].reset_index().query(f"Unit=='{unit}' & Year=='{y}' & Scenario=='{s}' & Performance=='{p}'").groupby(['Activity to']).sum().reset_index()
+                
+                fig.add_trace(go.Scatter(
+                    x = tots['Activity to'],
+                    y = tots['Value'],
+                    name = f'{s} - {y} - {p}',
+                    showlegend = False,
+                    mode = 'markers',
+                    # marker_color = 'black',
+                    marker = dict(
+                        size = 7,
+                        color = years_colors[int(y)],
+                        ),
+                    hovertemplate=f'Year: {y} <br>Performance: {p}',
+                    ),
+                    row = 1,
+                    col= col,
+                    )
+    col += 1
+            
+
+fig.update_layout(
+    barmode='stack',
+    font_family='HelveticaNeue Light', 
+    font_size=10,
+    title = 'GHGs footprints per unit of electricity produced by source (kWh) and technology capacity (W). Breakdown by region and commodity of origin',
+    template = 'plotly_white',
     )
 
 fig.write_html('Plots/barplot.html', auto_open=True)
     
-
-
-
-
-
-
-
 
 #%%
 # auto = True
