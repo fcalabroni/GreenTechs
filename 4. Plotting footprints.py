@@ -282,8 +282,8 @@ years_colors = {
 
 patterns = {
     'EU27+UK': '',
-    'China': 'x',
-    'RoW': '.',
+    'China': '/',
+    'RoW': 'x',
     }
 
 col = 1
@@ -304,7 +304,7 @@ for unit in sorted(list(set(f_ghg['Unit']))):
                 name = name,
                 marker_color = colors[commodity],
                 marker_pattern_shape = patterns[region],
-                marker_line = dict(color='black',width=1),
+                # marker_line = dict(color='black',width=1),
                 legendgroup = name,
                 showlegend = showlegend
                 ),
@@ -348,7 +348,7 @@ fig.update_layout(
     # font_size=10,
     title = 'GHGs footprints per unit of electricity produced by source (kWh) and technology capacity (W). Breakdown by region and commodity of origin',
     template = 'plotly_white',
-    legend_tracegroupgap = 0.1
+    legend_tracegroupgap = 0.1,
     )
 
 fig.write_html('Plots/GHGs emissions.html', auto_open=True)
@@ -394,15 +394,16 @@ fig.add_trace(go.Bar(
     y =  f_scen.query("Scenario=='Baseline'")['Value'].values,
     name = 'Baseline',
     showlegend = True,
-    marker_color = '#9a8c98',
-    marker_line = dict(color='black',width=1),
+    marker_color = '#343a40',
+    # texttemplate = 'Baseline',
+    # marker_line = dict(color='black',width=1),
     ))
 
 legend_labels = []
 for commodity in sorted(list(set(f_delta['Commodity']))):
     for region in sorted(list(set(f_delta.query(f"Commodity=='{commodity}'")['Region from']))):
         to_plot = f_delta.query(f"Commodity=='{commodity}' & `Region from` == '{region}'")                                            
-        name = f"Delta: {commodity} - {region}"
+        name = f"{commodity} - {region}"
         showlegend = False
         if name not in legend_labels:
             legend_labels += [name]
@@ -413,7 +414,7 @@ for commodity in sorted(list(set(f_delta['Commodity']))):
             y = to_plot['Value'].values,
             name = name,
             marker_color = colors[commodity],
-            marker_line = dict(color='black',width=1),
+            # marker_line = dict(color='black',width=1),
             marker_pattern_shape = patterns[region],
             legendgroup = name,
             showlegend = showlegend
@@ -422,8 +423,9 @@ for commodity in sorted(list(set(f_delta['Commodity']))):
 fig.update_layout(
     barmode='stack',
     font_family='HelveticaNeue Light', 
-    title = 'GHGs footprints per unit of electricity produced by source (kWh). Baseline Exiobase vs fixed Exiobase',
+    title = 'GHGs footprints per unit of electricity produced by source (kWh). Baseline vs Adjusted Exiobase',
     template = 'plotly_white',
+    yaxis_title="gCO2eq/kWh",
     legend_tracegroupgap = 0.1,
     )
 
