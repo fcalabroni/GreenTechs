@@ -122,14 +122,14 @@ for scen in price_logics:
                         workbook['z']['F'+str(k+2)] = add_data_sm.index.get_level_values('Commodity')[k]
                         workbook['z']['G'+str(k+2)] = 'Update'
                         workbook['z']['H'+str(k+2)] = add_data_sm.iloc[k,-1]
-                    s+=1
+                        s+=1
         
                 if m == 'u':
                     for u in range(len(add_data_sm)):
                         workbook['z']['A'+str(s+u+2)] = add_data_sm.index.get_level_values('Production region')[u]
                         workbook['z']['B'+str(s+u+2)] = MI['c']
                         workbook['z']['C'+str(s+u+2)] = add_data_sm.index.get_level_values('Commodity')[u]
-                        workbook['z']['D'+str(s+u+2)] = add_data_sm.index.get_level_values('Consumption region')[s]
+                        workbook['z']['D'+str(s+u+2)] = add_data_sm.index.get_level_values('Consumption region')[u]
                         workbook['z']['E'+str(s+u+2)] = MI['a']
                         workbook['z']['F'+str(s+u+2)] = add_data_sm.index.get_level_values('Activity')[u]
                         workbook['z']['G'+str(s+u+2)] = 'Update'
@@ -279,6 +279,6 @@ for year in years:
 
 
 #%%
-
+test = mario.parse_from_txt(r"C:\Users\loren\Documents\GitHub\MARIO Organization\GreenTechs\Database\d. Shock - Endogenization of capital\IEA - 2019 - Average\coefficients",table='SUT',mode='coefficients')
 
 

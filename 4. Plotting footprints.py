@@ -13,6 +13,9 @@ Created on Tue Apr 18 2023
 
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
 
 user = "LR"
 sN = slice(None)
@@ -133,8 +136,9 @@ for y in years:
 #     f[sa] = f[sa].groupby(level=f[sa].index.names).mean()
     
 #%% Conversions to physical units
-# # import time
-# # start = time.time()
+# import time
+# start = time.time()
+
 # shockmaster = pd.read_excel(f"{pd.read_excel(paths, index_col=[0]).loc['ShockMaster',user]}", sheet_name=None, index_col=[0])
 # ee_prices = {i:x for i,x in shockmaster.items() if 'prices' in i}
 
@@ -149,13 +153,13 @@ for y in years:
 #             footprint.loc[i,"Value"] *= units['Satellite account'][sa]['conv']*units['Commodity'][i[3]]['conv']
 #     footprint.set_index(['Unit'], append=True, inplace=True)   
 
-# # end = time.time()
-# # print(round(end-start,2))
+# end = time.time()
+# print(round(end-start,2))
 
 #%% Saving converted footprints
 # writer = pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units.xlsx", engine='openpyxl', mode='w')
 # for sa,footprint in f.items():
-#     footprint.to_excel(writer, sheet_name=sa)
+#     footprint.to_excel(writer, sheet_name=sa, merge_cells=False)
 # writer.close()
 
 #%% Read saved footprints in physical units
@@ -195,161 +199,200 @@ for sa,v in f.items():
     v = v.groupby(level=index_names, axis=0).sum()
     f[sa] = v
 
-#%% Plotting
-auto = True
-to_plot = {
-    'Capacity': {
-        'x': 'Year',
-        'y': 'Value',
-        # 'facet_row': 'Region from',
-        'facet_col': 'Region from',
-        'color': 'Commodity',
-        'title': 'installed capacity',
-        # 'animation_frame': 'Scenario',
-        'activities': ["Offshore wind plants","Onshore wind plants","PV plants"],
-        'satellite accounts': {
-            'GHGs': {
-                'name': 'GHG emissions',
-                },
-            'Energy Carrier Supply - Total': {
-                'name': 'Primary energy',
-                },
-            },
-        },
-    'Electricity': {
-        'x': 'Performance',
-        'y': 'Value',
-        'facet_row': 'Region from',
-        'facet_col': 'Year',
-        'color': 'Commodity',
-        'title': 'electricity produced',
-        'animation_frame': 'Scenario',
-        'activities': ["Electricity by wind","Electricity by PV"],
-        'satellite accounts': {
-            'GHGs': {
-                'name': 'GHG emissions',
-                },
-            'Energy Carrier Supply - Total': {
-                'name': 'Primary energy',
-                },
-            },
-        },
-    }
+#%% Plotting 
+sat = 'GHGs'
+year = 2019
+scenario = 'IEA'
+performance = 'Average'
 
-colors = px.colors.qualitative.Pastel
-template = "seaborn"
-font = "HelveticaNeue Light"
-size = 16
-labels = {
-    'Activity to': False,   
-    # 'Scenario': False,
-    'Value': ':.2f',
-    }
+query = f"Year=='{year}' & Scenario=='{scenario}' & Performance=='{performance}'"
+# groupby = {
+#     'Commodity': ["Commodity", "Region to", "Activity to", "Unit"],
+#     'Region': ["Region from", "Region to", "Activity to", "Unit"],
+#     }
+groupby = ["Region from", "Commodity", "Region to", "Activity to", "Unit"]
 
-for plot,properties in to_plot.items():
-    for sa,name in properties['satellite accounts'].items():
-        for act in properties['activities']:
+f_ghg = f[sat].reset_index().query(query)
+for region in list(set(f_ghg['Region from'])):
+    if region not in ['EU27+UK','China']:
+        f_ghg = f_ghg.replace(region,'Rest of the World')
+f_ghg = f_ghg.groupby(groupby).sum().reset_index()
 
-            plot_df = f[sa].groupby(level=["Region from","Commodity","Activity to", "Scenario", "Year","Performance","Unit"]).sum() 
 
-            if plot == 'Capacity':
-                plot_df = f[sa].groupby(level=["Region from","Commodity","Activity to", "Year","Performance","Unit"]).mean() 
-                plot_df = f[sa].groupby(level=["Region from","Commodity","Activity to", "Year","Unit"]).mean() 
-                plot_df = plot_df.loc[(sN,sN,act,sN,sN,sN),:].sort_values(['Region from','Commodity','Year'], ascending=[False,False,True])  
-            else:
-                indexnames = plot_df.index.names
-                plot_df.reset_index(inplace=True)
-                plot_df.replace("Average", "Medium", inplace=True)
-                plot_df.set_index(indexnames,inplace=True)
-                plot_df = plot_df.loc[(sN,sN,act,sN,sN,sN),:].sort_values(['Region from','Commodity','Scenario','Year','Performance'], ascending=[False,False,True,True,True])  
+fig = px.bar(
+    f_ghg,
+    x="Activity to",
+    y='Value',
+    color="Commodity",
+    pattern_shape='Region from',
+    facet_row='Unit',
+    )
 
-            plot_df.reset_index(inplace=True)
+fig.write_html('Plots/barplot.html', auto_open=True)
+    
+
+
+
+
+
+
+
+
+#%%
+# auto = True
+# to_plot = {
+#     'Capacity': {
+#         'x': 'Year',
+#         'y': 'Value',
+#         # 'facet_row': 'Region from',
+#         'facet_col': 'Region from',
+#         'color': 'Commodity',
+#         'title': 'installed capacity',
+#         # 'animation_frame': 'Scenario',
+#         'activities': ["Offshore wind plants","Onshore wind plants","PV plants"],
+#         'satellite accounts': {
+#             'GHGs': {
+#                 'name': 'GHG emissions',
+#                 },
+#             'Energy Carrier Supply - Total': {
+#                 'name': 'Primary energy',
+#                 },
+#             },
+#         },
+#     'Electricity': {
+#         'x': 'Performance',
+#         'y': 'Value',
+#         'facet_row': 'Region from',
+#         'facet_col': 'Year',
+#         'color': 'Commodity',
+#         'title': 'electricity produced',
+#         'animation_frame': 'Scenario',
+#         'activities': ["Electricity by wind","Electricity by PV"],
+#         'satellite accounts': {
+#             'GHGs': {
+#                 'name': 'GHG emissions',
+#                 },
+#             'Energy Carrier Supply - Total': {
+#                 'name': 'Primary energy',
+#                 },
+#             },
+#         },
+#     }
+
+# colors = px.colors.qualitative.Pastel
+# template = "seaborn"
+# font = "HelveticaNeue Light"
+# size = 16
+# labels = {
+#     'Activity to': False,   
+#     # 'Scenario': False,
+#     'Value': ':.2f',
+#     }
+
+# for plot,properties in to_plot.items():
+#     for sa,name in properties['satellite accounts'].items():
+#         for act in properties['activities']:
+
+#             plot_df = f[sa].groupby(level=["Region from","Commodity","Activity to", "Scenario", "Year","Performance","Unit"]).sum() 
+
+#             if plot == 'Capacity':
+#                 plot_df = f[sa].groupby(level=["Region from","Commodity","Activity to", "Year","Performance","Unit"]).mean() 
+#                 plot_df = f[sa].groupby(level=["Region from","Commodity","Activity to", "Year","Unit"]).mean() 
+#                 plot_df = plot_df.loc[(sN,sN,act,sN,sN,sN),:].sort_values(['Region from','Commodity','Year'], ascending=[False,False,True])  
+#             else:
+#                 indexnames = plot_df.index.names
+#                 plot_df.reset_index(inplace=True)
+#                 plot_df.replace("Average", "Medium", inplace=True)
+#                 plot_df.set_index(indexnames,inplace=True)
+#                 plot_df = plot_df.loc[(sN,sN,act,sN,sN,sN),:].sort_values(['Region from','Commodity','Scenario','Year','Performance'], ascending=[False,False,True,True,True])  
+
+#             plot_df.reset_index(inplace=True)
             
-            if plot == 'Capacity':
-                fig = px.bar(
-                    plot_df, 
-                    x=properties['x'],
-                    y=properties['y'],
-                    color=properties['color'],
-                    facet_col=properties['facet_col'],
-                    # facet_row=properties['facet_row'],
-                    # animation_frame=properties['animation_frame'],
-                    color_discrete_sequence=colors,
-                    title=f"{name['name']} footprint per unit of {properties['title']} of {act} in EU27+UK, allocated by region and commodity [{list(set(plot_df['Unit']))[0]}]",
-                    template=template, 
-                    hover_data=labels,
-                    )
-            else:
-                fig = px.bar(
-                    plot_df, 
-                    x=properties['x'],
-                    y=properties['y'],
-                    color=properties['color'],
-                    facet_col=properties['facet_col'],
-                    facet_row=properties['facet_row'],
-                    animation_frame=properties['animation_frame'],
-                    color_discrete_sequence=colors,
-                    title=f"{name['name']} footprint per unit of {act} in EU27+UK, allocated by region and commodity [{list(set(plot_df['Unit']))[0]}]",
-                    template=template, 
-                    hover_data=labels,
-                    )
+#             if plot == 'Capacity':
+#                 fig = px.bar(
+#                     plot_df, 
+#                     x=properties['x'],
+#                     y=properties['y'],
+#                     color=properties['color'],
+#                     facet_col=properties['facet_col'],
+#                     # facet_row=properties['facet_row'],
+#                     # animation_frame=properties['animation_frame'],
+#                     color_discrete_sequence=colors,
+#                     title=f"{name['name']} footprint per unit of {properties['title']} of {act} in EU27+UK, allocated by region and commodity [{list(set(plot_df['Unit']))[0]}]",
+#                     template=template, 
+#                     hover_data=labels,
+#                     )
+#             else:
+#                 fig = px.bar(
+#                     plot_df, 
+#                     x=properties['x'],
+#                     y=properties['y'],
+#                     color=properties['color'],
+#                     facet_col=properties['facet_col'],
+#                     facet_row=properties['facet_row'],
+#                     animation_frame=properties['animation_frame'],
+#                     color_discrete_sequence=colors,
+#                     title=f"{name['name']} footprint per unit of {act} in EU27+UK, allocated by region and commodity [{list(set(plot_df['Unit']))[0]}]",
+#                     template=template, 
+#                     hover_data=labels,
+#                     )
     
-            fig.update_layout(
-                legend=dict(
-                    title=None, 
-                    traceorder='reversed'
-                    ), 
-                xaxis=dict(
-                    title=None
-                    ), 
-                font_family=font, 
-                font_size=size
-                )    
+#             fig.update_layout(
+#                 legend=dict(
+#                     title=None, 
+#                     traceorder='reversed'
+#                     ), 
+#                 xaxis=dict(
+#                     title=None
+#                     ), 
+#                 font_family=font, 
+#                 font_size=size
+#                 )    
     
-            fig.update_traces(marker_line_width=0)
-            fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[1]))
-            fig.for_each_yaxis(lambda axis: axis.update(title=None))
-            fig.for_each_xaxis(lambda axis: axis.update(title=None))
-            fig.write_html(f"{pd.read_excel(paths, index_col=[0]).loc['Plots',user]}\\{act}_{name['name']}.html", auto_open=auto)
+#             fig.update_traces(marker_line_width=0)
+#             fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[1]))
+#             fig.for_each_yaxis(lambda axis: axis.update(title=None))
+#             fig.for_each_xaxis(lambda axis: axis.update(title=None))
+#             fig.write_html(f"{pd.read_excel(paths, index_col=[0]).loc['Plots',user]}\\{act}_{name['name']}.html", auto_open=auto)
     
     
-#%% Plotting general results
-import plotly.express as px
+# #%% Plotting general results
+# import plotly.express as px
 
-Act_to = "Electricity by wind"
-Sat = "GHGs"
+# Act_to = "Electricity by wind"
+# Sat = "GHGs"
 
-df = f[Sat].reset_index().query(f"`Activity to` == '{Act_to}'")
+# df = f[Sat].reset_index().query(f"`Activity to` == '{Act_to}'")
 
-res = df.groupby(['Scenario','Year','Performance']).sum().reset_index()
-fig = px.line(res, x="Year", y="Value", color="Performance", facet_col="Scenario")
-fig.write_html('Plots/line.html', auto_open=True)
-fig.show()
+# res = df.groupby(['Scenario','Year','Performance']).sum().reset_index()
+# fig = px.line(res, x="Year", y="Value", color="Performance", facet_col="Scenario")
+# fig.write_html('Plots/line.html', auto_open=True)
+# fig.show()
 
-#%% One boxplot per Act_to
-import plotly.express as px
+# #%% One boxplot per Act_to
+# import plotly.express as px
 
-df = f[Sat].groupby(['Scenario','Year','Performance','Unit','Activity to']).sum().reset_index()
+# df = f[Sat].groupby(['Scenario','Year','Performance','Unit','Activity to']).sum().reset_index()
 
-fig = px.box(df, x="Scenario", y="Value", color="Performance", facet_col="Activity to", facet_row="Unit")
-fig.show()
-fig.write_html('Plots/boxplot.html', auto_open=True)
+# fig = px.box(df, x="Scenario", y="Value", color="Performance", facet_col="Activity to", facet_row="Unit")
+# fig.show()
+# fig.write_html('Plots/boxplot.html', auto_open=True)
 
-# %% Exploring one characteristic result
+# # %% Exploring one characteristic result
 
-Act_to = "Electricity by PV"
-Sat = "GHGs"
-Perf = "Average"
-Scenario = "IEA"
-Year = 2018
+# Act_to = "Electricity by PV"
+# Sat = "GHGs"
+# Perf = "Average"
+# Scenario = "IEA"
+# Year = 2018
 
-df = f[Sat].reset_index().query(f"`Activity to` == '{Act_to}' & Performance == '{Perf}' & Year == '{Year}' & Scenario == '{Scenario}'")
-fig = px.bar(df, x="Region from", y="Value", color="Commodity")
+# df = f[Sat].reset_index().query(f"`Activity to` == '{Act_to}' & Performance == '{Perf}' & Year == '{Year}' & Scenario == '{Scenario}'")
+# fig = px.bar(df, x="Region from", y="Value", color="Commodity")
 
-tot_fot = round(df.loc[:,'Value'].sum(),2)
+# tot_fot = round(df.loc[:,'Value'].sum(),2)
 
-fig.update_layout(title=f"{Sat} footprint per unit of {Act_to} in {Scenario}, {Year}, {Perf}<br>{tot_fot} {df.loc[[df.index[0]],'Unit'].values[0]}")
-fig.show()
-fig.write_html('Plots/')
+# fig.update_layout(title=f"{Sat} footprint per unit of {Act_to} in {Scenario}, {Year}, {Perf}<br>{tot_fot} {df.loc[[df.index[0]],'Unit'].values[0]}")
+# fig.show()
+# fig.write_html('Plots/')
 
-# %%
+# # %%
