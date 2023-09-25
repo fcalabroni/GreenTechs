@@ -42,37 +42,37 @@ commodities = {
     "Electricity by solar thermal": {
         'name':'Solar thermal',
         'macrosource': 'Others',
-        'color': '#ff8500',
+        'color': '#f72585',
     },
     "Electricity by biomass and waste": {
         'name':'Biomass & waste',
         'macrosource': 'Others',
-        'color': '#ff4d6d',
+        'color': '#ffbf69',
     },
     "Electricity by coal": {
         'name':'Coal',
         'macrosource': 'Coal',
-        'color': '#001219',
+        'color': '#4a4e69',
     },
     "Electricity by gas": {
         'name':'Natural gas',
         'macrosource': 'Natural gas',
-        'color': '#979dac',
+        'color': '#889696',
     },
     "Electricity by petroleum and other oil derivatives": {
         'name':'Oil',
         'macrosource': 'Oil',
-        'color': '#005f73',
+        'color': '#b8bdb5',
     },
     "Electricity by solar photovoltaic": {
         'name':'PV',
         'macrosource': 'PV',
-        'color': '#e9c46a',
+        'color': '#d9ed92',
     },
     "Electricity by wind": {
         'name':'Wind',
         'macrosource': 'Wind',
-        'color': '#2a9d8f',
+        'color': '#76c893',
     },
 }
 
@@ -148,8 +148,8 @@ for year in years:
                 legendgroup = props['name'],
                 mode = 'markers',
                 marker_color = props['color'],
-                marker_symbol = 'circle',
-                marker_size = 8,
+                marker_symbol = 'diamond',
+                marker_size = 10,
                 ))
     
     
@@ -195,6 +195,7 @@ for year in years:
                     legendgroup = props['name'],
                     marker_color = props['color'],
                     marker_pattern_shape = patterns[origin],
+                    marker_pattern_size = 6, 
                     ))
         
             y_best = []
@@ -221,18 +222,20 @@ for year in years:
                     symmetric=False,
                     array=y_worst,
                     arrayminus=y_best,
+                    thickness = 1,
                     ),
                 name = "",
                 legendgroup = "",
                 marker_color = '#495057',
                 showlegend=False,
+                marker_size = 1,
                 ))
         
     
                 
     fig.update_layout(
         font_family='HelveticaNeue Light', 
-        title = f'{scope} {direction.lower()} linkages of electricity generation sources in {region} | Exiobase v3.8.2, reference year {year}',
+        title = f'{scope} {direction.lower()} linkages of electricity generation sources in {region}   |   Exiobase v3.8.2, reference year {year}',
         template = 'plotly_white',
         legend_tracegroupgap=0.1,
         yaxis_title='Backward linkage',
