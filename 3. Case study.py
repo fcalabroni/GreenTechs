@@ -25,7 +25,7 @@ years = range(2011,2020)
 paths = 'Paths.xlsx'
 
 world = {}
-price_logics = ['Constant', 'IEA', 'EXIOHSUT']
+price_logics = ['IEA']
 tech_performances = ['Worst','Average','Best']
 
 #%% Parse aggregated  with new sectors database from txt
@@ -229,6 +229,7 @@ for year in years:
 #%% Linkages
 linkages = {}
 linkages_df = pd.DataFrame()
+
 for year in years:
     for scem in world[year].scenarios:
         db = mario.Database(
@@ -248,7 +249,7 @@ for year in years:
             scen = scem.split(' - ')[0]
             tech = scem.split(' - ')[-1]
 
-        linkages[f'{scen} - {year} - {tech}'] = db.calc_linkages(multi_mode=False)
+        linkages[f'{scen} - {year} - {tech}'] = db.calc_linkages(multi_mode=False, normalized=False)
         linkages[f'{scen} - {year} - {tech}'] = linkages[f'{scen} - {year} - {tech}'].droplevel(1)
         new_columns = pd.MultiIndex.from_arrays(
             [[i.split(" ")[0] for i in list(linkages[f'{scen} - {year} - {tech}'].columns)],
@@ -276,9 +277,3 @@ for year in years:
             if not os.path.exists(folder_name):
                 os.mkdir(folder_name)
             world[year].to_txt(folder_name, scenario=f"{scen} - {year} - {tech}", flows=False, coefficients=True)
-
-
-#%%
-test = mario.parse_from_txt(r"C:\Users\loren\Documents\GitHub\MARIO Organization\GreenTechs\Database\d. Shock - Endogenization of capital\IEA - 2019 - Average\coefficients",table='SUT',mode='coefficients')
-
-

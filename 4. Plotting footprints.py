@@ -113,72 +113,72 @@ for y in years:
             scemarios += [f"{s} - {y} - {t}"]
 
 #%% Reading and rearranging footprints results
-f = {}
-for sa in sat_accounts:
-    f[sa] = pd.DataFrame()
-    for scem in scemarios:
-        if scem != 'baseline':
-            scen = scem.split(' - ')[0]
-            year = scem.split(' - ')[1]
-            tech = scem.split(' - ')[2]
-            f_sa_scen = pd.read_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Monetary units\\{sa}\\{scen} - {year} - {tech}.csv", index_col=[0,1,2], header=[0,1,2], sep=',').loc[(sN,"Activity",sN),(sN,"Commodity",sN)]
-            f_sa_scen = f_sa_scen.stack(level=[0,1,2])
-            f_sa_scen = f_sa_scen.to_frame()
-            f_sa_scen.columns = ['Value']
-            f_sa_scen["Account"] = sa
-            f_sa_scen["Scenario"] = f"{scen} - {year} - {tech}"
-            f_sa_scen = f_sa_scen.droplevel(level=[1,4], axis=0)
-            f_sa_scen.index.names = ["Region from", "Commodity", "Region to", "Activity to"]
-            f_sa_scen = f_sa_scen.loc[(sN,sN,regions_to,activities_to),:]
-            f_sa_scen.reset_index(inplace=True)
-        else:
-            f_sa_scen = pd.read_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Monetary units\\{sa}\\{scem}.csv", index_col=[0,1,2], header=[0,1,2], sep=',').loc[(sN,"Activity",sN),(sN,"Commodity",sN)]
-            f_sa_scen = f_sa_scen.stack(level=[0,1,2])
-            f_sa_scen = f_sa_scen.to_frame()
-            f_sa_scen.columns = ['Value']
-            f_sa_scen["Account"] = sa
-            f_sa_scen["Scenario"] = f"{scem}"
-            f_sa_scen = f_sa_scen.droplevel(level=[1,4], axis=0)
-            f_sa_scen.index.names = ["Region from", "Commodity", "Region to", "Activity to"]
-            f_sa_scen = f_sa_scen.loc[(sN,sN,regions_to,activities_to),:]
-            f_sa_scen.reset_index(inplace=True)
+# f = {}
+# for sa in sat_accounts:
+#     f[sa] = pd.DataFrame()
+#     for scem in scemarios:
+#         if scem != 'baseline':
+#             scen = scem.split(' - ')[0]
+#             year = scem.split(' - ')[1]
+#             tech = scem.split(' - ')[2]
+#             f_sa_scen = pd.read_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Monetary units\\{sa}\\{scen} - {year} - {tech}.csv", index_col=[0,1,2], header=[0,1,2], sep=',').loc[(sN,"Activity",sN),(sN,"Commodity",sN)]
+#             f_sa_scen = f_sa_scen.stack(level=[0,1,2])
+#             f_sa_scen = f_sa_scen.to_frame()
+#             f_sa_scen.columns = ['Value']
+#             f_sa_scen["Account"] = sa
+#             f_sa_scen["Scenario"] = f"{scen} - {year} - {tech}"
+#             f_sa_scen = f_sa_scen.droplevel(level=[1,4], axis=0)
+#             f_sa_scen.index.names = ["Region from", "Commodity", "Region to", "Activity to"]
+#             f_sa_scen = f_sa_scen.loc[(sN,sN,regions_to,activities_to),:]
+#             f_sa_scen.reset_index(inplace=True)
+#         else:
+#             f_sa_scen = pd.read_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Monetary units\\{sa}\\{scem}.csv", index_col=[0,1,2], header=[0,1,2], sep=',').loc[(sN,"Activity",sN),(sN,"Commodity",sN)]
+#             f_sa_scen = f_sa_scen.stack(level=[0,1,2])
+#             f_sa_scen = f_sa_scen.to_frame()
+#             f_sa_scen.columns = ['Value']
+#             f_sa_scen["Account"] = sa
+#             f_sa_scen["Scenario"] = f"{scem}"
+#             f_sa_scen = f_sa_scen.droplevel(level=[1,4], axis=0)
+#             f_sa_scen.index.names = ["Region from", "Commodity", "Region to", "Activity to"]
+#             f_sa_scen = f_sa_scen.loc[(sN,sN,regions_to,activities_to),:]
+#             f_sa_scen.reset_index(inplace=True)
         
-        f[sa] = pd.concat([f[sa], f_sa_scen], axis=0)
-    f[sa].replace("baseline", "Baseline", inplace=True)
-    f[sa].set_index(["Region from", "Commodity", "Region to", "Activity to","Scenario","Account"], inplace=True)
-    f[sa] = f[sa].groupby(level=f[sa].index.names).mean()
+#         f[sa] = pd.concat([f[sa], f_sa_scen], axis=0)
+#     f[sa].replace("baseline", "Baseline", inplace=True)
+#     f[sa].set_index(["Region from", "Commodity", "Region to", "Activity to","Scenario","Account"], inplace=True)
+#     f[sa] = f[sa].groupby(level=f[sa].index.names).mean()
     
 #%% Conversions to physical units
-import time
-start = time.time()
+# import time
+# start = time.time()
 
-shockmaster = pd.read_excel(f"{pd.read_excel(paths, index_col=[0]).loc['ShockMaster',user]}", sheet_name=None, index_col=[0])
-ee_prices = {i:x for i,x in shockmaster.items() if 'prices' in i}
+# shockmaster = pd.read_excel(f"{pd.read_excel(paths, index_col=[0]).loc['ShockMaster',user]}", sheet_name=None, index_col=[0])
+# ee_prices = {i:x for i,x in shockmaster.items() if 'prices' in i}
 
-for sa,footprint in f.items():
-    counter = 0
-    for i in footprint.index:
-        footprint.loc[i,"Unit"] = f"{units['Satellite account'][sa]['new']}/{units['Commodity'][i[3]]['new']}"
-        if i[4] != 'Baseline':
-            if units['Commodity'][i[3]]['conv'] == 'price':
-                price = ee_prices[f"{i[4].split(' - ')[0]}_Electricity prices"].loc[i[2],int(i[4].split(' - ')[1])]
-                footprint.loc[i,"Value"] *= units['Satellite account'][sa]['conv']*price*1e6
-            else:
-                footprint.loc[i,"Value"] *= units['Satellite account'][sa]['conv']*units['Commodity'][i[3]]['conv']
-        else:
-            price = ee_prices["IEA_Electricity prices"].loc[i[2],2019]
-            footprint.loc[i,"Value"] *= units['Satellite account'][sa]['conv']*price*1e6
+# for sa,footprint in f.items():
+#     counter = 0
+#     for i in footprint.index:
+#         footprint.loc[i,"Unit"] = f"{units['Satellite account'][sa]['new']}/{units['Commodity'][i[3]]['new']}"
+#         if i[4] != 'Baseline':
+#             if units['Commodity'][i[3]]['conv'] == 'price':
+#                 price = ee_prices[f"{i[4].split(' - ')[0]}_Electricity prices"].loc[i[2],int(i[4].split(' - ')[1])]
+#                 footprint.loc[i,"Value"] *= units['Satellite account'][sa]['conv']*price*1e6
+#             else:
+#                 footprint.loc[i,"Value"] *= units['Satellite account'][sa]['conv']*units['Commodity'][i[3]]['conv']
+#         else:
+#             price = ee_prices["IEA_Electricity prices"].loc[i[2],2019]
+#             footprint.loc[i,"Value"] *= units['Satellite account'][sa]['conv']*price*1e6
             
-    footprint.set_index(['Unit'], append=True, inplace=True)   
+#     footprint.set_index(['Unit'], append=True, inplace=True)   
 
-end = time.time()
-print(round(end-start,2))
+# end = time.time()
+# print(round(end-start,2))
 
 #%% Saving converted footprints
-writer = pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units.xlsx", engine='openpyxl', mode='w')
-for sa,footprint in f.items():
-    footprint.to_excel(writer, sheet_name=sa, merge_cells=False)
-writer.close()
+# writer = pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units.xlsx", engine='openpyxl', mode='w')
+# for sa,footprint in f.items():
+#     footprint.to_excel(writer, sheet_name=sa, merge_cells=False)
+# writer.close()
 
 #%% Read saved footprints in physical units
 f = {}
@@ -317,7 +317,7 @@ for unit in sorted(list(set(f_ghg['Unit']))):
 
 col = 1
 for unit in sorted(list(set(f_ghg['Unit']))): 
-    for s in ['IEA']: #sorted(list(set(f[sat].index.get_level_values('Scenario')))):
+    for s in sorted(list(set(f[sat].index.get_level_values('Scenario')))):
         for y in sorted(list(set(f[sat].index.get_level_values('Year')))):
             for p in sorted(list(set(f[sat].index.get_level_values('Performance')))):
                 
@@ -334,7 +334,7 @@ for unit in sorted(list(set(f_ghg['Unit']))):
                         size = 7,
                         color = years_colors[int(y)],
                         ),
-                    hovertemplate=f'Year: {y} <br>Performance: {p}',
+                    # hovertemplate=f'Year: {y} <br>Performance: {p}',
                     ),
                     row = 1,
                     col= col,
@@ -351,7 +351,7 @@ fig.update_layout(
     legend_tracegroupgap = 0.1,
     )
 
-fig.write_html('Plots/GHGs emissions.html', auto_open=True)
+fig.write_html(f'Plots/GHGs emissions - {scenario}.html', auto_open=True)
     
 
 #%% Plot baseline 
@@ -376,7 +376,7 @@ f_delta = pd.DataFrame(
     index = f_plot.query("Scenario!='Baseline'").set_index(indices).index,
     columns = f_plot.query("Scenario!='Baseline'").set_index(indices).columns
     ).reset_index()
-f_delta = f_delta.replace('IEA','Delta')
+f_delta = f_delta.replace(f'{scenario}','Delta')
 f_scen = f_plot.groupby(["Activity to","Account","Scenario","Unit"]).sum()
 f_scen.reset_index(inplace=True)
 
@@ -429,7 +429,7 @@ fig.update_layout(
     legend_tracegroupgap = 0.1,
     )
 
-fig.write_html('Plots/GHGs delta.html', auto_open=True)
+fig.write_html(f'Plots/GHGs delta - {scenario}.html', auto_open=True)
 
 #%%
 # auto = True

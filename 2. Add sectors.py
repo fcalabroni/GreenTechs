@@ -20,7 +20,7 @@ years = range(2011,2020)
 
 paths = 'Paths.xlsx'
 
-#%% Parse aggregated database from excel
+#%% Parse aggregated database from txt
 world = {}
 for year in years:
     world[year] = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\a. Aggregated_SUT\\{year}\\flows", table='SUT', mode="flows")
@@ -50,6 +50,11 @@ for year in years:
     world[year].add_sectors(io=path_commodities, new_sectors= new_sectors['commodities'], regions= [world[year].get_index('Region')[0]], item= 'Commodity', inplace=True)
     world[year].add_sectors(io=path_activities,  new_sectors= new_sectors['activities'],  regions= [world[year].get_index('Region')[0]], item= 'Activity',  inplace=True)
 
-#%% Aggregated database with new sectors to excel
+#%%
+f = {}
+for year in years:
+    f[year] = world[year].f.loc["CO2 - combustion - air",(slice(None),slice(None),world[year].search('Commodity','lectricity'))]
+
+#%% Aggregated database with new sectors to txt
 for year in years:
     world[year].to_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\b. Aggregated & new sectors SUT\\{year}", flows=False, coefficients=True)
