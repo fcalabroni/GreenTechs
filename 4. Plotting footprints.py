@@ -542,7 +542,7 @@ import plotly.express as px
 empl_sats = [sa for sa in sat_accounts if "Employment" in sa]
 f_baseline_plot = dc(f_baseline)
 
-year = 2011
+year = 2019
 
 color_map={
     "High-skilled": "#023047",

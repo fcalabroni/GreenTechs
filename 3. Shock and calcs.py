@@ -226,7 +226,10 @@ for year in years:
             subfolder = f"{folder}\\{name}"
             if not os.path.exists(subfolder):
                 os.mkdir(subfolder)
-            v.to_csv(f"{subfolder}\\{k}.csv")
+            if k=='baseline':
+                v.to_csv(f"{subfolder}\\Baseline - {year} - Average.csv")            
+            else:
+                v.to_csv(f"{subfolder}\\{k}.csv")
 
     f['GHGs'] = {}
     for s in world_aggr.scenarios:
@@ -234,7 +237,11 @@ for year in years:
         subfolder = f"{folder}\\{'GHGs'}"
         if not os.path.exists(subfolder):
             os.mkdir(subfolder)
-        f['GHGs'][s].to_csv(f"{subfolder}\\{k}.csv")
+        if s == 'baseline':
+            f['GHGs'][s].to_csv(f"{subfolder}\\Baseline - {year} - Average.csv")
+        else:
+            f['GHGs'][s].to_csv(f"{subfolder}\\{s}.csv")
+            
 
 
 #%% Calc linkages
