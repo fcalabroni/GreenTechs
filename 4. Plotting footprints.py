@@ -239,10 +239,10 @@ f['GHGs'].set_index(['Account','Unit'], append=True, inplace=True)
 
 #%% Split scemarios columns
 sN = slice(None)
-f_baseline = {i:x.loc[(sN,sN,sN,sN,'Baseline',sN,sN),:] for i,x in f.items()}
-scenarios = sorted(list(set(f['GHGs'].index.get_level_values('Scenario'))))
-scenarios.remove('Baseline')
-f = {i:x.loc[(sN,sN,sN,sN,scenarios,sN,sN),:] for i,x in f.items()}
+# f_baseline = {i:x.loc[(sN,sN,sN,sN,'Baseline',sN,sN),:] for i,x in f.items()}
+# scenarios = sorted(list(set(f['GHGs'].index.get_level_values('Scenario'))))
+# scenarios.remove('Baseline')
+# f = {i:x.loc[(sN,sN,sN,sN,scenarios,sN,sN),:] for i,x in f.items()}
 
 for sa,footprint in f.items():
     footprint.loc[:,'Scenario'] = [i.split(' - ')[0] for i in footprint.index.get_level_values("Scenario")]
@@ -265,15 +265,15 @@ for sa,v in f.items():
     v = v.groupby(level=index_names, axis=0).sum()
     f[sa] = v
 
-for sa,v in f_baseline.items():
-    index_names = list(v.index.names)
-    for i in v.index:
-        v.loc[i,"Commodity"] = new_commodities.loc[i[1],"New"]
-    v = v.droplevel("Commodity", axis=0)
-    v.reset_index(inplace=True)
-    v.set_index(index_names, inplace=True)
-    v = v.groupby(level=index_names, axis=0).sum()
-    f_baseline[sa] = v
+# for sa,v in f_baseline.items():
+#     index_names = list(v.index.names)
+#     for i in v.index:
+#         v.loc[i,"Commodity"] = new_commodities.loc[i[1],"New"]
+#     v = v.droplevel("Commodity", axis=0)
+#     v.reset_index(inplace=True)
+#     v.set_index(index_names, inplace=True)
+#     v = v.groupby(level=index_names, axis=0).sum()
+#     f_baseline[sa] = v
 
 #%% Plot: ghgs footprints by region&commodity. Subplots by unit of measures
 sat = 'GHGs'
@@ -422,7 +422,7 @@ fig.write_html(f'Plots/{sat} footprints.html', auto_open=True)
 
 #%% Plot delta vs baseline 
 sat = 'GHGs'
-scenario = 'IEA'
+scenarios = ['Baseline','IEA']
 performance = 'Average'
 
 for year in years:
@@ -431,18 +431,18 @@ for year in years:
     indices.remove('Year')
     indices.remove('Performance')
     
-    f_scen = f[sat].reset_index().query(f"Scenario=='{scenario}' & Year=='{year}' & Performance=='{performance}'")
+    f_scen = f[sat].reset_index().query(f"Scenario in @scenarios & Year=='{year}' & Performance=='{performance}'")
     f_scen.set_index(indices,inplace=True)
     f_scen = f_scen.loc[:,"Value"].to_frame()
     
-    f_plot = f_baseline[sat].append(f_scen).reset_index().query("`Activity to`=='Electricity by PV' or `Activity to`=='Electricity by wind'")
+    f_plot = f_scen.reset_index().query("`Activity to`=='Electricity by PV' or `Activity to`=='Electricity by wind'")
     f_delta = f_plot.query("Scenario!='Baseline'").set_index(indices).values - f_plot.query("Scenario=='Baseline'").set_index(indices).values
     f_delta = pd.DataFrame(
         f_delta,
         index = f_plot.query("Scenario!='Baseline'").set_index(indices).index,
         columns = f_plot.query("Scenario!='Baseline'").set_index(indices).columns
         ).reset_index()
-    f_delta = f_delta.replace(f'{scenario}','Delta')
+    f_delta = f_delta.replace(f'{scenarios[-1]}','Delta')
     f_scen = f_plot.groupby(["Activity to","Account","Scenario","Unit"]).sum()
     f_scen.reset_index(inplace=True)
     
@@ -535,13 +535,11 @@ for year in years:
     
 
 #%% Plot employment
-from copy import deepcopy as dc
 import plotly.express as px
 
 empl_sats = [sa for sa in sat_accounts if "Employment" in sa]
-f_baseline_plot = dc(f_baseline)
 
-year = 2019
+year = 2011
 
 color_map={
     "High-skilled": "#023047",
@@ -552,13 +550,6 @@ color_map={
 f_plot = pd.DataFrame()
 for sa in empl_sats:
     f_plot = pd.concat([f_plot,f[sa]], axis=0)
-
-    f_baseline_plot[sa]['Year'] = str(year)
-    f_baseline_plot[sa]['Performance'] = 'Average'
-    f_baseline_plot[sa].reset_index(inplace=True)
-    f_baseline_plot[sa].set_index(list(f_plot.index.names), inplace=True)
- 
-    f_plot = pd.concat([f_plot,f_baseline_plot[sa]])
     
 f_plot.reset_index(inplace=True)
 f_plot = f_plot.query("`Activity to`=='Electricity by PV' or `Activity to`=='Electricity by wind'")
