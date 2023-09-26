@@ -22,32 +22,32 @@ commodities = {
     "Electricity by nuclear": {
         'name':'Nuclear',
         'macrosource': 'Others',
-        'color': '#936fac',
+        'color': '#3d405b',
     },
     "Electricity by biomass and waste": {
         'name':'Biomass & waste',
         'macrosource': 'Others',
-        'color': '#ff006e',
+        'color': '#e07a5f',
     },
     "Electricity by solar thermal": {
         'name':'Solar thermal',
         'macrosource': 'Others',
-        'color': '#f4a261',
+        'color': '#eab69f',
     },    
     "Electricity by Geothermal": {
         'name':'Geothermal',
         'macrosource': 'Others',
-        'color': '#b5e48c',
+        'color': '#81b29a',
     }, 
     "Electricity by hydro": {
         'name':'Hydro',
         'macrosource': 'Others',
-        'color': '#90e0ef',
+        'color': '#6ab4f1',
     },
     "Electricity by tide, wave, ocean": {
         'name':'Tide',
         'macrosource': 'Others',
-        'color': '#0077b6',
+        'color': '#264653',
     },
     "Electricity by coal": {
         'name':'Coal',
@@ -87,6 +87,10 @@ region = 'EU27+UK'
 scenarios_renaming = {
     'Baseline': 'Baseline',
     'IEA': 'Endogenous capital',
+    }
+origins_renaming = {
+    'Local': region,
+    'Foreign': 'RoW',
     }
 
 #%% Importing saved linkages
@@ -226,7 +230,7 @@ for year in years:
                         arrayminus=y_best[origin],
                         thickness = 1,
                         ),
-                    name = f"{props['name']}, {origin}",
+                    name = f"{props['name']}, {origins_renaming[origin]}",
                     legendgroup = props['name'],
                     marker_color = props['color'],
                     marker_line_color = 'black',
@@ -297,7 +301,7 @@ for year in years:
                 
     fig.update_layout(
         font_family='HelveticaNeue Light', 
-        title = f'<b>{direction} linkages of electricity generation sources in {region} | Database: Exiobase v3.8.2 {year}, refined with MARIO <b>',
+        title = f'<b>{direction} linkages of electricity generation sources in {region} | Exiobase v3.8.2 {year}, refined with MARIO <b>',
         template = 'plotly_white',
         legend_tracegroupgap=0.1,
         yaxis_title='<b>Backward linkage<b>',

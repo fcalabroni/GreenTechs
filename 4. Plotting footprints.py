@@ -12,7 +12,6 @@ Created on Tue Apr 18 2023
 
 
 import pandas as pd
-import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
@@ -22,16 +21,26 @@ sN = slice(None)
 
 paths = 'Paths.xlsx'
 
-price_logics = ['Constant', 'IEA', 'EXIOHSUT']
+price_logics = ['IEA']
 years = range(2011,2020)
 tech_performances = ['Worst','Average','Best']
+scenarios_renaming = {
+    'Baseline': 'Baseline',
+    'IEA': 'Endogenous capital',
+    }
 
-#%%
 sat_accounts = [
     'Energy Carrier Supply - Total', 
     'CO2 - combustion - air', 
     'CH4 - combustion - air', 
     'N2O - combustion - air',
+    'Employment - High-skilled female',
+    'Employment - High-skilled male',
+    'Employment - Low-skilled female',
+    'Employment - Low-skilled male',
+    'Employment - Medium-skilled female',
+    'Employment - Medium-skilled male',
+    # 'Employment - Vulnerable employment',
     ]
 
 units = {
@@ -55,6 +64,36 @@ units = {
             "raw": 'kg',
             "new": 'ton',
             "conv": 1/1000,
+            }, 
+        'Employment - High-skilled female': {
+            "raw": '1000 p',
+            "new": 'p',
+            "conv": 1000,
+            }, 
+        'Employment - High-skilled male': {
+            "raw": '1000 p',
+            "new": 'p',
+            "conv": 1000,
+            }, 
+        'Employment - Low-skilled female': {
+            "raw": '1000 p',
+            "new": 'p',
+            "conv": 1000,
+            }, 
+        'Employment - Low-skilled male': {
+            "raw": '1000 p',
+            "new": 'p',
+            "conv": 1000,
+            }, 
+        'Employment - Medium-skilled female': {
+            "raw": '1000 p',
+            "new": 'p',
+            "conv": 1000,
+            }, 
+        'Employment - Medium-skilled male': {
+            "raw": '1000 p',
+            "new": 'p',
+            "conv": 1000,
             }, 
         'GHGs': {
             "raw": 'kg',
@@ -148,7 +187,7 @@ for y in years:
 #     f[sa].set_index(["Region from", "Commodity", "Region to", "Activity to","Scenario","Account"], inplace=True)
 #     f[sa] = f[sa].groupby(level=f[sa].index.names).mean()
     
-#%% Conversions to physical units
+# #%% Conversions to physical units
 # import time
 # start = time.time()
 
@@ -174,7 +213,7 @@ for y in years:
 # end = time.time()
 # print(round(end-start,2))
 
-#%% Saving converted footprints
+# #%% Saving converted footprints
 # writer = pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units.xlsx", engine='openpyxl', mode='w')
 # for sa,footprint in f.items():
 #     footprint.to_excel(writer, sheet_name=sa, merge_cells=False)
@@ -183,7 +222,11 @@ for y in years:
 #%% Read saved footprints in physical units
 f = {}
 for sa in sat_accounts:
-    f[sa] = pd.read_excel(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units.xlsx", sheet_name=sa, index_col=[0,1,2,3,4,5,6])
+    if len(sa)>31:
+        name = sa
+    else:
+        name = sa
+    f[sa] = pd.read_excel(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units.xlsx", sheet_name=name, index_col=[0,1,2,3,4,5,6])
     
 #%% Calculation of total GHG emissions
 f['GHGs'] = pd.DataFrame()
@@ -253,19 +296,17 @@ for region in list(set(f_ghg['Region from'])):
 f_ghg = f_ghg.groupby(groupby).sum().reset_index()
 
 
-fig = make_subplots(rows=1, cols=len(set(f_ghg['Unit'])), subplot_titles=["Electricity (gCO2eq/kWh)","Capacity (gCO2eq/W)"])
+fig = make_subplots(rows=1, cols=len(set(f_ghg['Unit'])), subplot_titles=["<b>Electricity produced (gCO2eq/kWh)<b>","<b>Capacity (gCO2eq/W)<b>"])
 
 colors = {
-    'Agriculture, cattling & fishering': '#54478c',
-    'Chemicals': '#2c699a',
+    'Agriculture & food': '#f94144',
+    'Mining & quarrying': '#f8961e',
+    'Metals': '#f9c74f',
+    'Petrochemicals': '#d9ed92',
+    'Other manufacturing': '#74c69d',
     'Electricity': '#048ba8',
-    'Food': '#0db39e',
-    'Fuels refinery': '#16db93',
-    'Metals': '#83e377',
-    'Mining & quarrying': '#b9e769',
-    'Other manufacturing': '#efea5a',
-    'Services': '#f1c453',
-    'Transport': '#f29e4c',
+    'Services': '#184e77',
+    'Transport': '#815ac0',
     }
 
 years_colors = {
@@ -286,10 +327,11 @@ patterns = {
     'RoW': 'x',
     }
 
+# bars
 col = 1
 legend_labels = []
 for unit in sorted(list(set(f_ghg['Unit']))):   
-    for commodity in sorted(list(set(f_ghg.query(f"Unit=='{unit}'")['Commodity']))):
+    for commodity in colors.keys():
         for region in sorted(list(set(f_ghg.query(f"Unit=='{unit}' & Commodity=='{commodity}'")['Region from']))):
             to_plot = f_ghg.query(f"Unit=='{unit}' & Commodity=='{commodity}' & `Region from` == '{region}'")                                            
             name = f"{commodity} - {region}"
@@ -299,14 +341,17 @@ for unit in sorted(list(set(f_ghg['Unit']))):
                 showlegend = True
             
             fig.add_trace(go.Bar(
-                x = to_plot['Activity to'],
+                x = [f"<b>{i}<b>" for i in  to_plot['Activity to']],
                 y = to_plot['Value'],
                 name = name,
                 marker_color = colors[commodity],
                 marker_pattern_shape = patterns[region],
-                # marker_line = dict(color='black',width=1),
+                marker_line_color = 'black',
+                marker_line_width = 0.75,
+                marker_pattern_size = 6, 
                 legendgroup = name,
-                showlegend = showlegend
+                showlegend = showlegend,
+                # opacity=0.7,
                 ),
                 row = 1,
                 col = col,
@@ -314,31 +359,40 @@ for unit in sorted(list(set(f_ghg['Unit']))):
 
     col += 1
 
-
+# scatters
 col = 1
+showlegend = False
 for unit in sorted(list(set(f_ghg['Unit']))): 
     for s in sorted(list(set(f[sat].index.get_level_values('Scenario')))):
         for y in sorted(list(set(f[sat].index.get_level_values('Year')))):
             for p in sorted(list(set(f[sat].index.get_level_values('Performance')))):
                 
                 tots = f[sat].reset_index().query(f"Unit=='{unit}' & Year=='{y}' & Scenario=='{s}' & Performance=='{p}'").groupby(['Activity to']).sum().reset_index()
+
+                if unit==sorted(list(set(f_ghg['Unit'])))[-1] and s==sorted(list(set(f[sat].index.get_level_values('Scenario'))))[-1] and y==sorted(list(set(f[sat].index.get_level_values('Year'))))[-1] and p==sorted(list(set(f[sat].index.get_level_values('Performance'))))[-1]:
+                    showlegend=True
                 
                 fig.add_trace(go.Scatter(
-                    x = tots['Activity to'],
+                    x = [f"<b>{i}<b>" for i in  tots['Activity to']],
                     y = tots['Value'],
-                    name = f'{s} - {y} - {p}',
-                    showlegend = False,
+                    name = 'Sensitivity around Exiobase reference years<br>and technology capacity factors<br>',
+                    showlegend = showlegend,
                     mode = 'markers',
+                    legendgroup = 'sensitivity',
                     # marker_color = 'black',
                     marker = dict(
                         size = 7,
                         color = years_colors[int(y)],
+                        
                         ),
-                    # hovertemplate=f'Year: {y} <br>Performance: {p}',
+                    marker_line_width = 0.25,
+                    marker_line_color = 'black',
+                    hovertemplate=f'Year: {y} <br>Performance: {p}',
                     ),
                     row = 1,
                     col= col,
                     )
+            
     col += 1
             
 
@@ -346,246 +400,233 @@ fig.update_layout(
     barmode='stack',
     font_family='HelveticaNeue Light', 
     # font_size=10,
-    title = 'GHGs footprints per unit of electricity produced by source (kWh) and technology capacity (W). Breakdown by region and commodity of origin',
+    title = f'<b>GHGs footprints of electricity produced and capacity of PV and wind technologies | Exiobase v3.8.2 {years[0]}-{years[-1]}, refined with MARIO <b>',
     template = 'plotly_white',
     legend_tracegroupgap = 0.1,
-    )
+    legend_title = "<b>Breakdown by origin commodity-region<b>",
+    legend_title_font_size = 13,
+    xaxis1 = dict(
+        showline=True,
+        linecolor = 'black',
+        linewidth = 1.4
+        ),
+    xaxis2 = dict(
+        showline=True,
+        linecolor = 'black',
+        linewidth = 1.4
+        ),
 
-fig.write_html(f'Plots/GHGs emissions - {scenario}.html', auto_open=True)
+    )
+fig.update_annotations(font_size=13)
+fig.write_html(f'Plots/{sat} footprints.html', auto_open=True)
     
 
-#%% Plot baseline 
+#%% Plot delta vs baseline 
 sat = 'GHGs'
-year = 2019
 scenario = 'IEA'
 performance = 'Average'
 
-sN = slice(None)
-indices = list(f[sat].index.names)
-indices.remove('Year')
-indices.remove('Performance')
-
-f_scen = f[sat].reset_index().query(f"Scenario=='{scenario}' & Year=='{year}' & Performance=='{performance}'")
-f_scen.set_index(indices,inplace=True)
-f_scen = f_scen.loc[:,"Value"].to_frame()
-
-f_plot = f_baseline[sat].append(f_scen).reset_index().query("`Activity to`=='Electricity by PV' or `Activity to`=='Electricity by wind'")
-f_delta = f_plot.query("Scenario!='Baseline'").set_index(indices).values - f_plot.query("Scenario=='Baseline'").set_index(indices).values
-f_delta = pd.DataFrame(
-    f_delta,
-    index = f_plot.query("Scenario!='Baseline'").set_index(indices).index,
-    columns = f_plot.query("Scenario!='Baseline'").set_index(indices).columns
-    ).reset_index()
-f_delta = f_delta.replace(f'{scenario}','Delta')
-f_scen = f_plot.groupby(["Activity to","Account","Scenario","Unit"]).sum()
-f_scen.reset_index(inplace=True)
-
-for region in list(set(f_delta['Region from'])):
-    if region not in ['EU27+UK','China']:
-        f_delta = f_delta.replace(region,'RoW')
-f_delta = f_delta.groupby(groupby).sum().reset_index()
-
-
-
-fig = go.Figure()
-
-fig.add_trace(go.Bar(
-    x =  f_scen.query("Scenario=='Baseline'")['Activity to'].values,
-    y =  f_scen.query("Scenario=='Baseline'")['Value'].values,
-    name = 'Baseline',
-    showlegend = True,
-    marker_color = '#343a40',
-    # texttemplate = 'Baseline',
-    # marker_line = dict(color='black',width=1),
-    ))
-
-legend_labels = []
-for commodity in sorted(list(set(f_delta['Commodity']))):
-    for region in sorted(list(set(f_delta.query(f"Commodity=='{commodity}'")['Region from']))):
-        to_plot = f_delta.query(f"Commodity=='{commodity}' & `Region from` == '{region}'")                                            
-        name = f"{commodity} - {region}"
-        showlegend = False
-        if name not in legend_labels:
-            legend_labels += [name]
-            showlegend = True
+for year in years:
+    sN = slice(None)
+    indices = list(f[sat].index.names)
+    indices.remove('Year')
+    indices.remove('Performance')
+    
+    f_scen = f[sat].reset_index().query(f"Scenario=='{scenario}' & Year=='{year}' & Performance=='{performance}'")
+    f_scen.set_index(indices,inplace=True)
+    f_scen = f_scen.loc[:,"Value"].to_frame()
+    
+    f_plot = f_baseline[sat].append(f_scen).reset_index().query("`Activity to`=='Electricity by PV' or `Activity to`=='Electricity by wind'")
+    f_delta = f_plot.query("Scenario!='Baseline'").set_index(indices).values - f_plot.query("Scenario=='Baseline'").set_index(indices).values
+    f_delta = pd.DataFrame(
+        f_delta,
+        index = f_plot.query("Scenario!='Baseline'").set_index(indices).index,
+        columns = f_plot.query("Scenario!='Baseline'").set_index(indices).columns
+        ).reset_index()
+    f_delta = f_delta.replace(f'{scenario}','Delta')
+    f_scen = f_plot.groupby(["Activity to","Account","Scenario","Unit"]).sum()
+    f_scen.reset_index(inplace=True)
+    
+    for region in list(set(f_delta['Region from'])):
+        if region not in ['EU27+UK','China']:
+            f_delta = f_delta.replace(region,'RoW')
+    f_delta = f_delta.groupby(groupby).sum().reset_index()
+    
+    
+    
+    fig = go.Figure()
+    
+    # baseline
+    fig.add_trace(go.Bar(
+        x =  [f"<b>{i}" for i in f_scen.query("Scenario=='Baseline'")['Activity to'].values],
+        y =  f_scen.query("Scenario=='Baseline'")['Value'].values,
+        name = '<b>Baseline Exiobase',
+        showlegend = True,
+        marker_color = '#343a40',
+        marker_line_color = 'black',
+        marker_line_width = 0.75,
+        # texttemplate = 'Baseline',
+        # marker_line = dict(color='black',width=1),
+        ))
+    
+    # empty trace
+    fig.add_trace(go.Scatter(
+        x = [f"<b>{i}" for i in f_scen.query("Scenario=='Baseline'")['Activity to'].values],
+        y = [None],
+        name = '',
+        mode = 'markers',
+        marker_color = 'white',
+        ))
+    
+    # fake trace for legend title
+    fig.add_trace(go.Scatter(
+        x = [f"<b>{i}" for i in f_scen.query("Scenario=='Baseline'")['Activity to'].values],
+        y = [None],
+        name = '<b>Variation from baseline by origin commodity-region',
+        mode = 'markers',
+        marker_color = 'white',
+        ))
         
-        fig.add_trace(go.Bar(
-            x = to_plot['Activity to'].values,
-            y = to_plot['Value'].values,
-            name = name,
-            marker_color = colors[commodity],
-            # marker_line = dict(color='black',width=1),
-            marker_pattern_shape = patterns[region],
-            legendgroup = name,
-            showlegend = showlegend
-            ))
+    # deltas
+    legend_labels = []
+    for commodity in sorted(list(set(f_delta['Commodity']))):
+        for region in sorted(list(set(f_delta.query(f"Commodity=='{commodity}'")['Region from']))):
+            to_plot = f_delta.query(f"Commodity=='{commodity}' & `Region from` == '{region}'")                                            
+            name = f"{commodity} - {region}"
+            showlegend = False
+            if name not in legend_labels:
+                legend_labels += [name]
+                showlegend = True
+            
+            fig.add_trace(go.Bar(
+                x = [f"<b>{i}" for i in to_plot['Activity to'].values],
+                y = to_plot['Value'].values,
+                name = name,
+                marker_color = colors[commodity],
+                # marker_line = dict(color='black',width=1),
+                marker_pattern_shape = patterns[region],
+                marker_pattern_size = 6,
+                legendgroup = name,
+                showlegend = showlegend,
+                marker_line_color = 'black',
+                marker_line_width = 0.75,
+                # opacity = 0.75,
+                ))
+    
 
-fig.update_layout(
-    barmode='stack',
-    font_family='HelveticaNeue Light', 
-    title = 'GHGs footprints per unit of electricity produced by source (kWh). Baseline vs Adjusted Exiobase',
-    template = 'plotly_white',
-    yaxis_title="gCO2eq/kWh",
-    legend_tracegroupgap = 0.1,
+    f_scen_best = f[sat].reset_index().query(f"Scenario==@scenario & Year=='{year}' & Performance=='Best' & `Activity to`=='Electricity by PV' or `Activity to`=='Electricity by wind'")
+    f_scen_worst = f[sat].reset_index().query(f"Scenario=='{scenario}' & Year=='{year}' & Performance=='Worst' & `Activity to`=='Electricity by PV' or `Activity to`=='Electricity by wind'")
+
+    fig.update_layout(
+        barmode='stack',
+        font_family='HelveticaNeue Light', 
+        title = f'<b>GHGs footprints of electricity produced by PV and wind technologies | Exiobase v3.8.2 {year}, refined with MARIO <b>',
+        template = 'plotly_white',
+        yaxis_title="<b>gCO2eq/kWh",
+        legend_tracegroupgap = 0.1,
+        bargap = 0.5,
+        xaxis=dict(
+            showline=True,
+            linecolor = 'black',
+            linewidth = 1.4
+            )
+        )
+    
+    fig.write_html(f'Plots/GHGs footprints vs Baseline, {year}.html', auto_open=True)
+    
+
+#%% Plot employment
+from copy import deepcopy as dc
+import plotly.express as px
+
+empl_sats = [sa for sa in sat_accounts if "Employment" in sa]
+f_baseline_plot = dc(f_baseline)
+
+year = 2011
+
+color_map={
+    "High-skilled": "#023047",
+    "Medium-skilled": "#0096c7",
+    "Low-skilled": "#caf0f8",
+    }
+
+f_plot = pd.DataFrame()
+for sa in empl_sats:
+    f_plot = pd.concat([f_plot,f[sa]], axis=0)
+
+    f_baseline_plot[sa]['Year'] = str(year)
+    f_baseline_plot[sa]['Performance'] = 'Average'
+    f_baseline_plot[sa].reset_index(inplace=True)
+    f_baseline_plot[sa].set_index(list(f_plot.index.names), inplace=True)
+ 
+    f_plot = pd.concat([f_plot,f_baseline_plot[sa]])
+    
+f_plot.reset_index(inplace=True)
+f_plot = f_plot.query("`Activity to`=='Electricity by PV' or `Activity to`=='Electricity by wind'")
+f_plot = f_plot.query(f"Year=='{year}' & Performance=='Average'")
+
+
+f_plot['Gender'] = [i.split(" ")[-1].capitalize() for i in f_plot['Account']]
+f_plot['Skill'] = [i.split(" - ")[-1].split(" ")[0].capitalize() for i in f_plot['Account']]
+
+f_plot = f_plot.replace('USA','RoW')
+
+f_plot = f_plot.drop("Account",axis=1)
+f_plot = f_plot.groupby(["Region from","Activity to","Scenario","Year","Unit","Skill"]).sum().reset_index()
+
+for old,new in scenarios_renaming.items():
+    f_plot = f_plot.replace(old,f"<b>{new}")
+
+f_plot = f_plot.sort_values(['Scenario'],ascending=[True])
+f_plot = f_plot.sort_values(by="Skill", key=lambda column: column.map(lambda e: ["Low-skilled","Medium-skilled","High-skilled"].index(e)))
+
+fig = px.bar(
+    f_plot, 
+    x='Scenario',
+    y='Value',
+    facet_col='Activity to',
+    color='Skill',
+    pattern_shape='Region from',
+    color_discrete_map = color_map,
     )
 
-fig.write_html(f'Plots/GHGs delta - {scenario}.html', auto_open=True)
+fig.update_traces(
+    marker=dict(
+        line_color="black", 
+        pattern_size=6,
+        line_width = 0.75
+        ),
+)
+fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
+fig.for_each_annotation(lambda a: a.update(text=""))
 
-#%%
-# auto = True
-# to_plot = {
-#     'Capacity': {
-#         'x': 'Year',
-#         'y': 'Value',
-#         # 'facet_row': 'Region from',
-#         'facet_col': 'Region from',
-#         'color': 'Commodity',
-#         'title': 'installed capacity',
-#         # 'animation_frame': 'Scenario',
-#         'activities': ["Offshore wind plants","Onshore wind plants","PV plants"],
-#         'satellite accounts': {
-#             'GHGs': {
-#                 'name': 'GHG emissions',
-#                 },
-#             'Energy Carrier Supply - Total': {
-#                 'name': 'Primary energy',
-#                 },
-#             },
-#         },
-#     'Electricity': {
-#         'x': 'Performance',
-#         'y': 'Value',
-#         'facet_row': 'Region from',
-#         'facet_col': 'Year',
-#         'color': 'Commodity',
-#         'title': 'electricity produced',
-#         'animation_frame': 'Scenario',
-#         'activities': ["Electricity by wind","Electricity by PV"],
-#         'satellite accounts': {
-#             'GHGs': {
-#                 'name': 'GHG emissions',
-#                 },
-#             'Energy Carrier Supply - Total': {
-#                 'name': 'Primary energy',
-#                 },
-#             },
-#         },
-#     }
-
-# colors = px.colors.qualitative.Pastel
-# template = "seaborn"
-# font = "HelveticaNeue Light"
-# size = 16
-# labels = {
-#     'Activity to': False,   
-#     # 'Scenario': False,
-#     'Value': ':.2f',
-#     }
-
-# for plot,properties in to_plot.items():
-#     for sa,name in properties['satellite accounts'].items():
-#         for act in properties['activities']:
-
-#             plot_df = f[sa].groupby(level=["Region from","Commodity","Activity to", "Scenario", "Year","Performance","Unit"]).sum() 
-
-#             if plot == 'Capacity':
-#                 plot_df = f[sa].groupby(level=["Region from","Commodity","Activity to", "Year","Performance","Unit"]).mean() 
-#                 plot_df = f[sa].groupby(level=["Region from","Commodity","Activity to", "Year","Unit"]).mean() 
-#                 plot_df = plot_df.loc[(sN,sN,act,sN,sN,sN),:].sort_values(['Region from','Commodity','Year'], ascending=[False,False,True])  
-#             else:
-#                 indexnames = plot_df.index.names
-#                 plot_df.reset_index(inplace=True)
-#                 plot_df.replace("Average", "Medium", inplace=True)
-#                 plot_df.set_index(indexnames,inplace=True)
-#                 plot_df = plot_df.loc[(sN,sN,act,sN,sN,sN),:].sort_values(['Region from','Commodity','Scenario','Year','Performance'], ascending=[False,False,True,True,True])  
-
-#             plot_df.reset_index(inplace=True)
-            
-#             if plot == 'Capacity':
-#                 fig = px.bar(
-#                     plot_df, 
-#                     x=properties['x'],
-#                     y=properties['y'],
-#                     color=properties['color'],
-#                     facet_col=properties['facet_col'],
-#                     # facet_row=properties['facet_row'],
-#                     # animation_frame=properties['animation_frame'],
-#                     color_discrete_sequence=colors,
-#                     title=f"{name['name']} footprint per unit of {properties['title']} of {act} in EU27+UK, allocated by region and commodity [{list(set(plot_df['Unit']))[0]}]",
-#                     template=template, 
-#                     hover_data=labels,
-#                     )
-#             else:
-#                 fig = px.bar(
-#                     plot_df, 
-#                     x=properties['x'],
-#                     y=properties['y'],
-#                     color=properties['color'],
-#                     facet_col=properties['facet_col'],
-#                     facet_row=properties['facet_row'],
-#                     animation_frame=properties['animation_frame'],
-#                     color_discrete_sequence=colors,
-#                     title=f"{name['name']} footprint per unit of {act} in EU27+UK, allocated by region and commodity [{list(set(plot_df['Unit']))[0]}]",
-#                     template=template, 
-#                     hover_data=labels,
-#                     )
     
-#             fig.update_layout(
-#                 legend=dict(
-#                     title=None, 
-#                     traceorder='reversed'
-#                     ), 
-#                 xaxis=dict(
-#                     title=None
-#                     ), 
-#                 font_family=font, 
-#                 font_size=size
-#                 )    
-    
-#             fig.update_traces(marker_line_width=0)
-#             fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[1]))
-#             fig.for_each_yaxis(lambda axis: axis.update(title=None))
-#             fig.for_each_xaxis(lambda axis: axis.update(title=None))
-#             fig.write_html(f"{pd.read_excel(paths, index_col=[0]).loc['Plots',user]}\\{act}_{name['name']}.html", auto_open=auto)
-    
-    
-# #%% Plotting general results
-# import plotly.express as px
+fig.update_layout(
+    font_family='HelveticaNeue Light', 
+    title = f'<b>Employment footprints of electricity produced by PV and wind technologies | Exiobase v3.8.2 {year}, refined with MARIO <b>',
+    template = 'plotly_white',
+    yaxis_title="<b>Employed people/GWh",
+    xaxis1 = dict(
+        title='<b>Electricity by PV',
+        title_font_size = 13,
+        showline=True,
+        linecolor = 'black',
+        linewidth = 1.4
+        ),
+    xaxis2 = dict(
+        title='<b>Electricity by wind',
+        title_font_size = 13,
+        showline=True,
+        linecolor = 'black',
+        linewidth = 1.4
+        ),
+    legend = dict(
+        title = "<b>Breakdown by skill level and origin<b>",
+        title_font_size = 13,
+        traceorder = 'reversed',    
+        )
+    # bargap = 0.5,
+    )
 
-# Act_to = "Electricity by wind"
-# Sat = "GHGs"
+fig.write_html(f'Plots/Employment footprints vs Baseline, {year}.html', auto_open=True)
 
-# df = f[Sat].reset_index().query(f"`Activity to` == '{Act_to}'")
-
-# res = df.groupby(['Scenario','Year','Performance']).sum().reset_index()
-# fig = px.line(res, x="Year", y="Value", color="Performance", facet_col="Scenario")
-# fig.write_html('Plots/line.html', auto_open=True)
-# fig.show()
-
-# #%% One boxplot per Act_to
-# import plotly.express as px
-
-# df = f[Sat].groupby(['Scenario','Year','Performance','Unit','Activity to']).sum().reset_index()
-
-# fig = px.box(df, x="Scenario", y="Value", color="Performance", facet_col="Activity to", facet_row="Unit")
-# fig.show()
-# fig.write_html('Plots/boxplot.html', auto_open=True)
-
-# # %% Exploring one characteristic result
-
-# Act_to = "Electricity by PV"
-# Sat = "GHGs"
-# Perf = "Average"
-# Scenario = "IEA"
-# Year = 2018
-
-# df = f[Sat].reset_index().query(f"`Activity to` == '{Act_to}' & Performance == '{Perf}' & Year == '{Year}' & Scenario == '{Scenario}'")
-# fig = px.bar(df, x="Region from", y="Value", color="Commodity")
-
-# tot_fot = round(df.loc[:,'Value'].sum(),2)
-
-# fig.update_layout(title=f"{Sat} footprint per unit of {Act_to} in {Scenario}, {Year}, {Perf}<br>{tot_fot} {df.loc[[df.index[0]],'Unit'].values[0]}")
-# fig.show()
-# fig.write_html('Plots/')
-
-# # %%

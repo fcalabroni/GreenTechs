@@ -189,6 +189,13 @@ for year in years:
         'CO2 - combustion - air', 
         'CH4 - combustion - air', 
         'N2O - combustion - air',
+        'Employment: High-skilled female',
+        'Employment: High-skilled male',
+        'Employment: Low-skilled female',
+        'Employment: Low-skilled male',
+        'Employment: Medium-skilled female',
+        'Employment: Medium-skilled male',
+        'Employment: Vulnerable employment',
         ]
     
     commodities = [
@@ -283,3 +290,7 @@ for year in years:
             if not os.path.exists(folder_name):
                 os.mkdir(folder_name)
             world[year].to_txt(folder_name, scenario=f"{scen} - {year} - {tech}", flows=False, coefficients=True)
+
+#%%
+f = world[2011].get_data(['f'],scenarios=['IEA - 2011 - Average'])['IEA - 2011 - Average'][0]
+
