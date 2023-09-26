@@ -539,84 +539,84 @@ import plotly.express as px
 
 empl_sats = [sa for sa in sat_accounts if "Employment" in sa]
 
-year = 2011
+for year in years:
 
-color_map={
-    "High-skilled": "#023047",
-    "Medium-skilled": "#0096c7",
-    "Low-skilled": "#caf0f8",
-    }
-
-f_plot = pd.DataFrame()
-for sa in empl_sats:
-    f_plot = pd.concat([f_plot,f[sa]], axis=0)
+    color_map={
+        "High-skilled": "#023047",
+        "Medium-skilled": "#0096c7",
+        "Low-skilled": "#caf0f8",
+        }
     
-f_plot.reset_index(inplace=True)
-f_plot = f_plot.query("`Activity to`=='Electricity by PV' or `Activity to`=='Electricity by wind'")
-f_plot = f_plot.query(f"Year=='{year}' & Performance=='Average'")
-
-
-f_plot['Gender'] = [i.split(" ")[-1].capitalize() for i in f_plot['Account']]
-f_plot['Skill'] = [i.split(" - ")[-1].split(" ")[0].capitalize() for i in f_plot['Account']]
-
-f_plot = f_plot.replace('USA','RoW')
-
-f_plot = f_plot.drop("Account",axis=1)
-f_plot = f_plot.groupby(["Region from","Activity to","Scenario","Year","Unit","Skill"]).sum().reset_index()
-
-for old,new in scenarios_renaming.items():
-    f_plot = f_plot.replace(old,f"<b>{new}")
-
-f_plot = f_plot.sort_values(['Scenario'],ascending=[True])
-f_plot = f_plot.sort_values(by="Skill", key=lambda column: column.map(lambda e: ["Low-skilled","Medium-skilled","High-skilled"].index(e)))
-
-fig = px.bar(
-    f_plot, 
-    x='Scenario',
-    y='Value',
-    facet_col='Activity to',
-    color='Skill',
-    pattern_shape='Region from',
-    color_discrete_map = color_map,
-    )
-
-fig.update_traces(
-    marker=dict(
-        line_color="black", 
-        pattern_size=6,
-        line_width = 0.75
-        ),
-)
-fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
-fig.for_each_annotation(lambda a: a.update(text=""))
-
+    f_plot = pd.DataFrame()
+    for sa in empl_sats:
+        f_plot = pd.concat([f_plot,f[sa]], axis=0)
+        
+    f_plot.reset_index(inplace=True)
+    f_plot = f_plot.query("`Activity to`=='Electricity by PV' or `Activity to`=='Electricity by wind'")
+    f_plot = f_plot.query(f"Year=='{year}' & Performance=='Average'")
     
-fig.update_layout(
-    font_family='HelveticaNeue Light', 
-    title = f'<b>Employment footprints of electricity produced by PV and wind technologies | Exiobase v3.8.2 {year}, refined with MARIO <b>',
-    template = 'plotly_white',
-    yaxis_title="<b>Employed people/GWh",
-    xaxis1 = dict(
-        title='<b>Electricity by PV',
-        title_font_size = 13,
-        showline=True,
-        linecolor = 'black',
-        linewidth = 1.4
-        ),
-    xaxis2 = dict(
-        title='<b>Electricity by wind',
-        title_font_size = 13,
-        showline=True,
-        linecolor = 'black',
-        linewidth = 1.4
-        ),
-    legend = dict(
-        title = "<b>Breakdown by skill level and origin<b>",
-        title_font_size = 13,
-        traceorder = 'reversed',    
+    
+    f_plot['Gender'] = [i.split(" ")[-1].capitalize() for i in f_plot['Account']]
+    f_plot['Skill'] = [i.split(" - ")[-1].split(" ")[0].capitalize() for i in f_plot['Account']]
+    
+    f_plot = f_plot.replace('USA','RoW')
+    
+    f_plot = f_plot.drop("Account",axis=1)
+    f_plot = f_plot.groupby(["Region from","Activity to","Scenario","Year","Unit","Skill"]).sum().reset_index()
+    
+    for old,new in scenarios_renaming.items():
+        f_plot = f_plot.replace(old,f"<b>{new}")
+    
+    f_plot = f_plot.sort_values(['Scenario'],ascending=[True])
+    f_plot = f_plot.sort_values(by="Skill", key=lambda column: column.map(lambda e: ["Low-skilled","Medium-skilled","High-skilled"].index(e)))
+    
+    fig = px.bar(
+        f_plot, 
+        x='Scenario',
+        y='Value',
+        facet_col='Activity to',
+        color='Skill',
+        pattern_shape='Region from',
+        color_discrete_map = color_map,
         )
-    # bargap = 0.5,
+    
+    fig.update_traces(
+        marker=dict(
+            line_color="black", 
+            pattern_size=6,
+            line_width = 0.75
+            ),
     )
-
-fig.write_html(f'Plots/Employment footprints vs Baseline, {year}.html', auto_open=True)
-
+    fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
+    fig.for_each_annotation(lambda a: a.update(text=""))
+    
+        
+    fig.update_layout(
+        font_family='HelveticaNeue Light', 
+        title = f'<b>Employment footprints of electricity produced by PV and wind technologies | Exiobase v3.8.2 {year}, refined with MARIO <b>',
+        template = 'plotly_white',
+        yaxis_title="<b>Employed people/GWh",
+        xaxis1 = dict(
+            title='<b>Electricity by PV',
+            title_font_size = 13,
+            showline=True,
+            linecolor = 'black',
+            linewidth = 1.4
+            ),
+        xaxis2 = dict(
+            title='<b>Electricity by wind',
+            title_font_size = 13,
+            showline=True,
+            linecolor = 'black',
+            linewidth = 1.4
+            ),
+        legend = dict(
+            title = "<b>Breakdown by skill level and origin<b>",
+            title_font_size = 13,
+            traceorder = 'reversed',    
+            )
+        # bargap = 0.5,
+        )
+    
+    fig.write_html(f'Plots/Employment footprints vs Baseline, {year}.html', auto_open=True)
+    
