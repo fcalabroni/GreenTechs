@@ -293,40 +293,8 @@ for year in years:
     f_ghg = f_ghg.groupby(groupby).sum().reset_index()
     
     
-    fig = make_subplots(rows=1, cols=len(set(f_ghg['Unit'])), subplot_titles=["<b>Electricity produced (gCO2eq/kWh)<b>","<b>Capacity (gCO2eq/W)<b>"])
-    
-    # bars
-    col = 1
-    legend_labels = []
-    for unit in sorted(list(set(f_ghg['Unit']))):   
-        for commodity in colors.keys():
-            for region in ['EU27+UK','China','RoW']:#sorted(list(set(f_ghg.query(f"Unit=='{unit}' & Commodity=='{commodity}'")['Region from']))):
-                to_plot = f_ghg.query(f"Unit=='{unit}' & Commodity=='{commodity}' & `Region from` == '{region}'")                                            
-                name = f"{commodity} - {region}"
-                showlegend = False
-                if name not in legend_labels:
-                    legend_labels += [name]
-                    showlegend = True
-                
-                fig.add_trace(go.Bar(
-                    x = [f"<b>{i}<b>" for i in  to_plot['Activity to']],
-                    y = to_plot['Value'],
-                    name = name,
-                    marker_color = colors[commodity],
-                    marker_pattern_shape = patterns[region],
-                    marker_line_color = 'black',
-                    marker_line_width = 0.75,
-                    marker_pattern_size = 6, 
-                    legendgroup = name,
-                    showlegend = showlegend,
-                    # opacity=0.7,
-                    ),
-                    row = 1,
-                    col = col,
-                    )
-    
-        col += 1
-    
+    fig = make_subplots(rows=1, cols=len(set(f_ghg['Unit'])), subplot_titles=["<b>Electricity produced (tonCO2eq/GWh)<b>","<b>Capacity (tonCO2eq/MW)<b>"])
+
     # scatters
     col = 1
     showlegend = False
@@ -362,8 +330,47 @@ for year in years:
                         )
                 
         col += 1
-                
     
+    fig.add_trace(go.Scatter(
+        x=[None],
+        y=[None],
+        name='',
+        mode = 'markers',
+        marker_color = 'white',
+        ))
+    
+    # bars
+    col = 1
+    legend_labels = []
+    for unit in sorted(list(set(f_ghg['Unit']))):   
+        for commodity in list(colors.keys())[::-1]:
+            for region in ['RoW','China','EU27+UK']:#sorted(list(set(f_ghg.query(f"Unit=='{unit}' & Commodity=='{commodity}'")['Region from']))):
+                to_plot = f_ghg.query(f"Unit=='{unit}' & Commodity=='{commodity}' & `Region from` == '{region}'")                                            
+                name = f"{commodity} - {region}"
+                showlegend = False
+                if name not in legend_labels:
+                    legend_labels += [name]
+                    showlegend = True
+                
+                fig.add_trace(go.Bar(
+                    x = [f"<b>{i}<b>" for i in  to_plot['Activity to']],
+                    y = to_plot['Value'],
+                    name = name,
+                    marker_color = colors[commodity],
+                    marker_pattern_shape = patterns[region],
+                    marker_line_color = 'black',
+                    marker_line_width = 0.75,
+                    marker_pattern_size = 6, 
+                    legendgroup = name,
+                    showlegend = showlegend,
+                    # opacity=0.7,
+                    ),
+                    row = 1,
+                    col = col,
+                    )
+    
+        col += 1
+
     fig.update_layout(
         barmode='stack',
         font_family='HelveticaNeue Light', 
@@ -371,8 +378,9 @@ for year in years:
         title = f'<b>GHGs footprints of electricity produced and capacity of PV and wind technologies | Exiobase v3.8.2 {year}, refined with MARIO <b>',
         template = 'plotly_white',
         legend_tracegroupgap = 0.1,
-        legend_title = "<b>Breakdown by origin commodity-region<b>",
+        legend_title = "<b>Breakdown by origin commodity-region",
         legend_title_font_size = 13,
+        legend_traceorder = 'reversed',
         xaxis1 = dict(
             showline=True,
             linecolor = 'black',
@@ -428,7 +436,7 @@ for year in years:
     fig.add_trace(go.Bar(
         x =  [f"<b>{i}" for i in f_scen.query("Scenario=='Baseline'")['Activity to'].values],
         y =  f_scen.query("Scenario=='Baseline'")['Value'].values,
-        name = '<b>Baseline Exiobase',
+        name = '<b>Baseline',
         showlegend = True,
         marker_color = '#343a40',
         marker_line_color = 'black',
@@ -445,20 +453,11 @@ for year in years:
         mode = 'markers',
         marker_color = 'white',
         ))
-    
-    # fake trace for legend title
-    fig.add_trace(go.Scatter(
-        x = [f"<b>{i}" for i in f_scen.query("Scenario=='Baseline'")['Activity to'].values],
-        y = [None],
-        name = '<b>Variation from baseline by origin commodity-region',
-        mode = 'markers',
-        marker_color = 'white',
-        ))
-        
+            
     # deltas
     legend_labels = []
-    for commodity in sorted(list(set(f_delta['Commodity']))):
-        for region in sorted(list(set(f_delta.query(f"Commodity=='{commodity}'")['Region from']))):
+    for commodity in list(colors.keys())[::-1]:#sorted(list(set(f_delta['Commodity']))):
+        for region in ['RoW','China','EU27+UK']:#sorted(list(set(f_delta.query(f"Commodity=='{commodity}'")['Region from']))):
             to_plot = f_delta.query(f"Commodity=='{commodity}' & `Region from` == '{region}'")                                            
             name = f"{commodity} - {region}"
             showlegend = False
@@ -481,6 +480,14 @@ for year in years:
                 # opacity = 0.75,
                 ))
     
+    # # fake trace for legend title
+    # fig.add_trace(go.Scatter(
+    #     x = [f"<b>{i}" for i in f_scen.query("Scenario=='Baseline'")['Activity to'].values],
+    #     y = [None],
+    #     name = '<b>Variation from baseline by origin commodity-region',
+    #     mode = 'markers',
+    #     marker_color = 'white',
+    #     ))
 
     f_scen_best = f[sat].reset_index().query(f"Scenario==@scenario & Year=='{year}' & Performance=='Best' & `Activity to`=='Electricity by PV' or `Activity to`=='Electricity by wind'")
     f_scen_worst = f[sat].reset_index().query(f"Scenario=='{scenario}' & Year=='{year}' & Performance=='Worst' & `Activity to`=='Electricity by PV' or `Activity to`=='Electricity by wind'")
@@ -492,6 +499,9 @@ for year in years:
         template = 'plotly_white',
         yaxis_title="<b>gCO2eq/kWh",
         legend_tracegroupgap = 0.1,
+        legend_title = '<b>Delta from Baseline by origin commodity-region',
+        legend_title_font_size = 13,
+        legend_traceorder = 'reversed',
         bargap = 0.5,
         xaxis=dict(
             showline=True,

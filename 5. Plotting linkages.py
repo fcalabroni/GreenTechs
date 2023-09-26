@@ -22,7 +22,7 @@ commodities = {
     "Electricity by nuclear": {
         'name':'Nuclear',
         'macrosource': 'Others',
-        'color': '#3d405b',
+        'color': '#cdb4db',
     },
     "Electricity by biomass and waste": {
         'name':'Biomass & waste',
