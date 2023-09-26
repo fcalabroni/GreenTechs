@@ -145,49 +145,52 @@ activities_to = [
     "Electricity by PV",
     ]
 
-scemarios = ['baseline']
+scemarios = []
 for y in years:
-    for s in price_logics:
+    for s in price_logics+['Baseline']:
         for t in tech_performances:
-            scemarios += [f"{s} - {y} - {t}"]
+            if s == 'Baseline': 
+                scemarios += [f"{s} - {y} - Average"]
+            else:
+                scemarios += [f"{s} - {y} - {t}"]
 
 #%% Reading and rearranging footprints results
-# f = {}
-# for sa in sat_accounts:
-#     f[sa] = pd.DataFrame()
-#     for scem in scemarios:
-#         if scem != 'baseline':
-#             scen = scem.split(' - ')[0]
-#             year = scem.split(' - ')[1]
-#             tech = scem.split(' - ')[2]
-#             f_sa_scen = pd.read_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Monetary units\\{sa}\\{scen} - {year} - {tech}.csv", index_col=[0,1,2], header=[0,1,2], sep=',').loc[(sN,"Activity",sN),(sN,"Commodity",sN)]
-#             f_sa_scen = f_sa_scen.stack(level=[0,1,2])
-#             f_sa_scen = f_sa_scen.to_frame()
-#             f_sa_scen.columns = ['Value']
-#             f_sa_scen["Account"] = sa
-#             f_sa_scen["Scenario"] = f"{scen} - {year} - {tech}"
-#             f_sa_scen = f_sa_scen.droplevel(level=[1,4], axis=0)
-#             f_sa_scen.index.names = ["Region from", "Commodity", "Region to", "Activity to"]
-#             f_sa_scen = f_sa_scen.loc[(sN,sN,regions_to,activities_to),:]
-#             f_sa_scen.reset_index(inplace=True)
-#         else:
-#             f_sa_scen = pd.read_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Monetary units\\{sa}\\{scem}.csv", index_col=[0,1,2], header=[0,1,2], sep=',').loc[(sN,"Activity",sN),(sN,"Commodity",sN)]
-#             f_sa_scen = f_sa_scen.stack(level=[0,1,2])
-#             f_sa_scen = f_sa_scen.to_frame()
-#             f_sa_scen.columns = ['Value']
-#             f_sa_scen["Account"] = sa
-#             f_sa_scen["Scenario"] = f"{scem}"
-#             f_sa_scen = f_sa_scen.droplevel(level=[1,4], axis=0)
-#             f_sa_scen.index.names = ["Region from", "Commodity", "Region to", "Activity to"]
-#             f_sa_scen = f_sa_scen.loc[(sN,sN,regions_to,activities_to),:]
-#             f_sa_scen.reset_index(inplace=True)
+f = {}
+for sa in sat_accounts:
+    f[sa] = pd.DataFrame()
+    for scem in scemarios:
+        if scem != 'baseline':
+            scen = scem.split(' - ')[0]
+            year = scem.split(' - ')[1]
+            tech = scem.split(' - ')[2]
+            f_sa_scen = pd.read_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Monetary units\\{sa}\\{scen} - {year} - {tech}.csv", index_col=[0,1,2], header=[0,1,2], sep=',').loc[(sN,"Activity",sN),(sN,"Commodity",sN)]
+            f_sa_scen = f_sa_scen.stack(level=[0,1,2])
+            f_sa_scen = f_sa_scen.to_frame()
+            f_sa_scen.columns = ['Value']
+            f_sa_scen["Account"] = sa
+            f_sa_scen["Scenario"] = f"{scen} - {year} - {tech}"
+            f_sa_scen = f_sa_scen.droplevel(level=[1,4], axis=0)
+            f_sa_scen.index.names = ["Region from", "Commodity", "Region to", "Activity to"]
+            f_sa_scen = f_sa_scen.loc[(sN,sN,regions_to,activities_to),:]
+            f_sa_scen.reset_index(inplace=True)
+        # else:
+        #     f_sa_scen = pd.read_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Monetary units\\{sa}\\{scem}.csv", index_col=[0,1,2], header=[0,1,2], sep=',').loc[(sN,"Activity",sN),(sN,"Commodity",sN)]
+        #     f_sa_scen = f_sa_scen.stack(level=[0,1,2])
+        #     f_sa_scen = f_sa_scen.to_frame()
+        #     f_sa_scen.columns = ['Value']
+        #     f_sa_scen["Account"] = sa
+        #     f_sa_scen["Scenario"] = f"{scem}"
+        #     f_sa_scen = f_sa_scen.droplevel(level=[1,4], axis=0)
+        #     f_sa_scen.index.names = ["Region from", "Commodity", "Region to", "Activity to"]
+        #     f_sa_scen = f_sa_scen.loc[(sN,sN,regions_to,activities_to),:]
+        #     f_sa_scen.reset_index(inplace=True)
         
-#         f[sa] = pd.concat([f[sa], f_sa_scen], axis=0)
-#     f[sa].replace("baseline", "Baseline", inplace=True)
-#     f[sa].set_index(["Region from", "Commodity", "Region to", "Activity to","Scenario","Account"], inplace=True)
-#     f[sa] = f[sa].groupby(level=f[sa].index.names).mean()
+        f[sa] = pd.concat([f[sa], f_sa_scen], axis=0)
+    # f[sa].replace("baseline", "Baseline", inplace=True)
+    f[sa].set_index(["Region from", "Commodity", "Region to", "Activity to","Scenario","Account"], inplace=True)
+    f[sa] = f[sa].groupby(level=f[sa].index.names).mean()
     
-# #%% Conversions to physical units
+#%% Conversions to physical units
 # import time
 # start = time.time()
 
@@ -198,7 +201,7 @@ for y in years:
 #     counter = 0
 #     for i in footprint.index:
 #         footprint.loc[i,"Unit"] = f"{units['Satellite account'][sa]['new']}/{units['Commodity'][i[3]]['new']}"
-#         if i[4] != 'Baseline':
+#         if 'Baseline' not in i[4]:
 #             if units['Commodity'][i[3]]['conv'] == 'price':
 #                 price = ee_prices[f"{i[4].split(' - ')[0]}_Electricity prices"].loc[i[2],int(i[4].split(' - ')[1])]
 #                 footprint.loc[i,"Value"] *= units['Satellite account'][sa]['conv']*price*1e6
@@ -213,7 +216,7 @@ for y in years:
 # end = time.time()
 # print(round(end-start,2))
 
-# #%% Saving converted footprints
+#%% Saving converted footprints
 # writer = pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units.xlsx", engine='openpyxl', mode='w')
 # for sa,footprint in f.items():
 #     footprint.to_excel(writer, sheet_name=sa, merge_cells=False)
@@ -222,11 +225,7 @@ for y in years:
 #%% Read saved footprints in physical units
 f = {}
 for sa in sat_accounts:
-    if len(sa)>31:
-        name = sa
-    else:
-        name = sa
-    f[sa] = pd.read_excel(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units.xlsx", sheet_name=name, index_col=[0,1,2,3,4,5,6])
+    f[sa] = pd.read_excel(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units.xlsx", sheet_name=sa, index_col=[0,1,2,3,4,5,6])
     
 #%% Calculation of total GHG emissions
 f['GHGs'] = pd.DataFrame()
