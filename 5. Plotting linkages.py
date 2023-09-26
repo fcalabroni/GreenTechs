@@ -3,8 +3,8 @@
 Created on Tue Apr 18 2023
 
 @authors: 
-    Lorenzo Rinaldi, Department of Energy, Politecnico di Milano
     Nicolò Golinucci, PhD, Department of Energy, Politecnico di Milano
+    Lorenzo Rinaldi, Department of Energy, Politecnico di Milano
     Emanuele Mainardi, Department of Energy, Politecnico di Milano
     Prof. Matteo Vincenzo Rocco, PhD, Department of Energy, Politecnico di Milano
     Prof. Emanuela Colombo, PhD, Department of Energy, Politecnico di Milano
@@ -297,7 +297,7 @@ for year in years:
                 
     fig.update_layout(
         font_family='HelveticaNeue Light', 
-        title = f'<b>{direction} linkages of electricity generation sources in {region}   |   Exiobase v3.8.2, reference year {year}<b>',
+        title = f'<b>{direction} linkages of electricity generation sources in {region} | Database: Exiobase v3.8.2 {year}, refined with MARIO <b>',
         template = 'plotly_white',
         legend_tracegroupgap=0.1,
         yaxis_title='<b>Backward linkage<b>',
@@ -310,6 +310,7 @@ for year in years:
         barmode='stack',
         # bargap = 0.6
         )
+    
     
     fig.write_html(f'Plots/Backward linkages - {region}, {year}.html', auto_open=True)
         
