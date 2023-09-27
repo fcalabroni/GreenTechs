@@ -145,6 +145,25 @@ activities_to = [
     "Electricity by PV",
     ]
 
+
+cf = {
+      'Average': {
+          'PV': 0.16,
+          'Onshore wind': 0.35,
+          'Offshore wind': 0.4,
+          },
+      'Worst': {
+          'PV': 0.15,
+          'Onshore wind': 0.3,
+          'Offshore wind': 0.35,
+          },
+      'Best': {
+          'PV': 0.17,
+          'Onshore wind': 0.4,
+          'Offshore wind': 0.45,
+          },
+      }
+
 scemarios = []
 for y in years:
     for s in price_logics+['Baseline']:
@@ -375,7 +394,7 @@ for year in years:
         barmode='stack',
         font_family='HelveticaNeue Light', 
         # font_size=10,
-        title = f'<b>GHGs footprints of electricity produced and capacity of PV and wind technologies<br>Exiobase v3.8.2 {year}, refined with MARIO',
+        title = f"<b>GHGs footprints of electricity produced and capacity of PV and wind technologies</b><br>Exiobase v3.8.2 {year}, refined with MARIO | Capacity factors: PV={cf[performance]['PV']}, Onshore wind={cf[performance]['Onshore wind']}, , Offshore wind={cf[performance]['Offshore wind']}",
         template = 'plotly_white',
         legend_tracegroupgap = 0.1,
         legend_title = "<b>Breakdown by origin commodity-region",
@@ -495,7 +514,7 @@ for year in years:
     fig.update_layout(
         barmode='stack',
         font_family='HelveticaNeue Light', 
-        title = f'<b>GHGs footprints of electricity produced by PV and wind technologies<br>Exiobase v3.8.2 {year}, refined with MARIO',
+        title = f"<b>GHGs footprints of electricity produced by PV and wind technologies</b><br>Exiobase v3.8.2 {year}, refined with MARIO | Capacity factors: PV={cf[performance]['PV']}, Onshore wind={cf[performance]['Onshore wind']}, , Offshore wind={cf[performance]['Offshore wind']}",
         template = 'plotly_white',
         yaxis_title="<b>gCO2eq/kWh",
         legend_tracegroupgap = 0.1,
@@ -517,6 +536,7 @@ for year in years:
 import plotly.express as px
 
 empl_sats = [sa for sa in sat_accounts if "Employment" in sa]
+performance = 'Average'
 
 for year in years:
 
@@ -532,7 +552,7 @@ for year in years:
         
     f_plot.reset_index(inplace=True)
     f_plot = f_plot.query("`Activity to`=='Electricity by PV' or `Activity to`=='Electricity by wind'")
-    f_plot = f_plot.query(f"Year=='{year}' & Performance=='Average'")
+    f_plot = f_plot.query(f"Year=='{year}' & Performance=='{performance}'")
     
     
     f_plot['Gender'] = [i.split(" ")[-1].capitalize() for i in f_plot['Account']]
@@ -572,7 +592,7 @@ for year in years:
         
     fig.update_layout(
         font_family='HelveticaNeue Light', 
-        title = f'<b>Employment footprints of electricity produced by PV and wind technologies<br>Exiobase v3.8.2 {year}, refined with MARIO',
+        title = f"<b>Employment footprints of electricity produced by PV and wind technologies</b><br>Exiobase v3.8.2 {year}, refined with MARIO | Capacity factors: PV={cf[performance]['PV']}, Onshore wind={cf[performance]['Onshore wind']}, , Offshore wind={cf[performance]['Offshore wind']}",
         template = 'plotly_white',
         yaxis_title="<b>Employed people/GWh",
         xaxis1 = dict(
