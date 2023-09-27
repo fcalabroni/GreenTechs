@@ -255,7 +255,7 @@ for year in years:
     fig.add_trace(go.Scatter(
         x = [[f"<b>{i}<b>" for i in x2], [f"<b>{i}<b>" for i in x1]],
         y = [None],
-        name = 'Capacity factor <br> uncertainty',
+        name = 'Sensitivity on<br>capacity factors',
         legendgroup = 'Errors',
         mode = 'markers',
         marker_symbol = 'line-ns',
@@ -301,7 +301,7 @@ for year in years:
                 
     fig.update_layout(
         font_family='HelveticaNeue Light', 
-        title = f'<b>{direction} linkages of electricity generation sources in {region} | Exiobase v3.8.2 {year}, refined with MARIO <b>',
+        title = f'<b>{direction} linkages of electricity generation sources in {region} <br>Exiobase v3.8.2 {year}, refined with MARIO',
         template = 'plotly_white',
         legend_tracegroupgap=0.1,
         yaxis_title='<b>Backward linkage<b>',

@@ -375,7 +375,7 @@ for year in years:
         barmode='stack',
         font_family='HelveticaNeue Light', 
         # font_size=10,
-        title = f'<b>GHGs footprints of electricity produced and capacity of PV and wind technologies | Exiobase v3.8.2 {year}, refined with MARIO <b>',
+        title = f'<b>GHGs footprints of electricity produced and capacity of PV and wind technologies<br>Exiobase v3.8.2 {year}, refined with MARIO',
         template = 'plotly_white',
         legend_tracegroupgap = 0.1,
         legend_title = "<b>Breakdown by origin commodity-region",
@@ -495,7 +495,7 @@ for year in years:
     fig.update_layout(
         barmode='stack',
         font_family='HelveticaNeue Light', 
-        title = f'<b>GHGs footprints of electricity produced by PV and wind technologies | Exiobase v3.8.2 {year}, refined with MARIO <b>',
+        title = f'<b>GHGs footprints of electricity produced by PV and wind technologies<br>Exiobase v3.8.2 {year}, refined with MARIO',
         template = 'plotly_white',
         yaxis_title="<b>gCO2eq/kWh",
         legend_tracegroupgap = 0.1,
@@ -572,7 +572,7 @@ for year in years:
         
     fig.update_layout(
         font_family='HelveticaNeue Light', 
-        title = f'<b>Employment footprints of electricity produced by PV and wind technologies | Exiobase v3.8.2 {year}, refined with MARIO <b>',
+        title = f'<b>Employment footprints of electricity produced by PV and wind technologies<br>Exiobase v3.8.2 {year}, refined with MARIO',
         template = 'plotly_white',
         yaxis_title="<b>Employed people/GWh",
         xaxis1 = dict(
