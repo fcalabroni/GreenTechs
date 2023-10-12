@@ -394,7 +394,7 @@ for year in years:
         barmode='stack',
         font_family='HelveticaNeue Light', 
         # font_size=10,
-        title = f"<b>GHGs footprints of electricity produced and capacity of PV and wind technologies</b><br>Exiobase v3.8.2 {year}, refined with MARIO | Capacity factors: PV={cf[performance]['PV']}, Onshore wind={cf[performance]['Onshore wind']}, , Offshore wind={cf[performance]['Offshore wind']}",
+        title = f"<b>GHGs footprints of electricity produced and capacity of PV and wind technologies</b><br>Exiobase v3.8.2 {year}, refined with MARIO | Capacity factors: PV={cf[performance]['PV']}, Onshore wind={cf[performance]['Onshore wind']}, Offshore wind={cf[performance]['Offshore wind']}",
         template = 'plotly_white',
         legend_tracegroupgap = 0.1,
         legend_title = "<b>Breakdown by origin commodity-region",
@@ -514,7 +514,7 @@ for year in years:
     fig.update_layout(
         barmode='stack',
         font_family='HelveticaNeue Light', 
-        title = f"<b>GHGs footprints of electricity produced by PV and wind technologies</b><br>Exiobase v3.8.2 {year}, refined with MARIO | Capacity factors: PV={cf[performance]['PV']}, Onshore wind={cf[performance]['Onshore wind']}, , Offshore wind={cf[performance]['Offshore wind']}",
+        title = f"<b>GHGs footprints of electricity produced by PV and wind technologies</b><br>Exiobase v3.8.2 {year}, refined with MARIO | Capacity factors: PV={cf[performance]['PV']}, Onshore wind={cf[performance]['Onshore wind']}, Offshore wind={cf[performance]['Offshore wind']}",
         template = 'plotly_white',
         yaxis_title="<b>gCO2eq/kWh",
         legend_tracegroupgap = 0.1,
@@ -592,7 +592,7 @@ for year in years:
         
     fig.update_layout(
         font_family='HelveticaNeue Light', 
-        title = f"<b>Employment footprints of electricity produced by PV and wind technologies</b><br>Exiobase v3.8.2 {year}, refined with MARIO | Capacity factors: PV={cf[performance]['PV']}, Onshore wind={cf[performance]['Onshore wind']}, , Offshore wind={cf[performance]['Offshore wind']}",
+        title = f"<b>Employment footprints of electricity produced by PV and wind technologies</b><br>Exiobase v3.8.2 {year}, refined with MARIO | Capacity factors: PV={cf[performance]['PV']}, Onshore wind={cf[performance]['Onshore wind']}, Offshore wind={cf[performance]['Offshore wind']}",
         template = 'plotly_white',
         yaxis_title="<b>Employed people/GWh",
         xaxis1 = dict(

@@ -56,7 +56,6 @@ for scen in price_logics:
         for tech in tech_performances:
             world[year].get_shock_excel(f"{pd.read_excel(paths, index_col=[0]).loc['Shocks',user]}\\Shock_files\\{scen}_{year}_{tech}.xlsx")
 
-
 #%% Filling shock templates
 ShockMaster = pd.read_excel(f"{pd.read_excel(paths, index_col=[0]).loc['ShockMaster',user]}", sheet_name="ShockMaster", index_col=[0,1,2,3,4,5,6,7,8,9,10,11])
 indexnames = list(ShockMaster.index.names)
