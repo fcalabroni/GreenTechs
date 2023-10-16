@@ -25,7 +25,7 @@ years = range(2011,2020)
 paths = 'Paths.xlsx'
 
 world = {}
-price_logics = ['IEA']
+price_logics = ['Constant']
 tech_performances = ['Worst','Average','Best']
 
 

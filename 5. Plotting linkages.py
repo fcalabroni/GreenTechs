@@ -78,7 +78,7 @@ commodities = {
 
 patterns = {'Local':'','Foreign':'x'}
 
-scenarios = ['Baseline','IEA']
+scenarios = ['Baseline','Constant']
 years = list(range(2011,2020))
 scope = 'Total'
 direction = 'Backward'
