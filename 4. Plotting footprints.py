@@ -211,13 +211,37 @@ for sa,footprint in f.items():
         for year in years:
             
             if units['Activity'][act]['conv'] == 'price':
-                footprint.loc[(sN,sN,sN,act,sN,sN,int(year)),'Value'] *= units['Satellite account'][sa]['conv']*ee_prices['Constant_Electricity prices'].loc['EU27+UK',int(year)]
+                footprint.loc[(sN,sN,sN,act,sN,sN,int(year)),'Value'] *= units['Satellite account'][sa]['conv']*ee_prices['Constant_Electricity prices'].loc['EU27+UK',int(year)]*1e6
             else:
                 footprint.loc[(sN,sN,sN,act,sN,sN,int(year)),'Value'] *= units['Satellite account'][sa]['conv']*units['Activity'][act]['conv']
                 
     footprint = footprint.droplevel('Year')
     
 
+#%% Conversions to physical units
+import time
+start = time.time()
+
+shockmaster = pd.read_excel(f"{pd.read_excel(paths, index_col=[0]).loc['ShockMaster',user]}", sheet_name=None, index_col=[0])
+ee_prices = {i:x for i,x in shockmaster.items() if 'prices' in i}
+
+for sa,footprint in f.items():
+    for i in footprint.index:
+        footprint.loc[i,"Unit"] = f"{units['Satellite account'][sa]['new']}/{units['Commodity'][i[3]]['new']}"
+        if 'Baseline' not in i[4]:
+            if units['Commodity'][i[3]]['conv'] == 'price':
+                price = ee_prices[f"{i[4].split(' - ')[0]}_Electricity prices"].loc[i[2],int(i[4].split(' - ')[1])]
+                footprint.loc[i,"Value"] *= units['Satellite account'][sa]['conv']*price*1e6
+            else:
+                footprint.loc[i,"Value"] *= units['Satellite account'][sa]['conv']*units['Commodity'][i[3]]['conv']
+        else:
+            price = ee_prices["IEA_Electricity prices"].loc[i[2],2019]
+            footprint.loc[i,"Value"] *= units['Satellite account'][sa]['conv']*price*1e6
+            
+    footprint.set_index(['Unit'], append=True, inplace=True)   
+
+end = time.time()
+print(round(end-start,2))
 
 #%% Saving converted footprints
 writer = pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units.xlsx", engine='openpyxl', mode='w')
