@@ -100,28 +100,28 @@ units = {
             "conv": 1/1000,
             }, 
         },
-    'Commodity': {
-        "Offshore wind plants": {
+    'Activity': {
+        "Production of offshore wind plants": {
             "raw": 'EUR',
             "new": 'MW',
             "conv": 3.19e6,
             }, 
-        "Onshore wind plants": {
+        "Production of onshore wind plants": {
             "raw": 'EUR',
             "new": 'MW',
             "conv": 1.44e6,
             }, 
-        "PV plants": {
+        "Production of photovoltaic plants": {
             "raw": 'EUR',
             "new": 'MW',
             "conv": 1.81e6,
             }, 
-        "Electricity by wind": {
+        "Production of electricity by wind": {
             "raw": 'EUR',
             "new": 'GWh',
             "conv": 'price',
             }, 
-        "Electricity by PV": {
+        "Production of electricity by solar photovoltaic": {
             "raw": 'EUR',
             "new": 'GWh',
             "conv": 'price',
@@ -163,6 +163,7 @@ cf = {
           },
       }
 
+years = range(2011,2020)
 scemarios = []
 for y in years:
     for s in price_logics+['Baseline']:
@@ -194,32 +195,29 @@ for sa in sat_accounts:
         f[sa] = pd.concat([f[sa], f_sa_scen], axis=0)
     f[sa].set_index(["Region from", "Commodity", "Region to", "Activity to","Scenario","Account"], inplace=True)
     f[sa] = f[sa].groupby(level=f[sa].index.names).mean()
-    
-#%% Conversions to physical units
-import time
-start = time.time()
 
+
+#%% Conversions to pysical units
 shockmaster = pd.read_excel(f"{pd.read_excel(paths, index_col=[0]).loc['ShockMaster',user]}", sheet_name=None, index_col=[0])
 ee_prices = {i:x for i,x in shockmaster.items() if 'prices' in i}
 
 for sa,footprint in f.items():
-    counter = 0
-    for i in footprint.index:
-        footprint.loc[i,"Unit"] = f"{units['Satellite account'][sa]['new']}/{units['Commodity'][i[3]]['new']}"
-        if 'Baseline' not in i[4]:
-            if units['Commodity'][i[3]]['conv'] == 'price':
-                price = ee_prices[f"{i[4].split(' - ')[0]}_Electricity prices"].loc[i[2],int(i[4].split(' - ')[1])]
-                footprint.loc[i,"Value"] *= units['Satellite account'][sa]['conv']*price*1e6
-            else:
-                footprint.loc[i,"Value"] *= units['Satellite account'][sa]['conv']*units['Commodity'][i[3]]['conv']
-        else:
-            price = ee_prices["IEA_Electricity prices"].loc[i[2],2019]
-            footprint.loc[i,"Value"] *= units['Satellite account'][sa]['conv']*price*1e6
+    
+    # ind_names = footprint.index.names
+    footprint['Year'] = [int(i.split(' - ')[1]) for i in footprint.index.get_level_values('Scenario')]
+    footprint.set_index('Year',append=True, inplace=True)
+    
+    for act in units['Activity']:
+        for year in years:
             
-    footprint.set_index(['Unit'], append=True, inplace=True)   
+            if units['Activity'][act]['conv'] == 'price':
+                footprint.loc[(sN,sN,sN,act,sN,sN,int(year)),'Value'] *= units['Satellite account'][sa]['conv']*ee_prices['Constant_Electricity prices'].loc['EU27+UK',int(year)]
+            else:
+                footprint.loc[(sN,sN,sN,act,sN,sN,int(year)),'Value'] *= units['Satellite account'][sa]['conv']*units['Activity'][act]['conv']
+                
+    footprint = footprint.droplevel('Year')
+    
 
-end = time.time()
-print(round(end-start,2))
 
 #%% Saving converted footprints
 writer = pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units.xlsx", engine='openpyxl', mode='w')
