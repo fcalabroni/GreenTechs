@@ -280,6 +280,24 @@ for sa,v in f.items():
     v = v.groupby(level=index_names, axis=0).sum()
     f[sa] = v
 
+#%% Rename activities
+activities_names = {
+    'Production of photovoltaic plants': 'PV',
+    'Production of onshore wind plants': 'Onshore wind',
+    'Production of offshore wind plants': 'Offshore wind',
+    'Production of electricity by wind': 'Electricity by wind',
+    'Production of electricity by solar photovoltaic': 'Electricity by PV',        
+    }
+
+for sa,v in f.items():
+    index_names = list(v.index.names)
+    v.reset_index(inplace=True)
+    for old,new in activities_names.items():
+        v = v.replace(old,new)
+    v.set_index(index_names, inplace=True)
+    v = v.groupby(level=index_names, axis=0).sum()
+    f[sa] = v
+
 #%% Plot: ghgs footprints by region&commodity. Subplots by unit of measures
 sat = 'GHGs'
 scenario = 'Constant'
@@ -444,7 +462,7 @@ for year in years:
     f_scen.set_index(indices,inplace=True)
     f_scen = f_scen.loc[:,"Value"].to_frame()
     
-    f_plot = f_scen.reset_index().query("`Activity to`=='Production of electricity by solar photovoltaic' or `Activity to`=='Production of electricity by wind'")
+    f_plot = f_scen.reset_index().query("`Activity to`=='Electricity by PV' or `Activity to`=='Electricity by wind'")
     f_delta = f_plot.query("Scenario!='Baseline'").set_index(indices).values - f_plot.query("Scenario=='Baseline'").set_index(indices).values
     f_delta = pd.DataFrame(
         f_delta,
@@ -545,90 +563,90 @@ for year in years:
     fig.write_html(f'Plots/GHGs footprints vs Baseline, {year}.html', auto_open=True)
     
 
-#%% Plot employment
-import plotly.express as px
+# #%% Plot employment
+# import plotly.express as px
 
-empl_sats = [sa for sa in sat_accounts if "Employment" in sa]
-performance = 'Average'
+# empl_sats = [sa for sa in sat_accounts if "Employment" in sa]
+# performance = 'Average'
 
-for year in years:
+# for year in years:
 
-    color_map={
-        "High-skilled": "#023047",
-        "Medium-skilled": "#0096c7",
-        "Low-skilled": "#caf0f8",
-        }
+#     color_map={
+#         "High-skilled": "#023047",
+#         "Medium-skilled": "#0096c7",
+#         "Low-skilled": "#caf0f8",
+#         }
     
-    f_plot = pd.DataFrame()
-    for sa in empl_sats:
-        f_plot = pd.concat([f_plot,f[sa]], axis=0)
+#     f_plot = pd.DataFrame()
+#     for sa in empl_sats:
+#         f_plot = pd.concat([f_plot,f[sa]], axis=0)
         
-    f_plot.reset_index(inplace=True)
-    f_plot = f_plot.query("`Activity to`=='Electricity by PV' or `Activity to`=='Electricity by wind'")
-    f_plot = f_plot.query(f"Year=='{year}' & Performance=='{performance}'")
+#     f_plot.reset_index(inplace=True)
+#     f_plot = f_plot.query("`Activity to`=='Electricity by PV' or `Activity to`=='Electricity by wind'")
+#     f_plot = f_plot.query(f"Year=='{year}' & Performance=='{performance}'")
     
     
-    f_plot['Gender'] = [i.split(" ")[-1].capitalize() for i in f_plot['Account']]
-    f_plot['Skill'] = [i.split(" - ")[-1].split(" ")[0].capitalize() for i in f_plot['Account']]
+#     f_plot['Gender'] = [i.split(" ")[-1].capitalize() for i in f_plot['Account']]
+#     f_plot['Skill'] = [i.split(" - ")[-1].split(" ")[0].capitalize() for i in f_plot['Account']]
     
-    f_plot = f_plot.replace('USA','RoW')
+#     f_plot = f_plot.replace('USA','RoW')
     
-    f_plot = f_plot.drop("Account",axis=1)
-    f_plot = f_plot.groupby(["Region from","Activity to","Scenario","Year","Unit","Skill"]).sum().reset_index()
+#     f_plot = f_plot.drop("Account",axis=1)
+#     f_plot = f_plot.groupby(["Region from","Activity to","Scenario","Year","Unit","Skill"]).sum().reset_index()
     
-    for old,new in scenarios_renaming.items():
-        f_plot = f_plot.replace(old,f"<b>{new}")
+#     for old,new in scenarios_renaming.items():
+#         f_plot = f_plot.replace(old,f"<b>{new}")
     
-    f_plot = f_plot.sort_values(['Scenario'],ascending=[True])
-    f_plot = f_plot.sort_values(by="Skill", key=lambda column: column.map(lambda e: ["Low-skilled","Medium-skilled","High-skilled"].index(e)))
+#     f_plot = f_plot.sort_values(['Scenario'],ascending=[True])
+#     f_plot = f_plot.sort_values(by="Skill", key=lambda column: column.map(lambda e: ["Low-skilled","Medium-skilled","High-skilled"].index(e)))
     
-    fig = px.bar(
-        f_plot, 
-        x='Scenario',
-        y='Value',
-        facet_col='Activity to',
-        color='Skill',
-        pattern_shape='Region from',
-        color_discrete_map = color_map,
-        )
+#     fig = px.bar(
+#         f_plot, 
+#         x='Scenario',
+#         y='Value',
+#         facet_col='Activity to',
+#         color='Skill',
+#         pattern_shape='Region from',
+#         color_discrete_map = color_map,
+#         )
     
-    fig.update_traces(
-        marker=dict(
-            line_color="black", 
-            pattern_size=6,
-            line_width = 0.75
-            ),
-    )
-    fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
-    fig.for_each_annotation(lambda a: a.update(text=""))
+#     fig.update_traces(
+#         marker=dict(
+#             line_color="black", 
+#             pattern_size=6,
+#             line_width = 0.75
+#             ),
+#     )
+#     fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
+#     fig.for_each_annotation(lambda a: a.update(text=""))
     
         
-    fig.update_layout(
-        font_family='HelveticaNeue Light', 
-        title = f"<b>Employment footprints of electricity produced by PV and wind technologies</b><br>Exiobase v3.8.2 {year}, refined with MARIO | Capacity factors: PV={cf[performance]['PV']}, Onshore wind={cf[performance]['Onshore wind']}, Offshore wind={cf[performance]['Offshore wind']}",
-        template = 'plotly_white',
-        yaxis_title="<b>Employed people/GWh",
-        xaxis1 = dict(
-            title='<b>Electricity by PV',
-            title_font_size = 13,
-            showline=True,
-            linecolor = 'black',
-            linewidth = 1.4
-            ),
-        xaxis2 = dict(
-            title='<b>Electricity by wind',
-            title_font_size = 13,
-            showline=True,
-            linecolor = 'black',
-            linewidth = 1.4
-            ),
-        legend = dict(
-            title = "<b>Breakdown by skill level and origin<b>",
-            title_font_size = 13,
-            traceorder = 'reversed',    
-            )
-        # bargap = 0.5,
-        )
+#     fig.update_layout(
+#         font_family='HelveticaNeue Light', 
+#         title = f"<b>Employment footprints of electricity produced by PV and wind technologies</b><br>Exiobase v3.8.2 {year}, refined with MARIO | Capacity factors: PV={cf[performance]['PV']}, Onshore wind={cf[performance]['Onshore wind']}, Offshore wind={cf[performance]['Offshore wind']}",
+#         template = 'plotly_white',
+#         yaxis_title="<b>Employed people/GWh",
+#         xaxis1 = dict(
+#             title='<b>Electricity by PV',
+#             title_font_size = 13,
+#             showline=True,
+#             linecolor = 'black',
+#             linewidth = 1.4
+#             ),
+#         xaxis2 = dict(
+#             title='<b>Electricity by wind',
+#             title_font_size = 13,
+#             showline=True,
+#             linecolor = 'black',
+#             linewidth = 1.4
+#             ),
+#         legend = dict(
+#             title = "<b>Breakdown by skill level and origin<b>",
+#             title_font_size = 13,
+#             traceorder = 'reversed',    
+#             )
+#         # bargap = 0.5,
+#         )
     
-    fig.write_html(f'Plots/Employment footprints vs Baseline, {year}.html', auto_open=True)
+#     fig.write_html(f'Plots/Employment footprints vs Baseline, {year}.html', auto_open=True)
     
