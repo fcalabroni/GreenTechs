@@ -174,95 +174,76 @@ for y in years:
                 scemarios += [f"{s} - {y} - {t}"]
 
 #%% Reading and rearranging footprints results
-f = {}
-for sa in sat_accounts:
-    f[sa] = pd.DataFrame()
-    for scem in scemarios:
-        if scem != 'baseline':
-            scen = scem.split(' - ')[0]
-            year = scem.split(' - ')[1]
-            tech = scem.split(' - ')[2]
-            f_sa_scen = pd.read_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Monetary units\\{sa}\\{scen} - {year} - {tech}.csv", index_col=[0,1,2], header=[0,1,2], sep=',')#.loc[(sN,"Activity",sN),(sN,"Activity",sN)]
-            f_sa_scen = f_sa_scen.stack(level=[0,1,2])
-            f_sa_scen = f_sa_scen.to_frame()
-            f_sa_scen.columns = ['Value']
-            f_sa_scen["Account"] = sa
-            f_sa_scen["Scenario"] = f"{scen} - {year} - {tech}"
-            f_sa_scen = f_sa_scen.droplevel(level=[1,4], axis=0)
-            f_sa_scen.index.names = ["Region from", "Commodity", "Region to", "Activity to"]
-            # f_sa_scen = f_sa_scen.loc[(sN,sN,regions_to,activities_to),:]
-            f_sa_scen.reset_index(inplace=True)
-        f[sa] = pd.concat([f[sa], f_sa_scen], axis=0)
-    f[sa].set_index(["Region from", "Commodity", "Region to", "Activity to","Scenario","Account"], inplace=True)
-    f[sa] = f[sa].groupby(level=f[sa].index.names).mean()
+# f = {}
+# for sa in sat_accounts:
+#     f[sa] = pd.DataFrame()
+#     for scem in scemarios:
+#         if scem != 'baseline':
+#             scen = scem.split(' - ')[0]
+#             year = scem.split(' - ')[1]
+#             tech = scem.split(' - ')[2]
+#             f_sa_scen = pd.read_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Monetary units\\{sa}\\{scen} - {year} - {tech}.csv", index_col=[0,1,2], header=[0,1,2], sep=',')#.loc[(sN,"Activity",sN),(sN,"Activity",sN)]
+#             f_sa_scen = f_sa_scen.stack(level=[0,1,2])
+#             f_sa_scen = f_sa_scen.to_frame()
+#             f_sa_scen.columns = ['Value']
+#             f_sa_scen["Account"] = sa
+#             f_sa_scen["Scenario"] = f"{scen} - {year} - {tech}"
+#             f_sa_scen = f_sa_scen.droplevel(level=[1,4], axis=0)
+#             f_sa_scen.index.names = ["Region from", "Activity from", "Region to", "Activity to"]
+#             # f_sa_scen = f_sa_scen.loc[(sN,sN,regions_to,activities_to),:]
+#             f_sa_scen.reset_index(inplace=True)
+#         f[sa] = pd.concat([f[sa], f_sa_scen], axis=0)
+#     f[sa].set_index(["Region from", "Activity from", "Region to", "Activity to","Scenario","Account"], inplace=True)
+#     f[sa] = f[sa].groupby(level=f[sa].index.names).mean()
 
 
 #%% Conversions to pysical units
-shockmaster = pd.read_excel(f"{pd.read_excel(paths, index_col=[0]).loc['ShockMaster',user]}", sheet_name=None, index_col=[0])
-ee_prices = {i:x for i,x in shockmaster.items() if 'prices' in i}
+# shockmaster = pd.read_excel(f"{pd.read_excel(paths, index_col=[0]).loc['ShockMaster',user]}", sheet_name=None, index_col=[0])
+# ee_prices = {i:x for i,x in shockmaster.items() if 'prices' in i}
 
-for sa,footprint in f.items():
+# for sa,footprint in f.items():
     
-    # ind_names = footprint.index.names
-    footprint['Year'] = [int(i.split(' - ')[1]) for i in footprint.index.get_level_values('Scenario')]
-    footprint.set_index('Year',append=True, inplace=True)
+#     footprint['Year'] = [int(i.split(' - ')[1]) for i in footprint.index.get_level_values('Scenario')]
+#     footprint.set_index('Year',append=True, inplace=True)
     
-    for act in units['Activity']:
-        for year in years:
+#     for act in units['Activity']:
+#         for year in years:
             
-            if units['Activity'][act]['conv'] == 'price':
-                footprint.loc[(sN,sN,sN,act,sN,sN,int(year)),'Value'] *= units['Satellite account'][sa]['conv']*ee_prices['Constant_Electricity prices'].loc['EU27+UK',int(year)]*1e6
-            else:
-                footprint.loc[(sN,sN,sN,act,sN,sN,int(year)),'Value'] *= units['Satellite account'][sa]['conv']*units['Activity'][act]['conv']
+#             if units['Activity'][act]['conv'] == 'price':
+#                 footprint.loc[(sN,sN,sN,act,sN,sN,int(year)),'Value'] *= units['Satellite account'][sa]['conv']*ee_prices['Constant_Electricity prices'].loc['EU27+UK',int(year)]*1e6
+#             else:
+#                 footprint.loc[(sN,sN,sN,act,sN,sN,int(year)),'Value'] *= units['Satellite account'][sa]['conv']*units['Activity'][act]['conv']
                 
-    footprint = footprint.droplevel('Year')
-    
-
-#%% Conversions to physical units
-import time
-start = time.time()
-
-shockmaster = pd.read_excel(f"{pd.read_excel(paths, index_col=[0]).loc['ShockMaster',user]}", sheet_name=None, index_col=[0])
-ee_prices = {i:x for i,x in shockmaster.items() if 'prices' in i}
-
-for sa,footprint in f.items():
-    for i in footprint.index:
-        footprint.loc[i,"Unit"] = f"{units['Satellite account'][sa]['new']}/{units['Commodity'][i[3]]['new']}"
-        if 'Baseline' not in i[4]:
-            if units['Commodity'][i[3]]['conv'] == 'price':
-                price = ee_prices[f"{i[4].split(' - ')[0]}_Electricity prices"].loc[i[2],int(i[4].split(' - ')[1])]
-                footprint.loc[i,"Value"] *= units['Satellite account'][sa]['conv']*price*1e6
-            else:
-                footprint.loc[i,"Value"] *= units['Satellite account'][sa]['conv']*units['Commodity'][i[3]]['conv']
-        else:
-            price = ee_prices["IEA_Electricity prices"].loc[i[2],2019]
-            footprint.loc[i,"Value"] *= units['Satellite account'][sa]['conv']*price*1e6
-            
-    footprint.set_index(['Unit'], append=True, inplace=True)   
-
-end = time.time()
-print(round(end-start,2))
+#     footprint = footprint.droplevel('Year')
 
 #%% Saving converted footprints
-writer = pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units.xlsx", engine='openpyxl', mode='w')
-for sa,footprint in f.items():
-    footprint.to_excel(writer, sheet_name=sa, merge_cells=False)
-writer.close()
+# writer = pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units.xlsx", engine='openpyxl', mode='w')
+# for sa,footprint in f.items():
+#     footprint.to_excel(writer, sheet_name=sa, merge_cells=False)
+# writer.close()
 
 #%% Read saved footprints in physical units
-f = {}
-for sa in sat_accounts:
-    f[sa] = pd.read_excel(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units.xlsx", sheet_name=sa, index_col=[0,1,2,3,4,5,6])
+# f = {}
+# for sa in sat_accounts:
+#     f[sa] = pd.read_excel(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units.xlsx", sheet_name=sa, index_col=[0,1,2,3,4,5,6])
     
 #%% Calculation of total GHG emissions
-f['GHGs'] = pd.DataFrame()
-for sa,gwp in GWP.items():
-    f['GHGs'] = pd.concat([f['GHGs'], f[sa]*gwp], axis=0)
-f['GHGs'] = f['GHGs'].groupby(level=["Region from","Commodity","Region to","Activity to","Scenario"]).sum()
-for i in f['GHGs'].index:
-    f['GHGs'].loc[i,"Account"] = "GHG emmissions"
-    f['GHGs'].loc[i,"Unit"] = f"{units['Satellite account']['GHGs']['new']}/{units['Commodity'][i[3]]['new']}"
-f['GHGs'].set_index(['Account','Unit'], append=True, inplace=True)
+# f['GHGs'] = pd.DataFrame()
+# for sa,gwp in GWP.items():
+#     f['GHGs'] = pd.concat([f['GHGs'], f[sa]*gwp], axis=0)
+# f['GHGs'] = f['GHGs'].groupby(level=["Region from","Activity from","Region to","Activity to","Scenario"]).sum()
+# for i in f['GHGs'].index:
+#     f['GHGs'].loc[i,"Account"] = "GHG emmissions"
+#     f['GHGs'].loc[i,"Unit"] = f"{units['Satellite account']['GHGs']['new']}/{units['Activity'][i[3]]['new']}"
+# f['GHGs'].set_index(['Account','Unit'], append=True, inplace=True)
+
+#%%
+# f['GHGs'].to_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - GHGs.xlsx")
+
+# %% Read saved footprints in physical units
+f = {}
+for sa in ['GHGs']:
+    f[sa] = pd.read_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - GHGs.xlsx", index_col=[0,1,2,3,4,5,6])
 
 #%% Split scemarios columns
 sN = slice(None)
@@ -273,16 +254,27 @@ for sa,footprint in f.items():
     footprint.loc[:,'Performance'] = [i.split(' - ')[2] for i in footprint.index.get_level_values("Scenario")]
     footprint = footprint.droplevel("Scenario")
     footprint.reset_index(inplace=True)
-    footprint.set_index(['Region from', 'Commodity', 'Region to', 'Activity to', 'Scenario', 'Year', 'Performance', 'Account', 'Unit'], inplace=True)
+    footprint.set_index(['Region from', 'Activity from', 'Region to', 'Activity to', 'Scenario', 'Year', 'Performance', 'Account', 'Unit'], inplace=True)
     f[sa] = footprint
         
 #%% Aggregating
-new_commodities = pd.read_excel(r"Aggregations\Aggregation_plots.xlsx", index_col=[0])
+new_activities = pd.read_excel(r"Aggregations\Aggregation_plots.xlsx", index_col=[0], sheet_name='Activity')
 for sa,v in f.items():
     index_names = list(v.index.names)
     for i in v.index:
-        v.loc[i,"Commodity"] = new_commodities.loc[i[1],"New"]
-    v = v.droplevel("Commodity", axis=0)
+        v.loc[i,"Activity from"] = new_activities.loc[i[1],"New"]
+    v = v.droplevel("Activity from", axis=0)
+    v.reset_index(inplace=True)
+    v.set_index(index_names, inplace=True)
+    v = v.groupby(level=index_names, axis=0).sum()
+    f[sa] = v
+
+new_regions = pd.read_excel(r"Aggregations\Aggregation_plots.xlsx", index_col=[0], sheet_name='Region')
+for sa,v in f.items():
+    index_names = list(v.index.names)
+    for i in v.index:
+        v.loc[i,"Region from"] = new_regions.loc[i[0],"New"]
+    v = v.droplevel("Region from", axis=0)
     v.reset_index(inplace=True)
     v.set_index(index_names, inplace=True)
     v = v.groupby(level=index_names, axis=0).sum()
@@ -324,7 +316,7 @@ patterns = {
 
 for year in years:
     query = f"Year=='{year}' & Scenario=='{scenario}' & Performance=='{performance}'"
-    groupby = ["Region from", "Commodity", "Region to", "Activity to", "Unit"]
+    groupby = ["Region from", "Activity from", "Region to", "Activity to", "Unit"]
     
     f_ghg = f[sat].reset_index().query(query)
     for region in list(set(f_ghg['Region from'])):
@@ -383,10 +375,10 @@ for year in years:
     col = 1
     legend_labels = []
     for unit in sorted(list(set(f_ghg['Unit']))):   
-        for commodity in list(colors.keys())[::-1]:
+        for activity in list(colors.keys())[::-1]:
             for region in ['RoW','China','EU27+UK']:#sorted(list(set(f_ghg.query(f"Unit=='{unit}' & Commodity=='{commodity}'")['Region from']))):
-                to_plot = f_ghg.query(f"Unit=='{unit}' & Commodity=='{commodity}' & `Region from` == '{region}'")                                            
-                name = f"{commodity} - {region}"
+                to_plot = f_ghg.query(f"Unit=='{unit}' & `Activity from`=='{activity}' & `Region from` == '{region}'")                                            
+                name = f"{activity} - {region}"
                 showlegend = False
                 if name not in legend_labels:
                     legend_labels += [name]
@@ -396,7 +388,7 @@ for year in years:
                     x = [f"<b>{i}<b>" for i in  to_plot['Activity to']],
                     y = to_plot['Value'],
                     name = name,
-                    marker_color = colors[commodity],
+                    marker_color = colors[activity],
                     marker_pattern_shape = patterns[region],
                     marker_line_color = 'black',
                     marker_line_width = 0.75,
@@ -418,7 +410,7 @@ for year in years:
         title = f"<b>GHGs footprints of electricity produced and capacity of PV and wind technologies</b><br>Exiobase v3.8.2 {year}, refined with MARIO | Capacity factors: PV={cf[performance]['PV']}, Onshore wind={cf[performance]['Onshore wind']}, Offshore wind={cf[performance]['Offshore wind']}",
         template = 'plotly_white',
         legend_tracegroupgap = 0.1,
-        legend_title = "<b>Breakdown by origin commodity-region",
+        legend_title = "<b>Breakdown by origin activity-region",
         legend_title_font_size = 13,
         legend_traceorder = 'reversed',
         xaxis1 = dict(
@@ -452,7 +444,7 @@ for year in years:
     f_scen.set_index(indices,inplace=True)
     f_scen = f_scen.loc[:,"Value"].to_frame()
     
-    f_plot = f_scen.reset_index().query("`Activity to`=='Electricity by PV' or `Activity to`=='Electricity by wind'")
+    f_plot = f_scen.reset_index().query("`Activity to`=='Production of electricity by solar photovoltaic' or `Activity to`=='Production of electricity by wind'")
     f_delta = f_plot.query("Scenario!='Baseline'").set_index(indices).values - f_plot.query("Scenario=='Baseline'").set_index(indices).values
     f_delta = pd.DataFrame(
         f_delta,
@@ -496,10 +488,10 @@ for year in years:
             
     # deltas
     legend_labels = []
-    for commodity in list(colors.keys())[::-1]:#sorted(list(set(f_delta['Commodity']))):
+    for activity in list(colors.keys())[::-1]:#sorted(list(set(f_delta['Commodity']))):
         for region in ['RoW','China','EU27+UK']:#sorted(list(set(f_delta.query(f"Commodity=='{commodity}'")['Region from']))):
-            to_plot = f_delta.query(f"Commodity=='{commodity}' & `Region from` == '{region}'")                                            
-            name = f"{commodity} - {region}"
+            to_plot = f_delta.query(f"`Activity from`=='{activity}' & `Region from` == '{region}'")                                            
+            name = f"{activity} - {region}"
             showlegend = False
             if name not in legend_labels:
                 legend_labels += [name]
@@ -509,7 +501,7 @@ for year in years:
                 x = [f"<b>{i}" for i in to_plot['Activity to'].values],
                 y = to_plot['Value'].values,
                 name = name,
-                marker_color = colors[commodity],
+                marker_color = colors[activity],
                 # marker_line = dict(color='black',width=1),
                 marker_pattern_shape = patterns[region],
                 marker_pattern_size = 6,
@@ -539,7 +531,7 @@ for year in years:
         template = 'plotly_white',
         yaxis_title="<b>gCO2eq/kWh",
         legend_tracegroupgap = 0.1,
-        legend_title = '<b>Delta from Baseline by origin commodity-region',
+        legend_title = '<b>Delta from Baseline by origin activity-region',
         legend_title_font_size = 13,
         legend_traceorder = 'reversed',
         bargap = 0.5,

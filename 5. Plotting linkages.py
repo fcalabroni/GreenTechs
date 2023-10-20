@@ -19,57 +19,57 @@ sN = slice(None)
 paths = 'Paths.xlsx'
 
 commodities = {
-    "Electricity by nuclear": {
+    "Production of electricity by nuclear": {
         'name':'Nuclear',
         'macrosource': 'Others',
         'color': '#cdb4db',
     },
-    "Electricity by biomass and waste": {
+    "Production of electricity by biomass and waste": {
         'name':'Biomass & waste',
         'macrosource': 'Others',
         'color': '#e07a5f',
     },
-    "Electricity by solar thermal": {
+    "Production of electricity by solar thermal": {
         'name':'Solar thermal',
         'macrosource': 'Others',
         'color': '#eab69f',
     },    
-    "Electricity by Geothermal": {
+    "Production of electricity by Geothermal": {
         'name':'Geothermal',
         'macrosource': 'Others',
         'color': '#81b29a',
     }, 
-    "Electricity by hydro": {
+    "Production of electricity by hydro": {
         'name':'Hydro',
         'macrosource': 'Others',
         'color': '#6ab4f1',
     },
-    "Electricity by tide, wave, ocean": {
+    "Production of electricity by tide, wave, ocean": {
         'name':'Tide',
         'macrosource': 'Others',
         'color': '#264653',
     },
-    "Electricity by coal": {
+    "Production of electricity by coal": {
         'name':'Coal',
         'macrosource': 'Coal',
         'color': '#212529',
     },
-    "Electricity by gas": {
+    "Production of electricity by gas": {
         'name':'Natural gas',
         'macrosource': 'Natural gas',
         'color': '#6c757d',
     },
-    "Electricity by petroleum and other oil derivatives": {
+    "Production of electricity by petroleum and other oil derivatives": {
         'name':'Oil',
         'macrosource': 'Oil',
         'color': '#adb5bd',
     },
-    "Electricity by solar photovoltaic": {
+    "Production of electricity by solar photovoltaic": {
         'name':'PV',
         'macrosource': 'PV',
         'color': '#ffc24b',
     },
-    "Electricity by wind": {
+    "Production of electricity by wind": {
         'name':'Wind',
         'macrosource': 'Wind',
         'color': '#219ebc',
