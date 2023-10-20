@@ -86,7 +86,7 @@ region = 'EU27+UK'
 
 scenarios_renaming = {
     'Baseline': 'Baseline',
-    'IEA': 'Endogenous capital',
+    'Constant': 'Endogenous capital',
     }
 origins_renaming = {
     'Local': region,
