@@ -28,7 +28,6 @@ world = {}
 price_logics = ['Constant']
 tech_performances = ['Worst','Average','Best']
 
-
 #%% Parse aggregated  with new sectors database from txt
 # for year in years:
 #     world[year] = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\b. Aggregated & new sectors SUT\\{year}\\coefficients", table='SUT', mode="coefficients")
@@ -44,12 +43,10 @@ tech_performances = ['Worst','Average','Best']
 # for year in years:
 #     world[year].to_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\c. Baseline\\{year}", scenario="shock 0", flows=False, coefficients=True)
 
-
 #%% Parse baseline from txt
 for year in years:
     world[year] = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\c. Baseline\\{year}\\coefficients", table='SUT', mode="coefficients")
 
-    
 #%% Getting shock templates
 for scen in price_logics:
     for year in years:
@@ -180,7 +177,7 @@ path_aggr  = r"Aggregations\Aggregation_postprocess.xlsx"
 folder = f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Monetary units"
 
 for year in years:
-    world_aggr = world[year].aggregate(path_aggr, inplace=False, levels=["Activity","Commodity"])
+    # world_aggr = world[year].aggregate(path_aggr, inplace=False, levels=["Activity","Commodity"])
     
     f = {}
     sat_accounts = [
@@ -194,20 +191,16 @@ for year in years:
         'Employment: Low-skilled male',
         'Employment: Medium-skilled female',
         'Employment: Medium-skilled male',
-        'Employment: Vulnerable employment',
         ]
     
-    commodities = [
-            'PV plants',
-            # 'PV modules',
-            # 'Si cells',
-            'Onshore wind plants',
-            # 'DFIG generators',
-            'Offshore wind plants',
-            # 'PMG generators',
-            'Electricity by wind',
-            'Electricity by solar photovoltaic'        
+    activities = [
+            'Production of photovoltaic plants',
+            'Production of onshore wind plants',
+            'Production of offshore wind plants',
+            'Production of electricity by wind',
+            'Production of electricity by solar photovoltaic'        
        ]
+    regions = ['EU27+UK']
     
     for a in sat_accounts:
         f[a] = {}
@@ -215,11 +208,12 @@ for year in years:
             name = a.replace(':'," -")
         else:
             name = a
-        for s in world_aggr.scenarios:
-            e = world_aggr.get_data(matrices=['e'], scenarios=[s])[s][0].loc[a]
-            w = world_aggr.get_data(matrices=['w'], scenarios=[s])[s][0]
+        for s in world[year].scenarios:
+            e = world[year].get_data(matrices=['e'], scenarios=[s])[s][0].loc[a]
+            w = world[year].get_data(matrices=['w'], scenarios=[s])[s][0]
             f[a][s] = np.diag(e) @ w
             f[a][s].index = f[a][s].columns
+            f[a][s] = f[a][s].loc[(sN,'Activity',sN),(regions,sN,activities)]
         
         for k,v in f[a].items():
             subfolder = f"{folder}\\{name}"
@@ -231,7 +225,7 @@ for year in years:
                 v.to_csv(f"{subfolder}\\{k}.csv")
 
     f['GHGs'] = {}
-    for s in world_aggr.scenarios:
+    for s in world[year].scenarios:
         f['GHGs'][s] = f['CO2 - combustion - air'][s] + f['CH4 - combustion - air'][s]*26 + f['N2O - combustion - air'][s]*298
         subfolder = f"{folder}\\{'GHGs'}"
         if not os.path.exists(subfolder):
@@ -258,7 +252,7 @@ for year in years:
             units = world[year].units,
             table='SUT',
             )
-        db.to_iot(method='B')
+        db.to_iot(method='D')
         if scem == 'baseline':
             scen = 'Baseline'
             tech = 'Average'
@@ -296,7 +290,4 @@ for year in years:
             if not os.path.exists(folder_name):
                 os.mkdir(folder_name)
             world[year].to_txt(folder_name, scenario=f"{scen} - {year} - {tech}", flows=False, coefficients=True)
-
-#%%
-f = world[2011].get_data(['f'],scenarios=['IEA - 2011 - Average'])['IEA - 2011 - Average'][0]
 

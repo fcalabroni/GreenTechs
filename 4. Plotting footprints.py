@@ -40,7 +40,6 @@ sat_accounts = [
     'Employment - Low-skilled male',
     'Employment - Medium-skilled female',
     'Employment - Medium-skilled male',
-    # 'Employment - Vulnerable employment',
     ]
 
 units = {
@@ -138,11 +137,11 @@ GWP = {
 
 regions_to = ['EU27+UK']
 activities_to = [
-    "Offshore wind plants",
-    "Onshore wind plants",
-    "PV plants",
-    'Electricity by wind',
-    "Electricity by PV",
+    'Production of photovoltaic plants',
+    'Production of onshore wind plants',
+    'Production of offshore wind plants',
+    'Production of electricity by wind',
+    'Production of electricity by solar photovoltaic'        
     ]
 
 
@@ -182,7 +181,7 @@ for sa in sat_accounts:
             scen = scem.split(' - ')[0]
             year = scem.split(' - ')[1]
             tech = scem.split(' - ')[2]
-            f_sa_scen = pd.read_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Monetary units\\{sa}\\{scen} - {year} - {tech}.csv", index_col=[0,1,2], header=[0,1,2], sep=',').loc[(sN,"Activity",sN),(sN,"Commodity",sN)]
+            f_sa_scen = pd.read_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Monetary units\\{sa}\\{scen} - {year} - {tech}.csv", index_col=[0,1,2], header=[0,1,2], sep=',')#.loc[(sN,"Activity",sN),(sN,"Activity",sN)]
             f_sa_scen = f_sa_scen.stack(level=[0,1,2])
             f_sa_scen = f_sa_scen.to_frame()
             f_sa_scen.columns = ['Value']
@@ -190,7 +189,7 @@ for sa in sat_accounts:
             f_sa_scen["Scenario"] = f"{scen} - {year} - {tech}"
             f_sa_scen = f_sa_scen.droplevel(level=[1,4], axis=0)
             f_sa_scen.index.names = ["Region from", "Commodity", "Region to", "Activity to"]
-            f_sa_scen = f_sa_scen.loc[(sN,sN,regions_to,activities_to),:]
+            # f_sa_scen = f_sa_scen.loc[(sN,sN,regions_to,activities_to),:]
             f_sa_scen.reset_index(inplace=True)
         f[sa] = pd.concat([f[sa], f_sa_scen], axis=0)
     f[sa].set_index(["Region from", "Commodity", "Region to", "Activity to","Scenario","Account"], inplace=True)
