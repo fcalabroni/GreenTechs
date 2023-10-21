@@ -1,668 +1,668 @@
-Region,,,EU27+UK,EU27+UK,EU27+UK,EU27+UK,EU27+UK
-Level,,,Activity,Activity,Activity,Activity,Activity
-Item,,,Production of photovoltaic plants,Production of onshore wind plants,Production of offshore wind plants,Production of electricity by wind,Production of electricity by solar photovoltaic
-Region,Level,Item,,,,,
-China,Activity,Activities auxiliary to financial intermediation (67),0.0,0.0,0.0,0.0,0.0
-China,Activity,Activities of membership organisation n.e.c. (91),0.0,0.0,0.0,0.0,0.0
-China,Activity,Air transport (62),0.0,0.0,0.0,0.0,0.0
-China,Activity,Aluminium production,0.0,0.0,0.0,0.0,0.0
-China,Activity,Animal products nec,0.0,0.0,0.0,0.0,0.0
-China,Activity,"Biogasification of food waste, incl. land application",0.0,0.0,0.0,0.0,0.0
-China,Activity,"Biogasification of paper, incl. land application",0.0,0.0,0.0,0.0,0.0
-China,Activity,"Biogasification of sewage slugde, incl. land application",0.0,0.0,0.0,0.0,0.0
-China,Activity,Casting of metals,0.0,0.0,0.0,0.0,0.0
-China,Activity,Cattle farming,0.0,0.0,0.0,0.0,0.0
-China,Activity,Chemicals nec,6.184141997877374e-09,1.401957005970299e-09,8.114234724042941e-10,2.859879480275609e-10,2.0306615431774252e-09
-China,Activity,"Collection, purification and distribution of water (41)",0.0,0.0,0.0,0.0,0.0
-China,Activity,"Composting of food waste, incl. land application",0.0,0.0,0.0,0.0,0.0
-China,Activity,"Composting of paper and wood, incl. land application",0.0,0.0,0.0,0.0,0.0
-China,Activity,Computer and related activities (72),0.0,0.0,0.0,0.0,0.0
-China,Activity,Construction (45),0.0,0.0,0.0,0.0,0.0
-China,Activity,Copper production,0.0,0.0,0.0,0.0,0.0
-China,Activity,Cultivation of cereal grains nec,0.0,0.0,0.0,0.0,0.0
-China,Activity,Cultivation of crops nec,5.002713869873051e-09,1.4930823606174123e-09,8.491336371965409e-10,2.842988567332226e-10,1.6513786047452119e-09
-China,Activity,Cultivation of oil seeds,0.0,0.0,0.0,0.0,0.0
-China,Activity,Cultivation of paddy rice,0.0,0.0,0.0,0.0,0.0
-China,Activity,Cultivation of plant-based fibers,0.0,0.0,0.0,0.0,0.0
-China,Activity,"Cultivation of sugar cane, sugar beet",0.0,0.0,0.0,0.0,0.0
-China,Activity,"Cultivation of vegetables, fruit, nuts",0.0,0.0,0.0,0.0,0.0
-China,Activity,Cultivation of wheat,0.0,0.0,0.0,0.0,0.0
-China,Activity,Distribution and trade of electricity,0.0,0.0,0.0,0.0,0.0
-China,Activity,Education (80),0.0,0.0,0.0,0.0,0.0
-China,Activity,Extra-territorial organizations and bodies,0.0,0.0,0.0,0.0,0.0
-China,Activity,"Extraction of crude petroleum and services related to crude oil extraction, excluding surveying",3.6757136002452903e-07,1.384784050258251e-07,7.56636580829066e-08,2.4552777107172604e-08,1.2134939648116582e-07
-China,Activity,"Extraction of natural gas and services related to natural gas extraction, excluding surveying",4.5165503309586326e-08,2.817858393933135e-08,1.5112608842989227e-08,5.098144563514614e-09,1.5221617723061396e-08
-China,Activity,"Extraction, liquefaction, and regasification of other petroleum and gaseous materials",0.0,0.0,0.0,0.0,0.0
-China,Activity,"Financial intermediation, except insurance and pension funding (65)",0.0,0.0,0.0,0.0,0.0
-China,Activity,"Fishing, operating of fish hatcheries and fish farms; service activities incidental to fishing (05)",0.0,0.0,0.0,0.0,0.0
-China,Activity,"Forestry, logging and related service activities (02)",4.957224622211821e-09,2.277361876329565e-09,1.2392970378094118e-09,4.1755910802161157e-10,1.6554474043052835e-09
-China,Activity,Health and social work (85),0.0,0.0,0.0,0.0,0.0
-China,Activity,Hotels and restaurants (55),0.0,0.0,0.0,0.0,0.0
-China,Activity,Incineration of waste: Food,0.0,0.0,0.0,0.0,0.0
-China,Activity,Incineration of waste: Metals and Inert materials,2.9595954365371514e-09,6.572445919835277e-10,3.9566241737984904e-10,1.356980962265872e-10,9.751113752012253e-10
-China,Activity,Incineration of waste: Oil/Hazardous waste,3.934917188361922e-09,8.358102030398306e-10,4.706594677071238e-10,1.5441586752145434e-10,1.2857547274173196e-09
-China,Activity,Incineration of waste: Paper,0.0,0.0,0.0,0.0,0.0
-China,Activity,Incineration of waste: Plastic,3.0886955993856374e-09,7.026987019919671e-10,3.922459632172138e-10,1.3346904406177889e-10,1.0122667296903397e-09
-China,Activity,Incineration of waste: Textiles,2.800135190923454e-09,5.688991887305243e-10,3.2079185326339446e-10,1.0529807967030537e-10,9.136244119675487e-10
-China,Activity,Incineration of waste: Wood,0.0,0.0,0.0,0.0,0.0
-China,Activity,Inland water transport,0.0,0.0,0.0,0.0,0.0
-China,Activity,"Insurance and pension funding, except compulsory social security (66)",0.0,0.0,0.0,0.0,0.0
-China,Activity,Landfill of waste: Food,0.0,0.0,0.0,0.0,0.0
-China,Activity,Landfill of waste: Inert/metal/hazardous,0.0,0.0,0.0,0.0,0.0
-China,Activity,Landfill of waste: Paper,0.0,0.0,0.0,0.0,0.0
-China,Activity,Landfill of waste: Plastic,0.0,0.0,0.0,0.0,0.0
-China,Activity,Landfill of waste: Textiles,0.0,0.0,0.0,0.0,0.0
-China,Activity,Landfill of waste: Wood,0.0,0.0,0.0,0.0,0.0
-China,Activity,"Lead, zinc and tin production",0.0,0.0,0.0,0.0,0.0
-China,Activity,Manufacture of basic iron and steel and of ferro-alloys and first products thereof,5.876709532338572e-08,1.4386211900778522e-07,6.872293336245053e-08,2.0965943118676763e-08,2.0551879749195952e-08
-China,Activity,Manufacture of beverages,0.0,0.0,0.0,0.0,0.0
-China,Activity,"Manufacture of bricks, tiles and construction products, in baked clay",0.0,0.0,0.0,0.0,0.0
-China,Activity,"Manufacture of cement, lime and plaster",0.0,0.0,0.0,0.0,0.0
-China,Activity,Manufacture of ceramic goods,0.0,0.0,0.0,0.0,0.0
-China,Activity,Manufacture of coke oven products,5.481573151771952e-07,4.774643761450469e-07,2.379025604340193e-07,7.195143761151323e-08,1.8192457917547086e-07
-China,Activity,Manufacture of electrical machinery and apparatus n.e.c. (31),0.0,0.0,0.0,0.0,0.0
-China,Activity,"Manufacture of fabricated metal products, except machinery and equipment (28)",0.0,0.0,0.0,0.0,0.0
-China,Activity,Manufacture of fish products,0.0,0.0,0.0,0.0,0.0
-China,Activity,Manufacture of furniture; manufacturing n.e.c. (36),0.0,0.0,0.0,0.0,0.0
-China,Activity,Manufacture of gas; distribution of gaseous fuels through mains,4.8163179202914233e-08,2.081344856988482e-08,1.1178531689683021e-08,3.4110260826024838e-09,1.5806937958393855e-08
-China,Activity,Manufacture of glass and glass products,0.0,0.0,0.0,0.0,0.0
-China,Activity,Manufacture of machinery and equipment n.e.c. (29),0.0,0.0,0.0,0.0,0.0
-China,Activity,"Manufacture of medical, precision and optical instruments, watches and clocks (33)",0.0,0.0,0.0,0.0,0.0
-China,Activity,"Manufacture of motor vehicles, trailers and semi-trailers (34)",0.0,0.0,0.0,0.0,0.0
-China,Activity,Manufacture of office machinery and computers (30),0.0,0.0,0.0,0.0,0.0
-China,Activity,Manufacture of other non-metallic mineral products n.e.c.,0.0,0.0,0.0,0.0,0.0
-China,Activity,Manufacture of other transport equipment (35),0.0,0.0,0.0,0.0,0.0
-China,Activity,"Manufacture of radio, television and communication equipment and apparatus (32)",0.0,0.0,0.0,0.0,0.0
-China,Activity,Manufacture of rubber and plastic products (25),0.0,0.0,0.0,0.0,0.0
-China,Activity,Manufacture of textiles (17),0.0,0.0,0.0,0.0,0.0
-China,Activity,Manufacture of tobacco products (16),0.0,0.0,0.0,0.0,0.0
-China,Activity,Manufacture of wearing apparel; dressing and dyeing of fur (18),0.0,0.0,0.0,0.0,0.0
-China,Activity,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials (20)",0.0,0.0,0.0,0.0,0.0
-China,Activity,"Manure treatment (biogas), storage and land application",0.0,0.0,0.0,0.0,0.0
-China,Activity,"Manure treatment (conventional), storage and land application",0.0,0.0,0.0,0.0,0.0
-China,Activity,Meat animals nec,0.0,0.0,0.0,0.0,0.0
-China,Activity,Mining of aluminium ores and concentrates,0.0,0.0,0.0,0.0,0.0
-China,Activity,"Mining of chemical and fertilizer minerals, production of salt, other mining and quarrying n.e.c.",0.0,0.0,0.0,0.0,0.0
-China,Activity,Mining of coal and lignite; extraction of peat (10),3.624198891780784e-06,1.9148218392268375e-06,9.539855598870145e-07,2.9523039809793966e-07,1.1902899434829857e-06
-China,Activity,Mining of copper ores and concentrates,0.0,0.0,0.0,0.0,0.0
-China,Activity,Mining of iron ores,0.0,0.0,0.0,0.0,0.0
-China,Activity,"Mining of lead, zinc and tin ores and concentrates",0.0,0.0,0.0,0.0,0.0
-China,Activity,Mining of nickel ores and concentrates,0.0,0.0,0.0,0.0,0.0
-China,Activity,Mining of other non-ferrous metal ores and concentrates,0.0,0.0,0.0,0.0,0.0
-China,Activity,Mining of precious metal ores and concentrates,0.0,0.0,0.0,0.0,0.0
-China,Activity,Mining of uranium and thorium ores (12),9.511225694990736e-09,1.1696726166600393e-08,6.006284826189348e-09,2.1004565966734673e-09,3.3742850703915713e-09
-China,Activity,N-fertiliser,0.0,0.0,0.0,0.0,0.0
-China,Activity,Other business activities (74),0.0,0.0,0.0,0.0,0.0
-China,Activity,Other land transport,0.0,0.0,0.0,0.0,0.0
-China,Activity,Other non-ferrous metal production,0.0,0.0,0.0,0.0,0.0
-China,Activity,Other service activities (93),0.0,0.0,0.0,0.0,0.0
-China,Activity,P- and other fertiliser,0.0,0.0,0.0,0.0,0.0
-China,Activity,Paper,0.0,0.0,0.0,0.0,0.0
-China,Activity,Petroleum Refinery,7.590770770636297e-07,2.7740006141867715e-07,1.5206752108691163e-07,4.9208288535183585e-08,2.5062173087874266e-07
-China,Activity,Pigs farming,0.0,0.0,0.0,0.0,0.0
-China,Activity,"Plastics, basic",0.0,0.0,0.0,0.0,0.0
-China,Activity,Post and telecommunications (64),0.0,0.0,0.0,0.0,0.0
-China,Activity,Poultry farming,0.0,0.0,0.0,0.0,0.0
-China,Activity,Precious metals production,0.0,0.0,0.0,0.0,0.0
-China,Activity,Private households with employed persons (95),0.0,0.0,0.0,0.0,0.0
-China,Activity,Processed rice,0.0,0.0,0.0,0.0,0.0
-China,Activity,Processing of Food products nec,4.6140796340660065e-08,1.032511582167296e-08,5.954454032154988e-09,1.9385285350402375e-09,1.512547211457085e-08
-China,Activity,Processing of dairy products,0.0,0.0,0.0,0.0,0.0
-China,Activity,Processing of meat cattle,0.0,0.0,0.0,0.0,0.0
-China,Activity,Processing of meat pigs,0.0,0.0,0.0,0.0,0.0
-China,Activity,Processing of meat poultry,0.0,0.0,0.0,0.0,0.0
-China,Activity,Processing of nuclear fuel,1.8597518283090892e-08,1.4223806844844924e-08,7.978488729586028e-09,2.6895429639823897e-09,6.446922442714843e-09
-China,Activity,Processing vegetable oils and fats,0.0,0.0,0.0,0.0,0.0
-China,Activity,Production of electricity by Geothermal,4.7749401440762414e-11,7.902392427757719e-12,4.3045627059403236e-12,1.3082742332760566e-12,1.543770149943096e-11
-China,Activity,Production of electricity by biomass and waste,0.0,0.0,0.0,0.0,0.0
-China,Activity,Production of electricity by coal,2.2408817245065297e-06,2.629446682905865e-07,1.4251733940782272e-07,4.320890339743403e-08,7.220822626068441e-07
-China,Activity,Production of electricity by gas,1.0082266011332828e-07,7.731006055411549e-09,4.211394711855146e-09,1.2712131118100732e-09,3.241132364096728e-08
-China,Activity,Production of electricity by hydro,6.064276470650322e-07,6.066060899690498e-08,3.285991627317741e-08,9.955464549514176e-09,1.9520793088526086e-07
-China,Activity,Production of electricity by nuclear,1.0866580417066147e-07,6.7074416521053445e-09,3.6338197422749616e-09,1.1041214775008343e-09,3.49047595747655e-08
-China,Activity,Production of electricity by petroleum and other oil derivatives,1.0589295323008663e-09,1.7231095243545352e-10,9.13202634037983e-11,2.8354013643709646e-11,3.4227538247533584e-10
-China,Activity,Production of electricity by solar photovoltaic,2.135971335396207e-06,3.2179481279008414e-10,2.10499721797788e-10,6.548255666018532e-11,6.836214082972593e-07
-China,Activity,Production of electricity by solar thermal,1.967860392900533e-09,6.587467166380007e-13,3.7656098745676283e-13,1.1553628127372243e-13,6.298220076427841e-10
-China,Activity,"Production of electricity by tide, wave, ocean",3.0174184548230735e-12,4.841908808530343e-13,2.6380993096318116e-13,7.99898215063471e-14,9.751414983111035e-13
-China,Activity,Production of electricity by wind,1.2604913497453268e-06,1.0867171771337159e-08,6.36185696524796e-09,1.7312037385444455e-09,4.035580580735183e-07
-China,Activity,Production of electricity nec,0.0,0.0,0.0,0.0,0.0
-China,Activity,Production of meat products nec,0.0,0.0,0.0,0.0,0.0
-China,Activity,Production of offshore wind plants,0.0,0.0,0.0,0.0,0.0
-China,Activity,Production of onshore wind plants,0.0,0.0,0.0,0.0,0.0
-China,Activity,Production of photovoltaic plants,0.0,0.0,0.0,0.0,0.0
-China,Activity,Public administration and defence; compulsory social security (75),0.0,0.0,0.0,0.0,0.0
-China,Activity,"Publishing, printing and reproduction of recorded media (22)",0.0,0.0,0.0,0.0,0.0
-China,Activity,Pulp,2.7173656723078e-10,1.309785531383818e-10,6.97289553497644e-11,2.449341061912454e-11,9.123072276302631e-11
-China,Activity,Quarrying of sand and clay,0.0,0.0,0.0,0.0,0.0
-China,Activity,Quarrying of stone,0.0,0.0,0.0,0.0,0.0
-China,Activity,Raw milk,0.0,0.0,0.0,0.0,0.0
-China,Activity,Re-processing of ash into clinker,0.0,0.0,0.0,0.0,0.0
-China,Activity,Re-processing of secondary aluminium into new aluminium,0.0,0.0,0.0,0.0,0.0
-China,Activity,Re-processing of secondary construction material into aggregates,0.0,0.0,0.0,0.0,0.0
-China,Activity,Re-processing of secondary copper into new copper,0.0,0.0,0.0,0.0,0.0
-China,Activity,Re-processing of secondary glass into new glass,0.0,0.0,0.0,0.0,0.0
-China,Activity,"Re-processing of secondary lead into new lead, zinc and tin",0.0,0.0,0.0,0.0,0.0
-China,Activity,Re-processing of secondary other non-ferrous metals into new other non-ferrous metals,0.0,0.0,0.0,0.0,0.0
-China,Activity,Re-processing of secondary paper into new pulp,2.0547925886229208e-07,7.641834712486071e-10,4.181665364435249e-10,1.269312206554938e-10,6.577803665541522e-08
-China,Activity,Re-processing of secondary plastic into new plastic,0.0,0.0,0.0,0.0,0.0
-China,Activity,Re-processing of secondary preciuos metals into new preciuos metals,0.0,0.0,0.0,0.0,0.0
-China,Activity,Re-processing of secondary steel into new steel,0.0,0.0,0.0,0.0,0.0
-China,Activity,Re-processing of secondary wood material into new wood material,0.0,0.0,0.0,0.0,0.0
-China,Activity,Real estate activities (70),0.0,0.0,0.0,0.0,0.0
-China,Activity,"Recreational, cultural and sporting activities (92)",0.0,0.0,0.0,0.0,0.0
-China,Activity,Recycling of bottles by direct reuse,0.0,0.0,0.0,0.0,0.0
-China,Activity,Recycling of waste and scrap,0.0,0.0,0.0,0.0,0.0
-China,Activity,Renting of machinery and equipment without operator and of personal and household goods (71),0.0,0.0,0.0,0.0,0.0
-China,Activity,Research and development (73),0.0,0.0,0.0,0.0,0.0
-China,Activity,Retail sale of automotive fuel,0.0,0.0,0.0,0.0,0.0
-China,Activity,"Retail trade, except of motor vehicles and motorcycles; repair of personal and household goods (52)",0.0,0.0,0.0,0.0,0.0
-China,Activity,"Sale, maintenance, repair of motor vehicles, motor vehicles parts, motorcycles, motor cycles parts and accessoiries",0.0,0.0,0.0,0.0,0.0
-China,Activity,Sea and coastal water transport,0.0,0.0,0.0,0.0,0.0
-China,Activity,Steam and hot water supply,1.1196932314866893e-07,5.2774352296742435e-08,2.8201843142648213e-08,8.87332299203815e-09,3.6995382888714265e-08
-China,Activity,Sugar refining,5.856795440138564e-10,2.0259937699777625e-10,1.1088405666077943e-10,3.6120705162347876e-11,1.9345976808133886e-10
-China,Activity,Supporting and auxiliary transport activities; activities of travel agencies (63),0.0,0.0,0.0,0.0,0.0
-China,Activity,"Tanning and dressing of leather; manufacture of luggage, handbags, saddlery, harness and footwear (19)",0.0,0.0,0.0,0.0,0.0
-China,Activity,Transmission of electricity,0.0,0.0,0.0,0.0,0.0
-China,Activity,Transport via pipelines,0.0,0.0,0.0,0.0,0.0
-China,Activity,Transport via railways,0.0,0.0,0.0,0.0,0.0
-China,Activity,"Waste water treatment, food",0.0,0.0,0.0,0.0,0.0
-China,Activity,"Waste water treatment, other",0.0,0.0,0.0,0.0,0.0
-China,Activity,"Wholesale trade and commission trade, except of motor vehicles and motorcycles (51)",0.0,0.0,0.0,0.0,0.0
-China,Activity,"Wool, silk-worm cocoons",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Activities auxiliary to financial intermediation (67),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Activities of membership organisation n.e.c. (91),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Air transport (62),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Aluminium production,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Animal products nec,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Biogasification of food waste, incl. land application",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Biogasification of paper, incl. land application",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Biogasification of sewage slugde, incl. land application",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Casting of metals,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Cattle farming,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Chemicals nec,2.0289695544005495e-08,2.0777318874296961e-07,1.5033400736026132e-07,4.08276274185257e-08,1.0123901819425452e-08
-EU27+UK,Activity,"Collection, purification and distribution of water (41)",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Composting of food waste, incl. land application",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Composting of paper and wood, incl. land application",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Computer and related activities (72),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Construction (45),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Copper production,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Cultivation of cereal grains nec,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Cultivation of crops nec,4.788642065406355e-10,4.682503950874615e-10,5.375327536791048e-10,2.5410264485944333e-10,2.7020344903523353e-10
-EU27+UK,Activity,Cultivation of oil seeds,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Cultivation of paddy rice,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Cultivation of plant-based fibers,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Cultivation of sugar cane, sugar beet",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Cultivation of vegetables, fruit, nuts",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Cultivation of wheat,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Distribution and trade of electricity,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Education (80),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Extra-territorial organizations and bodies,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Extraction of crude petroleum and services related to crude oil extraction, excluding surveying",1.5246274734804972e-07,1.2406085943225908e-07,1.31125238659828e-07,3.497891733501414e-07,2.2029605564441355e-07
-EU27+UK,Activity,"Extraction of natural gas and services related to natural gas extraction, excluding surveying",3.85593772499582e-07,3.4382731961875237e-07,3.409828966028483e-07,4.3058657348848824e-07,3.2217669377785223e-07
-EU27+UK,Activity,"Extraction, liquefaction, and regasification of other petroleum and gaseous materials",5.217768554861704e-09,1.6982299650577056e-09,1.98619921643273e-09,2.112238872220382e-09,2.593619072882505e-09
-EU27+UK,Activity,"Financial intermediation, except insurance and pension funding (65)",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Fishing, operating of fish hatcheries and fish farms; service activities incidental to fishing (05)",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Forestry, logging and related service activities (02)",1.8780847138093266e-08,1.4839538017526929e-08,1.8314047122514216e-08,7.473251047252341e-09,8.851360579625787e-09
-EU27+UK,Activity,Health and social work (85),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Hotels and restaurants (55),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Incineration of waste: Food,5.961951231019698e-09,6.446058937248833e-09,6.701963085284526e-09,4.134649188676398e-09,3.1135733271415233e-09
-EU27+UK,Activity,Incineration of waste: Metals and Inert materials,8.966527746560946e-09,1.1243528932173068e-08,1.2625323694841635e-08,7.958630679182531e-09,5.367949984819488e-09
-EU27+UK,Activity,Incineration of waste: Oil/Hazardous waste,1.98371646678173e-09,1.8177544979937423e-09,1.9095212002983287e-09,1.1404800717638275e-09,1.0112560003001035e-09
-EU27+UK,Activity,Incineration of waste: Paper,6.064512296250566e-09,6.5774489629804564e-09,6.886886818374488e-09,4.449979057829915e-09,3.3183190207331305e-09
-EU27+UK,Activity,Incineration of waste: Plastic,5.2432066884581346e-09,5.3891187187421625e-09,5.597029769502933e-09,3.783935427543466e-09,2.7961133707883433e-09
-EU27+UK,Activity,Incineration of waste: Textiles,2.2167341241995408e-09,2.45615646999506e-09,2.5568371689343135e-09,1.5273429621753814e-09,1.1736477842655227e-09
-EU27+UK,Activity,Incineration of waste: Wood,3.2521621135539345e-09,2.845625841227551e-09,2.9745858817498166e-09,1.8136597881488713e-09,1.626006210059083e-09
-EU27+UK,Activity,Inland water transport,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Insurance and pension funding, except compulsory social security (66)",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Landfill of waste: Food,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Landfill of waste: Inert/metal/hazardous,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Landfill of waste: Paper,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Landfill of waste: Plastic,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Landfill of waste: Textiles,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Landfill of waste: Wood,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Lead, zinc and tin production",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Manufacture of basic iron and steel and of ferro-alloys and first products thereof,3.181555525475758e-08,1.053058040940032e-07,9.87769833988395e-08,3.055677895939204e-08,1.7983409457473116e-08
-EU27+UK,Activity,Manufacture of beverages,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Manufacture of bricks, tiles and construction products, in baked clay",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Manufacture of cement, lime and plaster",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Manufacture of ceramic goods,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Manufacture of coke oven products,1.1730887074353934e-07,2.1892643720291763e-07,2.0775450745148268e-07,7.047607406078408e-08,5.720275999067976e-08
-EU27+UK,Activity,Manufacture of electrical machinery and apparatus n.e.c. (31),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Manufacture of fabricated metal products, except machinery and equipment (28)",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Manufacture of fish products,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Manufacture of furniture; manufacturing n.e.c. (36),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Manufacture of gas; distribution of gaseous fuels through mains,1.0304115918601367e-07,4.7382747347065236e-08,5.0088177581679526e-08,3.8175228667930673e-07,2.3890828885028523e-07
-EU27+UK,Activity,Manufacture of glass and glass products,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Manufacture of machinery and equipment n.e.c. (29),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Manufacture of medical, precision and optical instruments, watches and clocks (33)",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Manufacture of motor vehicles, trailers and semi-trailers (34)",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Manufacture of office machinery and computers (30),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Manufacture of other non-metallic mineral products n.e.c.,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Manufacture of other transport equipment (35),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Manufacture of radio, television and communication equipment and apparatus (32)",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Manufacture of rubber and plastic products (25),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Manufacture of textiles (17),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Manufacture of tobacco products (16),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Manufacture of wearing apparel; dressing and dyeing of fur (18),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials (20)",5.903667944346643e-11,4.67270235082457e-11,6.072901019925424e-11,2.267538429203549e-11,2.776992189347646e-11
-EU27+UK,Activity,"Manure treatment (biogas), storage and land application",4.285078766135069e-14,9.85599430215686e-14,9.852449342632171e-14,3.8765096469684174e-14,2.7193416793849484e-14
-EU27+UK,Activity,"Manure treatment (conventional), storage and land application",4.285078766135069e-14,9.85599430215686e-14,9.852449342632171e-14,3.8765096469684174e-14,2.7193416793849484e-14
-EU27+UK,Activity,Meat animals nec,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Mining of aluminium ores and concentrates,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Mining of chemical and fertilizer minerals, production of salt, other mining and quarrying n.e.c.",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Mining of coal and lignite; extraction of peat (10),1.6272995368081258e-06,4.542375239125173e-07,4.809980471153734e-07,3.1152386264662236e-07,6.423969353754289e-07
-EU27+UK,Activity,Mining of copper ores and concentrates,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Mining of iron ores,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Mining of lead, zinc and tin ores and concentrates",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Mining of nickel ores and concentrates,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Mining of other non-ferrous metal ores and concentrates,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Mining of precious metal ores and concentrates,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Mining of uranium and thorium ores (12),4.7887103948279765e-09,6.261863629248022e-09,6.463782139763581e-09,3.049105094008646e-09,2.592426576654275e-09
-EU27+UK,Activity,N-fertiliser,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Other business activities (74),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Other land transport,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Other non-ferrous metal production,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Other service activities (93),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,P- and other fertiliser,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Paper,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Petroleum Refinery,6.947476230089673e-07,7.092462631194802e-07,8.558333157937174e-07,9.880579799818218e-07,5.057166187561985e-07
-EU27+UK,Activity,Pigs farming,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Plastics, basic",1.785312313192243e-08,3.6903835556760653e-08,3.3841243204257204e-08,1.341923327546654e-08,9.472353227447e-09
-EU27+UK,Activity,Post and telecommunications (64),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Poultry farming,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Precious metals production,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Private households with employed persons (95),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Processed rice,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Processing of Food products nec,1.0537301403891081e-08,2.4934458362295944e-08,2.567744612078554e-08,8.946432193507016e-09,6.202368852542078e-09
-EU27+UK,Activity,Processing of dairy products,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Processing of meat cattle,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Processing of meat pigs,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Processing of meat poultry,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Processing of nuclear fuel,1.0196164736221767e-07,1.094850822328207e-07,9.260183291864816e-08,4.085629249081201e-08,4.775378505987643e-08
-EU27+UK,Activity,Processing vegetable oils and fats,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Production of electricity by Geothermal,2.388946065898315e-08,1.8365077583886473e-09,1.8887238609954832e-09,6.311380450019583e-10,7.829855790335154e-09
-EU27+UK,Activity,Production of electricity by biomass and waste,9.353690258736205e-08,8.397958314035111e-09,8.698088048500267e-09,5.802009686942061e-09,3.242803006878484e-08
-EU27+UK,Activity,Production of electricity by coal,9.188742401219296e-07,1.4937433752354606e-07,1.5415980932789267e-07,9.40292684547366e-08,3.338045203075312e-07
-EU27+UK,Activity,Production of electricity by gas,3.4424862669473094e-07,7.063017938509771e-08,7.215989598860885e-08,5.4591111569294974e-08,1.3451255092983875e-07
-EU27+UK,Activity,Production of electricity by hydro,1.1409365484379046e-06,7.155418508491655e-08,7.400873837858156e-08,8.915884950203724e-08,4.0851732946483395e-07
-EU27+UK,Activity,Production of electricity by nuclear,1.622022552093639e-06,1.861546658056002e-07,1.8607757676493436e-07,1.1303259808598836e-07,5.662243221135445e-07
-EU27+UK,Activity,Production of electricity by petroleum and other oil derivatives,2.6663913813651447e-08,7.510556462009816e-09,7.54111720903077e-09,7.163192948216392e-09,1.1975228756615675e-08
-EU27+UK,Activity,Production of electricity by solar photovoltaic,1.5070517344436544e-06,2.8112525985151922e-08,2.8047847456130344e-08,9.485257171685673e-09,0.0004535119307989052
-EU27+UK,Activity,Production of electricity by solar thermal,7.249714133029706e-08,1.3612302980632329e-09,1.5891516927489477e-09,5.100945346323132e-10,2.3368682345176157e-08
-EU27+UK,Activity,"Production of electricity by tide, wave, ocean",3.6564417570128494e-10,5.262255220821383e-11,5.156607703309419e-11,4.126862783863401e-11,1.3485835566202793e-10
-EU27+UK,Activity,Production of electricity by wind,1.0671554343421624e-06,5.8692646180213196e-08,6.115826216589657e-08,6.93111173720068e-05,3.6416830449396426e-07
-EU27+UK,Activity,Production of electricity nec,5.853957488530786e-11,3.3442368949332984e-11,3.469881618477703e-11,2.3698657230465314e-11,2.939529757935341e-11
-EU27+UK,Activity,Production of meat products nec,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Production of offshore wind plants,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Production of onshore wind plants,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Production of photovoltaic plants,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Public administration and defence; compulsory social security (75),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Publishing, printing and reproduction of recorded media (22)",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Pulp,7.461488944313182e-09,1.1450053708710436e-08,1.0485584616330155e-08,5.326589806914086e-09,4.1953666440981465e-09
-EU27+UK,Activity,Quarrying of sand and clay,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Quarrying of stone,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Raw milk,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Re-processing of ash into clinker,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Re-processing of secondary aluminium into new aluminium,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Re-processing of secondary construction material into aggregates,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Re-processing of secondary copper into new copper,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Re-processing of secondary glass into new glass,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Re-processing of secondary lead into new lead, zinc and tin",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Re-processing of secondary other non-ferrous metals into new other non-ferrous metals,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Re-processing of secondary paper into new pulp,6.7796345591384055e-09,1.2111094208367965e-08,1.1078847509756459e-08,5.584858121081416e-09,4.0123286378108025e-09
-EU27+UK,Activity,Re-processing of secondary plastic into new plastic,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Re-processing of secondary preciuos metals into new preciuos metals,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Re-processing of secondary steel into new steel,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Re-processing of secondary wood material into new wood material,1.5694360278637967e-08,1.2967618218366447e-08,1.660917317528737e-08,6.0889604477567165e-09,7.359228775911929e-09
-EU27+UK,Activity,Real estate activities (70),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Recreational, cultural and sporting activities (92)",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Recycling of bottles by direct reuse,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Recycling of waste and scrap,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Renting of machinery and equipment without operator and of personal and household goods (71),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Research and development (73),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Retail sale of automotive fuel,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Retail trade, except of motor vehicles and motorcycles; repair of personal and household goods (52)",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Sale, maintenance, repair of motor vehicles, motor vehicles parts, motorcycles, motor cycles parts and accessoiries",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Sea and coastal water transport,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Steam and hot water supply,1.7375743763269116e-07,1.9223743481960802e-07,1.8771802323441236e-07,1.5497329839401814e-07,1.2369375096395866e-07
-EU27+UK,Activity,Sugar refining,2.7612828975919655e-10,5.48143107256828e-10,5.617085368299678e-10,2.5380156976090345e-10,2.080033671640342e-10
-EU27+UK,Activity,Supporting and auxiliary transport activities; activities of travel agencies (63),0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Tanning and dressing of leather; manufacture of luggage, handbags, saddlery, harness and footwear (19)",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Transmission of electricity,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Transport via pipelines,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,Transport via railways,0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Waste water treatment, food",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Waste water treatment, other",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Wholesale trade and commission trade, except of motor vehicles and motorcycles (51)",0.0,0.0,0.0,0.0,0.0
-EU27+UK,Activity,"Wool, silk-worm cocoons",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Activities auxiliary to financial intermediation (67),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Activities of membership organisation n.e.c. (91),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Air transport (62),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Aluminium production,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Animal products nec,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Biogasification of food waste, incl. land application",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Biogasification of paper, incl. land application",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Biogasification of sewage slugde, incl. land application",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Casting of metals,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Cattle farming,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Chemicals nec,3.758324729062872e-08,3.907564520824381e-08,3.582560719192979e-08,1.5484435192854438e-08,1.643050343172366e-08
-RoW,Activity,"Collection, purification and distribution of water (41)",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Composting of food waste, incl. land application",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Composting of paper and wood, incl. land application",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Computer and related activities (72),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Construction (45),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Copper production,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Cultivation of cereal grains nec,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Cultivation of crops nec,3.445474917179746e-08,3.091621442158399e-08,2.7868431003057296e-08,1.2050214700867702e-08,1.5329904462542625e-08
-RoW,Activity,Cultivation of oil seeds,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Cultivation of paddy rice,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Cultivation of plant-based fibers,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Cultivation of sugar cane, sugar beet",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Cultivation of vegetables, fruit, nuts",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Cultivation of wheat,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Distribution and trade of electricity,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Education (80),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Extra-territorial organizations and bodies,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Extraction of crude petroleum and services related to crude oil extraction, excluding surveying",1.9836422369637505e-06,1.5355760280249661e-06,1.4681608102897578e-06,1.3859858530718373e-06,1.1010195566177559e-06
-RoW,Activity,"Extraction of natural gas and services related to natural gas extraction, excluding surveying",2.7070233895317827e-06,2.044076058141959e-06,1.7940444550369676e-06,3.07622929134277e-06,2.2578237040450078e-06
-RoW,Activity,"Extraction, liquefaction, and regasification of other petroleum and gaseous materials",2.068892780894035e-08,1.7152922089785476e-08,1.6073709623411702e-08,9.59345654766965e-09,9.693888598181045e-09
-RoW,Activity,"Financial intermediation, except insurance and pension funding (65)",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Fishing, operating of fish hatcheries and fish farms; service activities incidental to fishing (05)",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Forestry, logging and related service activities (02)",1.5411458297516394e-08,1.1021646409068948e-08,9.571544760307345e-09,4.038692725408006e-09,6.304992601848015e-09
-RoW,Activity,Health and social work (85),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Hotels and restaurants (55),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Incineration of waste: Food,1.6807509646122636e-10,1.7221361078597626e-10,1.616438002308979e-10,7.135257106419e-11,7.841907898706598e-11
-RoW,Activity,Incineration of waste: Metals and Inert materials,6.017845073040955e-10,7.111089912521169e-10,7.408200676446179e-10,3.483489567975856e-10,3.256019722903244e-10
-RoW,Activity,Incineration of waste: Oil/Hazardous waste,4.46939620862173e-10,4.132521306333468e-10,3.815911556414575e-10,1.860097536741043e-10,2.1163361156151982e-10
-RoW,Activity,Incineration of waste: Paper,1.7152355941591382e-10,1.427197326295445e-10,1.3312884271574302e-10,6.663088320764341e-11,8.013848993712794e-11
-RoW,Activity,Incineration of waste: Plastic,6.761033492629759e-10,5.440743040965381e-10,5.081619234969927e-10,2.3825409318577916e-10,3.0060476720849505e-10
-RoW,Activity,Incineration of waste: Textiles,6.641509009997215e-10,7.218210699335279e-10,7.24901010536962e-10,3.014499093857053e-10,3.136168432274337e-10
-RoW,Activity,Incineration of waste: Wood,6.786475664887937e-11,6.958128788436846e-11,6.356765068822433e-11,3.027720897992809e-11,3.266759187402855e-11
-RoW,Activity,Inland water transport,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Insurance and pension funding, except compulsory social security (66)",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Landfill of waste: Food,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Landfill of waste: Inert/metal/hazardous,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Landfill of waste: Paper,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Landfill of waste: Plastic,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Landfill of waste: Textiles,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Landfill of waste: Wood,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Lead, zinc and tin production",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Manufacture of basic iron and steel and of ferro-alloys and first products thereof,1.284755586300014e-08,2.5793266854350554e-08,2.246928677445204e-08,7.7587609476495e-09,6.133707413004675e-09
-RoW,Activity,Manufacture of beverages,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Manufacture of bricks, tiles and construction products, in baked clay",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Manufacture of cement, lime and plaster",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Manufacture of ceramic goods,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Manufacture of coke oven products,5.582225256920678e-08,6.280406226990714e-08,5.548936385449072e-08,2.4119265832413186e-08,2.5279743179429454e-08
-RoW,Activity,Manufacture of electrical machinery and apparatus n.e.c. (31),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Manufacture of fabricated metal products, except machinery and equipment (28)",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Manufacture of fish products,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Manufacture of furniture; manufacturing n.e.c. (36),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Manufacture of gas; distribution of gaseous fuels through mains,3.1303385439619564e-09,1.7628771472111568e-09,1.552885815665937e-09,7.834726982562446e-10,1.2823043467604532e-09
-RoW,Activity,Manufacture of glass and glass products,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Manufacture of machinery and equipment n.e.c. (29),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Manufacture of medical, precision and optical instruments, watches and clocks (33)",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Manufacture of motor vehicles, trailers and semi-trailers (34)",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Manufacture of office machinery and computers (30),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Manufacture of other non-metallic mineral products n.e.c.,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Manufacture of other transport equipment (35),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Manufacture of radio, television and communication equipment and apparatus (32)",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Manufacture of rubber and plastic products (25),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Manufacture of textiles (17),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Manufacture of tobacco products (16),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Manufacture of wearing apparel; dressing and dyeing of fur (18),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials (20)",7.031558897405726e-12,5.410339742065927e-12,5.716684172535035e-12,2.3070774550302283e-12,3.128039978408116e-12
-RoW,Activity,"Manure treatment (biogas), storage and land application",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Manure treatment (conventional), storage and land application",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Meat animals nec,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Mining of aluminium ores and concentrates,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Mining of chemical and fertilizer minerals, production of salt, other mining and quarrying n.e.c.",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Mining of coal and lignite; extraction of peat (10),2.6039600594630556e-06,8.655059736782536e-07,7.653664667644266e-07,5.209918202543688e-07,9.60953903584555e-07
-RoW,Activity,Mining of copper ores and concentrates,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Mining of iron ores,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Mining of lead, zinc and tin ores and concentrates",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Mining of nickel ores and concentrates,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Mining of other non-ferrous metal ores and concentrates,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Mining of precious metal ores and concentrates,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Mining of uranium and thorium ores (12),1.2889232360686194e-07,1.3380641348452925e-07,1.201886757715789e-07,5.4093487389073626e-08,5.791390966887586e-08
-RoW,Activity,N-fertiliser,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Other business activities (74),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Other land transport,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Other non-ferrous metal production,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Other service activities (93),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,P- and other fertiliser,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Paper,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Petroleum Refinery,7.157657413804344e-07,5.949609707087708e-07,5.795977737913314e-07,4.2057383790769587e-07,3.688075561242545e-07
-RoW,Activity,Pigs farming,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Plastics, basic",7.69305387652921e-09,8.822388185084136e-09,6.587025286312449e-09,2.6753233769083264e-09,3.2522377295940338e-09
-RoW,Activity,Post and telecommunications (64),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Poultry farming,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Precious metals production,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Private households with employed persons (95),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Processed rice,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Processing of Food products nec,1.243233475498893e-08,1.1669586992748667e-08,1.0620273145678723e-08,5.033706770637534e-09,5.888844595490316e-09
-RoW,Activity,Processing of dairy products,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Processing of meat cattle,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Processing of meat pigs,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Processing of meat poultry,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Processing of nuclear fuel,9.662666147049469e-08,8.057820869091098e-08,5.954495898150555e-08,2.4069686725252194e-08,3.7302944391224754e-08
-RoW,Activity,Processing vegetable oils and fats,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Production of electricity by Geothermal,2.8981954141776784e-09,8.481271538765426e-10,7.244618980981086e-10,3.7421739448196155e-10,1.063296643987012e-09
-RoW,Activity,Production of electricity by biomass and waste,1.170483338922836e-09,2.471330778482605e-10,2.1390181721818674e-10,1.0944352114872503e-10,4.148020870937372e-10
-RoW,Activity,Production of electricity by coal,1.880335806610494e-07,3.438506764858756e-08,2.9780461879167925e-08,1.449146734818119e-08,6.527306102980955e-08
-RoW,Activity,Production of electricity by gas,1.6667559308556217e-07,3.7428883980261704e-08,3.28735237291589e-08,1.8102460050421062e-08,5.981163906760213e-08
-RoW,Activity,Production of electricity by hydro,1.605633786221099e-07,4.0374373391902535e-08,3.549229428709608e-08,1.8960785025400365e-08,5.815880518191641e-08
-RoW,Activity,Production of electricity by nuclear,3.4972702703513176e-08,1.1418220241107942e-08,1.0020130356314438e-08,4.753685500810663e-09,1.2837607771705352e-08
-RoW,Activity,Production of electricity by petroleum and other oil derivatives,3.930964032496665e-08,1.4642511278840201e-08,1.2831252382984308e-08,7.465175624776186e-09,1.5284178828756958e-08
-RoW,Activity,Production of electricity by solar photovoltaic,8.508547508574331e-09,3.518486232318565e-10,3.135595930518827e-10,1.6165215521463537e-10,2.7801781788911792e-09
-RoW,Activity,Production of electricity by solar thermal,3.1417484449131784e-11,3.1890424673959676e-14,2.7703064829090544e-14,1.2834189436203174e-14,1.0059643294082732e-11
-RoW,Activity,"Production of electricity by tide, wave, ocean",1.0306386596791202e-12,8.434549544079189e-13,6.6623719721808e-13,2.8155832826530184e-13,4.1355475706483597e-13
-RoW,Activity,Production of electricity by wind,1.3748695924630317e-08,1.8240152712106259e-09,1.5762500866431236e-09,9.169836480961276e-10,4.7468372756753476e-09
-RoW,Activity,Production of electricity nec,3.232787093513623e-11,1.5992427703434293e-11,1.3667655859196669e-11,6.289024103331426e-12,1.2546620541581875e-11
-RoW,Activity,Production of meat products nec,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Production of offshore wind plants,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Production of onshore wind plants,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Production of photovoltaic plants,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Public administration and defence; compulsory social security (75),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Publishing, printing and reproduction of recorded media (22)",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Pulp,6.823257021971547e-09,5.708536167529607e-09,4.511698538630224e-09,2.0817092497033127e-09,2.905545704612165e-09
-RoW,Activity,Quarrying of sand and clay,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Quarrying of stone,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Raw milk,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Re-processing of ash into clinker,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Re-processing of secondary aluminium into new aluminium,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Re-processing of secondary construction material into aggregates,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Re-processing of secondary copper into new copper,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Re-processing of secondary glass into new glass,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Re-processing of secondary lead into new lead, zinc and tin",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Re-processing of secondary other non-ferrous metals into new other non-ferrous metals,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Re-processing of secondary paper into new pulp,3.4138214984758947e-09,2.599644381473172e-09,2.0677431690602872e-09,9.693910077374808e-10,1.428906199742393e-09
-RoW,Activity,Re-processing of secondary plastic into new plastic,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Re-processing of secondary preciuos metals into new preciuos metals,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Re-processing of secondary steel into new steel,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Re-processing of secondary wood material into new wood material,2.2275623284569437e-09,1.7282561247911774e-09,1.8348260472089414e-09,7.390407307659703e-10,9.94116406803425e-10
-RoW,Activity,Real estate activities (70),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Recreational, cultural and sporting activities (92)",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Recycling of bottles by direct reuse,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Recycling of waste and scrap,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Renting of machinery and equipment without operator and of personal and household goods (71),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Research and development (73),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Retail sale of automotive fuel,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Retail trade, except of motor vehicles and motorcycles; repair of personal and household goods (52)",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Sale, maintenance, repair of motor vehicles, motor vehicles parts, motorcycles, motor cycles parts and accessoiries",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Sea and coastal water transport,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Steam and hot water supply,3.080485896422934e-08,2.9422041136307407e-08,2.6280612873271812e-08,1.3828616695072986e-08,1.499029480088665e-08
-RoW,Activity,Sugar refining,2.1142975350162577e-09,1.8411452744073031e-09,1.6293559122848555e-09,7.461706038560963e-10,9.688906504575843e-10
-RoW,Activity,Supporting and auxiliary transport activities; activities of travel agencies (63),0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Tanning and dressing of leather; manufacture of luggage, handbags, saddlery, harness and footwear (19)",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Transmission of electricity,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Transport via pipelines,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,Transport via railways,0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Waste water treatment, food",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Waste water treatment, other",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Wholesale trade and commission trade, except of motor vehicles and motorcycles (51)",0.0,0.0,0.0,0.0,0.0
-RoW,Activity,"Wool, silk-worm cocoons",0.0,0.0,0.0,0.0,0.0
-USA,Activity,Activities auxiliary to financial intermediation (67),0.0,0.0,0.0,0.0,0.0
-USA,Activity,Activities of membership organisation n.e.c. (91),0.0,0.0,0.0,0.0,0.0
-USA,Activity,Air transport (62),0.0,0.0,0.0,0.0,0.0
-USA,Activity,Aluminium production,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Animal products nec,0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Biogasification of food waste, incl. land application",0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Biogasification of paper, incl. land application",0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Biogasification of sewage slugde, incl. land application",0.0,0.0,0.0,0.0,0.0
-USA,Activity,Casting of metals,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Cattle farming,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Chemicals nec,5.576153158810789e-08,1.822030518970855e-08,1.6820442887638082e-08,7.692817207579732e-09,2.0118932928455698e-08
-USA,Activity,"Collection, purification and distribution of water (41)",0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Composting of food waste, incl. land application",0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Composting of paper and wood, incl. land application",0.0,0.0,0.0,0.0,0.0
-USA,Activity,Computer and related activities (72),0.0,0.0,0.0,0.0,0.0
-USA,Activity,Construction (45),0.0,0.0,0.0,0.0,0.0
-USA,Activity,Copper production,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Cultivation of cereal grains nec,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Cultivation of crops nec,2.7524643364477095e-11,1.0586010873233216e-11,9.449669630700812e-12,4.372121260120603e-12,1.0227560626771396e-11
-USA,Activity,Cultivation of oil seeds,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Cultivation of paddy rice,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Cultivation of plant-based fibers,0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Cultivation of sugar cane, sugar beet",0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Cultivation of vegetables, fruit, nuts",0.0,0.0,0.0,0.0,0.0
-USA,Activity,Cultivation of wheat,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Distribution and trade of electricity,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Education (80),0.0,0.0,0.0,0.0,0.0
-USA,Activity,Extra-territorial organizations and bodies,0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Extraction of crude petroleum and services related to crude oil extraction, excluding surveying",9.685717566141263e-08,4.0335844237458614e-08,3.8830978328707194e-08,2.8490948311618796e-08,4.006076183293632e-08
-USA,Activity,"Extraction of natural gas and services related to natural gas extraction, excluding surveying",3.9108427724760415e-08,2.2488208450639325e-08,2.2187770062063672e-08,1.705439129020336e-08,1.8198250574885684e-08
-USA,Activity,"Extraction, liquefaction, and regasification of other petroleum and gaseous materials",1.4712621462848796e-09,2.988107006703071e-10,2.799081357851139e-10,1.7896925854086877e-10,5.30160767092808e-10
-USA,Activity,"Financial intermediation, except insurance and pension funding (65)",0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Fishing, operating of fish hatcheries and fish farms; service activities incidental to fishing (05)",0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Forestry, logging and related service activities (02)",2.6853833821650086e-09,1.0504774755631457e-09,8.956253046651943e-10,3.8200213935071e-10,9.859094132131264e-10
-USA,Activity,Health and social work (85),0.0,0.0,0.0,0.0,0.0
-USA,Activity,Hotels and restaurants (55),0.0,0.0,0.0,0.0,0.0
-USA,Activity,Incineration of waste: Food,2.2871562552763056e-10,1.4070452564387277e-10,1.3634111648228659e-10,5.1341336906573734e-11,8.844328407358378e-11
-USA,Activity,Incineration of waste: Metals and Inert materials,3.6556184611145516e-10,2.7545324031206094e-10,3.431277830167599e-10,1.5124140236496548e-10,1.835142329151046e-10
-USA,Activity,Incineration of waste: Oil/Hazardous waste,3.129924174982715e-11,2.1893859278939897e-11,2.1624354574490692e-11,1.056686206967331e-11,1.4232716075248265e-11
-USA,Activity,Incineration of waste: Paper,3.5284496116055835e-10,1.2183190719434456e-10,1.1783772700799081e-10,5.5667467500183785e-11,1.3336735231859952e-10
-USA,Activity,Incineration of waste: Plastic,8.008817626345518e-10,2.711484386730988e-10,2.5881614946277654e-10,1.1143297603771363e-10,2.942819216563148e-10
-USA,Activity,Incineration of waste: Textiles,1.0716331466965476e-10,4.493604889573825e-11,4.441330059522266e-11,1.9018052759036255e-11,4.121885203034208e-11
-USA,Activity,Incineration of waste: Wood,1.3645852081967693e-10,6.102747132464163e-11,5.766720277993274e-11,2.811878870284277e-11,5.4278777414006046e-11
-USA,Activity,Inland water transport,0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Insurance and pension funding, except compulsory social security (66)",0.0,0.0,0.0,0.0,0.0
-USA,Activity,Landfill of waste: Food,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Landfill of waste: Inert/metal/hazardous,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Landfill of waste: Paper,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Landfill of waste: Plastic,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Landfill of waste: Textiles,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Landfill of waste: Wood,0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Lead, zinc and tin production",0.0,0.0,0.0,0.0,0.0
-USA,Activity,Manufacture of basic iron and steel and of ferro-alloys and first products thereof,1.478742528603898e-09,1.427556306082073e-09,1.2108347916137517e-09,4.361282725653495e-10,5.938135377594952e-10
-USA,Activity,Manufacture of beverages,0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Manufacture of bricks, tiles and construction products, in baked clay",0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Manufacture of cement, lime and plaster",0.0,0.0,0.0,0.0,0.0
-USA,Activity,Manufacture of ceramic goods,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Manufacture of coke oven products,5.942073043156737e-09,5.965674582220942e-09,5.162414969850434e-09,1.7989452153514578e-09,2.390443891089537e-09
-USA,Activity,Manufacture of electrical machinery and apparatus n.e.c. (31),0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Manufacture of fabricated metal products, except machinery and equipment (28)",0.0,0.0,0.0,0.0,0.0
-USA,Activity,Manufacture of fish products,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Manufacture of furniture; manufacturing n.e.c. (36),0.0,0.0,0.0,0.0,0.0
-USA,Activity,Manufacture of gas; distribution of gaseous fuels through mains,3.193791725020413e-09,2.0952368853242814e-10,1.8138330228317934e-10,8.613462813561082e-11,1.0527771125620053e-09
-USA,Activity,Manufacture of glass and glass products,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Manufacture of machinery and equipment n.e.c. (29),0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Manufacture of medical, precision and optical instruments, watches and clocks (33)",0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Manufacture of motor vehicles, trailers and semi-trailers (34)",0.0,0.0,0.0,0.0,0.0
-USA,Activity,Manufacture of office machinery and computers (30),0.0,0.0,0.0,0.0,0.0
-USA,Activity,Manufacture of other non-metallic mineral products n.e.c.,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Manufacture of other transport equipment (35),0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Manufacture of radio, television and communication equipment and apparatus (32)",0.0,0.0,0.0,0.0,0.0
-USA,Activity,Manufacture of rubber and plastic products (25),0.0,0.0,0.0,0.0,0.0
-USA,Activity,Manufacture of textiles (17),0.0,0.0,0.0,0.0,0.0
-USA,Activity,Manufacture of tobacco products (16),0.0,0.0,0.0,0.0,0.0
-USA,Activity,Manufacture of wearing apparel; dressing and dyeing of fur (18),0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials (20)",0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Manure treatment (biogas), storage and land application",0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Manure treatment (conventional), storage and land application",0.0,0.0,0.0,0.0,0.0
-USA,Activity,Meat animals nec,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Mining of aluminium ores and concentrates,0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Mining of chemical and fertilizer minerals, production of salt, other mining and quarrying n.e.c.",0.0,0.0,0.0,0.0,0.0
-USA,Activity,Mining of coal and lignite; extraction of peat (10),2.56182702088339e-06,2.686123114169483e-07,2.683995682001714e-07,1.6618523926093352e-07,8.834651919680542e-07
-USA,Activity,Mining of copper ores and concentrates,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Mining of iron ores,0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Mining of lead, zinc and tin ores and concentrates",0.0,0.0,0.0,0.0,0.0
-USA,Activity,Mining of nickel ores and concentrates,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Mining of other non-ferrous metal ores and concentrates,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Mining of precious metal ores and concentrates,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Mining of uranium and thorium ores (12),1.7857765678075465e-08,7.08684027499714e-09,6.147154050721688e-09,2.610496002188084e-09,6.452452737120393e-09
-USA,Activity,N-fertiliser,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Other business activities (74),0.0,0.0,0.0,0.0,0.0
-USA,Activity,Other land transport,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Other non-ferrous metal production,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Other service activities (93),0.0,0.0,0.0,0.0,0.0
-USA,Activity,P- and other fertiliser,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Paper,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Petroleum Refinery,1.5650700387560742e-07,7.691785089759347e-08,7.710050455441048e-08,6.60770462056686e-08,7.10579946177023e-08
-USA,Activity,Pigs farming,0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Plastics, basic",0.0,0.0,0.0,0.0,0.0
-USA,Activity,Post and telecommunications (64),0.0,0.0,0.0,0.0,0.0
-USA,Activity,Poultry farming,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Precious metals production,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Private households with employed persons (95),0.0,0.0,0.0,0.0,0.0
-USA,Activity,Processed rice,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Processing of Food products nec,9.666615589971276e-10,4.562354302151957e-10,3.9993848492430226e-10,1.8048178269013298e-10,3.671149152927756e-10
-USA,Activity,Processing of dairy products,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Processing of meat cattle,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Processing of meat pigs,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Processing of meat poultry,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Processing of nuclear fuel,8.179058803198752e-08,7.379649739346988e-08,5.283519868414261e-08,1.942163735699615e-08,3.1079068140297116e-08
-USA,Activity,Processing vegetable oils and fats,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Production of electricity by Geothermal,9.657849635176141e-09,8.7602291942095e-11,7.624505253640862e-11,3.467424308230037e-11,3.102934830567257e-09
-USA,Activity,Production of electricity by biomass and waste,1.3352866536899585e-08,1.4584274372045498e-10,1.2757866526662765e-10,5.82872379337883e-11,4.292951234546035e-09
-USA,Activity,Production of electricity by coal,4.031852504511718e-07,9.954926926181486e-09,8.580891003840212e-09,3.890354508836478e-09,1.303130641899961e-07
-USA,Activity,Production of electricity by gas,7.094122745131691e-07,6.481325593776211e-09,5.601204293677318e-09,2.5424192687671463e-09,2.278804312037491e-07
-USA,Activity,Production of electricity by hydro,1.4344377683036416e-07,1.7411231492099042e-09,1.5134799461247014e-09,6.863653987711505e-10,4.613546191179347e-08
-USA,Activity,Production of electricity by nuclear,3.800984082328626e-07,3.507995362100984e-09,2.9359538814539807e-09,1.3298886754021724e-09,1.2211040196003842e-07
-USA,Activity,Production of electricity by petroleum and other oil derivatives,6.178659821451304e-09,9.43751629263285e-11,8.387638333259045e-11,3.932616133990788e-11,1.9906509982945085e-09
-USA,Activity,Production of electricity by solar photovoltaic,1.6342669455111648e-07,1.1437906188608446e-10,9.984367781559438e-11,4.4809921882787006e-11,5.2319357442401025e-08
-USA,Activity,Production of electricity by solar thermal,2.4612233070198514e-09,5.899320241575308e-12,5.127639432670894e-12,2.325843780809685e-12,7.885308356384206e-10
-USA,Activity,"Production of electricity by tide, wave, ocean",0.0,0.0,0.0,0.0,0.0
-USA,Activity,Production of electricity by wind,4.1463866676983436e-07,1.6662222863688975e-09,1.4416884291956916e-09,6.469291715385279e-10,1.329165356650136e-07
-USA,Activity,Production of electricity nec,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Production of meat products nec,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Production of offshore wind plants,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Production of onshore wind plants,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Production of photovoltaic plants,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Public administration and defence; compulsory social security (75),0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Publishing, printing and reproduction of recorded media (22)",0.0,0.0,0.0,0.0,0.0
-USA,Activity,Pulp,4.0074270326733585e-10,2.419329584686178e-10,1.688637362463095e-10,7.230389622744707e-11,1.4847487700388007e-10
-USA,Activity,Quarrying of sand and clay,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Quarrying of stone,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Raw milk,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Re-processing of ash into clinker,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Re-processing of secondary aluminium into new aluminium,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Re-processing of secondary construction material into aggregates,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Re-processing of secondary copper into new copper,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Re-processing of secondary glass into new glass,0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Re-processing of secondary lead into new lead, zinc and tin",0.0,0.0,0.0,0.0,0.0
-USA,Activity,Re-processing of secondary other non-ferrous metals into new other non-ferrous metals,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Re-processing of secondary paper into new pulp,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Re-processing of secondary plastic into new plastic,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Re-processing of secondary preciuos metals into new preciuos metals,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Re-processing of secondary steel into new steel,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Re-processing of secondary wood material into new wood material,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Real estate activities (70),0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Recreational, cultural and sporting activities (92)",0.0,0.0,0.0,0.0,0.0
-USA,Activity,Recycling of bottles by direct reuse,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Recycling of waste and scrap,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Renting of machinery and equipment without operator and of personal and household goods (71),0.0,0.0,0.0,0.0,0.0
-USA,Activity,Research and development (73),0.0,0.0,0.0,0.0,0.0
-USA,Activity,Retail sale of automotive fuel,0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Retail trade, except of motor vehicles and motorcycles; repair of personal and household goods (52)",0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Sale, maintenance, repair of motor vehicles, motor vehicles parts, motorcycles, motor cycles parts and accessoiries",0.0,0.0,0.0,0.0,0.0
-USA,Activity,Sea and coastal water transport,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Steam and hot water supply,6.8496043042645285e-09,2.0860033555534866e-09,1.889199363767236e-09,9.276513000926518e-10,2.5110300337556834e-09
-USA,Activity,Sugar refining,2.969265629241082e-12,1.8815105097294486e-12,1.6630926346920797e-12,7.572002102735753e-13,1.2518204731370825e-12
-USA,Activity,Supporting and auxiliary transport activities; activities of travel agencies (63),0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Tanning and dressing of leather; manufacture of luggage, handbags, saddlery, harness and footwear (19)",0.0,0.0,0.0,0.0,0.0
-USA,Activity,Transmission of electricity,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Transport via pipelines,0.0,0.0,0.0,0.0,0.0
-USA,Activity,Transport via railways,0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Waste water treatment, food",0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Waste water treatment, other",0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Wholesale trade and commission trade, except of motor vehicles and motorcycles (51)",0.0,0.0,0.0,0.0,0.0
-USA,Activity,"Wool, silk-worm cocoons",0.0,0.0,0.0,0.0,0.0
+Region,,,EU27+UK,EU27+UK,EU27+UK,EU27+UK,EU27+UK,EU27+UK,EU27+UK,EU27+UK,EU27+UK,EU27+UK,EU27+UK,EU27+UK,EU27+UK,EU27+UK,EU27+UK
+Level,,,Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity,Activity
+Item,,,Production of photovoltaic plants,Production of onshore wind plants,Production of offshore wind plants,Production of electricity by Geothermal,Production of electricity by biomass and waste,Production of electricity by coal,Production of electricity by gas,Production of electricity by hydro,Production of electricity by nuclear,Production of electricity by petroleum and other oil derivatives,Production of electricity by solar photovoltaic,Production of electricity by solar thermal,"Production of electricity by tide, wave, ocean",Production of electricity by wind,Production of electricity nec
+Region,Level,Item,,,,,,,,,,,,,,,
+China,Activity,Activities auxiliary to financial intermediation (67),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Activities of membership organisation n.e.c. (91),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Air transport (62),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Aluminium production,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Animal products nec,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Biogasification of food waste, incl. land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Biogasification of paper, incl. land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Biogasification of sewage slugde, incl. land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Casting of metals,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Cattle farming,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Chemicals nec,6.184141997877374e-09,1.401957005970299e-09,8.114234724042941e-10,5.497013475541614e-10,2.507763163900766e-10,2.2973845004062886e-10,2.993129517046891e-10,1.7126428535117893e-10,1.1832649115149548e-10,3.2105652482175794e-10,2.0306615431774252e-09,8.889386174347543e-11,1.1046828789885698e-10,2.859879480275609e-10,1.8913443054305235e-10
+China,Activity,"Collection, purification and distribution of water (41)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Composting of food waste, incl. land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Composting of paper and wood, incl. land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Computer and related activities (72),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Construction (45),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Copper production,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Cultivation of cereal grains nec,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Cultivation of crops nec,5.002713869873051e-09,1.4930823606174123e-09,8.491336371965409e-10,2.761572520781723e-10,3.608533059734616e-10,2.2544319650047248e-10,2.502325840653026e-10,1.2660043674177525e-10,1.0048125813093297e-10,2.2982727678041335e-10,1.6513786047452119e-09,9.282908182026636e-11,8.42338684406997e-11,2.842988567332226e-10,1.5680313336538704e-10
+China,Activity,Cultivation of oil seeds,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Cultivation of paddy rice,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Cultivation of plant-based fibers,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Cultivation of sugar cane, sugar beet",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Cultivation of vegetables, fruit, nuts",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Cultivation of wheat,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Distribution and trade of electricity,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Education (80),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Extra-territorial organizations and bodies,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Extraction of crude petroleum and services related to crude oil extraction, excluding surveying",3.6757136002452903e-07,1.384784050258251e-07,7.56636580829066e-08,1.7263123131467256e-08,1.5124762085054967e-08,1.887661354419453e-08,1.8193279995699693e-08,8.591283706658521e-09,7.238588743160617e-09,6.051516519038943e-08,1.2134939648116582e-07,6.90546548426221e-09,6.411804939370794e-09,2.4552777107172604e-08,1.1312374252380523e-08
+China,Activity,"Extraction of natural gas and services related to natural gas extraction, excluding surveying",4.5165503309586326e-08,2.817858393933135e-08,1.5112608842989227e-08,3.4223665419326834e-09,3.053444229066933e-09,3.897247186607566e-09,4.290324864685121e-09,1.9090130215840203e-09,1.6442122363345835e-09,3.6064549870060067e-09,1.5221617723061396e-08,1.4919639548725092e-09,1.2000153049564974e-09,5.098144563514614e-09,2.7340842091092994e-09
+China,Activity,"Extraction, liquefaction, and regasification of other petroleum and gaseous materials",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Financial intermediation, except insurance and pension funding (65)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Fishing, operating of fish hatcheries and fish farms; service activities incidental to fishing (05)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Forestry, logging and related service activities (02)",4.957224622211821e-09,2.277361876329565e-09,1.2392970378094118e-09,3.649443989795246e-10,3.370784071938188e-10,2.9426327317842125e-10,3.289099412031097e-10,1.83573722669754e-10,1.4360274016130183e-10,2.9800716295178146e-10,1.6554474043052835e-09,1.2370050560456172e-10,1.1193235064495109e-10,4.1755910802161157e-10,2.2235092471968687e-10
+China,Activity,Health and social work (85),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Hotels and restaurants (55),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Incineration of waste: Food,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Incineration of waste: Metals and Inert materials,2.9595954365371514e-09,6.572445919835277e-10,3.9566241737984904e-10,9.530438810864571e-11,9.494961818250587e-11,1.1286880785789221e-10,1.8319634382917403e-10,5.957007448794296e-11,5.855438690595837e-11,1.2272768832586592e-10,9.751113752012253e-10,6.216017400412084e-11,4.44026841094454e-11,1.356980962265872e-10,8.046682767133431e-11
+China,Activity,Incineration of waste: Oil/Hazardous waste,3.934917188361922e-09,8.358102030398306e-10,4.706594677071238e-10,9.503264651255552e-11,9.376150510176308e-11,4.0676873546867984e-10,1.2217354729020736e-10,5.738254379660819e-11,5.666921797676726e-11,1.0738771258035002e-10,1.2857547274173196e-09,4.374876848751287e-11,3.9253067122895813e-11,1.5441586752145434e-10,7.847949291034067e-11
+China,Activity,Incineration of waste: Paper,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Incineration of waste: Plastic,3.0886955993856374e-09,7.026987019919671e-10,3.922459632172138e-10,8.127141132735195e-11,8.227976418562025e-11,2.5810088135555666e-10,1.8949459074043954e-10,5.2184608794649523e-11,4.7379074671948736e-11,8.83212565301707e-11,1.0122667296903397e-09,5.114070418316104e-11,3.420067381246566e-11,1.3346904406177889e-10,6.947291359977218e-11
+China,Activity,Incineration of waste: Textiles,2.800135190923454e-09,5.688991887305243e-10,3.2079185326339446e-10,6.963105057475934e-11,6.359468897831597e-11,1.6771293393075052e-10,8.542753973582388e-11,3.992749006003685e-11,3.485810294443105e-11,7.236688657793331e-11,9.136244119675487e-10,3.3645752680223005e-11,2.6350341810168888e-11,1.0529807967030537e-10,5.3221866191823445e-11
+China,Activity,Incineration of waste: Wood,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Inland water transport,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Insurance and pension funding, except compulsory social security (66)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Landfill of waste: Food,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Landfill of waste: Inert/metal/hazardous,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Landfill of waste: Paper,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Landfill of waste: Plastic,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Landfill of waste: Textiles,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Landfill of waste: Wood,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Lead, zinc and tin production",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Manufacture of basic iron and steel and of ferro-alloys and first products thereof,5.876709532338572e-08,1.4386211900778522e-07,6.872293336245053e-08,4.8456052195653914e-09,5.93157600085376e-09,8.494597843817044e-09,8.54898923567504e-09,3.5628680855714463e-09,3.5129453268746838e-09,8.240076740944076e-09,2.0551879749195952e-08,2.654808924363757e-09,2.5361656665190547e-09,2.0965943118676763e-08,5.316965108080267e-09
+China,Activity,Manufacture of beverages,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Manufacture of bricks, tiles and construction products, in baked clay",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Manufacture of cement, lime and plaster",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Manufacture of ceramic goods,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Manufacture of coke oven products,5.481573151771952e-07,4.774643761450469e-07,2.379025604340193e-07,2.1438891602306947e-08,2.2937330774588745e-08,3.100083209295024e-08,3.169120139686178e-08,1.3852299876211957e-08,1.3377109294382591e-08,3.5503415815721356e-08,1.8192457917547086e-07,1.0112534685096394e-08,9.708589613338206e-09,7.195143761151323e-08,1.9901011016469977e-08
+China,Activity,Manufacture of electrical machinery and apparatus n.e.c. (31),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Manufacture of fabricated metal products, except machinery and equipment (28)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Manufacture of fish products,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Manufacture of furniture; manufacturing n.e.c. (36),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Manufacture of gas; distribution of gaseous fuels through mains,4.8163179202914233e-08,2.081344856988482e-08,1.1178531689683021e-08,1.6056658821179012e-09,1.4443256313205724e-09,1.7733527657289735e-09,1.8928028845862912e-09,8.82285847858398e-10,8.189932728620912e-10,1.826981832829492e-09,1.5806937958393855e-08,6.750878010391927e-10,6.386399344859342e-10,3.4110260826024838e-09,1.212517169851507e-09
+China,Activity,Manufacture of glass and glass products,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Manufacture of machinery and equipment n.e.c. (29),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Manufacture of medical, precision and optical instruments, watches and clocks (33)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Manufacture of motor vehicles, trailers and semi-trailers (34)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Manufacture of office machinery and computers (30),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Manufacture of other non-metallic mineral products n.e.c.,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Manufacture of other transport equipment (35),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Manufacture of radio, television and communication equipment and apparatus (32)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Manufacture of rubber and plastic products (25),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Manufacture of textiles (17),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Manufacture of tobacco products (16),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Manufacture of wearing apparel; dressing and dyeing of fur (18),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials (20)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Manure treatment (biogas), storage and land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Manure treatment (conventional), storage and land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Meat animals nec,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Mining of aluminium ores and concentrates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Mining of chemical and fertilizer minerals, production of salt, other mining and quarrying n.e.c.",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Mining of coal and lignite; extraction of peat (10),3.624198891780784e-06,1.9148218392268375e-06,9.539855598870145e-07,1.1467043541037678e-07,1.0873911478961703e-07,1.4853437621902463e-07,1.4813701227146343e-07,6.66591049909556e-08,6.102082006067805e-08,1.686069545945871e-07,1.1902899434829857e-06,4.811370813285672e-08,4.656673483618815e-08,2.9523039809793966e-07,9.33735938254844e-08
+China,Activity,Mining of copper ores and concentrates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Mining of iron ores,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Mining of lead, zinc and tin ores and concentrates",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Mining of nickel ores and concentrates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Mining of other non-ferrous metal ores and concentrates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Mining of precious metal ores and concentrates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Mining of uranium and thorium ores (12),9.511225694990736e-09,1.1696726166600393e-08,6.006284826189348e-09,1.1789084528088602e-09,1.2084334452349915e-09,1.4170663636628377e-09,1.4335324269083446e-09,7.557754454032416e-10,7.33995255814838e-10,1.0875684618546593e-09,3.3742850703915713e-09,7.070892644224078e-10,5.291042237434354e-10,2.1004565966734673e-09,9.900323675341015e-10
+China,Activity,N-fertiliser,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Other business activities (74),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Other land transport,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Other non-ferrous metal production,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Other service activities (93),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,P- and other fertiliser,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Paper,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Petroleum Refinery,7.590770770636297e-07,2.7740006141867715e-07,1.5206752108691163e-07,3.2301699996402086e-08,3.0630605350301925e-08,3.754893264091587e-08,3.676302359642147e-08,1.6907777051226736e-08,1.4564094664095611e-08,1.3844509925700976e-07,2.5062173087874266e-07,1.3992600397041377e-08,1.2812746350589508e-08,4.9208288535183585e-08,2.2737485428562966e-08
+China,Activity,Pigs farming,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Plastics, basic",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Post and telecommunications (64),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Poultry farming,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Precious metals production,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Private households with employed persons (95),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Processed rice,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Processing of Food products nec,4.6140796340660065e-08,1.032511582167296e-08,5.954454032154988e-09,1.2548050067675666e-09,1.2193215208259864e-09,1.809188932812234e-09,1.914271886595368e-09,7.125550555140199e-10,6.346385688274109e-10,1.3509264597064652e-09,1.512547211457085e-08,7.099550393663888e-10,5.529526912285576e-10,1.9385285350402375e-09,1.0027725608907266e-09
+China,Activity,Processing of dairy products,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Processing of meat cattle,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Processing of meat pigs,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Processing of meat poultry,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Processing of nuclear fuel,1.8597518283090892e-08,1.4223806844844924e-08,7.978488729586028e-09,2.5446129575500977e-09,1.907246946966418e-09,4.766473660306549e-09,2.35595938177788e-09,1.1664471786797688e-09,9.501675314886532e-10,3.3269249094372935e-09,6.446922442714843e-09,8.274756182863347e-10,9.067463316449539e-10,2.6895429639823897e-09,1.5331814973156514e-09
+China,Activity,Processing vegetable oils and fats,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Production of electricity by Geothermal,4.7749401440762414e-11,7.902392427757719e-12,4.3045627059403236e-12,6.205857429413476e-13,5.522732147780994e-13,6.765422384160373e-13,7.290226061685316e-13,3.420824677166246e-13,3.153778998820988e-13,7.221671371487934e-13,1.543770149943096e-11,2.5571576727196433e-13,2.394223943125668e-13,1.3082742332760566e-12,4.683680360836968e-13
+China,Activity,Production of electricity by biomass and waste,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Production of electricity by coal,2.2408817245065297e-06,2.629446682905865e-07,1.4251733940782272e-07,1.9965305133878936e-08,1.781280604501276e-08,2.1677089053696904e-08,2.343008237057539e-08,1.1045501390171028e-08,1.0229252079473498e-08,2.3394138550174288e-08,7.220822626068441e-07,8.152593397682567e-09,7.70059368039692e-09,4.320890339743403e-08,1.5106893238415664e-08
+China,Activity,Production of electricity by gas,1.0082266011332828e-07,7.731006055411549e-09,4.211394711855146e-09,5.787596641831375e-10,5.194878187087209e-10,6.351478005502974e-10,6.840873305347682e-10,3.217978702599995e-10,2.9877903834915537e-10,6.866449417115491e-10,3.241132364096728e-08,2.383604090992746e-10,2.2464677156819584e-10,1.2712131118100732e-09,4.4070766370606997e-10
+China,Activity,Production of electricity by hydro,6.064276470650322e-07,6.066060899690498e-08,3.285991627317741e-08,4.567838423744934e-09,4.075884275908055e-09,4.96548412218154e-09,5.3775934934263234e-09,2.531180261473974e-09,2.3477080852399283e-09,5.1215936120168e-09,1.9520793088526086e-07,1.8668393247398314e-09,1.7632502647415682e-09,9.955464549514176e-09,3.465087887024489e-09
+China,Activity,Production of electricity by nuclear,1.0866580417066147e-07,6.7074416521053445e-09,3.6338197422749616e-09,5.180387986079196e-10,4.594497687718737e-10,5.62088025085978e-10,6.063622748037198e-10,2.8511278528426693e-10,2.633488700777502e-10,6.016061693297858e-10,3.49047595747655e-08,2.109446337559422e-10,1.9886709479584902e-10,1.1041214775008343e-09,3.8990178701801785e-10
+China,Activity,Production of electricity by petroleum and other oil derivatives,1.0589295323008663e-09,1.7231095243545352e-10,9.13202634037983e-11,1.5433626518301657e-11,1.2461475142309838e-11,1.50145571597437e-11,1.6398291656979634e-11,7.844499789859042e-12,7.001902248222704e-12,1.586484538373941e-11,3.4227538247533584e-10,5.644644648952392e-12,5.45444394815858e-12,2.8354013643709646e-11,1.0552026102336507e-11
+China,Activity,Production of electricity by solar photovoltaic,2.135971335396207e-06,3.2179481279008414e-10,2.10499721797788e-10,3.923160845858727e-11,4.21676283712324e-11,8.493201092226724e-11,5.14648448313891e-11,2.47775589115509e-11,2.346147991378155e-11,4.1285660720502485e-11,6.836214082972593e-07,2.3435408633842454e-11,2.070566710734212e-11,6.548255666018532e-11,3.4131849900561075e-11
+China,Activity,Production of electricity by solar thermal,1.967860392900533e-09,6.587467166380007e-13,3.7656098745676283e-13,5.871648018560235e-14,5.555106299321921e-14,9.549973995259034e-14,6.792022746461705e-14,3.3712190737561974e-14,3.1199452571683484e-14,6.647427121247172e-14,6.298220076427841e-10,2.854526478711361e-14,2.5158947907180376e-14,1.1553628127372243e-13,4.6848773458743787e-14
+China,Activity,"Production of electricity by tide, wave, ocean",3.0174184548230735e-12,4.841908808530343e-13,2.6380993096318116e-13,3.749838502966417e-14,3.3385581986569666e-14,4.068680346970988e-14,4.384505144279445e-14,2.0693919883625203e-14,1.9112122601630907e-14,4.384291097389199e-14,9.751414983111035e-13,1.534828053863302e-14,1.445733016647751e-14,7.99898215063471e-14,2.834638670207119e-14
+China,Activity,Production of electricity by wind,1.2604913497453268e-06,1.0867171771337159e-08,6.36185696524796e-09,4.1837720982456304e-10,4.700582896541775e-10,6.290457050810749e-10,6.077711710030108e-10,2.878936456133269e-10,2.8999696519915304e-10,4.919166682836095e-10,4.035580580735183e-07,2.1724518232871428e-10,1.9661111658018087e-10,1.7312037385444455e-09,4.060626089918615e-10
+China,Activity,Production of electricity nec,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Production of meat products nec,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Production of offshore wind plants,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Production of onshore wind plants,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Production of photovoltaic plants,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Public administration and defence; compulsory social security (75),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Publishing, printing and reproduction of recorded media (22)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Pulp,2.7173656723078e-10,1.309785531383818e-10,6.97289553497644e-11,1.956540918023993e-11,1.5616863503478936e-11,1.7779858556448173e-11,1.9719093643082786e-11,1.0090646282310729e-11,8.387392785223062e-12,1.776505945641592e-11,9.123072276302631e-11,8.083717388108821e-12,6.49807131013004e-12,2.449341061912454e-11,1.397673479012996e-11
+China,Activity,Quarrying of sand and clay,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Quarrying of stone,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Raw milk,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Re-processing of ash into clinker,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Re-processing of secondary aluminium into new aluminium,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Re-processing of secondary construction material into aggregates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Re-processing of secondary copper into new copper,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Re-processing of secondary glass into new glass,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Re-processing of secondary lead into new lead, zinc and tin",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Re-processing of secondary other non-ferrous metals into new other non-ferrous metals,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Re-processing of secondary paper into new pulp,2.0547925886229208e-07,7.641834712486071e-10,4.181665364435249e-10,5.996951559190731e-11,5.372678774954782e-11,6.831796583846958e-11,7.004442483571269e-11,3.32286499689901e-11,3.0695282252592756e-11,6.989355192455031e-11,6.577803665541522e-08,2.5007035769732393e-11,2.3378652799657397e-11,1.269312206554938e-10,4.558485867136798e-11
+China,Activity,Re-processing of secondary plastic into new plastic,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Re-processing of secondary preciuos metals into new preciuos metals,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Re-processing of secondary steel into new steel,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Re-processing of secondary wood material into new wood material,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Real estate activities (70),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Recreational, cultural and sporting activities (92)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Recycling of bottles by direct reuse,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Recycling of waste and scrap,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Renting of machinery and equipment without operator and of personal and household goods (71),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Research and development (73),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Retail sale of automotive fuel,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Retail trade, except of motor vehicles and motorcycles; repair of personal and household goods (52)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Sale, maintenance, repair of motor vehicles, motor vehicles parts, motorcycles, motor cycles parts and accessoiries",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Sea and coastal water transport,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Steam and hot water supply,1.1196932314866893e-07,5.2774352296742435e-08,2.8201843142648213e-08,4.943976893861906e-09,4.192951815919249e-09,4.922602966776349e-09,5.336252785687348e-09,2.5928884117364286e-09,2.3308168399100284e-09,5.205534712289791e-09,3.6995382888714265e-08,2.040265633542534e-09,1.8249417713810578e-09,8.87332299203815e-09,3.5016760762726288e-09
+China,Activity,Sugar refining,5.856795440138564e-10,2.0259937699777625e-10,1.1088405666077943e-10,2.2144736860511795e-11,2.1034695735387724e-11,2.711329547102631e-11,2.8559852029255315e-11,1.2452622375256598e-11,1.106598240195918e-11,2.373820082462425e-11,1.9345976808133886e-10,1.143203353743139e-11,9.380771715387511e-12,3.6120705162347876e-11,1.7339243377835312e-11
+China,Activity,Supporting and auxiliary transport activities; activities of travel agencies (63),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Tanning and dressing of leather; manufacture of luggage, handbags, saddlery, harness and footwear (19)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Transmission of electricity,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Transport via pipelines,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,Transport via railways,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Waste water treatment, food",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Waste water treatment, other",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Wholesale trade and commission trade, except of motor vehicles and motorcycles (51)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+China,Activity,"Wool, silk-worm cocoons",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Activities auxiliary to financial intermediation (67),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Activities of membership organisation n.e.c. (91),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Air transport (62),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Aluminium production,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Animal products nec,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Biogasification of food waste, incl. land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Biogasification of paper, incl. land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Biogasification of sewage slugde, incl. land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Casting of metals,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Cattle farming,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Chemicals nec,2.0289695544005495e-08,2.0777318874296961e-07,1.5033400736026132e-07,1.1865784932696722e-07,2.9464103384916505e-08,1.567116184240962e-08,2.1939275104213518e-08,2.1930028624109513e-08,9.596824324943631e-09,2.029869930235289e-08,1.0123901819425452e-08,5.516611693746859e-09,8.036527679787667e-09,4.08276274185257e-08,1.993084488432962e-08
+EU27+UK,Activity,"Collection, purification and distribution of water (41)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Composting of food waste, incl. land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Composting of paper and wood, incl. land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Computer and related activities (72),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Construction (45),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Copper production,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Cultivation of cereal grains nec,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Cultivation of crops nec,4.788642065406355e-10,4.682503950874615e-10,5.375327536791048e-10,2.9082063805655574e-10,6.924244322732293e-09,3.2161607990759347e-10,3.4662902071544025e-10,1.9830449088040397e-10,1.9102543821513125e-10,2.5372551384875235e-10,2.7020344903523353e-10,2.6262214020132e-10,1.8843487724572714e-10,2.5410264485944333e-10,3.2247475619074527e-10
+EU27+UK,Activity,Cultivation of oil seeds,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Cultivation of paddy rice,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Cultivation of plant-based fibers,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Cultivation of sugar cane, sugar beet",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Cultivation of vegetables, fruit, nuts",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Cultivation of wheat,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Distribution and trade of electricity,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Education (80),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Extra-territorial organizations and bodies,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Extraction of crude petroleum and services related to crude oil extraction, excluding surveying",1.5246274734804972e-07,1.2406085943225908e-07,1.31125238659828e-07,5.532188215258733e-07,8.673704749287482e-07,3.7422347793647516e-07,6.714090688599749e-07,3.885682176239626e-07,5.29936626764711e-07,4.41697530577336e-06,2.2029605564441355e-07,3.594230675680172e-07,7.792766784994659e-07,3.497891733501414e-07,5.785319919694413e-07
+EU27+UK,Activity,"Extraction of natural gas and services related to natural gas extraction, excluding surveying",3.85593772499582e-07,3.4382731961875237e-07,3.409828966028483e-07,6.055028649616707e-07,1.0119117403846227e-06,7.117248138511979e-07,4.755087231275977e-06,4.1834178753050965e-07,5.583227515525202e-07,2.6864189222380337e-06,3.2217669377785223e-07,4.4046373519956955e-07,2.3248076134081697e-06,4.3058657348848824e-07,1.5727470011050788e-06
+EU27+UK,Activity,"Extraction, liquefaction, and regasification of other petroleum and gaseous materials",5.217768554861704e-09,1.6982299650577056e-09,1.98619921643273e-09,2.7745261560473677e-09,8.424830496082064e-09,1.5809811351381947e-08,9.459370708611084e-08,2.2343964946594992e-09,3.1267906771420974e-09,1.2338213114051674e-07,2.593619072882505e-09,1.9756714658813927e-09,3.4868849123087107e-09,2.112238872220382e-09,9.141844462805933e-08
+EU27+UK,Activity,"Financial intermediation, except insurance and pension funding (65)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Fishing, operating of fish hatcheries and fish farms; service activities incidental to fishing (05)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Forestry, logging and related service activities (02)",1.8780847138093266e-08,1.4839538017526929e-08,1.8314047122514216e-08,8.630958622819769e-09,2.6722910745594024e-07,1.299395219011314e-08,1.0273759352879295e-08,1.14384974480686e-08,7.069824302472278e-09,6.348838365820476e-09,8.851360579625787e-09,4.591101443224286e-09,3.2383307439414316e-09,7.473251047252341e-09,8.975283930177693e-09
+EU27+UK,Activity,Health and social work (85),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Hotels and restaurants (55),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Incineration of waste: Food,5.961951231019698e-09,6.446058937248833e-09,6.701963085284526e-09,5.946474921782198e-09,7.915727435519528e-09,7.941625042174575e-09,8.916082756018228e-09,5.3553406081298214e-09,6.630506088422734e-09,5.100216057107842e-09,3.1135733271415233e-09,2.3154097108488392e-09,2.4586180012142032e-09,4.134649188676398e-09,7.038483426316692e-09
+EU27+UK,Activity,Incineration of waste: Metals and Inert materials,8.966527746560946e-09,1.1243528932173068e-08,1.2625323694841635e-08,9.908490442092349e-09,1.7486339925526624e-08,1.3676955381765084e-08,1.4696226061035552e-08,2.0914195496585057e-08,1.3959449947690773e-08,9.244197391569387e-09,5.367949984819488e-09,5.51144472257027e-09,4.528990357679153e-09,7.958630679182531e-09,1.5831915755850617e-08
+EU27+UK,Activity,Incineration of waste: Oil/Hazardous waste,1.98371646678173e-09,1.8177544979937423e-09,1.9095212002983287e-09,1.840821403572625e-09,2.1726669050949863e-09,2.1311519746760296e-09,2.3736256662889466e-09,1.6667922884105775e-09,2.0871372196489672e-09,1.4458773876327658e-09,1.0112560003001035e-09,6.590121826010186e-10,7.100567577744952e-10,1.1404800717638275e-09,2.054468978770878e-09
+EU27+UK,Activity,Incineration of waste: Paper,6.064512296250566e-09,6.5774489629804564e-09,6.886886818374488e-09,7.3448681996351645e-09,8.639778416912964e-09,8.85979451111944e-09,1.0086139978952965e-08,6.356345317050246e-09,6.988372076150026e-09,5.928913615712068e-09,3.3183190207331305e-09,2.5307814188019326e-09,2.7031538077573077e-09,4.449979057829915e-09,7.972932313879994e-09
+EU27+UK,Activity,Incineration of waste: Plastic,5.2432066884581346e-09,5.3891187187421625e-09,5.597029769502933e-09,9.921716113028217e-09,7.66655079770014e-09,6.890102757004103e-09,7.787700216595942e-09,8.484655290562153e-09,5.204738334314774e-09,6.357023996967439e-09,2.7961133707883433e-09,1.8758096274475867e-09,2.0015234161523275e-09,3.783935427543466e-09,8.3538125099441e-09
+EU27+UK,Activity,Incineration of waste: Textiles,2.2167341241995408e-09,2.45615646999506e-09,2.5568371689343135e-09,2.1493718583441465e-09,2.860782631939658e-09,2.8186140905523237e-09,3.3064579466545416e-09,1.933763661687892e-09,2.3712297562489535e-09,2.001877957184038e-09,1.1736477842655227e-09,8.695521180986405e-10,9.046957681470024e-10,1.5273429621753814e-09,2.651423350126412e-09
+EU27+UK,Activity,Incineration of waste: Wood,3.2521621135539345e-09,2.845625841227551e-09,2.9745858817498166e-09,2.9639063508596934e-09,3.572655976317783e-09,3.073557611991694e-09,3.959744680532824e-09,2.515402271545268e-09,2.660234826252133e-09,2.4566646528288745e-09,1.626006210059083e-09,1.1122718458899382e-09,1.1401787807137715e-09,1.8136597881488713e-09,3.2522155413232972e-09
+EU27+UK,Activity,Inland water transport,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Insurance and pension funding, except compulsory social security (66)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Landfill of waste: Food,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Landfill of waste: Inert/metal/hazardous,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Landfill of waste: Paper,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Landfill of waste: Plastic,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Landfill of waste: Textiles,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Landfill of waste: Wood,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Lead, zinc and tin production",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Manufacture of basic iron and steel and of ferro-alloys and first products thereof,3.181555525475758e-08,1.053058040940032e-07,9.87769833988395e-08,1.660264162001527e-08,2.1562520036124164e-08,2.1644854781979264e-08,2.3310408149671935e-08,1.1635947547287352e-08,1.2072499015762533e-08,1.639593183427929e-08,1.7983409457473116e-08,8.395116845704636e-09,8.828743850499109e-09,3.055677895939204e-08,1.9746201883345546e-08
+EU27+UK,Activity,Manufacture of beverages,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Manufacture of bricks, tiles and construction products, in baked clay",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Manufacture of cement, lime and plaster",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Manufacture of ceramic goods,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Manufacture of coke oven products,1.1730887074353934e-07,2.1892643720291763e-07,2.0775450745148268e-07,5.0208643006650637e-08,8.72285284916758e-08,3.965713933600145e-07,7.90995506029928e-08,3.372271678893382e-08,4.171709350869835e-08,2.1721171318745185e-07,5.720275999067976e-08,3.193123740753974e-08,3.2112910451422486e-08,7.047607406078408e-08,1.3955156535777673e-07
+EU27+UK,Activity,Manufacture of electrical machinery and apparatus n.e.c. (31),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Manufacture of fabricated metal products, except machinery and equipment (28)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Manufacture of fish products,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Manufacture of furniture; manufacturing n.e.c. (36),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Manufacture of gas; distribution of gaseous fuels through mains,1.0304115918601367e-07,4.7382747347065236e-08,5.0088177581679526e-08,6.890858486476661e-07,1.0610973119095086e-06,3.3871749208014796e-07,7.358490059151849e-07,4.6142748303543986e-07,6.791857115334869e-07,5.423680048744083e-07,2.3890828885028523e-07,3.899237262290001e-07,9.98466890658653e-07,3.8175228667930673e-07,6.929227229451519e-07
+EU27+UK,Activity,Manufacture of glass and glass products,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Manufacture of machinery and equipment n.e.c. (29),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Manufacture of medical, precision and optical instruments, watches and clocks (33)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Manufacture of motor vehicles, trailers and semi-trailers (34)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Manufacture of office machinery and computers (30),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Manufacture of other non-metallic mineral products n.e.c.,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Manufacture of other transport equipment (35),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Manufacture of radio, television and communication equipment and apparatus (32)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Manufacture of rubber and plastic products (25),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Manufacture of textiles (17),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Manufacture of tobacco products (16),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Manufacture of wearing apparel; dressing and dyeing of fur (18),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials (20)",5.903667944346643e-11,4.67270235082457e-11,6.072901019925424e-11,2.0945699844276276e-11,7.454200025862367e-11,3.4671774647647443e-11,2.8412988003373764e-11,4.1528750673687466e-11,2.4225600218310202e-11,1.6412986097698938e-11,2.776992189347646e-11,1.252750056433537e-11,8.309667630228681e-12,2.267538429203549e-11,2.6353645029941985e-11
+EU27+UK,Activity,"Manure treatment (biogas), storage and land application",4.285078766135069e-14,9.85599430215686e-14,9.852449342632171e-14,4.9332540687053413e-14,5.864438640654827e-14,4.327934931725995e-14,5.93546507024512e-14,2.696238278118777e-14,2.629793501317945e-14,3.854548565687759e-14,2.7193416793849484e-14,2.943594513807151e-14,2.9021245283777466e-14,3.8765096469684174e-14,4.947549025961546e-14
+EU27+UK,Activity,"Manure treatment (conventional), storage and land application",4.285078766135069e-14,9.85599430215686e-14,9.852449342632171e-14,4.9332540687053413e-14,5.864438640654827e-14,4.327934931725995e-14,5.93546507024512e-14,2.696238278118777e-14,2.629793501317945e-14,3.854548565687759e-14,2.7193416793849484e-14,2.943594513807151e-14,2.9021245283777466e-14,3.8765096469684174e-14,4.947549025961546e-14
+EU27+UK,Activity,Meat animals nec,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Mining of aluminium ores and concentrates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Mining of chemical and fertilizer minerals, production of salt, other mining and quarrying n.e.c.",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Mining of coal and lignite; extraction of peat (10),1.6272995368081258e-06,4.542375239125173e-07,4.809980471153734e-07,3.541916928764992e-07,7.526754040198005e-07,4.534998046544081e-05,5.211266055228518e-07,2.493119385240429e-07,3.068533924249821e-07,4.902431120642457e-07,6.423969353754289e-07,2.2530792141379547e-07,4.097140874061925e-07,3.1152386264662236e-07,6.101895326254372e-07
+EU27+UK,Activity,Mining of copper ores and concentrates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Mining of iron ores,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Mining of lead, zinc and tin ores and concentrates",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Mining of nickel ores and concentrates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Mining of other non-ferrous metal ores and concentrates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Mining of precious metal ores and concentrates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Mining of uranium and thorium ores (12),4.7887103948279765e-09,6.261863629248022e-09,6.463782139763581e-09,3.6862037837894726e-09,4.330026006600777e-09,3.888588627523043e-09,2.0330378581114453e-08,3.141656117931367e-09,2.7022667393102074e-09,1.4250180420325586e-08,2.592426576654275e-09,2.228525982138816e-09,3.396459272427463e-09,3.049105094008646e-09,7.319739636218973e-09
+EU27+UK,Activity,N-fertiliser,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Other business activities (74),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Other land transport,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Other non-ferrous metal production,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Other service activities (93),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,P- and other fertiliser,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Paper,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Petroleum Refinery,6.947476230089673e-07,7.092462631194802e-07,8.558333157937174e-07,6.397827231812527e-07,1.4219220740081473e-06,1.9127632425162158e-06,1.1837265387006459e-06,7.794460333848649e-07,4.913009292223928e-07,6.861292081669172e-06,5.057166187561985e-07,1.0668434243440212e-06,5.169106757519238e-07,9.880579799818218e-07,8.41561247645289e-07
+EU27+UK,Activity,Pigs farming,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Plastics, basic",1.785312313192243e-08,3.6903835556760653e-08,3.3841243204257204e-08,1.3329309790192332e-08,1.2172748699722145e-08,4.000890920933766e-08,1.3985225432934965e-08,7.880791078433902e-09,6.75414289227773e-09,1.2274411931073544e-08,9.472353227447e-09,7.601272383307031e-09,6.324776809345509e-09,1.341923327546654e-08,1.1155832445230157e-08
+EU27+UK,Activity,Post and telecommunications (64),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Poultry farming,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Precious metals production,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Private households with employed persons (95),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Processed rice,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Processing of Food products nec,1.0537301403891081e-08,2.4934458362295944e-08,2.567744612078554e-08,1.064252639820003e-08,1.231243909511987e-08,8.766572332629685e-09,1.2239601385735491e-08,5.4296115449703125e-09,4.952507907525462e-09,7.730823248899035e-09,6.202368852542078e-09,5.902859545586001e-09,5.568051603838016e-09,8.946432193507016e-09,1.046762049595021e-08
+EU27+UK,Activity,Processing of dairy products,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Processing of meat cattle,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Processing of meat pigs,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Processing of meat poultry,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Processing of nuclear fuel,1.0196164736221767e-07,1.094850822328207e-07,9.260183291864816e-08,5.5263082815029676e-08,5.078136382571317e-08,9.313337578993233e-08,5.1492989529378774e-08,2.866687403659622e-08,3.1896911546341385e-08,5.3671810339569644e-08,4.775378505987643e-08,2.9704238837713565e-08,3.0324824709277026e-08,4.085629249081201e-08,4.159904658834488e-08
+EU27+UK,Activity,Processing vegetable oils and fats,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Production of electricity by Geothermal,2.388946065898315e-08,1.8365077583886473e-09,1.8887238609954832e-09,3.244396736804524e-05,5.649195033529898e-10,4.831127657298842e-10,5.641345814179632e-10,3.4111516859646387e-10,2.9761459943268173e-10,5.156699019279857e-10,7.829855790335154e-09,4.4395185387344674e-10,2.7522294397234725e-10,6.311380450019583e-10,4.942513937847343e-10
+EU27+UK,Activity,Production of electricity by biomass and waste,9.353690258736205e-08,8.397958314035111e-09,8.698088048500267e-09,7.582758603059566e-09,1.237546562347446e-05,7.863500683545348e-09,8.180566015208698e-09,5.069828219358074e-09,6.425144305689553e-09,6.642175061582984e-09,3.242803006878484e-08,5.027505247483333e-09,8.4855877612963e-09,5.802009686942061e-09,7.458805934887745e-09
+EU27+UK,Activity,Production of electricity by coal,9.188742401219296e-07,1.4937433752354606e-07,1.5415980932789267e-07,1.1973354852647146e-07,1.6559473096665586e-07,2.9173205789863198e-05,1.2837470685843587e-07,7.990984189357469e-08,1.0020510460740546e-07,1.0007369757553742e-07,3.338045203075312e-07,7.835504551266803e-08,1.3024395497496177e-07,9.40292684547366e-08,1.1879386551818659e-07
+EU27+UK,Activity,Production of electricity by gas,3.4424862669473094e-07,7.063017938509771e-08,7.215989598860885e-08,7.491993911624252e-08,1.0622638855329925e-07,5.752613813487062e-08,1.0356920694934379e-05,5.0119209251558076e-08,6.572748385352549e-08,6.273063739028426e-08,1.3451255092983875e-07,4.825593552236584e-08,8.875658735106569e-08,5.4591111569294974e-08,7.436300106332392e-08
+EU27+UK,Activity,Production of electricity by hydro,1.1409365484379046e-06,7.155418508491655e-08,7.400873837858156e-08,1.4074113941907363e-07,2.06634121762939e-07,9.23419845780019e-08,1.4961011685846426e-07,4.7187680233432123e-05,1.2967733203496813e-07,1.1281574001114802e-07,4.0851732946483395e-07,8.459970664045791e-08,1.836144479950222e-07,8.915884950203724e-08,1.395055784900977e-07
+EU27+UK,Activity,Production of electricity by nuclear,1.622022552093639e-06,1.861546658056002e-07,1.8607757676493436e-07,1.5063217119855255e-07,2.007968001116683e-07,1.3517811029103115e-07,1.549374097833498e-07,9.658094620278093e-08,4.551396513826739e-05,1.259809582300382e-07,5.662243221135445e-07,9.460627495601466e-08,1.5865537647189473e-07,1.1303259808598836e-07,1.421987919296468e-07
+EU27+UK,Activity,Production of electricity by petroleum and other oil derivatives,2.6663913813651447e-08,7.510556462009816e-09,7.54111720903077e-09,1.0352420522569063e-08,1.502658206008148e-08,7.98074959601053e-09,1.129378946884103e-08,6.959621185166069e-09,9.375058716255689e-09,1.0163340202036034e-05,1.1975228756615675e-08,6.707753801512061e-09,1.2997263251283256e-08,7.163192948216392e-09,1.0413080605363674e-08
+EU27+UK,Activity,Production of electricity by solar photovoltaic,1.5070517344436544e-06,2.8112525985151922e-08,2.8047847456130344e-08,7.732913490547888e-09,9.247422600258405e-09,3.132852518193209e-08,8.512338760808293e-09,5.211840746692101e-09,4.8596991625544504e-09,7.470969931647849e-09,0.0004535119307989052,6.4208312537985234e-09,4.800343756647117e-09,9.485257171685673e-09,7.62253750108634e-09
+EU27+UK,Activity,Production of electricity by solar thermal,7.249714133029706e-08,1.3612302980632329e-09,1.5891516927489477e-09,4.4485245579832565e-10,4.767684047974269e-10,2.2796598122991396e-09,4.5933900702065314e-10,2.7773539572970293e-10,2.464314373773176e-10,3.671808487086418e-10,2.3368682345176157e-08,0.01606362378622104,2.402834272820602e-10,5.100945346323132e-10,4.185293872588479e-10
+EU27+UK,Activity,"Production of electricity by tide, wave, ocean",3.6564417570128494e-10,5.262255220821383e-11,5.156607703309419e-11,4.949884317636952e-11,6.59232349346111e-11,5.945303043690402e-11,5.536794301140572e-11,3.3537336571827555e-11,4.013127004798315e-11,4.3487542984116135e-11,1.3485835566202793e-10,3.406670387034397e-11,1.8407904125031656e-05,4.126862783863401e-11,4.744066515671933e-11
+EU27+UK,Activity,Production of electricity by wind,1.0671554343421624e-06,5.8692646180213196e-08,6.115826216589657e-08,7.119074963128636e-08,1.0324854158166434e-07,6.274895583720176e-08,7.667096401455039e-08,4.767164997906484e-08,6.426498135175781e-08,5.83622504236814e-08,3.6416830449396426e-07,4.477374862249807e-08,8.907285304829914e-08,6.93111173720068e-05,7.114996807199795e-08
+EU27+UK,Activity,Production of electricity nec,5.853957488530786e-11,3.3442368949332984e-11,3.469881618477703e-11,3.151149362318549e-11,4.4065600558844976e-11,3.24456222340043e-11,3.5187542356199565e-11,2.1109513289050816e-11,2.6960691732043993e-11,2.699247907751066e-11,2.939529757935341e-11,2.163965002867469e-11,3.650142312427398e-11,2.3698657230465314e-11,1.5101365330826837e-07
+EU27+UK,Activity,Production of meat products nec,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Production of offshore wind plants,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Production of onshore wind plants,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Production of photovoltaic plants,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Public administration and defence; compulsory social security (75),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Publishing, printing and reproduction of recorded media (22)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Pulp,7.461488944313182e-09,1.1450053708710436e-08,1.0485584616330155e-08,1.1355047205577972e-08,7.0230581550102005e-09,6.988014323461024e-09,9.116553070691055e-09,5.055168035857435e-09,3.509572136389398e-09,6.290289193577304e-09,4.1953666440981465e-09,3.7023875089287795e-09,2.8548246036647427e-09,5.326589806914086e-09,7.211807296319832e-09
+EU27+UK,Activity,Quarrying of sand and clay,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Quarrying of stone,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Raw milk,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Re-processing of ash into clinker,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Re-processing of secondary aluminium into new aluminium,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Re-processing of secondary construction material into aggregates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Re-processing of secondary copper into new copper,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Re-processing of secondary glass into new glass,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Re-processing of secondary lead into new lead, zinc and tin",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Re-processing of secondary other non-ferrous metals into new other non-ferrous metals,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Re-processing of secondary paper into new pulp,6.7796345591384055e-09,1.2111094208367965e-08,1.1078847509756459e-08,1.2131985087484742e-08,7.136885324941131e-09,7.329136301354661e-09,9.679323437649196e-09,5.3341747991930145e-09,3.6141119429327465e-09,6.490494048602542e-09,4.0123286378108025e-09,3.74385633056101e-09,2.80894325508117e-09,5.584858121081416e-09,7.598735539303153e-09
+EU27+UK,Activity,Re-processing of secondary plastic into new plastic,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Re-processing of secondary preciuos metals into new preciuos metals,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Re-processing of secondary steel into new steel,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Re-processing of secondary wood material into new wood material,1.5694360278637967e-08,1.2967618218366447e-08,1.660917317528737e-08,5.619050142878919e-09,1.953499179700868e-08,9.22296206931818e-09,7.587962801013552e-09,1.1030382032814828e-08,6.330117034112315e-09,4.318108917913624e-09,7.359228775911929e-09,3.2625847824770952e-09,2.022559181820581e-09,6.0889604477567165e-09,6.979720463575571e-09
+EU27+UK,Activity,Real estate activities (70),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Recreational, cultural and sporting activities (92)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Recycling of bottles by direct reuse,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Recycling of waste and scrap,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Renting of machinery and equipment without operator and of personal and household goods (71),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Research and development (73),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Retail sale of automotive fuel,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Retail trade, except of motor vehicles and motorcycles; repair of personal and household goods (52)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Sale, maintenance, repair of motor vehicles, motor vehicles parts, motorcycles, motor cycles parts and accessoiries",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Sea and coastal water transport,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Steam and hot water supply,1.7375743763269116e-07,1.9223743481960802e-07,1.8771802323441236e-07,1.752415574442854e-07,2.4633289049733906e-07,2.1753070590548964e-07,2.072045383171546e-07,1.2929974324235063e-07,1.518135059712112e-07,2.469824586267174e-07,1.2369375096395866e-07,1.233459496422593e-07,1.7886639241460344e-07,1.5497329839401814e-07,1.8349781479634026e-07
+EU27+UK,Activity,Sugar refining,2.7612828975919655e-10,5.48143107256828e-10,5.617085368299678e-10,3.539276869700947e-10,4.140325285596208e-10,2.9442137951841586e-10,3.958911885605981e-10,1.8473017709959785e-10,1.7948588458643845e-10,2.739896667148695e-10,2.080033671640342e-10,2.9863721716095705e-10,2.3208338967668306e-10,2.5380156976090345e-10,3.3739819523283285e-10
+EU27+UK,Activity,Supporting and auxiliary transport activities; activities of travel agencies (63),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Tanning and dressing of leather; manufacture of luggage, handbags, saddlery, harness and footwear (19)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Transmission of electricity,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Transport via pipelines,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,Transport via railways,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Waste water treatment, food",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Waste water treatment, other",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Wholesale trade and commission trade, except of motor vehicles and motorcycles (51)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+EU27+UK,Activity,"Wool, silk-worm cocoons",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Activities auxiliary to financial intermediation (67),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Activities of membership organisation n.e.c. (91),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Air transport (62),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Aluminium production,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Animal products nec,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Biogasification of food waste, incl. land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Biogasification of paper, incl. land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Biogasification of sewage slugde, incl. land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Casting of metals,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Cattle farming,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Chemicals nec,3.758324729062872e-08,3.907564520824381e-08,3.582560719192979e-08,5.666045218520087e-08,2.8173443652605745e-08,2.2079273231983302e-08,3.070132620689285e-08,1.8842340824841386e-08,1.1230245092199719e-08,3.6307829893159164e-08,1.643050343172366e-08,7.74957287460131e-09,1.099958410582797e-08,1.5484435192854438e-08,1.939374549299079e-08
+RoW,Activity,"Collection, purification and distribution of water (41)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Composting of food waste, incl. land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Composting of paper and wood, incl. land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Computer and related activities (72),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Construction (45),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Copper production,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Cultivation of cereal grains nec,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Cultivation of crops nec,3.445474917179746e-08,3.091621442158399e-08,2.7868431003057296e-08,1.8396783773316956e-08,1.8630907078111247e-07,2.0915943861016054e-08,2.029889124528703e-08,9.770399658218473e-09,7.772716730641405e-09,2.854462969241945e-08,1.5329904462542625e-08,9.490833922866975e-09,8.362827991004371e-09,1.2050214700867702e-08,1.3618416008915065e-08
+RoW,Activity,Cultivation of oil seeds,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Cultivation of paddy rice,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Cultivation of plant-based fibers,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Cultivation of sugar cane, sugar beet",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Cultivation of vegetables, fruit, nuts",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Cultivation of wheat,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Distribution and trade of electricity,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Education (80),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Extra-territorial organizations and bodies,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Extraction of crude petroleum and services related to crude oil extraction, excluding surveying",1.9836422369637505e-06,1.5355760280249661e-06,1.4681608102897578e-06,1.5686551405514765e-06,2.3991894880709625e-06,2.740514830234757e-06,3.090516266125884e-06,1.2177999904356781e-06,1.0477404270716392e-06,2.3108262969966975e-05,1.1010195566177559e-06,1.4134999584425937e-06,1.4676660338769746e-06,1.3859858530718373e-06,1.7940994659492956e-06
+RoW,Activity,"Extraction of natural gas and services related to natural gas extraction, excluding surveying",2.7070233895317827e-06,2.044076058141959e-06,1.7940444550369676e-06,4.714022535138065e-06,7.096360615062158e-06,6.4391898187617344e-06,4.05043847059796e-05,3.135637035767426e-06,4.228546855994636e-06,2.316616557123618e-05,2.2578237040450078e-06,3.026992741027799e-06,1.0625230624011564e-05,3.07622929134277e-06,1.2706537026333923e-05
+RoW,Activity,"Extraction, liquefaction, and regasification of other petroleum and gaseous materials",2.068892780894035e-08,1.7152922089785476e-08,1.6073709623411702e-08,1.236301137060629e-08,1.6385533983348774e-08,2.442335805456203e-08,1.7831071468527112e-08,8.29538456953378e-09,5.7776077651736005e-09,1.4147749639460958e-07,9.693888598181045e-09,9.727439177164734e-09,6.951385261412722e-09,9.59345654766965e-09,1.0199047692695005e-08
+RoW,Activity,"Financial intermediation, except insurance and pension funding (65)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Fishing, operating of fish hatcheries and fish farms; service activities incidental to fishing (05)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Forestry, logging and related service activities (02)",1.5411458297516394e-08,1.1021646409068948e-08,9.571544760307345e-09,6.155735264477674e-09,2.551811000975267e-08,8.63152544030732e-09,6.667234134800643e-09,4.224233834040829e-09,2.9211088009712144e-09,6.800140539227554e-09,6.304992601848015e-09,2.3884677969588997e-09,2.1724429067110425e-09,4.038692725408006e-09,4.495919761623797e-09
+RoW,Activity,Health and social work (85),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Hotels and restaurants (55),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Incineration of waste: Food,1.6807509646122636e-10,1.7221361078597626e-10,1.616438002308979e-10,1.0976670482955702e-10,9.973863411329986e-11,5.651478928874685e-10,1.56419258746161e-10,5.868744491267305e-11,5.1704522797553704e-11,1.663263346654983e-10,7.841907898706598e-11,5.077378782967955e-11,5.07269179531389e-11,7.135257106419e-11,8.492035933259686e-11
+RoW,Activity,Incineration of waste: Metals and Inert materials,6.017845073040955e-10,7.111089912521169e-10,7.408200676446179e-10,4.635595757288545e-10,4.992887429947168e-10,6.48222606575235e-10,1.1511188410728653e-09,2.915855987204527e-10,2.7712390867220355e-10,8.05640812912892e-10,3.256019722903244e-10,3.554448607140148e-10,2.9016741881520514e-10,3.483489567975856e-10,4.4411623944775314e-10
+RoW,Activity,Incineration of waste: Oil/Hazardous waste,4.46939620862173e-10,4.132521306333468e-10,3.815911556414575e-10,2.696714940094692e-10,2.784517649727218e-10,1.7742983970257884e-09,4.119323446719566e-10,1.5804192581198582e-10,1.6397977331007685e-10,4.752909282337922e-10,2.1163361156151982e-10,1.247853398232028e-10,1.3797743435246288e-10,1.860097536741043e-10,2.4083263930672577e-10
+RoW,Activity,Incineration of waste: Paper,1.7152355941591382e-10,1.427197326295445e-10,1.3312884271574302e-10,1.1300215817174696e-10,1.0323847108382493e-10,6.276867608029803e-10,1.5830753148808872e-10,6.017024319746677e-11,5.332920508532677e-11,1.7615855971489327e-10,8.013848993712794e-11,5.243440728621403e-11,5.29760722868547e-11,6.663088320764341e-11,8.79666931366081e-11
+RoW,Activity,Incineration of waste: Plastic,6.761033492629759e-10,5.440743040965381e-10,5.081619234969927e-10,4.318480573426737e-10,3.599443339667311e-10,1.9936348905233095e-09,9.732959969130446e-10,2.2480118952498204e-10,1.8912960794857837e-10,5.40603766274328e-10,3.0060476720849505e-10,1.6292247616392354e-10,1.67650835764708e-10,2.3825409318577916e-10,3.106337031799651e-10
+RoW,Activity,Incineration of waste: Textiles,6.641509009997215e-10,7.218210699335279e-10,7.24901010536962e-10,5.375990408720379e-10,4.2309482171633365e-10,1.922528852922626e-09,5.738480394488209e-10,2.562600985700516e-10,2.0581796192765186e-10,6.53812544258963e-10,3.136168432274337e-10,1.8277541820650165e-10,1.9330048395220627e-10,3.014499093857053e-10,3.5028231875934396e-10
+RoW,Activity,Incineration of waste: Wood,6.786475664887937e-11,6.958128788436846e-11,6.356765068822433e-11,4.722272120632301e-11,4.460678262009588e-11,6.81991244121875e-11,6.100776668835843e-11,2.579051089537616e-11,2.310480136048791e-11,7.132993334880546e-11,3.266759187402855e-11,2.1145924505567584e-11,2.1660433444128746e-11,3.027720897992809e-11,3.8201691039123305e-11
+RoW,Activity,Inland water transport,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Insurance and pension funding, except compulsory social security (66)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Landfill of waste: Food,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Landfill of waste: Inert/metal/hazardous,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Landfill of waste: Paper,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Landfill of waste: Plastic,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Landfill of waste: Textiles,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Landfill of waste: Wood,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Lead, zinc and tin production",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Manufacture of basic iron and steel and of ferro-alloys and first products thereof,1.284755586300014e-08,2.5793266854350554e-08,2.246928677445204e-08,5.6359794415345435e-09,6.771476450535628e-09,1.2860379621626458e-08,1.0343777646658922e-08,3.976482823720205e-09,3.76299297982132e-09,1.3420421082189225e-08,6.133707413004675e-09,3.097265127222148e-09,3.186381950529392e-09,7.7587609476495e-09,6.314277921421261e-09
+RoW,Activity,Manufacture of beverages,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Manufacture of bricks, tiles and construction products, in baked clay",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Manufacture of cement, lime and plaster",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Manufacture of ceramic goods,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Manufacture of coke oven products,5.582225256920678e-08,6.280406226990714e-08,5.548936385449072e-08,3.0159203658255694e-08,3.328405867935799e-08,1.2101950716262434e-07,4.440067980434661e-08,1.74243641862966e-08,1.6222522635145084e-08,1.225254697732557e-07,2.5279743179429454e-08,1.4551974922691054e-08,1.701554658195253e-08,2.4119265832413186e-08,3.73053709384161e-08
+RoW,Activity,Manufacture of electrical machinery and apparatus n.e.c. (31),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Manufacture of fabricated metal products, except machinery and equipment (28)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Manufacture of fish products,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Manufacture of furniture; manufacturing n.e.c. (36),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Manufacture of gas; distribution of gaseous fuels through mains,3.1303385439619564e-09,1.7628771472111568e-09,1.552885815665937e-09,1.1928010111104749e-09,1.1814919184075209e-09,2.9033426299585934e-09,2.0841078417218514e-09,6.512668374883483e-10,5.588295371258572e-10,3.8184541715690635e-09,1.2823043467604532e-09,5.652445250736741e-10,6.91891945717907e-10,7.834726982562446e-10,1.0424849955493928e-09
+RoW,Activity,Manufacture of glass and glass products,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Manufacture of machinery and equipment n.e.c. (29),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Manufacture of medical, precision and optical instruments, watches and clocks (33)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Manufacture of motor vehicles, trailers and semi-trailers (34)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Manufacture of office machinery and computers (30),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Manufacture of other non-metallic mineral products n.e.c.,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Manufacture of other transport equipment (35),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Manufacture of radio, television and communication equipment and apparatus (32)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Manufacture of rubber and plastic products (25),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Manufacture of textiles (17),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Manufacture of tobacco products (16),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Manufacture of wearing apparel; dressing and dyeing of fur (18),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials (20)",7.031558897405726e-12,5.410339742065927e-12,5.716684172535035e-12,2.64160105666052e-12,4.7118650474450796e-12,5.138780601438905e-12,3.667594339080818e-12,3.084870114447143e-12,1.988647358283318e-12,3.641305772588275e-12,3.128039978408116e-12,1.377553900885769e-12,1.093225239054552e-12,2.3070774550302283e-12,2.6143704704844596e-12
+RoW,Activity,"Manure treatment (biogas), storage and land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Manure treatment (conventional), storage and land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Meat animals nec,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Mining of aluminium ores and concentrates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Mining of chemical and fertilizer minerals, production of salt, other mining and quarrying n.e.c.",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Mining of coal and lignite; extraction of peat (10),2.6039600594630556e-06,8.655059736782536e-07,7.653664667644266e-07,4.2480149568666824e-07,9.364097686956762e-07,3.843645819758785e-05,6.342576759244925e-07,2.7421498501352277e-07,3.0834727314140224e-07,7.47571505405342e-07,9.60953903584555e-07,2.317907190642427e-07,4.643043526753323e-07,5.209918202543688e-07,4.988765204091633e-07
+RoW,Activity,Mining of copper ores and concentrates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Mining of iron ores,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Mining of lead, zinc and tin ores and concentrates",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Mining of nickel ores and concentrates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Mining of other non-ferrous metal ores and concentrates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Mining of precious metal ores and concentrates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Mining of uranium and thorium ores (12),1.2889232360686194e-07,1.3380641348452925e-07,1.201886757715789e-07,1.5285632268172526e-07,9.000303155507911e-08,1.1014388988227655e-07,1.1514847334528033e-07,5.705401347134718e-08,4.111623638709039e-08,1.4853670839560282e-07,5.791390966887586e-08,2.9383653359388055e-08,3.9330436095250253e-08,5.4093487389073626e-08,6.82393922805367e-08
+RoW,Activity,N-fertiliser,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Other business activities (74),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Other land transport,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Other non-ferrous metal production,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Other service activities (93),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,P- and other fertiliser,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Paper,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Petroleum Refinery,7.157657413804344e-07,5.949609707087708e-07,5.795977737913314e-07,5.347834230185685e-07,7.883347178288983e-07,1.1110417245417318e-06,7.684239312013625e-07,3.87652507050311e-07,2.5665082801790993e-07,7.732681308565987e-06,3.688075561242545e-07,4.912505453895984e-07,3.1879802195761923e-07,4.2057383790769587e-07,4.3767620320855966e-07
+RoW,Activity,Pigs farming,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Plastics, basic",7.69305387652921e-09,8.822388185084136e-09,6.587025286312449e-09,3.7099249119048473e-09,3.2007619526392337e-09,2.0523826434698132e-08,4.275993654374287e-09,1.8598692612864906e-09,1.5533287957444162e-09,5.9276022480725815e-09,3.2522377295940338e-09,1.4915923431220651e-09,1.6325515737897498e-09,2.6753233769083264e-09,2.6706067282210586e-09
+RoW,Activity,Post and telecommunications (64),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Poultry farming,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Precious metals production,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Private households with employed persons (95),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Processed rice,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Processing of Food products nec,1.243233475498893e-08,1.1669586992748667e-08,1.0620273145678723e-08,9.41291243535673e-09,8.827458501450618e-09,1.0562946080483275e-08,1.0706942558959041e-08,4.5081035584796175e-09,3.547683963710737e-09,1.2278801488354021e-08,5.888844595490316e-09,3.781219357084256e-09,3.992676827476219e-09,5.033706770637534e-09,6.80560544359206e-09
+RoW,Activity,Processing of dairy products,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Processing of meat cattle,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Processing of meat pigs,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Processing of meat poultry,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Processing of nuclear fuel,9.662666147049469e-08,8.057820869091098e-08,5.954495898150555e-08,3.284227657852854e-08,2.735872683072913e-08,3.810970393420158e-08,3.288683698658311e-08,1.6144523634174593e-08,1.3200739582442593e-08,7.461792906704382e-08,3.7302944391224754e-08,1.2231586946192231e-08,1.2139229595297328e-08,2.4069686725252194e-08,2.095957168678968e-08
+RoW,Activity,Processing vegetable oils and fats,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Production of electricity by Geothermal,2.8981954141776784e-09,8.481271538765426e-10,7.244618980981086e-10,6.060775058534431e-10,5.837435556990143e-10,1.0703447258828068e-09,1.3187476174010787e-09,3.180690494157837e-10,2.8613003850826894e-10,1.6780635108184822e-09,1.063296643987012e-09,2.6610015647601453e-10,4.043316310631365e-10,3.7421739448196155e-10,5.805402534347047e-10
+RoW,Activity,Production of electricity by biomass and waste,1.170483338922836e-09,2.471330778482605e-10,2.1390181721818674e-10,1.6346316087525887e-10,1.6663047618504849e-10,3.0100743823423915e-10,3.30210334879469e-10,9.067679660513732e-11,8.053917736502247e-11,5.621267848795047e-10,4.148020870937372e-10,8.03395905087446e-11,1.0593776041991513e-10,1.0944352114872503e-10,1.5529613567849978e-10
+RoW,Activity,Production of electricity by coal,1.880335806610494e-07,3.438506764858756e-08,2.9780461879167925e-08,1.9253038875489677e-08,2.108003507456777e-08,6.908686475566084e-08,3.7724830165254593e-08,1.1258123644438633e-08,1.030291469922638e-08,5.7060966106446365e-08,6.527306102980955e-08,1.0060174499631021e-08,1.245132024044072e-08,1.449146734818119e-08,1.8852796484346345e-08
+RoW,Activity,Production of electricity by gas,1.6667559308556217e-07,3.7428883980261704e-08,3.28735237291589e-08,2.264516549967741e-08,2.7593675939499522e-08,6.955083579294356e-08,5.8614690055695956e-08,1.4371630077843846e-08,1.3775665755509521e-08,1.1235881736554852e-07,5.981163906760213e-08,1.3892361362594703e-08,1.907514963031482e-08,1.8102460050421062e-08,2.6730301248360742e-08
+RoW,Activity,Production of electricity by hydro,1.605633786221099e-07,4.0374373391902535e-08,3.549229428709608e-08,2.4103647029040067e-08,2.8793133552378472e-08,7.331045164404745e-08,6.424826335769715e-08,1.4924841399845845e-08,1.4378047239288116e-08,1.0943537904179305e-07,5.815880518191641e-08,1.4043173919288811e-08,2.0395492458309946e-08,1.8960785025400365e-08,2.8588081246060077e-08
+RoW,Activity,Production of electricity by nuclear,3.4972702703513176e-08,1.1418220241107942e-08,1.0020130356314438e-08,6.664267191791402e-09,6.733470023293822e-09,1.9318408888801713e-08,1.184814074557855e-08,3.731073651368213e-09,3.3371215919985465e-09,1.8851182428215726e-08,1.2837607771705352e-08,3.2737818157977493e-09,3.9072315511660575e-09,4.753685500810663e-09,5.990612816418637e-09
+RoW,Activity,Production of electricity by petroleum and other oil derivatives,3.930964032496665e-08,1.4642511278840201e-08,1.2831252382984308e-08,9.719681770805113e-09,1.1744589005179383e-08,1.95535476397268e-08,2.7495173865053995e-08,6.1218588530931044e-09,5.888074627446312e-09,5.2581413242772966e-08,1.5284178828756958e-08,5.911704429804003e-09,8.783696588113274e-09,7.465175624776186e-09,1.196253179777526e-08
+RoW,Activity,Production of electricity by solar photovoltaic,8.508547508574331e-09,3.518486232318565e-10,3.135595930518827e-10,3.3975884346516554e-10,2.5932038429492107e-10,3.596232647120784e-10,3.8746382923044495e-10,1.5762221632629412e-10,1.217513266281855e-10,4.873811434620484e-10,2.7801781788911792e-09,1.2555754028541428e-10,1.2896296456116464e-10,1.6165215521463537e-10,2.1429839278438188e-10
+RoW,Activity,Production of electricity by solar thermal,3.1417484449131784e-11,3.1890424673959676e-14,2.7703064829090544e-14,1.3119435332257666e-14,1.6696574284598235e-14,1.1277779414849949e-13,3.362825279324506e-14,8.690862182674046e-15,8.839351025485695e-15,3.337308902220832e-14,1.0059643294082732e-11,8.58665481880687e-15,1.082042665703116e-14,1.2834189436203174e-14,1.6268333663269813e-14
+RoW,Activity,"Production of electricity by tide, wave, ocean",1.0306386596791202e-12,8.434549544079189e-13,6.6623719721808e-13,4.3953501238794955e-13,3.687181041970582e-13,5.595621071745851e-13,5.297367613007961e-13,2.1171681719209032e-13,1.6737318696132053e-13,1.059005956769375e-12,4.1355475706483597e-13,1.5927493079141668e-13,1.8542778989805325e-13,2.8155832826530184e-13,2.988652001690091e-13
+RoW,Activity,Production of electricity by wind,1.3748695924630317e-08,1.8240152712106259e-09,1.5762500866431236e-09,1.3169667176007187e-09,1.4941498835354636e-09,2.885516048812659e-09,3.035743944079439e-09,7.800725722443822e-10,6.986603762857758e-10,6.7796324061764936e-09,4.7468372756753476e-09,7.470400951516205e-10,9.906908036361665e-10,9.169836480961276e-10,1.3870283438971057e-09
+RoW,Activity,Production of electricity nec,3.232787093513623e-11,1.5992427703434293e-11,1.3667655859196669e-11,9.926623611935157e-12,8.932588058354023e-12,1.620051079425833e-11,1.4233433193144555e-11,5.1001165113409046e-12,4.319972660910408e-12,2.2970168752302274e-11,1.2546620541581875e-11,4.111745443691009e-12,4.7658761357105786e-12,6.289024103331426e-12,7.634352362031829e-12
+RoW,Activity,Production of meat products nec,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Production of offshore wind plants,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Production of onshore wind plants,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Production of photovoltaic plants,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Public administration and defence; compulsory social security (75),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Publishing, printing and reproduction of recorded media (22)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Pulp,6.823257021971547e-09,5.708536167529607e-09,4.511698538630224e-09,3.524833841298059e-09,2.634130614394484e-09,5.1854625540151694e-09,4.421302554815237e-09,1.704516000661847e-09,1.3175430426142145e-09,4.013712963501244e-09,2.905545704612165e-09,1.3277109453986712e-09,1.1916406396472898e-09,2.0817092497033127e-09,2.4434161709413637e-09
+RoW,Activity,Quarrying of sand and clay,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Quarrying of stone,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Raw milk,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Re-processing of ash into clinker,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Re-processing of secondary aluminium into new aluminium,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Re-processing of secondary construction material into aggregates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Re-processing of secondary copper into new copper,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Re-processing of secondary glass into new glass,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Re-processing of secondary lead into new lead, zinc and tin",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Re-processing of secondary other non-ferrous metals into new other non-ferrous metals,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Re-processing of secondary paper into new pulp,3.4138214984758947e-09,2.599644381473172e-09,2.0677431690602872e-09,1.6319817476266527e-09,1.2424231762576718e-09,2.5219060333546578e-09,2.1217978589409787e-09,7.994912516687445e-10,6.214267144905801e-10,2.00979985291809e-09,1.428906199742393e-09,6.346164000357055e-10,5.73845073207757e-10,9.693910077374808e-10,1.1586390283769023e-09
+RoW,Activity,Re-processing of secondary plastic into new plastic,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Re-processing of secondary preciuos metals into new preciuos metals,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Re-processing of secondary steel into new steel,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Re-processing of secondary wood material into new wood material,2.2275623284569437e-09,1.7282561247911774e-09,1.8348260472089414e-09,8.283358872230961e-10,1.5253105553083507e-09,1.6411786676533426e-09,1.1688721928814305e-09,9.955590630112943e-10,6.40088619205876e-10,1.1401572480970072e-09,9.94116406803425e-10,4.433029576054928e-10,3.475167127382211e-10,7.390407307659703e-10,8.36147534091355e-10
+RoW,Activity,Real estate activities (70),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Recreational, cultural and sporting activities (92)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Recycling of bottles by direct reuse,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Recycling of waste and scrap,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Renting of machinery and equipment without operator and of personal and household goods (71),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Research and development (73),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Retail sale of automotive fuel,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Retail trade, except of motor vehicles and motorcycles; repair of personal and household goods (52)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Sale, maintenance, repair of motor vehicles, motor vehicles parts, motorcycles, motor cycles parts and accessoiries",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Sea and coastal water transport,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Steam and hot water supply,3.080485896422934e-08,2.9422041136307407e-08,2.6280612873271812e-08,2.416731275167157e-08,2.2443334318075508e-08,4.505131407036019e-08,4.0151740095741224e-08,1.2287217812007145e-08,1.0315650600545083e-08,7.200466460431349e-08,1.499029480088665e-08,1.056422285693977e-08,1.3297124957477e-08,1.3828616695072986e-08,1.969422900427099e-08
+RoW,Activity,Sugar refining,2.1142975350162577e-09,1.8411452744073031e-09,1.6293559122848555e-09,1.6361238501531299e-09,1.2039467531919599e-09,1.361745897368462e-09,1.4570145312068526e-09,6.97060607231611e-10,5.176727854212819e-10,1.7538562297873998e-09,9.688906504575843e-10,5.648619902964558e-10,5.59752771269136e-10,7.461706038560963e-10,9.437520814804442e-10
+RoW,Activity,Supporting and auxiliary transport activities; activities of travel agencies (63),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Tanning and dressing of leather; manufacture of luggage, handbags, saddlery, harness and footwear (19)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Transmission of electricity,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Transport via pipelines,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,Transport via railways,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Waste water treatment, food",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Waste water treatment, other",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Wholesale trade and commission trade, except of motor vehicles and motorcycles (51)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+RoW,Activity,"Wool, silk-worm cocoons",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Activities auxiliary to financial intermediation (67),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Activities of membership organisation n.e.c. (91),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Air transport (62),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Aluminium production,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Animal products nec,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Biogasification of food waste, incl. land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Biogasification of paper, incl. land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Biogasification of sewage slugde, incl. land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Casting of metals,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Cattle farming,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Chemicals nec,5.576153158810789e-08,1.822030518970855e-08,1.6820442887638082e-08,3.0417744142270545e-08,1.443384087158103e-08,1.052187323101801e-08,1.5038379217259882e-08,1.0235456138564335e-08,6.151300786781267e-09,1.7030888396363872e-08,2.0118932928455698e-08,4.034968603078405e-09,6.285491341658794e-09,7.692817207579732e-09,9.656159821450852e-09
+USA,Activity,"Collection, purification and distribution of water (41)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Composting of food waste, incl. land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Composting of paper and wood, incl. land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Computer and related activities (72),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Construction (45),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Copper production,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Cultivation of cereal grains nec,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Cultivation of crops nec,2.7524643364477095e-11,1.0586010873233216e-11,9.449669630700812e-12,1.24154848341056e-11,1.833808652807987e-11,2.5759929868365406e-11,7.629051691274381e-12,4.810536204043932e-12,3.2929270280102747e-12,8.882278561011827e-12,1.0227560626771396e-11,2.718835936670133e-12,3.258264639919271e-12,4.372121260120603e-12,5.2032450021317725e-12
+USA,Activity,Cultivation of oil seeds,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Cultivation of paddy rice,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Cultivation of plant-based fibers,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Cultivation of sugar cane, sugar beet",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Cultivation of vegetables, fruit, nuts",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Cultivation of wheat,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Distribution and trade of electricity,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Education (80),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Extra-territorial organizations and bodies,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Extraction of crude petroleum and services related to crude oil extraction, excluding surveying",9.685717566141263e-08,4.0335844237458614e-08,3.8830978328707194e-08,4.1982381672225865e-08,4.1565110589222823e-08,9.688181354569457e-08,4.7813856891304105e-08,2.5290017525606283e-08,1.69264289962987e-08,2.3097699001194595e-07,4.006076183293632e-08,3.225001675134666e-08,2.1652766227933926e-08,2.8490948311618796e-08,2.7696800647302878e-08
+USA,Activity,"Extraction of natural gas and services related to natural gas extraction, excluding surveying",3.9108427724760415e-08,2.2488208450639325e-08,2.2187770062063672e-08,1.877172996066392e-08,2.6181093434623108e-08,4.059241505443477e-08,2.904637068692762e-08,1.4322050123831955e-08,9.440173721442791e-09,1.8686985989787162e-07,1.8198250574885684e-08,1.9591428409929364e-08,1.226241972872657e-08,1.705439129020336e-08,1.5407207421363058e-08
+USA,Activity,"Extraction, liquefaction, and regasification of other petroleum and gaseous materials",1.4712621462848796e-09,2.988107006703071e-10,2.799081357851139e-10,2.2442007706839858e-10,3.086856050730818e-10,4.808564222401313e-09,2.8908206717262317e-10,1.455632469920069e-10,1.1362064818814696e-10,1.3022319351454843e-09,5.30160767092808e-10,1.7377842920833956e-10,1.5403554840863522e-10,1.7896925854086877e-10,1.83596221138155e-10
+USA,Activity,"Financial intermediation, except insurance and pension funding (65)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Fishing, operating of fish hatcheries and fish farms; service activities incidental to fishing (05)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Forestry, logging and related service activities (02)",2.6853833821650086e-09,1.0504774755631457e-09,8.956253046651943e-10,6.405857898242667e-10,8.537163666500241e-10,8.077582802165638e-10,5.683717907586572e-10,3.6046520643820636e-10,2.6713032412613495e-10,5.481954313611636e-10,9.859094132131264e-10,2.2791998238525976e-10,2.011834548291907e-10,3.8200213935071e-10,4.0983381341934435e-10
+USA,Activity,Health and social work (85),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Hotels and restaurants (55),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Incineration of waste: Food,2.2871562552763056e-10,1.4070452564387277e-10,1.3634111648228659e-10,7.102459878304136e-11,6.097317566789455e-11,5.461966028695921e-10,8.082413473257018e-11,3.6937217278382174e-11,3.4217447659585535e-11,6.625998549785342e-11,8.844328407358378e-11,2.993188417398698e-11,2.831752747324833e-11,5.1341336906573734e-11,5.0284132395749216e-11
+USA,Activity,Incineration of waste: Metals and Inert materials,3.6556184611145516e-10,2.7545324031206094e-10,3.431277830167599e-10,1.878946721188386e-10,2.1841278921860323e-10,2.6307688180982346e-10,3.189164458773296e-10,1.3346448324118762e-10,1.0490122519209852e-10,1.94007502469236e-10,1.835142329151046e-10,2.219845234326468e-10,1.442361797520174e-10,1.5124140236496548e-10,1.7596668267956183e-10
+USA,Activity,Incineration of waste: Oil/Hazardous waste,3.129924174982715e-11,2.1893859278939897e-11,2.1624354574490692e-11,1.0320410133214246e-11,1.4736430250098446e-11,1.0988269746627648e-10,1.5685782857807864e-11,8.193721136654996e-12,1.2926610872483817e-11,1.1584704148689912e-11,1.4232716075248265e-11,5.409805966294726e-12,5.531425706538808e-12,1.056686206967331e-11,1.3006150876375772e-11
+USA,Activity,Incineration of waste: Paper,3.5284496116055835e-10,1.2183190719434456e-10,1.1783772700799081e-10,1.032438061840116e-10,8.3589173955908e-11,5.836249488915945e-10,1.1011144446615104e-10,5.038185568682973e-11,4.4677041002550636e-11,9.825323849347828e-11,1.3336735231859952e-10,4.1677320990144624e-11,3.9487736093104124e-11,5.5667467500183785e-11,6.713834730449196e-11
+USA,Activity,Incineration of waste: Plastic,8.008817626345518e-10,2.711484386730988e-10,2.5881614946277654e-10,2.1088538512732259e-10,1.5257545130040209e-10,4.333130138263327e-10,2.388780353719152e-10,9.527872342298361e-11,7.788198496995868e-11,1.8885684339013493e-10,2.942819216563148e-10,7.578911942312212e-11,6.873257834094435e-11,1.1143297603771363e-10,1.2945053403769872e-10
+USA,Activity,Incineration of waste: Textiles,1.0716331466965476e-10,4.493604889573825e-11,4.441330059522266e-11,3.0395439969310414e-11,2.5469878521612664e-11,1.4388368451869023e-10,3.422506757274732e-11,1.5458142398273546e-11,1.3467079296713591e-11,2.8636784254218942e-11,4.121885203034208e-11,1.2483973628591905e-11,1.1370498598507324e-11,1.9018052759036255e-11,2.0794878794761742e-11
+USA,Activity,Incineration of waste: Wood,1.3645852081967693e-10,6.102747132464163e-11,5.766720277993274e-11,4.1303834104601214e-11,4.014308943411824e-11,6.461717283748807e-11,4.872904499426611e-11,2.353368544289582e-11,2.205584248106428e-11,4.205525803598774e-11,5.4278777414006046e-11,2.1287140134256572e-11,2.045338426292356e-11,2.811878870284277e-11,3.2261757479067364e-11
+USA,Activity,Inland water transport,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Insurance and pension funding, except compulsory social security (66)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Landfill of waste: Food,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Landfill of waste: Inert/metal/hazardous,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Landfill of waste: Paper,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Landfill of waste: Plastic,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Landfill of waste: Textiles,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Landfill of waste: Wood,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Lead, zinc and tin production",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Manufacture of basic iron and steel and of ferro-alloys and first products thereof,1.478742528603898e-09,1.427556306082073e-09,1.2108347916137517e-09,3.278046361703295e-10,4.0965454517777363e-10,1.1573185011663164e-09,5.827715891712934e-10,2.2891825472680662e-10,2.300582438196312e-10,7.325079481101363e-10,5.938135377594952e-10,1.8576876558825241e-10,1.9129575919717146e-10,4.361282725653495e-10,3.6419688846865247e-10
+USA,Activity,Manufacture of beverages,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Manufacture of bricks, tiles and construction products, in baked clay",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Manufacture of cement, lime and plaster",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Manufacture of ceramic goods,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Manufacture of coke oven products,5.942073043156737e-09,5.965674582220942e-09,5.162414969850434e-09,1.3218247003424513e-09,1.6029675855159709e-09,3.5613921288794284e-09,2.2112579814940257e-09,9.02883972280854e-10,8.915913849476959e-10,2.948705287600883e-09,2.390443891089537e-09,7.114615534209187e-10,7.471233157696038e-10,1.7989452153514578e-09,1.4319445308038353e-09
+USA,Activity,Manufacture of electrical machinery and apparatus n.e.c. (31),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Manufacture of fabricated metal products, except machinery and equipment (28)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Manufacture of fish products,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Manufacture of furniture; manufacturing n.e.c. (36),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Manufacture of gas; distribution of gaseous fuels through mains,3.193791725020413e-09,2.0952368853242814e-10,1.8138330228317934e-10,1.2212444060886006e-10,1.18405470429682e-10,5.03913110727991e-10,1.3227793484487692e-10,6.713385363430462e-11,5.806930502997785e-11,2.009653617325466e-10,1.0527771125620053e-09,6.509527484583636e-11,5.477188529076743e-11,8.613462813561082e-11,8.875700651307629e-11
+USA,Activity,Manufacture of glass and glass products,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Manufacture of machinery and equipment n.e.c. (29),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Manufacture of medical, precision and optical instruments, watches and clocks (33)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Manufacture of motor vehicles, trailers and semi-trailers (34)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Manufacture of office machinery and computers (30),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Manufacture of other non-metallic mineral products n.e.c.,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Manufacture of other transport equipment (35),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Manufacture of radio, television and communication equipment and apparatus (32)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Manufacture of rubber and plastic products (25),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Manufacture of textiles (17),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Manufacture of tobacco products (16),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Manufacture of wearing apparel; dressing and dyeing of fur (18),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials (20)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Manure treatment (biogas), storage and land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Manure treatment (conventional), storage and land application",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Meat animals nec,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Mining of aluminium ores and concentrates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Mining of chemical and fertilizer minerals, production of salt, other mining and quarrying n.e.c.",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Mining of coal and lignite; extraction of peat (10),2.56182702088339e-06,2.686123114169483e-07,2.683995682001714e-07,2.072886642718326e-07,6.310454406444719e-07,2.4041878755985075e-05,2.792395734408417e-07,1.338531093286563e-07,1.6611277529275616e-07,2.753158666148829e-07,8.834651919680542e-07,1.1734636529865815e-07,3.0239161833880406e-07,1.6618523926093352e-07,2.8137953300469176e-07
+USA,Activity,Mining of copper ores and concentrates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Mining of iron ores,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Mining of lead, zinc and tin ores and concentrates",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Mining of nickel ores and concentrates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Mining of other non-ferrous metal ores and concentrates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Mining of precious metal ores and concentrates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Mining of uranium and thorium ores (12),1.7857765678075465e-08,7.08684027499714e-09,6.147154050721688e-09,8.714611611648221e-09,4.310932795986004e-09,3.2706560777906575e-09,4.507685186973971e-09,3.023425369362677e-09,1.9127434607301977e-09,5.001557547504844e-09,6.452452737120393e-09,1.2850898977562876e-09,1.876347308711295e-09,2.610496002188084e-09,2.955283936079591e-09
+USA,Activity,N-fertiliser,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Other business activities (74),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Other land transport,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Other non-ferrous metal production,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Other service activities (93),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,P- and other fertiliser,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Paper,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Petroleum Refinery,1.5650700387560742e-07,7.691785089759347e-08,7.710050455441048e-08,7.142461647465352e-08,8.929551977819758e-08,1.7511035540520556e-07,1.028945217960476e-07,5.4254231322057525e-08,3.6815237172801056e-08,5.076569376972744e-07,7.10579946177023e-08,8.488740523018661e-08,4.891069912242341e-08,6.60770462056686e-08,6.046197238846954e-08
+USA,Activity,Pigs farming,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Plastics, basic",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Post and telecommunications (64),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Poultry farming,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Precious metals production,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Private households with employed persons (95),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Processed rice,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Processing of Food products nec,9.666615589971276e-10,4.562354302151957e-10,3.9993848492430226e-10,5.31274051469248e-10,3.181112314451155e-10,2.7804320306908496e-10,3.442385937237077e-10,1.980988856442822e-10,1.3347992794124838e-10,3.599388339357067e-10,3.671149152927756e-10,1.1033254016378163e-10,1.3523638414721307e-10,1.8048178269013298e-10,2.2486498284526822e-10
+USA,Activity,Processing of dairy products,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Processing of meat cattle,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Processing of meat pigs,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Processing of meat poultry,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Processing of nuclear fuel,8.179058803198752e-08,7.379649739346988e-08,5.283519868414261e-08,1.936347648388629e-08,1.881478773781136e-08,3.4948554942126836e-08,2.3662740780773594e-08,1.087336022196555e-08,9.397106965604855e-09,5.3676082523600864e-08,3.1079068140297116e-08,8.562975732015828e-09,8.31705389855366e-09,1.942163735699615e-08,1.5193517217226114e-08
+USA,Activity,Processing vegetable oils and fats,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Production of electricity by Geothermal,9.657849635176141e-09,8.7602291942095e-11,7.624505253640862e-11,7.003612573456873e-11,5.096248303647776e-11,1.6382035901480358e-10,5.662437077102939e-11,3.113443232259789e-11,2.4784275078459583e-11,6.516418641747866e-11,3.102934830567257e-09,2.2924915461079628e-11,2.3057984268419687e-11,3.467424308230037e-11,3.74283963762352e-11
+USA,Activity,Production of electricity by biomass and waste,1.3352866536899585e-08,1.4584274372045498e-10,1.2757866526662765e-10,1.3005762043694506e-10,8.798213675048527e-11,2.504622248290384e-10,9.697392585026242e-11,5.51260103199016e-11,4.201513436996278e-11,1.178631375525152e-10,4.292951234546035e-09,3.7584069478345014e-11,3.9393530502247526e-11,5.82872379337883e-11,6.373049281633314e-11
+USA,Activity,Production of electricity by coal,4.031852504511718e-07,9.954926926181486e-09,8.580891003840212e-09,8.23826746505172e-09,5.7351748735111895e-09,1.7052373649804177e-08,6.328044543015738e-09,3.567319872803045e-09,2.770109743173498e-09,7.745615792639028e-09,1.303130641899961e-07,2.4595382949767876e-09,2.5432576061982507e-09,3.890354508836478e-09,4.1852861019100354e-09
+USA,Activity,Production of electricity by gas,7.094122745131691e-07,6.481325593776211e-09,5.601204293677318e-09,5.442543210516165e-09,3.7473609654299795e-09,9.911253279264769e-09,4.1599417028209995e-09,2.3467038488258644e-09,1.8008107261577134e-09,5.094697003964799e-09,2.278804312037491e-07,1.6183809050710618e-09,1.6632037366838835e-09,2.5424192687671463e-09,2.7378673038549625e-09
+USA,Activity,Production of electricity by hydro,1.4344377683036416e-07,1.7411231492099042e-09,1.5134799461247014e-09,1.4795007265695292e-09,1.0177709092825873e-09,2.8892025244225215e-09,1.1331509143436374e-09,6.356310761164116e-10,4.892352550583939e-10,1.383737248678473e-09,4.613546191179347e-08,4.3948518486009786e-10,4.537342364014079e-10,6.863653987711505e-10,7.417332914637858e-10
+USA,Activity,Production of electricity by nuclear,3.800984082328626e-07,3.507995362100984e-09,2.9359538814539807e-09,1.607694001147489e-09,1.6857111125305208e-09,6.776320711297256e-09,1.9623212587380885e-09,9.496539541529235e-10,8.799226648031365e-10,2.5310434810116094e-09,1.2211040196003842e-07,9.279782167296838e-10,7.618832246662746e-10,1.3298886754021724e-09,1.312059498950802e-09
+USA,Activity,Production of electricity by petroleum and other oil derivatives,6.178659821451304e-09,9.43751629263285e-11,8.387638333259045e-11,9.807484609803098e-11,6.190505884135813e-11,1.3082854534244231e-10,6.72324613378893e-11,3.9792966668733125e-11,2.8979836780497387e-11,8.076607262686642e-11,1.9906509982945085e-09,2.583106330044856e-11,2.746461821111883e-11,3.932616133990788e-11,4.4483120427976104e-11
+USA,Activity,Production of electricity by solar photovoltaic,1.6342669455111648e-07,1.1437906188608446e-10,9.984367781559438e-11,9.034998741148555e-11,6.552723677283999e-11,2.1298889643069662e-10,7.27326397530894e-11,4.003230723578328e-11,3.181730820028085e-11,8.361331226137559e-11,5.2319357442401025e-08,2.936389797118775e-11,2.974321261543242e-11,4.4809921882787006e-11,4.8100431886522056e-11
+USA,Activity,Production of electricity by solar thermal,2.4612233070198514e-09,5.899320241575308e-12,5.127639432670894e-12,4.627808715944703e-12,3.40706877197717e-12,1.1562539115217338e-11,3.783173431634281e-12,2.0716749485661953e-12,1.6511218130522634e-12,4.406947644177969e-12,7.885308356384206e-10,1.5331113278075183e-12,1.5440438098030202e-12,2.325843780809685e-12,2.5061719174213614e-12
+USA,Activity,"Production of electricity by tide, wave, ocean",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Production of electricity by wind,4.1463866676983436e-07,1.6662222863688975e-09,1.4416884291956916e-09,1.3737261687328258e-09,9.573052557010324e-10,3.199444787214845e-09,1.0608760073386752e-09,5.913602483781065e-10,4.6223685174361637e-10,1.252079477173772e-09,1.329165356650136e-07,4.046613481766854e-10,4.2730305278219227e-10,6.469291715385279e-10,6.961861298496185e-10
+USA,Activity,Production of electricity nec,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Production of meat products nec,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Production of offshore wind plants,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Production of onshore wind plants,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Production of photovoltaic plants,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Public administration and defence; compulsory social security (75),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Publishing, printing and reproduction of recorded media (22)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Pulp,4.0074270326733585e-10,2.419329584686178e-10,1.688637362463095e-10,1.2544832295476008e-10,8.091857274412088e-11,1.419648436280997e-10,1.0239384487677338e-10,5.5563469798690476e-11,4.035844084262204e-11,9.624293723150985e-11,1.4847487700388007e-10,3.8168563629597434e-11,3.328735187288891e-11,7.230389622744707e-11,7.619757115341638e-11
+USA,Activity,Quarrying of sand and clay,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Quarrying of stone,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Raw milk,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Re-processing of ash into clinker,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Re-processing of secondary aluminium into new aluminium,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Re-processing of secondary construction material into aggregates,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Re-processing of secondary copper into new copper,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Re-processing of secondary glass into new glass,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Re-processing of secondary lead into new lead, zinc and tin",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Re-processing of secondary other non-ferrous metals into new other non-ferrous metals,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Re-processing of secondary paper into new pulp,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Re-processing of secondary plastic into new plastic,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Re-processing of secondary preciuos metals into new preciuos metals,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Re-processing of secondary steel into new steel,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Re-processing of secondary wood material into new wood material,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Real estate activities (70),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Recreational, cultural and sporting activities (92)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Recycling of bottles by direct reuse,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Recycling of waste and scrap,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Renting of machinery and equipment without operator and of personal and household goods (71),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Research and development (73),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Retail sale of automotive fuel,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Retail trade, except of motor vehicles and motorcycles; repair of personal and household goods (52)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Sale, maintenance, repair of motor vehicles, motor vehicles parts, motorcycles, motor cycles parts and accessoiries",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Sea and coastal water transport,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Steam and hot water supply,6.8496043042645285e-09,2.0860033555534866e-09,1.889199363767236e-09,2.36426875544464e-09,1.4901843496448286e-09,2.158389927018951e-09,1.6128323627105303e-09,9.579995380463748e-10,6.969540858423522e-10,1.7807919106067778e-09,2.5110300337556834e-09,6.621633093429393e-10,6.508472325069218e-10,9.276513000926518e-10,1.0762036567538327e-09
+USA,Activity,Sugar refining,2.969265629241082e-12,1.8815105097294486e-12,1.6630926346920797e-12,1.8721053939153636e-12,1.2616590081276767e-12,1.1443395472307175e-12,1.3526027344234579e-12,7.501113305442736e-13,5.433288023339933e-13,1.4428706366553737e-12,1.2518204731370825e-12,5.755082784420549e-13,5.601746560228454e-13,7.572002102735753e-13,9.41733096330149e-13
+USA,Activity,Supporting and auxiliary transport activities; activities of travel agencies (63),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Tanning and dressing of leather; manufacture of luggage, handbags, saddlery, harness and footwear (19)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Transmission of electricity,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Transport via pipelines,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,Transport via railways,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Waste water treatment, food",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Waste water treatment, other",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Wholesale trade and commission trade, except of motor vehicles and motorcycles (51)",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+USA,Activity,"Wool, silk-worm cocoons",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

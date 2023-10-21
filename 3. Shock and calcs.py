@@ -159,8 +159,8 @@ for scen in price_logics:
         for tech in tech_performances:
             world[year].shock_calc(f"{pd.read_excel(paths, index_col=[0]).loc['Shocks',user]}\\Shock_files\\{scen}_{year}_{tech}.xlsx", z=True, v=True, scenario=f"{scen} - {year} - {tech}")
 
-#%%
-path_aggr  = r"Aggregations\Aggregation_postprocess.xlsx"
+#%% 
+# path_aggr  = r"Aggregations\Aggregation_postprocess.xlsx"
 folder = f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Monetary units"
 
 for year in years:
@@ -184,9 +184,20 @@ for year in years:
             'Production of photovoltaic plants',
             'Production of onshore wind plants',
             'Production of offshore wind plants',
+            'Production of electricity by Geothermal',
+            'Production of electricity by biomass and waste',
+            'Production of electricity by coal',
+            'Production of electricity by gas',
+            'Production of electricity by hydro',
+            'Production of electricity by nuclear',
+            'Production of electricity by petroleum and other oil derivatives',
+            'Production of electricity by solar photovoltaic',
+            'Production of electricity by solar thermal',
+            'Production of electricity by tide, wave, ocean',
             'Production of electricity by wind',
-            'Production of electricity by solar photovoltaic'        
+            'Production of electricity nec',
        ]
+    
     regions = ['EU27+UK']
     
     for a in sat_accounts:

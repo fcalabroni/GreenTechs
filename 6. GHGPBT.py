@@ -1,0 +1,140 @@
+import mario
+import pandas as pd
+import numpy as np
+
+user = "LR"
+sN = slice(None)
+
+paths = 'Paths.xlsx'
+
+years = range(2011,2020)
+
+satellite_account = 'GHGs'
+price_logics = ['Constant']
+region = 'EU27+UK'
+
+caps = [
+    'Production of photovoltaic plants',
+    'Production of onshore wind plants',
+    'Production of offshore wind plants',
+    ]
+    
+ee = [
+    'Production of electricity by Geothermal',
+    'Production of electricity by biomass and waste',
+    'Production of electricity by coal',
+    'Production of electricity by gas',
+    'Production of electricity by hydro',
+    'Production of electricity by nuclear',
+    'Production of electricity by petroleum and other oil derivatives',
+    'Production of electricity by solar photovoltaic',
+    'Production of electricity by solar thermal',
+    'Production of electricity by tide, wave, ocean',
+    'Production of electricity by wind',
+    'Production of electricity nec',                
+  ]
+
+conv_factors = {
+    'GHGs':1e-3,
+    }
+
+#%% read and aggregate footprints
+f = pd.read_csv(
+    f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units\\{satellite_account}.csv",
+    index_col=[0,1,2,3,4],
+    )
+f['Scenario'] = [i.split(' - ')[0] for i in f.index.get_level_values('Scenario')]
+f = f.query("Scenario==@price_logics")
+f = f.drop('Scenario',axis=1)
+
+f = f.groupby(['Activity to','Scenario']).sum()
+f['Scenario'] = [i.split(' - ')[0] for i in f.index.get_level_values('Scenario')]
+f['Year'] = [i.split(' - ')[1] for i in f.index.get_level_values('Scenario')]
+f['Performance'] = [i.split(' - ')[2] for i in f.index.get_level_values('Scenario')]
+
+scenarios = sorted(list(set(f.index.get_level_values('Scenario'))))
+f = f.droplevel('Scenario')
+f.reset_index(inplace=True)
+
+#%% read shocked tables
+world = {}
+for scenario in scenarios:
+    if scenario.split(' - ')[0] in price_logics:
+        world[scenario] = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\d. Shock - Endogenization of capital\\{scenario}\\coefficients", table='SUT', mode="coefficients")
+
+#%% Numerator
+IN = {}
+
+for tech in caps:
+    IN[tech] = pd.DataFrame()
+    for scenario in scenarios:
+        
+        s = scenario.split(' - ')[0]
+        y = scenario.split(' - ')[1]
+        p = scenario.split(' - ')[2]
+        
+        value = f.query(f"`Activity to`=='{tech}' & Scenario==@s & Year==@y & Performance==@p")
+        value.set_index(['Activity to','Scenario','Year','Performance'],inplace=True)
+        
+        IN[tech] = pd.concat([IN[tech],value],axis=0)
+       
+#%% Denominator
+OUT = pd.DataFrame()
+for scenario in scenarios:
+    
+    s = scenario.split(' - ')[0]
+    y = scenario.split(' - ')[1]
+    p = scenario.split(' - ')[2]
+        
+    prod = world[scenario].X.loc[(region,sN,ee),'production']
+    prod /= prod.sum().sum()
+    prod = prod.to_frame()
+    
+    prod.index = prod.index.get_level_values(2)
+    
+    value = f.query("`Activity to`==@ee & Scenario==@s & Year==@y & Performance==@p")
+    value.set_index(['Activity to','Scenario','Year','Performance'],inplace=True)
+    value.index = value.index.get_level_values(0)
+    
+    prod.index.names = value.index.names
+    
+    OUT = pd.concat([
+        OUT,
+        pd.DataFrame(
+            np.multiply(value,prod).sum().sum()*conv_factors[satellite_account],
+            index = pd.MultiIndex.from_arrays([[s],[y],[p]], names=['Scenario','Year','Performance']),
+            columns = ['Value'],
+            )],
+        axis=0,
+        )
+   
+#%% Payback-time      
+from copy import deepcopy as dc
+PBT = dc(IN)
+
+for tech in caps:
+    for scenario in scenarios:
+    
+        s = scenario.split(' - ')[0]
+        y = scenario.split(' - ')[1]
+        p = scenario.split(' - ')[2]
+    
+        PBT[tech].loc[(tech,s,y,p),'Value'] /= OUT.loc[(s,y,p),'Value']
+        
+    PBT[tech] /= 8760
+
+
+#%% Export
+for tech in caps:
+    PBT[tech].to_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Payback-time\\{satellite_account}\\{tech}.csv")
+
+
+
+    
+
+
+    
+    
+
+
+        

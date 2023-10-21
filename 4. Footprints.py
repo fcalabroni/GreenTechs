@@ -31,88 +31,33 @@ sat_accounts = [
 
 units = {
     'Satellite account': {
-        'Energy Carrier Supply - Total': {
-            "raw": 'TJ',
-            "new": 'GWh',
-            "conv": 1/3.6,
-            },
-        'CO2 - combustion - air': {
-            "raw": 'kg',
-            "new": 'ton',
-            "conv": 1/1000,
-            }, 
-        'CH4 - combustion - air': {
-            "raw": 'kg',
-            "new": 'ton',
-            "conv": 1/1000,
-            }, 
-        'N2O - combustion - air': {
-            "raw": 'kg',
-            "new": 'ton',
-            "conv": 1/1000,
-            }, 
-        'Employment - High-skilled female': {
-            "raw": '1000 p',
-            "new": 'p',
-            "conv": 1000,
-            }, 
-        'Employment - High-skilled male': {
-            "raw": '1000 p',
-            "new": 'p',
-            "conv": 1000,
-            }, 
-        'Employment - Low-skilled female': {
-            "raw": '1000 p',
-            "new": 'p',
-            "conv": 1000,
-            }, 
-        'Employment - Low-skilled male': {
-            "raw": '1000 p',
-            "new": 'p',
-            "conv": 1000,
-            }, 
-        'Employment - Medium-skilled female': {
-            "raw": '1000 p',
-            "new": 'p',
-            "conv": 1000,
-            }, 
-        'Employment - Medium-skilled male': {
-            "raw": '1000 p',
-            "new": 'p',
-            "conv": 1000,
-            }, 
-        'GHGs': {
-            "raw": 'kg',
-            "new": 'tonCO2eq',
-            "conv": 1/1000,
-            }, 
+        'Energy Carrier Supply - Total': {"raw": 'TJ',"new": 'GWh',"conv": 1/3.6,},
+        'CO2 - combustion - air': {"raw": 'kg',"new": 'ton',"conv": 1/1000,}, 
+        'CH4 - combustion - air': {"raw": 'kg',"new": 'ton',"conv": 1/1000,}, 
+        'N2O - combustion - air': {"raw": 'kg',"new": 'ton',"conv": 1/1000,}, 
+        'Employment - High-skilled female': {"raw": '1000 p',"new": 'p',"conv": 1000,}, 
+        'Employment - High-skilled male': {"raw": '1000 p',"new": 'p',"conv": 1000,}, 
+        'Employment - Low-skilled female': {"raw": '1000 p',"new": 'p',"conv": 1000,}, 
+        'Employment - Low-skilled male': {"raw": '1000 p',"new": 'p',"conv": 1000,}, 
+        'Employment - Medium-skilled female': {"raw": '1000 p',"new": 'p',"conv": 1000,}, 
+        'Employment - Medium-skilled male': {"raw": '1000 p',"new": 'p',"conv": 1000,}, 
+        'GHGs': {"raw": 'kg',"new": 'tonCO2eq',"conv": 1/1000,}, 
         },
-    'Activity': {
-        "Production of offshore wind plants": {
-            "raw": 'EUR',
-            "new": 'MW',
-            "conv": 3.19e6,
-            }, 
-        "Production of onshore wind plants": {
-            "raw": 'EUR',
-            "new": 'MW',
-            "conv": 1.44e6,
-            }, 
-        "Production of photovoltaic plants": {
-            "raw": 'EUR',
-            "new": 'MW',
-            "conv": 1.81e6,
-            }, 
-        "Production of electricity by wind": {
-            "raw": 'EUR',
-            "new": 'GWh',
-            "conv": 'price',
-            }, 
-        "Production of electricity by solar photovoltaic": {
-            "raw": 'EUR',
-            "new": 'GWh',
-            "conv": 'price',
-            }, 
+    'Activity': {"Production of offshore wind plants": {"raw": 'EUR',"new": 'MW',"conv": 3.19e6,}, 
+        "Production of onshore wind plants": {"raw": 'EUR',"new": 'MW',"conv": 1.44e6,}, 
+        "Production of photovoltaic plants": {"raw": 'EUR',"new": 'MW',"conv": 1.81e6,}, 
+        "Production of electricity by wind": {"raw": 'EUR',"new": 'GWh',"conv": 'price',}, 
+        "Production of electricity by solar photovoltaic": {"raw": 'EUR',"new": 'GWh',"conv": 'price',}, 
+        "Production of electricity by Geothermal": {"raw": 'EUR',"new": 'GWh',"conv": 'price',}, 
+        "Production of electricity by biomass and waste": {"raw": 'EUR',"new": 'GWh',"conv": 'price',}, 
+        "Production of electricity by coal": {"raw": 'EUR',"new": 'GWh',"conv": 'price',}, 
+        "Production of electricity by gas": {"raw": 'EUR',"new": 'GWh',"conv": 'price',}, 
+        "Production of electricity by hydro": {"raw": 'EUR',"new": 'GWh',"conv": 'price',}, 
+        "Production of electricity by nuclear": {"raw": 'EUR',"new": 'GWh',"conv": 'price',}, 
+        "Production of electricity by petroleum and other oil derivatives": {"raw": 'EUR',"new": 'GWh',"conv": 'price',}, 
+        "Production of electricity by solar thermal": {"raw": 'EUR',"new": 'GWh',"conv": 'price',}, 
+        "Production of electricity by tide, wave, ocean": {"raw": 'EUR',"new": 'GWh',"conv": 'price',}, 
+        "Production of electricity nec": {"raw": 'EUR',"new": 'GWh',"conv": 'price',}, 
         },
     }
 
@@ -129,25 +74,25 @@ activities_to = [
     'Production of offshore wind plants',
     'Production of electricity by wind',
     'Production of electricity by solar photovoltaic'        
+    # 'Production of electricity by Geothermal',
+    # 'Production of electricity by biomass and waste',
+    # 'Production of electricity by coal',
+    # 'Production of electricity by gas',
+    # 'Production of electricity by hydro',
+    # 'Production of electricity by nuclear',
+    # 'Production of electricity by petroleum and other oil derivatives',
+    # 'Production of electricity by solar photovoltaic',
+    # 'Production of electricity by solar thermal',
+    # 'Production of electricity by tide, wave, ocean',
+    # 'Production of electricity by wind',
+    # 'Production of electricity nec',
     ]
 
 
 cf = {
-      'Average': {
-          'PV': 0.16,
-          'Onshore wind': 0.35,
-          'Offshore wind': 0.4,
-          },
-      'Worst': {
-          'PV': 0.15,
-          'Onshore wind': 0.3,
-          'Offshore wind': 0.35,
-          },
-      'Best': {
-          'PV': 0.17,
-          'Onshore wind': 0.4,
-          'Offshore wind': 0.45,
-          },
+      'Average': {'PV': 0.16,'Onshore wind': 0.35,'Offshore wind': 0.4,},
+      'Worst': {'PV': 0.15,'Onshore wind': 0.3,'Offshore wind': 0.35,},
+      'Best': {'PV': 0.17,'Onshore wind': 0.4,'Offshore wind': 0.45,},
       }
 
 years = range(2011,2020)
@@ -204,33 +149,26 @@ for y in years:
 #     footprint = footprint.droplevel('Year')
 
 #%% Saving converted footprints
-# writer = pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units.xlsx", engine='openpyxl', mode='w')
 # for sa,footprint in f.items():
-#     footprint.to_excel(writer, sheet_name=sa, merge_cells=False)
-# writer.close()
+#     footprint.to_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units\\{sa}.csv")
 
 #%% Read saved footprints in physical units
-# f = {}
-# for sa in sat_accounts:
-#     f[sa] = pd.read_excel(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units.xlsx", sheet_name=sa, index_col=[0,1,2,3,4,5,6])
+f = {}
+for sa in sat_accounts:
+    f[sa] = pd.read_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units\\{sa}.csv", index_col=[0,1,2,3,4,5,6])
     
 #%% Calculation of total GHG emissions
-# f['GHGs'] = pd.DataFrame()
-# for sa,gwp in GWP.items():
-#     f['GHGs'] = pd.concat([f['GHGs'], f[sa]*gwp], axis=0)
-# f['GHGs'] = f['GHGs'].groupby(level=["Region from","Activity from","Region to","Activity to","Scenario"]).sum()
+f['GHGs'] = pd.DataFrame()
+for sa,gwp in GWP.items():
+    f['GHGs'] = pd.concat([f['GHGs'], f[sa]*gwp], axis=0)
+f['GHGs'] = f['GHGs'].groupby(level=["Region from","Activity from","Region to","Activity to","Scenario"]).sum()
 # for i in f['GHGs'].index:
 #     f['GHGs'].loc[i,"Account"] = "GHG emmissions"
 #     f['GHGs'].loc[i,"Unit"] = f"{units['Satellite account']['GHGs']['new']}/{units['Activity'][i[3]]['new']}"
 # f['GHGs'].set_index(['Account','Unit'], append=True, inplace=True)
 
-#%%
-# f['GHGs'].to_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - GHGs.xlsx")
-
-# %% Read saved footprints in physical units
-f = {}
-for sa in ['GHGs']:
-    f[sa] = pd.read_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - GHGs.xlsx", index_col=[0,1,2,3,4,5,6])
+#%% Export physical ghg footprint
+f['GHGs'].to_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units\\GHGs.csv")
 
 #%% Split scemarios columns
 sN = slice(None)
