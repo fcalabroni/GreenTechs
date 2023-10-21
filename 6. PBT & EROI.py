@@ -160,9 +160,9 @@ for satellite_account in satellite_accounts:
         )
     
     if satellite_account == 'GHGs':
-        title = '<b>GHG payback time of PV, onshore and offshoree wind technology capacities <br>Exiobase v3.8.2 2011-2019, refined with MARIO'
+        title = '<b>GHG payback time of 1 MW of PV, onshore and offshore wind technology <br>Sensitivity on Exiobase v3.8.2 from 2011 to 2019, refined with MARIO'
     if satellite_account == 'Energy Carrier Supply - Total':
-        title = '<b>Energy payback time of PV, onshore and offshoree wind technology capacities <br>Exiobase v3.8.2 2011-2019, refined with MARIO'
+        title = '<b>Energy payback time of PV, onshore and offshore wind technology <br>Sensitivity on Exiobase v3.8.2 from 2011 to 2019, refined with MARIO'
     
     fig.update_layout(
         title = title,
