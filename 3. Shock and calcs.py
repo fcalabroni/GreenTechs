@@ -1,16 +1,3 @@
-#%% -*- coding: utf-8 -*-
-"""
-Created on Tue Apr 18 2023
-
-@authors: 
-    Lorenzo Rinaldi, Department of Energy, Politecnico di Milano
-    Nicolò Golinucci, PhD, Department of Energy, Politecnico di Milano
-    Emanuele Mainardi, Department of Energy, Politecnico di Milano
-    Prof. Matteo Vincenzo Rocco, PhD, Department of Energy, Politecnico di Milano
-    Prof. Emanuela Colombo, PhD, Department of Energy, Politecnico di Milano
-"""
-
-
 import mario
 from mario.tools.constants import _MASTER_INDEX as MI
 import pandas as pd

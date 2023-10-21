@@ -1,16 +1,3 @@
-#%% -*- coding: utf-8 -*-
-"""
-Created on Tue Apr 18 2023
-
-@authors: 
-    Lorenzo Rinaldi, Department of Energy, Politecnico di Milano
-    Nicolò Golinucci, PhD, Department of Energy, Politecnico di Milano
-    Emanuele Mainardi, Department of Energy, Politecnico di Milano
-    Prof. Matteo Vincenzo Rocco, PhD, Department of Energy, Politecnico di Milano
-    Prof. Emanuela Colombo, PhD, Department of Energy, Politecnico di Milano
-"""
-
-
 import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -530,14 +517,6 @@ for year in years:
                 # opacity = 0.75,
                 ))
     
-    # # fake trace for legend title
-    # fig.add_trace(go.Scatter(
-    #     x = [f"<b>{i}" for i in f_scen.query("Scenario=='Baseline'")['Activity to'].values],
-    #     y = [None],
-    #     name = '<b>Variation from baseline by origin commodity-region',
-    #     mode = 'markers',
-    #     marker_color = 'white',
-    #     ))
 
     f_scen_best = f[sat].reset_index().query(f"Scenario==@scenario & Year=='{year}' & Performance=='Best' & `Activity to`=='Electricity by PV' or `Activity to`=='Electricity by wind'")
     f_scen_worst = f[sat].reset_index().query(f"Scenario=='{scenario}' & Year=='{year}' & Performance=='Worst' & `Activity to`=='Electricity by PV' or `Activity to`=='Electricity by wind'")

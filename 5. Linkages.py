@@ -1,15 +1,3 @@
-#%% -*- coding: utf-8 -*-
-"""
-Created on Tue Apr 18 2023
-
-@authors: 
-    Nicolò Golinucci, PhD, Department of Energy, Politecnico di Milano
-    Lorenzo Rinaldi, Department of Energy, Politecnico di Milano
-    Emanuele Mainardi, Department of Energy, Politecnico di Milano
-    Prof. Matteo Vincenzo Rocco, PhD, Department of Energy, Politecnico di Milano
-    Prof. Emanuela Colombo, PhD, Department of Energy, Politecnico di Milano
-"""
-
 import pandas as pd
 import plotly.graph_objects as go
 
@@ -241,16 +229,6 @@ for year in years:
                     ))
 
 
-    # empty trace
-    # fig.add_trace(go.Scatter(
-    #     x = [[f"<b>{i}<b>" for i in x2], [f"<b>{i}<b>" for i in x1]],
-    #     y = [None],
-    #     name = '',
-    #     legendgroup = '',
-    #     mode = 'markers',
-    #     marker_color = 'white',
-    #     ))
-
     # fake trace for error bands
     fig.add_trace(go.Scatter(
         x = [[f"<b>{i}<b>" for i in x2], [f"<b>{i}<b>" for i in x1]],
@@ -263,42 +241,7 @@ for year in years:
         marker_line_color = '#8690A1',
         marker_line_width = 1,
         ))         
-            # total error bars
-            # y_best = []
-            # y_worst = []
-            # y_tot = []
-            
-            # for i in range(len(x1)):
-            #     if props['macrosource'] == x1[i] and x2[i] != 'Baseline':
-                    
-            #         y_tot += [filtered_df.query(f"Scenario=='{x2[i]}' & Performance=='Average'")['Value'].sum().sum()]    
-            #         y_best += [filtered_df.query(f"Scenario=='{x2[i]}' & Performance=='Average'")['Value'].sum().sum() - filtered_df.query(f"Scenario=='{x2[i]}' & Performance=='Best'")['Value'].sum().sum()]
-            #         y_worst += [filtered_df.query(f"Scenario=='{x2[i]}' & Performance=='Worst'")['Value'].sum().sum() - filtered_df.query(f"Scenario=='{x2[i]}' & Performance=='Average'")['Value'].sum().sum()]
-        
-            #     else:
-            #         y_tot += [None]
-            #         y_best += [None]
-            #         y_worst += [None]
-    
-            # fig.add_trace(go.Scatter(
-            #     x = [[f"<b>{i}<b>" for i in x2], [f"<b>{i}<b>" for i in x1]],
-            #     y = y_tot,
-            #     error_y = dict(
-            #         type='data',
-            #         symmetric=False,
-            #         array=y_worst,
-            #         arrayminus=y_best,
-            #         thickness = 1,
-            #         ),
-            #     name = "",
-            #     legendgroup = "",
-            #     marker_color = '#495057',
-            #     showlegend=False,
-            #     marker_size = 1,
-            #     ))
-        
-    
-                
+
     fig.update_layout(
         font_family='HelveticaNeue Light', 
         title = f'<b>{direction} linkages of electricity generation sources in {region} <br>Exiobase v3.8.2 {year}, refined with MARIO',
