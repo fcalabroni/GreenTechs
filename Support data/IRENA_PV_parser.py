@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Aug  7 08:51:24 2023
-
-@author: loren
-"""
-
 import pandas as pd
 
 path = "IRENA-Datafile-RenPwrGenCosts-in-2021-v1-0.xlsx"
