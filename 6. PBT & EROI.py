@@ -1,6 +1,7 @@
 import mario
 import pandas as pd
 import numpy as np
+import plotly.express as px
 
 user = "LR"
 sN = slice(None)
@@ -9,15 +10,15 @@ paths = 'Paths.xlsx'
 
 years = range(2011,2020)
 
-satellite_account = 'GHGs'
+satellite_account = 'Energy Carrier Supply - Total'
 price_logics = ['Constant']
 region = 'EU27+UK'
 
-caps = [
-    'Production of photovoltaic plants',
-    'Production of onshore wind plants',
-    'Production of offshore wind plants',
-    ]
+caps = {
+    'Production of photovoltaic plants': 'PV',
+    'Production of onshore wind plants': 'Onshore wind',
+    'Production of offshore wind plants': 'Offshore wind',
+    }
     
 ee = [
     'Production of electricity by Geothermal',
@@ -36,7 +37,10 @@ ee = [
 
 conv_factors = {
     'GHGs':1e-3,
+    'Energy Carrier Supply - Total': 1e-3,
     }
+
+
 
 #%% read and aggregate footprints
 f = pd.read_csv(
@@ -111,6 +115,7 @@ for scenario in scenarios:
 #%% Payback-time      
 from copy import deepcopy as dc
 PBT = dc(IN)
+PBT_merged = pd.DataFrame()
 
 for tech in caps:
     for scenario in scenarios:
@@ -121,14 +126,54 @@ for tech in caps:
     
         PBT[tech].loc[(tech,s,y,p),'Value'] /= OUT.loc[(s,y,p),'Value']
         
-    PBT[tech] /= 8760
+    PBT[tech] /= 8760/12  # in months
+    PBT_merged = pd.concat([PBT_merged,PBT[tech]],axis=0)
 
 
 #%% Export
 for tech in caps:
     PBT[tech].to_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Payback-time\\{satellite_account}\\{tech}.csv")
+PBT_merged.to_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Payback-time\\{satellite_account}\\All.csv")
 
+#%% Plot
+color_map = {
+    '<b>PV': '#ffc24b',
+    '<b>Onshore wind': '#219ebc',
+    '<b>Offshore wind': '#219ebc', 
+    }
 
+to_plot = PBT_merged.reset_index()
+for tech,name in caps.items():
+    to_plot = to_plot.replace(tech,f"<b>{name}")
+
+fig = px.box(
+    to_plot,
+    x = 'Activity to',
+    y = 'Value',
+    color = 'Activity to',
+    color_discrete_map = color_map,
+    points='all'
+    )
+
+if satellite_account == 'GHGs':
+    title = '<b>GHG payback time of PV, onshore and offshoree wind technology capacities <br>Exiobase v3.8.2 2011-2019, refined with MARIO'
+if satellite_account == 'Energy Carrier Supply - Total':
+    title = '<b>Energy payback time of PV, onshore and offshoree wind technology capacities <br>Exiobase v3.8.2 2011-2019, refined with MARIO'
+
+fig.update_layout(
+    title = title,
+    showlegend=False,
+    yaxis_range=[0,max(to_plot['Value']*1.2)],
+    yaxis_title='Months',
+    xaxis_title=None,
+    template = 'plotly_white',
+    font_family = 'HelveticaNeue Light',
+    )
+
+if satellite_account == 'GHGs':
+    fig.write_html('Plots/GHGPBT.html', auto_open=True)
+if satellite_account == 'Energy Carrier Supply - Total':
+    fig.write_html('Plots/EPBT.html', auto_open=True)
 
     
 

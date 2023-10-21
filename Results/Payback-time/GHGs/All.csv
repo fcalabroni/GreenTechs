@@ -1,0 +1,82 @@
+Activity to,Scenario,Year,Performance,Value
+Production of photovoltaic plants,Constant,2011,Average,1.0244513474107864
+Production of photovoltaic plants,Constant,2011,Best,1.0243943693585384
+Production of photovoltaic plants,Constant,2011,Worst,1.0244969794980816
+Production of photovoltaic plants,Constant,2012,Average,0.9304186557506018
+Production of photovoltaic plants,Constant,2012,Best,0.9303292317222086
+Production of photovoltaic plants,Constant,2012,Worst,0.9305267516879898
+Production of photovoltaic plants,Constant,2013,Average,0.9817326311584675
+Production of photovoltaic plants,Constant,2013,Best,0.9816908259427956
+Production of photovoltaic plants,Constant,2013,Worst,0.9817579496427788
+Production of photovoltaic plants,Constant,2014,Average,1.0834204905898974
+Production of photovoltaic plants,Constant,2014,Best,1.0834263590672315
+Production of photovoltaic plants,Constant,2014,Worst,1.0833522537527231
+Production of photovoltaic plants,Constant,2015,Average,1.0978378082858555
+Production of photovoltaic plants,Constant,2015,Best,1.0978225576214957
+Production of photovoltaic plants,Constant,2015,Worst,1.0978005406152982
+Production of photovoltaic plants,Constant,2016,Average,1.17689339913732
+Production of photovoltaic plants,Constant,2016,Best,1.1769218679143962
+Production of photovoltaic plants,Constant,2016,Worst,1.1767741484485115
+Production of photovoltaic plants,Constant,2017,Average,1.1188019257372626
+Production of photovoltaic plants,Constant,2017,Best,1.11885720281362
+Production of photovoltaic plants,Constant,2017,Worst,1.1186479779893208
+Production of photovoltaic plants,Constant,2018,Average,1.0955748883185508
+Production of photovoltaic plants,Constant,2018,Best,1.0955452392390432
+Production of photovoltaic plants,Constant,2018,Worst,1.095555712449959
+Production of photovoltaic plants,Constant,2019,Average,1.0820337170824832
+Production of photovoltaic plants,Constant,2019,Best,1.0820788556534509
+Production of photovoltaic plants,Constant,2019,Worst,1.0819010365767856
+Production of onshore wind plants,Constant,2011,Average,0.26042909121452557
+Production of onshore wind plants,Constant,2011,Best,0.26057419674598803
+Production of onshore wind plants,Constant,2011,Worst,0.2601699707191603
+Production of onshore wind plants,Constant,2012,Average,0.24144377960224897
+Production of onshore wind plants,Constant,2012,Best,0.24156788492115913
+Production of onshore wind plants,Constant,2012,Worst,0.24122168170208286
+Production of onshore wind plants,Constant,2013,Average,0.25460449881344954
+Production of onshore wind plants,Constant,2013,Best,0.25474389149717125
+Production of onshore wind plants,Constant,2013,Worst,0.25435543700226687
+Production of onshore wind plants,Constant,2014,Average,0.2537802772643876
+Production of onshore wind plants,Constant,2014,Best,0.25392713955657237
+Production of onshore wind plants,Constant,2014,Worst,0.2535185724940814
+Production of onshore wind plants,Constant,2015,Average,0.24694741762903585
+Production of onshore wind plants,Constant,2015,Best,0.24708933346120526
+Production of onshore wind plants,Constant,2015,Worst,0.24669437644326128
+Production of onshore wind plants,Constant,2016,Average,0.25259975185276357
+Production of onshore wind plants,Constant,2016,Best,0.252751692539867
+Production of onshore wind plants,Constant,2016,Worst,0.252328904259618
+Production of onshore wind plants,Constant,2017,Average,0.2286217175500548
+Production of onshore wind plants,Constant,2017,Best,0.22875603462731664
+Production of onshore wind plants,Constant,2017,Worst,0.22838368495822767
+Production of onshore wind plants,Constant,2018,Average,0.2536357946559776
+Production of onshore wind plants,Constant,2018,Best,0.25379791371182264
+Production of onshore wind plants,Constant,2018,Worst,0.2533474411757435
+Production of onshore wind plants,Constant,2019,Average,0.2336916845301706
+Production of onshore wind plants,Constant,2019,Best,0.2338282257486569
+Production of onshore wind plants,Constant,2019,Worst,0.23344899101000743
+Production of offshore wind plants,Constant,2011,Average,0.5834133283671713
+Production of offshore wind plants,Constant,2011,Best,0.5837381632664675
+Production of offshore wind plants,Constant,2011,Worst,0.582833337715032
+Production of offshore wind plants,Constant,2012,Average,0.5371896859248108
+Production of offshore wind plants,Constant,2012,Best,0.5374645038824101
+Production of offshore wind plants,Constant,2012,Worst,0.5366979353351566
+Production of offshore wind plants,Constant,2013,Average,0.5651435071474474
+Production of offshore wind plants,Constant,2013,Best,0.5654514032088747
+Production of offshore wind plants,Constant,2013,Worst,0.5645934320481238
+Production of offshore wind plants,Constant,2014,Average,0.5637762243664827
+Production of offshore wind plants,Constant,2014,Best,0.5641007643451162
+Production of offshore wind plants,Constant,2014,Worst,0.5631979269461269
+Production of offshore wind plants,Constant,2015,Average,0.5491167619282221
+Production of offshore wind plants,Constant,2015,Best,0.5494311052152432
+Production of offshore wind plants,Constant,2015,Worst,0.5485562407463138
+Production of offshore wind plants,Constant,2016,Average,0.5637213273898666
+Production of offshore wind plants,Constant,2016,Best,0.5640597519133048
+Production of offshore wind plants,Constant,2016,Worst,0.5631181789458692
+Production of offshore wind plants,Constant,2017,Average,0.5324874311556509
+Production of offshore wind plants,Constant,2017,Best,0.5328010211537267
+Production of offshore wind plants,Constant,2017,Worst,0.5319317684596202
+Production of offshore wind plants,Constant,2018,Average,0.5782101762702403
+Production of offshore wind plants,Constant,2018,Best,0.5785784057066984
+Production of offshore wind plants,Constant,2018,Worst,0.5775550725824077
+Production of offshore wind plants,Constant,2019,Average,0.5354814953910437
+Production of offshore wind plants,Constant,2019,Best,0.5357947232745994
+Production of offshore wind plants,Constant,2019,Worst,0.5349248576481997
