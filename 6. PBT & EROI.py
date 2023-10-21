@@ -171,7 +171,7 @@ for satellite_account in satellite_accounts:
         )
     
     if satellite_account == 'GHGs':
-        title = '<b>GHG payback time of 1 MW of PV, onshore and offshore wind technology <br>Sensitivity on Exiobase v3.8.2 2011-2019 and capacity factors | Refined with MARIO into Endogenous capital model'
+        title = '<b>GHG payback time of PV, onshore and offshore wind technology <br>Sensitivity on Exiobase v3.8.2 2011-2019 and capacity factors | Refined with MARIO into Endogenous capital model'
     if satellite_account == 'Energy Carrier Supply - Total':
         title = '<b>Energy payback time of PV, onshore and offshore wind technology <br>Sensitivity on Exiobase v3.8.2 2011-2019 and capacity factors | Refined with MARIO into Endogenous capital model'
     
@@ -300,7 +300,7 @@ fig = px.box(
     points='all'
     )
 
-title = '<b>Energy Return on Investment (EROI) of 1 MW of PV, onshore and offshore wind technology <br>Sensitivity on Exiobase v3.8.2 2011-2019, capacity factors and lifetime | Refined with MARIO into Endogenous capital model'
+title = '<b>Energy Return on Investment (EROI) of PV, onshore and offshore wind technology <br>Sensitivity on Exiobase v3.8.2 2011-2019, capacity factors and lifetime | Refined with MARIO into Endogenous capital model'
 
 fig.update_layout(
     title = title,
