@@ -233,7 +233,7 @@ for year in years:
     fig.add_trace(go.Scatter(
         x = [[f"<b>{i}<b>" for i in x2], [f"<b>{i}<b>" for i in x1]],
         y = [None],
-        name = 'Sensitivity on<br>capacity factors',
+        name = 'Sensitivity on<br>technology performance',
         legendgroup = 'Errors',
         mode = 'markers',
         marker_symbol = 'line-ns',

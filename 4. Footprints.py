@@ -1,3 +1,4 @@
+#%%
 import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -63,8 +64,8 @@ units = {
 
 GWP = {
        "CO2 - combustion - air": 1,
-       "CH4 - combustion - air": 26,
-       "N2O - combustion - air": 298,
+       "CH4 - combustion - air": 29.8,
+       "N2O - combustion - air": 273,
     }
 
 regions_to = ['EU27+UK']
@@ -161,49 +162,70 @@ for sa in sat_accounts:
 f['GHGs'] = pd.DataFrame()
 for sa,gwp in GWP.items():
     f['GHGs'] = pd.concat([f['GHGs'], f[sa]*gwp], axis=0)
-f['GHGs'] = f['GHGs'].groupby(level=["Region from","Activity from","Region to","Activity to","Scenario"]).sum()
+f['GHGs'] = f['GHGs'].groupby(level=["Region from","Activity from","Region to","Activity to","Scenario"]).sum()        
 # for i in f['GHGs'].index:
 #     f['GHGs'].loc[i,"Account"] = "GHG emmissions"
 #     f['GHGs'].loc[i,"Unit"] = f"{units['Satellite account']['GHGs']['new']}/{units['Activity'][i[3]]['new']}"
 # f['GHGs'].set_index(['Account','Unit'], append=True, inplace=True)
 
 #%% Export physical ghg footprint
-f['GHGs'].to_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units\\GHGs.csv")
+# f['GHGs'].to_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Footprints - Physical units\\GHGs.csv")
 
 #%% Split scemarios columns
+# f = {'GHGs': f['GHGs']}
 sN = slice(None)
 
 for sa,footprint in f.items():
     footprint.loc[:,'Scenario'] = [i.split(' - ')[0] for i in footprint.index.get_level_values("Scenario")]
     footprint.loc[:,'Year'] = [i.split(' - ')[1] for i in footprint.index.get_level_values("Scenario")]
     footprint.loc[:,'Performance'] = [i.split(' - ')[2] for i in footprint.index.get_level_values("Scenario")]
+    if 'Account' not in footprint.index.names:
+        footprint.loc[:,'Account'] = sa
+    
     footprint = footprint.droplevel("Scenario")
+    if 'Year' in footprint.index.names:
+        footprint = footprint.droplevel("Year")        
     footprint.reset_index(inplace=True)
-    footprint.set_index(['Region from', 'Activity from', 'Region to', 'Activity to', 'Scenario', 'Year', 'Performance', 'Account', 'Unit'], inplace=True)
+    footprint.set_index(['Region from', 'Activity from', 'Region to', 'Activity to', 'Scenario', 'Year', 'Performance', 'Account'], inplace=True)
     f[sa] = footprint
         
 #%% Aggregating
 new_activities = pd.read_excel(r"Aggregations\Aggregation_plots.xlsx", index_col=[0], sheet_name='Activity')
+new_regions = pd.read_excel(r"Aggregations\Aggregation_plots.xlsx", index_col=[0], sheet_name='Region')
+
 for sa,v in f.items():
-    index_names = list(v.index.names)
-    for i in v.index:
-        v.loc[i,"Activity from"] = new_activities.loc[i[1],"New"]
-    v = v.droplevel("Activity from", axis=0)
+    print(f"   {sa}")
+    v_index = v.index.names
     v.reset_index(inplace=True)
-    v.set_index(index_names, inplace=True)
-    v = v.groupby(level=index_names, axis=0).sum()
+    v["Activity from"] = v["Activity from"].map(new_activities["New"])
+    v["Region from"] = v["Region from"].map(new_regions["New"])
+    v.set_index(list(v_index), inplace=True)
+    v = v.groupby(list(v_index)).sum()#), as_index=False).sum()
+    # v.set_index(list(v.columns[:-1]), inplace=True)
     f[sa] = v
 
-new_regions = pd.read_excel(r"Aggregations\Aggregation_plots.xlsx", index_col=[0], sheet_name='Region')
-for sa,v in f.items():
-    index_names = list(v.index.names)
-    for i in v.index:
-        v.loc[i,"Region from"] = new_regions.loc[i[0],"New"]
-    v = v.droplevel("Region from", axis=0)
-    v.reset_index(inplace=True)
-    v.set_index(index_names, inplace=True)
-    v = v.groupby(level=index_names, axis=0).sum()
-    f[sa] = v
+#%%
+units = {
+    "Production of offshore wind plants":"tonCO2eq/MW", 
+    "Production of onshore wind plants":"tonCO2eq/MW", 
+    "Production of photovoltaic plants":"tonCO2eq/MW", 
+    "Production of electricity by wind":"tonCO2eq/GWh", 
+    "Production of electricity by solar photovoltaic":"tonCO2eq/GWh", 
+    "Production of electricity by Geothermal":"tonCO2eq/GWh", 
+    "Production of electricity by biomass and waste":"tonCO2eq/GWh", 
+    "Production of electricity by coal":"tonCO2eq/GWh", 
+    "Production of electricity by gas":"tonCO2eq/GWh", 
+    "Production of electricity by hydro":"tonCO2eq/GWh", 
+    "Production of electricity by nuclear":"tonCO2eq/GWh", 
+    "Production of electricity by petroleum and other oil derivatives":"tonCO2eq/GWh", 
+    "Production of electricity by solar thermal":"tonCO2eq/GWh", 
+    "Production of electricity by tide, wave, ocean":"tonCO2eq/GWh", 
+    "Production of electricity nec":"tonCO2eq/GWh",
+    }
+units = pd.DataFrame(list(units[i] for i in units.keys()), index=list(units.keys()))
+
+f['GHGs']["Unit"] = f['GHGs'].index.get_level_values('Activity to').map(units[0])
+f['GHGs'].set_index(['Unit'],append=True,inplace=True)
 
 #%% Rename activities
 activities_names = {
@@ -223,10 +245,17 @@ for sa,v in f.items():
     v = v.groupby(level=index_names, axis=0).sum()
     f[sa] = v
 
+
 #%% Plot: ghgs footprints by region&commodity. Subplots by unit of measures
 sat = 'GHGs'
 scenario = 'Constant'
 performance = 'Average'
+
+names = list(f['GHGs'].index.names)
+f['GHGs'].reset_index(inplace=True)
+acts = [activities_names[i] for i in activities_names.keys()]
+f['GHGs'] = f['GHGs'].query("`Activity to`==@acts")
+f['GHGs'].set_index(names,inplace=True)
 
 colors = {
     'Agriculture & food': '#f94144',
@@ -286,7 +315,7 @@ for year in years:
                     fig.add_trace(go.Scatter(
                         x = [f"<b>{i}<b>" for i in  tots['Activity to']],
                         y = tots['Value'],
-                        name = f'Sensitivity on other Exiobase<br>reference years ({years[0]}-{years[-1]})<br>and technology capacity factors<br>',
+                        name = f'Sensitivity on other Exiobase<br>reference years ({years[0]}-{years[-1]})<br>and technologies performance<br>',
                         showlegend = showlegend,
                         mode = 'markers',
                         legendgroup = 'sensitivity',
