@@ -281,9 +281,9 @@ years_colors = {
     }
 
 patterns = {
-    'EU27+UK': "\\",
+    'EU27+UK': "",
     'China': '/',
-    'RoW': '',
+    'RoW': 'x',
     }
 
 for year in years:
