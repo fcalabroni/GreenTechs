@@ -274,6 +274,12 @@ for year in years:
         linkages[f'{scen} - {year} - {tech}']['Performance'] = tech
         
         linkages_df = pd.concat([linkages_df, linkages[f'{scen} - {year} - {tech}']], axis=0)
+        
+        folder_name = f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\e. IOTs\\{scem}"
+        if not os.path.exists(folder_name):
+            os.mkdir(folder_name)
+        db.to_txt(folder_name, flows=False, coefficients=True)
+
 
 linkages_df.reset_index(inplace=True)
 linkages_df.to_csv(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Linkages.csv", index=False)
