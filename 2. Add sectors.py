@@ -1,9 +1,9 @@
 import mario
 import pandas as pd
 
-user = "LR"
+user = "CF"
 sN = slice(None)
-years = range(2011,2020)
+years = range(2011,2012)
 
 paths = 'Paths.xlsx'
 
@@ -17,8 +17,12 @@ new_sectors = {
     'commodities': [
         'Photovoltaic plants',
         'Onshore wind plants',
-        'Offshore wind plants'
+        'Offshore wind plants',
+        'Neodymium',
+        'Dysprosium',
+        'Raw silicon',
         ],
+    
     'activities': [
         'Production of photovoltaic plants',
         'Production of onshore wind plants',
@@ -45,3 +49,4 @@ for year in years:
 #%% Aggregated database with new sectors to txt
 for year in years:
     world[year].to_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\b. Aggregated & new sectors SUT\\{year}", flows=False, coefficients=True)
+#%%

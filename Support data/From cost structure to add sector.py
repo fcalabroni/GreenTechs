@@ -1,7 +1,7 @@
 #%%
 import pandas as pd
 
-user = 'LR'
+user = 'CF'
 
 # Create a dictionary with the name of tech and level file with key equal to something.xlsx, column_pos equale to 0 and PV, onshore_wind and offshore_wind as keys
 
@@ -97,6 +97,7 @@ from openpyxl import load_workbook
 path = {
     'NG': r'C:\Users\nicog\Desktop\Nicolò\GitHub\GreenTechs',
     'LR': r'C:\Users\loren\Documents\GitHub\MARIO Organization\GreenTechs',
+    'CF': r'C:\Users\carol\Desktop\UNI\MAGISTRALE\TESI\GitHub\GreenTechs',
     }
 
 
