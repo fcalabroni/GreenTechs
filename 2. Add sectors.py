@@ -1,7 +1,7 @@
 import mario
 import pandas as pd
 
-user = "CF"
+user = "LR"
 sN = slice(None)
 years = range(2011,2012)
 
@@ -38,7 +38,7 @@ path_activities  = f"{pd.read_excel(paths, index_col=[0]).loc['Add Sectors',user
 
 #%% Adding new commodities and activities
 for year in years:
-    world[year].add_sectors(io=path_commodities, new_sectors= new_sectors['commodities'], regions= [world[year].get_index('Region')[0]], item= 'Commodity', inplace=True)
+    world[year].add_sectors(io=path_commodities, new_sectors= new_sectors['commodities'], regions= world[year].get_index('Region'), item= 'Commodity', inplace=True)
     world[year].add_sectors(io=path_activities,  new_sectors= new_sectors['activities'],  regions= [world[year].get_index('Region')[0]], item= 'Activity',  inplace=True)
 
 #%%
@@ -49,4 +49,5 @@ for year in years:
 #%% Aggregated database with new sectors to txt
 for year in years:
     world[year].to_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\b. Aggregated & new sectors SUT\\{year}", flows=False, coefficients=True)
+    
 #%%
