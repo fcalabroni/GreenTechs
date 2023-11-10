@@ -123,9 +123,9 @@ Activity,"Production of electricity by tide, wave, ocean",EUR
 Activity,Production of electricity by wind,EUR
 Activity,Production of electricity nec,EUR
 Activity,Production of meat products nec,EUR
-Activity,Production of offshore wind plants,0.0
-Activity,Production of onshore wind plants,0.0
-Activity,Production of photovoltaic plants,0.0
+Activity,Production of offshore wind plants,EUR
+Activity,Production of onshore wind plants,EUR
+Activity,Production of photovoltaic plants,EUR
 Activity,Public administration and defence; compulsory social security (75),EUR
 Activity,"Publishing, printing and reproduction of recorded media (22)",EUR
 Activity,Pulp,EUR
@@ -204,6 +204,7 @@ Commodity,"Crude petroleum and services related to crude oil extraction, excludi
 Commodity,Dairy products,EUR
 Commodity,Distribution and trade services of electricity,EUR
 Commodity,Distribution services of gaseous fuels through mains,EUR
+Commodity,Dysprosium,0.0
 Commodity,Education services (80),EUR
 Commodity,Electrical machinery and apparatus n.e.c. (31),EUR
 Commodity,Electricity by Geothermal,EUR
@@ -266,6 +267,7 @@ Commodity,N-fertiliser,EUR
 Commodity,Naphtha,EUR
 Commodity,Natural Gas Liquids,EUR
 Commodity,"Natural gas and services related to natural gas extraction, excluding surveying",EUR
+Commodity,Neodymium,0.0
 Commodity,Nickel ores and concentrates,EUR
 Commodity,Non-specified Petroleum Products,EUR
 Commodity,Nuclear fuel,EUR
@@ -319,6 +321,7 @@ Commodity,Pulp,EUR
 Commodity,"Radio, television and communication equipment and apparatus (32)",EUR
 Commodity,Railway transportation services,EUR
 Commodity,Raw milk,EUR
+Commodity,Raw silicon,0.0
 Commodity,Real estate services (70),EUR
 Commodity,"Recreational, cultural and sporting services (92)",EUR
 Commodity,Refinery Feedstocks,EUR

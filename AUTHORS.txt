@@ -1,6 +1,0 @@
-# This is the list of authors of this repositoty.
-
-Nicolò Golinucci, Department of Energy, Politecnico di Milano
-Lorenzo Rinaldi, Department of Energy, Politecnico di Milano
-Matteo Vincenzo Rocco, Department of Energy, Politecnico di Milano
-Emanuela Colombo, Department of Energy, Politecnico di Milano
