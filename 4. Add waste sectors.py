@@ -30,36 +30,20 @@ world[year].to_iot(method='B')
 
 #%% creating template for waste sectors
 waste_sectors = [
-    "Refinery of Nd and Dy from permanent magnet" ,
-    "Refinery of Si in PV panel",
     "Disassembler of permanent magnet",
     "Disassembler of PV panel",
+    "Refinery of Nd and Dy from permanent magnet" ,
+    "Refinery of Si in PV panel",
+    "Refinery of Cu in wires of WT and PV",
     "Landifill",
     ]
 
 waste_type = [
-    "End of Life of fabricated metal products (28)",
-    "End of Life of machinery and equipment n.e.c. (29)",
-    "End of Life of office machinery and computers (30)",
-    "End of Life of electrical machinery and apparatus n.e.c. (31)",
-    "End of Life of radio, television and communication equipment and apparatus",
-    "End of Life of medical, precision and optical instruments, watches and clocks (33)",
-    "End of Life of motor and electric vehicles, trailers and semi-trailers (34)",
-    "End of Life of wind turbine",
-    "End of Life of e-bikes",
-    "End of Life of product containing Co",
-    "End of Life of lithium-ion batteries",
-    "scraps of sector m.28",
-    "scraps of sector m.29",
-    "scraps of sector m.30",
-    "scraps of sector m.31",
-    "scraps of sector m.32",
-    "scraps of sector m.33",
-    "scraps of sector m.34",
-    "scraps of wind turbine",
-    "scraps of e-bikes",
-    "scraps of products containing Co",
-    "scraps of lithium-ion batteries",
+    "End of Life of Wind Turbines",
+    "End of Life of PV panels",
+    "scraps of PM",
+    "scraps of Silicon layer",
+    "scraps of Wires",
     "Residue",
 ]
 # world[year].get_add_sectors_excel(new_sectors = new_sectors['commodities'],regions= [world[year].get_index('Region')[0]],path=path_commodities, item='Commodity')
@@ -77,4 +61,3 @@ for year in years:
     world[year].add_sectors(io=path_waste_sector, new_sectors= waste_sectors, regions= world[year].get_index('Region'), item='Sector', inplace=True)
     world[year].add_sectors(io=path_waste_type,  new_sectors= waste_type,  regions= [world[year].get_index('Region')[0]], item='Sector', inplace=True)
 
-#%%
