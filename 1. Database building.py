@@ -1,9 +1,9 @@
 import mario
 import pandas as pd
 
-user = "LR"
+user = "CF"
 sN = slice(None)
-years = range(2011,2020)
+years = range(2011,2012)
 
 paths = 'Paths.xlsx'
 
@@ -42,4 +42,4 @@ for year in years:
 
 #%% Aggregated database to excel
 for year in years:
-    exio_sut[year].to_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\a. Aggregated_SUT\\{year}", flows=False, coefficients=True)
+    exio_sut[year].to_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\a. Aggregated_SUT\\{year}", flows=True, coefficients=True)

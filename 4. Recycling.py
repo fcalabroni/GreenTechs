@@ -8,9 +8,9 @@ years = 2011
 
 paths = 'Paths.xlsx'
 
-fileParam = "Recycling parameters.xlsx"
-fileSolar = "Solar PV Installed capacity.xlsx"
-fileWind = "WIND Installed capacity.xlsx"
+fileParam = f"{pd.read_excel(paths, index_col=[0]).loc['fileParam',user]}"
+fileSolar = f"{pd.read_excel(paths, index_col=[0]).loc['fileSolar',user]}"
+fileWind = f"{pd.read_excel(paths, index_col=[0]).loc['fileWind',user]}"
 
 years = list(range(2000,2101))
 n_years = list(range(0,years[-1]-years[0]+1))
@@ -350,7 +350,7 @@ for s in sens:
             df.to_excel(writer, sheet_name=sheet_name, index=True)
 
 
-    with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['SW2',user]}\\SwFD_{s}.xlsx") as writer:
+    with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['SW2',user]}\\SW2_{s}.xlsx") as writer:
         for key, df in SW2[s].items():
             sheet_name = f'{key}'
             df.to_excel(writer, sheet_name=sheet_name, index=True)

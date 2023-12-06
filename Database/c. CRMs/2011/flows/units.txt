@@ -110,8 +110,6 @@ Activity,Processing of meat pigs,EUR
 Activity,Processing of meat poultry,EUR
 Activity,Processing of nuclear fuel,EUR
 Activity,Processing vegetable oils and fats,EUR
-Activity,Production of DFIG generators,EUR
-Activity,Production of PMG generators,EUR
 Activity,Production of electricity by Geothermal,EUR
 Activity,Production of electricity by biomass and waste,EUR
 Activity,Production of electricity by coal,EUR
@@ -125,10 +123,8 @@ Activity,"Production of electricity by tide, wave, ocean",EUR
 Activity,Production of electricity by wind,EUR
 Activity,Production of electricity nec,EUR
 Activity,Production of meat products nec,EUR
-Activity,Production of mono-Si and poli-Si cells,EUR
 Activity,Production of offshore wind plants,EUR
 Activity,Production of onshore wind plants,EUR
-Activity,Production of photovoltaic modules,EUR
 Activity,Production of photovoltaic plants,EUR
 Activity,Public administration and defence; compulsory social security (75),EUR
 Activity,"Publishing, printing and reproduction of recorded media (22)",EUR
@@ -205,11 +201,10 @@ Commodity,Copper ores and concentrates,EUR
 Commodity,Copper products,EUR
 Commodity,Crops nec,EUR
 Commodity,"Crude petroleum and services related to crude oil extraction, excluding surveying",EUR
-Commodity,DFIG generators,EUR
 Commodity,Dairy products,EUR
 Commodity,Distribution and trade services of electricity,EUR
 Commodity,Distribution services of gaseous fuels through mains,EUR
-Commodity,Dysprosium,EUR
+Commodity,Dysprosium,0.0
 Commodity,Education services (80),EUR
 Commodity,Electrical machinery and apparatus n.e.c. (31),EUR
 Commodity,Electricity by Geothermal,EUR
@@ -266,22 +261,21 @@ Commodity,Meat animals nec,EUR
 Commodity,Meat products nec,EUR
 Commodity,"Medical, precision and optical instruments, watches and clocks (33)",EUR
 Commodity,Membership organisation services n.e.c. (91),EUR
-Commodity,Mono-Si and poli-Si cells,EUR
 Commodity,Motor Gasoline,EUR
 Commodity,"Motor vehicles, trailers and semi-trailers (34)",EUR
 Commodity,N-fertiliser,EUR
 Commodity,Naphtha,EUR
 Commodity,Natural Gas Liquids,EUR
 Commodity,"Natural gas and services related to natural gas extraction, excluding surveying",EUR
-Commodity,Neodymium,EUR
+Commodity,Neodymium,0.0
 Commodity,Nickel ores and concentrates,EUR
 Commodity,Non-specified Petroleum Products,EUR
 Commodity,Nuclear fuel,EUR
 Commodity,Office machinery and computers (30),EUR
-Commodity,Offshore wind plants,EUR
+Commodity,Offshore wind plants,0.0
 Commodity,Oil seeds,EUR
 Commodity,Oil/hazardous waste for treatment: incineration,EUR
-Commodity,Onshore wind plants,EUR
+Commodity,Onshore wind plants,0.0
 Commodity,Other Bituminous Coal,EUR
 Commodity,Other Hydrocarbons,EUR
 Commodity,Other Liquid Biofuels,EUR
@@ -295,7 +289,6 @@ Commodity,Other transport equipment (35),EUR
 Commodity,Other waste for treatment: waste water treatment,EUR
 Commodity,Oxygen Steel Furnace Gas,EUR
 Commodity,P- and other fertiliser,EUR
-Commodity,PMG generators,EUR
 Commodity,Paddy rice,EUR
 Commodity,Paper and paper products,EUR
 Commodity,Paper and wood waste for treatment: composting and land application,EUR
@@ -306,8 +299,7 @@ Commodity,Paraffin Waxes,EUR
 Commodity,Patent Fuel,EUR
 Commodity,Peat,EUR
 Commodity,Petroleum Coke,EUR
-Commodity,Photovoltaic modules,EUR
-Commodity,Photovoltaic plants,EUR
+Commodity,Photovoltaic plants,0.0
 Commodity,Pigs,EUR
 Commodity,Plant-based fibers,EUR
 Commodity,Plastic waste for treatment: incineration,EUR
@@ -329,7 +321,7 @@ Commodity,Pulp,EUR
 Commodity,"Radio, television and communication equipment and apparatus (32)",EUR
 Commodity,Railway transportation services,EUR
 Commodity,Raw milk,EUR
-Commodity,Raw silicon,EUR
+Commodity,Raw silicon,0.0
 Commodity,Real estate services (70),EUR
 Commodity,"Recreational, cultural and sporting services (92)",EUR
 Commodity,Refinery Feedstocks,EUR
