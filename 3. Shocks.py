@@ -20,7 +20,6 @@ tech_performances = ['Worst','Average','Best']
 #%%
 for year in years:
     world[year] = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\b. Aggregated & new sectors SUT\\{year}\\coefficients", table='SUT', mode="coefficients")
-    world[year] = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\b. Aggregated & new sectors SUT\\{year}\\flows", table='SUT', mode="flows")
 
 #%%
 # world[year].get_shock_excel(f"{pd.read_excel(paths, index_col=[0]).loc['Shocks',user]}\_template.xlsx")
@@ -72,8 +71,6 @@ for year in years:
 #%% parse and endogenize capital
 for year in years:
     world[year] = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\c. CRMs\\{year}\\coefficients", table='SUT', mode="coefficients")
-    world[year] = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\c. CRMs\\{year}\\flows", table='SUT', mode="flows")
-
     world[year].shock_calc(f"{pd.read_excel(paths, index_col=[0]).loc['Shocks',user]}\Shock_end_capital.xlsx", z=True, v=True, scenario='EndCap')
 
 #%% Shocked database to txt as Baseline
@@ -83,7 +80,6 @@ for year in years:
 #%% parse and check table
 for year in years:
     world[year] = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\d. Baseline\\{year}\\flows", table='SUT', mode="flows")
-    world[year] = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\d. Baseline\\{year}\\coefficients", table='SUT', mode="coefficients")
     f = world[year].f.loc['CO2 - combustion - air',('EU27+UK','Commodity','Offshore wind plants')]
     Y = world[year].Y.loc[('EU27+UK','Commodity','Offshore wind plants'),:]
 

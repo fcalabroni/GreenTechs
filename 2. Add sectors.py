@@ -11,7 +11,6 @@ paths = 'Paths.xlsx'
 world = {}
 for year in years:
     world[year] = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\a. Aggregated_SUT\\{year}\\flows", table='SUT', mode="flows")
-    world[year] = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\a. Aggregated_SUT\\{year}\\coefficients", table='SUT', mode="coefficients")
 
 #%% Define new commodities
 new_sectors = {
@@ -45,7 +44,7 @@ for year in years:
 #%%
 f = {}
 for year in years:
-    f[year] = world[year].f.loc["CO2 - combustion - air",(slice(None),slice(None),world[year].search('Commodity','lectricity'))]
+    f[year] = world[year].f.loc["CO2 - combustion - air",(slice(None),slice(None),world[year].search('Commodity','Electricity'))]
 
 #%% Aggregated database with new sectors to txt
 for year in years:

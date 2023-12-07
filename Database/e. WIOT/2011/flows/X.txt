@@ -1,173 +1,180 @@
 Region,Level,Item,production
 China,Sector,Additives/Blending Components,0.0
-China,Sector,Air transport services (62),10656837281.77201
-China,Sector,Aluminium and aluminium products,1215369669.2798502
-China,Sector,Aluminium ores and concentrates,50453229.99428503
-China,Sector,Animal products nec,23306324039.46962
+China,Sector,Air transport services (62),-74943029883721.61
+China,Sector,Aluminium and aluminium products,61825857914715.055
+China,Sector,Aluminium ores and concentrates,-1408065188921.5972
+China,Sector,Animal products nec,-1087853231886.0527
 China,Sector,Anthracite,0.0
 China,Sector,"Ash for treatment, Re-processing of ash into clinker",0.0
-China,Sector,Aviation Gasoline,1352600.4328865316
+China,Sector,Aviation Gasoline,-1419141997594.9255
 China,Sector,BKB/Peat Briquettes,0.0
-China,Sector,Basic iron and steel and of ferro-alloys and first products thereof,11526619296.155857
-China,Sector,Beverages,15397746634.224297
-China,Sector,Biodiesels,7942243.274938766
-China,Sector,Biogas,1755744117.913862
-China,Sector,Biogasoline,86984184.68271571
-China,Sector,Bitumen,6907885.730783898
-China,Sector,Blast Furnace Gas,24199367.448514543
+China,Sector,Basic iron and steel and of ferro-alloys and first products thereof,679865519886345.4
+China,Sector,Beverages,-1381298649122.5493
+China,Sector,Biodiesels,-1155696114475.052
+China,Sector,Biogas,3763897488.7030473
+China,Sector,Biogasoline,213264890324.43774
+China,Sector,Bitumen,-6588777374722.827
+China,Sector,Blast Furnace Gas,-1084043414535.3907
 China,Sector,"Bottles for treatment, Recycling of bottles by direct reuse",0.0
-China,Sector,"Bricks, tiles and construction products, in baked clay",26274778.3405948
-China,Sector,Cattle,13650953728.572134
-China,Sector,"Cement, lime and plaster",314808441.66758305
-China,Sector,Ceramic goods,5101946951.448134
-China,Sector,Cereal grains nec,13286663104.986382
+China,Sector,"Bricks, tiles and construction products, in baked clay",888677186381.0087
+China,Sector,Cattle,718886647296.769
+China,Sector,"Cement, lime and plaster",-3497282363087.657
+China,Sector,Ceramic goods,-15161967076876.166
+China,Sector,Cereal grains nec,-6815720853.204584
 China,Sector,Charcoal,0.0
-China,Sector,"Chemical and fertilizer minerals, salt and other mining and quarrying products n.e.c.",106097460.45775579
-China,Sector,Chemicals nec,30368234597.096123
-China,Sector,Coal Tar,22767925.138224516
-China,Sector,Coke Oven Coke,89774531.46228124
-China,Sector,Coke oven gas,32872983.794695694
-China,Sector,Coking Coal,189455445.82071167
-China,Sector,"Collected and purified water, distribution services of water (41)",10962324084.70322
-China,Sector,Computer and related services (72),119056215534.51633
-China,Sector,Construction work (45),1438236973241.245
-China,Sector,Copper ores and concentrates,14806.871717881779
-China,Sector,Copper products,1064158319.6348485
-China,Sector,Crops nec,4516255680.026832
-China,Sector,"Crude petroleum and services related to crude oil extraction, excluding surveying",1392395152.177918
-China,Sector,Dairy products,2209206211.503114
-China,Sector,Distribution and trade services of electricity,13987867323.356403
-China,Sector,Distribution services of gaseous fuels through mains,7840829007.39372
-China,Sector,Dysprosium,0.0
-China,Sector,Education services (80),283823953680.21204
-China,Sector,Electrical machinery and apparatus n.e.c. (31),201962588479.13177
-China,Sector,Electricity by Geothermal,562712.6164954451
-China,Sector,Electricity by biomass and waste,2172.5810858672826
-China,Sector,Electricity by coal,12526464634.475964
-China,Sector,Electricity by gas,253784470.50934643
-China,Sector,Electricity by hydro,2438917608.8993278
-China,Sector,Electricity by nuclear,314630795.5127216
-China,Sector,Electricity by petroleum and other oil derivatives,76793599.00267598
-China,Sector,Electricity by solar photovoltaic,1401.8098480943695
-China,Sector,Electricity by solar thermal,4060.465266671835
-China,Sector,"Electricity by tide, wave, ocean",44665.11793346712
-China,Sector,Electricity by wind,2219.9821685916436
-China,Sector,Electricity nec,95179658.572183
+China,Sector,"Chemical and fertilizer minerals, salt and other mining and quarrying products n.e.c.",-2480431415859.528
+China,Sector,Chemicals nec,-142415239377773.1
+China,Sector,Coal Tar,8830448532276.56
+China,Sector,Coke Oven Coke,631440033385.7227
+China,Sector,Coke oven gas,9095594788607.049
+China,Sector,Coking Coal,43528770896452.914
+China,Sector,"Collected and purified water, distribution services of water (41)",-8476288288430.611
+China,Sector,Computer and related services (72),-177228579419507.75
+China,Sector,Construction work (45),-65317429385290.14
+China,Sector,Copper ores and concentrates,18824512045.616997
+China,Sector,Copper products,20220827298382.207
+China,Sector,Crops nec,132959246170570.34
+China,Sector,"Crude petroleum and services related to crude oil extraction, excluding surveying",1236144485615470.8
+China,Sector,Dairy products,489720352906.7434
+China,Sector,Disassembler of PV panels,0.0
+China,Sector,Disassembler of Wind Turbines,0.0
+China,Sector,Distribution and trade services of electricity,48950775027041.57
+China,Sector,Distribution services of gaseous fuels through mains,76728083662871.19
+China,Sector,Dysprosium,-131386534.95297386
+China,Sector,Education services (80),-81635261492233.12
+China,Sector,Electrical machinery and apparatus n.e.c. (31),136950410052462.75
+China,Sector,Electricity by Geothermal,-41738682513.72483
+China,Sector,Electricity by biomass and waste,1942745662936.2249
+China,Sector,Electricity by coal,305151671626008.94
+China,Sector,Electricity by gas,4004430782168.81
+China,Sector,Electricity by hydro,52479032920598.61
+China,Sector,Electricity by nuclear,-1355840513694.667
+China,Sector,Electricity by petroleum and other oil derivatives,-730628674416.1583
+China,Sector,Electricity by solar photovoltaic,9464592164392.31
+China,Sector,Electricity by solar thermal,818953165.1732581
+China,Sector,"Electricity by tide, wave, ocean",-3537729537.346446
+China,Sector,Electricity by wind,-15254561519781.43
+China,Sector,Electricity nec,935687965155.332
 China,Sector,Ethane,0.0
 China,Sector,Extra-territorial organizations and bodies,0.0
-China,Sector,"Fabricated metal products, except machinery and equipment (28)",23991433040.099674
-China,Sector,"Financial intermediation services, except insurance and pension funding services (65)",10717140467.355204
-China,Sector,Fish and other fishing products; services incidental of fishing (05),1206371445.3743014
-China,Sector,Fish products,148383245215.4623
-China,Sector,Food products nec,146053870390.9243
+China,Sector,"Fabricated metal products, except machinery and equipment (28)",374787756702546.44
+China,Sector,"Financial intermediation services, except insurance and pension funding services (65)",286429712374749.4
+China,Sector,Fish and other fishing products; services incidental of fishing (05),29875222558.8884
+China,Sector,Fish products,-14230367131296.387
+China,Sector,Food products nec,-8439818754363.197
 China,Sector,Food waste for treatment: biogasification and land application,0.0
-China,Sector,Food waste for treatment: composting and land application,1734141.875995819
-China,Sector,Food waste for treatment: incineration,3156643.934620161
-China,Sector,Food waste for treatment: landfill,2821328.018680388
-China,Sector,Food waste for treatment: waste water treatment,2766358.7968196794
-China,Sector,Foundry work services,211997773.12008822
-China,Sector,Furniture; other manufactured goods n.e.c. (36),65997088577.31133
-China,Sector,Gas Coke,0.0010560471526291
-China,Sector,Gas Works Gas,37308626.85671968
-China,Sector,Gas/Diesel Oil,3355586845.452723
+China,Sector,Food waste for treatment: composting and land application,-12661768649561.156
+China,Sector,Food waste for treatment: incineration,-21337264921364.555
+China,Sector,Food waste for treatment: landfill,7407035197336.013
+China,Sector,Food waste for treatment: waste water treatment,4317520187796.3823
+China,Sector,Foundry work services,74448248888477.36
+China,Sector,Furniture; other manufactured goods n.e.c. (36),59009620982949.06
+China,Sector,Gas Coke,127841969.61797209
+China,Sector,Gas Works Gas,2868461719450.4873
+China,Sector,Gas/Diesel Oil,82997886187858.56
 China,Sector,Gasoline Type Jet Fuel,0.0
-China,Sector,Glass and glass products,2297870401.7602024
-China,Sector,Health and social work services (85),301435873616.95715
-China,Sector,Heavy Fuel Oil,455849019.0809611
-China,Sector,Hotel and restaurant services (55),123317131076.9805
-China,Sector,Inert/metal/hazardous waste for treatment: landfill,2809234.808465342
-China,Sector,Inland water transportation services,502389168.9292286
-China,Sector,"Insurance and pension funding services, except compulsory social security services (66)",75582569766.19354
-China,Sector,Intert/metal waste for treatment: incineration,3497056.28614428
-China,Sector,Iron ores,415252039.6063149
-China,Sector,Kerosene,2171140725.1823206
-China,Sector,Kerosene Type Jet Fuel,45745642.56521109
-China,Sector,"Lead, zinc and tin and products thereof",978360294.8190961
-China,Sector,"Lead, zinc and tin ores and concentrates",691271.5163116477
-China,Sector,Leather and leather products (19),35988703945.36402
+China,Sector,Glass and glass products,95688424054680.95
+China,Sector,Health and social work services (85),5277233537213.053
+China,Sector,Heavy Fuel Oil,4286793706402.7124
+China,Sector,Hotel and restaurant services (55),-439560056094918.1
+China,Sector,Inert/metal/hazardous waste for treatment: landfill,-3281972286389.371
+China,Sector,Inland water transportation services,-5884160364442.402
+China,Sector,"Insurance and pension funding services, except compulsory social security services (66)",91517938063208.9
+China,Sector,Intert/metal waste for treatment: incineration,-7347227386406.422
+China,Sector,Iron ores,1472884177189.2722
+China,Sector,Kerosene,-3733089454692.8647
+China,Sector,Kerosene Type Jet Fuel,-2792953206839.235
+China,Sector,Landifill,0.0
+China,Sector,"Lead, zinc and tin and products thereof",-367848244930.2576
+China,Sector,"Lead, zinc and tin ores and concentrates",-57656534964.434235
+China,Sector,Leather and leather products (19),-1927497436468.9065
 China,Sector,Lignite/Brown Coal,0.0
-China,Sector,Liquefied Petroleum Gases (LPG),553423216.5886002
-China,Sector,Lubricants,15547002.447105717
-China,Sector,Machinery and equipment n.e.c. (29),360741921223.128
+China,Sector,Liquefied Petroleum Gases (LPG),38407006459375.75
+China,Sector,Lubricants,-435468595.3833051
+China,Sector,Machinery and equipment n.e.c. (29),849192967658412.0
 China,Sector,Manure (biogas treatment),0.0
 China,Sector,Manure (conventional treatment),0.0
-China,Sector,Meat animals nec,8958404618.019854
-China,Sector,Meat products nec,4036395133.9194026
-China,Sector,"Medical, precision and optical instruments, watches and clocks (33)",44818376847.790565
-China,Sector,Membership organisation services n.e.c. (91),71646258838.44815
-China,Sector,Motor Gasoline,20571561148.104897
-China,Sector,"Motor vehicles, trailers and semi-trailers (34)",217525800231.17523
-China,Sector,N-fertiliser,3139019.7876923047
-China,Sector,Naphtha,7550179.591876378
-China,Sector,Natural Gas Liquids,2131.610516994062
-China,Sector,"Natural gas and services related to natural gas extraction, excluding surveying",2549185518.0422053
-China,Sector,Neodymium,0.0
-China,Sector,Nickel ores and concentrates,135706899.58074352
-China,Sector,Non-specified Petroleum Products,12247563.651471844
-China,Sector,Nuclear fuel,4505001.875317755
-China,Sector,Office machinery and computers (30),118798603036.0983
+China,Sector,Meat animals nec,692658376000.5786
+China,Sector,Meat products nec,406198346217.4005
+China,Sector,"Medical, precision and optical instruments, watches and clocks (33)",22316341154488.668
+China,Sector,Membership organisation services n.e.c. (91),-1064521345649.7731
+China,Sector,Motor Gasoline,169969175007841.75
+China,Sector,"Motor vehicles, trailers and semi-trailers (34)",47458443641596.9
+China,Sector,N-fertiliser,1117186932502.934
+China,Sector,Naphtha,-7879727631195.785
+China,Sector,Natural Gas Liquids,975634527.9643528
+China,Sector,"Natural gas and services related to natural gas extraction, excluding surveying",307027444.3219929
+China,Sector,Neodymium,-1025079197.2656896
+China,Sector,Nickel ores and concentrates,535598014938.3258
+China,Sector,Non-specified Petroleum Products,11061410624089.174
+China,Sector,Nuclear fuel,-49154218664.87022
+China,Sector,Office machinery and computers (30),42550074573150.59
 China,Sector,Offshore wind plants,0.0
-China,Sector,Oil seeds,2238446435.7111926
-China,Sector,Oil/hazardous waste for treatment: incineration,2682073.829502515
+China,Sector,Oil seeds,17096342989264.814
+China,Sector,Oil/hazardous waste for treatment: incineration,-12492416571827.795
 China,Sector,Onshore wind plants,0.0
-China,Sector,Other Bituminous Coal,2300506035.6582065
+China,Sector,Other Bituminous Coal,3624295436050190.0
 China,Sector,Other Hydrocarbons,0.0
 China,Sector,Other Liquid Biofuels,0.0
-China,Sector,Other business services (74),61428449008.55214
-China,Sector,Other land transportation services,14838624164.156527
-China,Sector,Other non-ferrous metal ores and concentrates,1308493883.6648026
-China,Sector,Other non-ferrous metal products,672373667.6951393
-China,Sector,Other non-metallic mineral products,2371423417.259028
-China,Sector,Other services (93),67720304971.66338
-China,Sector,Other transport equipment (35),117750066954.73924
-China,Sector,Other waste for treatment: waste water treatment,3893415.0837558266
-China,Sector,Oxygen Steel Furnace Gas,1247169.2954654796
-China,Sector,P- and other fertiliser,836381119.7732636
-China,Sector,Paddy rice,620085105.5505663
-China,Sector,Paper and paper products,7374778771.903225
-China,Sector,Paper and wood waste for treatment: composting and land application,47873.43972095572
-China,Sector,Paper for treatment: landfill,2287346.581015725
+China,Sector,Other business services (74),23323735414558.484
+China,Sector,Other land transportation services,-168219602615569.4
+China,Sector,Other non-ferrous metal ores and concentrates,7620145045625.276
+China,Sector,Other non-ferrous metal products,-4421490710832.123
+China,Sector,Other non-metallic mineral products,-10342802345682.564
+China,Sector,Other services (93),-11065728929356.555
+China,Sector,Other transport equipment (35),-36262398341789.45
+China,Sector,Other waste for treatment: waste water treatment,37186641647847.945
+China,Sector,Oxygen Steel Furnace Gas,17555420.331585433
+China,Sector,P- and other fertiliser,-13932214224011.531
+China,Sector,Paddy rice,102186666212942.23
+China,Sector,Paper and paper products,2651478091407.119
+China,Sector,Paper and wood waste for treatment: composting and land application,-22323282178.44034
+China,Sector,Paper for treatment: landfill,-22303500102192.633
 China,Sector,Paper waste for treatment: biogasification and land application,0.0
-China,Sector,Paper waste for treatment: incineration,3885600.3220484992
-China,Sector,Paraffin Waxes,90817190.82805118
-China,Sector,Patent Fuel,33302598.38796311
+China,Sector,Paper waste for treatment: incineration,-17720545199534.742
+China,Sector,Paraffin Waxes,35069085588294.598
+China,Sector,Patent Fuel,115640514480.36166
 China,Sector,Peat,0.0
-China,Sector,Petroleum Coke,180323135.09140825
+China,Sector,Petroleum Coke,555482141206.8342
 China,Sector,Photovoltaic plants,0.0
-China,Sector,Pigs,15072014067.25632
-China,Sector,Plant-based fibers,200861534.8830315
-China,Sector,Plastic waste for treatment: incineration,705751.1512090819
-China,Sector,Plastic waste for treatment: landfill,830462.4856558857
-China,Sector,"Plastics, basic",1664465760.3226185
-China,Sector,Post and telecommunication services (64),449774635.16497386
-China,Sector,Poultry,13081027987.437365
-China,Sector,Precious metal ores and concentrates,2286.8261846007385
-China,Sector,Precious metals,803574526.683692
-China,Sector,Printed matter and recorded media (22),10309699759.308243
-China,Sector,Private households with employed persons (95),25834815067.57247
-China,Sector,Processed rice,9498855013.115152
-China,Sector,"Products of forestry, logging and related services (02)",8194341878.034406
-China,Sector,Products of meat cattle,1293180278.8314745
-China,Sector,Products of meat pigs,5226224694.277466
-China,Sector,Products of meat poultry,3853556349.5882716
-China,Sector,Public administration and defence services; compulsory social security services (75),438598722232.8072
-China,Sector,Pulp,118894257.9505544
-China,Sector,"Radio, television and communication equipment and apparatus (32)",126176365853.67647
-China,Sector,Railway transportation services,12178879584.396309
-China,Sector,Raw milk,7128213321.7376585
-China,Sector,Raw silicon,0.0
-China,Sector,Real estate services (70),228851825752.74988
-China,Sector,"Recreational, cultural and sporting services (92)",51987706726.3081
-China,Sector,Refinery Feedstocks,0.000361774530574731
-China,Sector,Refinery Gas,0.0035966208512178046
-China,Sector,Renting services of machinery and equipment without operator and of personal and household goods (71),1562458367.0651257
-China,Sector,Research and development services (73),17515786383.643307
-China,Sector,"Retail  trade services, except of motor vehicles and motorcycles; repair services of personal and household goods (52)",63949984212.00433
-China,Sector,Retail trade services of motor fuel,1891706482.8405075
-China,Sector,Rubber and plastic products (25),18630895701.741753
-China,Sector,"Sale, maintenance, repair of motor vehicles, motor vehicles parts, motorcycles, motor cycles parts and accessoiries",29985128201.581093
-China,Sector,Sand and clay,422211170.85693973
-China,Sector,Sea and coastal water transportation services,5173378091.207482
+China,Sector,Pigs,368608796503.0368
+China,Sector,Plant-based fibers,51214602769393.26
+China,Sector,Plastic waste for treatment: incineration,-3556092738547.0034
+China,Sector,Plastic waste for treatment: landfill,-18348557829492.49
+China,Sector,"Plastics, basic",30963740021321.81
+China,Sector,Post and telecommunication services (64),-1407965332923.7837
+China,Sector,Poultry,101795647648.39574
+China,Sector,Precious metal ores and concentrates,10608098961791.88
+China,Sector,Precious metals,-1553241483954.6409
+China,Sector,Printed matter and recorded media (22),-121260962235105.14
+China,Sector,Private households with employed persons (95),6803342115003.37
+China,Sector,Processed rice,1961683266225.3928
+China,Sector,"Products of forestry, logging and related services (02)",116654477951188.73
+China,Sector,Products of meat cattle,17577166756.604816
+China,Sector,Products of meat pigs,-258717116579.41315
+China,Sector,Products of meat poultry,-316545149449.13135
+China,Sector,Public administration and defence services; compulsory social security services (75),-4319305051808.3477
+China,Sector,Pulp,-15187180889.469196
+China,Sector,"Radio, television and communication equipment and apparatus (32)",-14427705012574.178
+China,Sector,Railway transportation services,-81221216158228.23
+China,Sector,Raw milk,37532857286601.88
+China,Sector,Raw silicon,137683088.76774716
+China,Sector,Real estate services (70),-22807032023510.258
+China,Sector,"Recreational, cultural and sporting services (92)",-78696993473858.53
+China,Sector,Refinery Feedstocks,940620430170.2985
+China,Sector,Refinery Gas,5273454901712.048
+China,Sector,Refinery of Cu in wires of WT and PV,0.0
+China,Sector,Refinery of Generators of Offshore Wind Turbines,0.0
+China,Sector,Refinery of Generators of Onshore Wind Turbines,0.0
+China,Sector,Refinery of Silicon layer in PV panel,0.0
+China,Sector,Renting services of machinery and equipment without operator and of personal and household goods (71),112037190837651.23
+China,Sector,Research and development services (73),3529813595303.555
+China,Sector,"Retail  trade services, except of motor vehicles and motorcycles; repair services of personal and household goods (52)",-72861164326379.97
+China,Sector,Retail trade services of motor fuel,-2145383928974.1514
+China,Sector,Rubber and plastic products (25),294336355467057.6
+China,Sector,"Sale, maintenance, repair of motor vehicles, motor vehicles parts, motorcycles, motor cycles parts and accessoiries",-30946496394947.953
+China,Sector,Sand and clay,-157065665476122.56
+China,Sector,Sea and coastal water transportation services,-42437139992234.14
 China,Sector,"Secondary aluminium for treatment, Re-processing of secondary aluminium into new aluminium",0.0
 China,Sector,"Secondary construction material for treatment, Re-processing of secondary construction material into aggregates",0.0
 China,Sector,"Secondary copper for treatment, Re-processing of secondary copper into new copper",0.0
@@ -177,203 +184,210 @@ China,Sector,"Secondary other non-ferrous metals for treatment, Re-processing of
 China,Sector,"Secondary paper for treatment, Re-processing of secondary paper into new pulp",0.0
 China,Sector,"Secondary plastic for treatment, Re-processing of secondary plastic into new plastic",0.0
 China,Sector,"Secondary preciuos metals for treatment, Re-processing of secondary preciuos metals into new preciuos metals",0.0
-China,Sector,Secondary raw materials,9892177.265841829
+China,Sector,Secondary raw materials,80119438263236.94
 China,Sector,"Secondary steel for treatment, Re-processing of secondary steel into new steel",0.0
-China,Sector,Services auxiliary to financial intermediation (67),12403480785.142555
+China,Sector,Services auxiliary to financial intermediation (67),26293077590533.508
 China,Sector,Sewage sludge for treatment: biogasification and land application,0.0
-China,Sector,Steam and hot water supply services,22799212.889348943
-China,Sector,Stone,154497133.11403665
+China,Sector,Steam and hot water supply services,2227436917513.3394
+China,Sector,Stone,2721838076774.781
 China,Sector,Sub-Bituminous Coal,0.0
-China,Sector,Sugar,304950541.9071731
-China,Sector,"Sugar cane, sugar beet",2836829695.97899
-China,Sector,Supporting and auxiliary transport services; travel agency services (63),57327769615.33878
-China,Sector,Textiles (17),44099442434.65958
-China,Sector,Textiles waste for treatment: incineration,442413.1870381192
-China,Sector,Textiles waste for treatment: landfill,574537.2957410429
-China,Sector,Tobacco products (16),7444630739.426614
-China,Sector,Transmission services of electricity,2803855049.804874
-China,Sector,Transportation services via pipelines,130035301.24837513
-China,Sector,Uranium and thorium ores (12),2179.2376024517575
-China,Sector,"Vegetables, fruit, nuts",104896587172.06973
-China,Sector,Wearing apparel; furs (18),155269244016.9849
-China,Sector,Wheat,3966381578.0888853
-China,Sector,White Spirit & SBP,0.0098152265346167
-China,Sector,"Wholesale trade and commission trade services, except of motor vehicles and motorcycles (51)",50705574708.11292
-China,Sector,Wood and products of wood and cork (except furniture); articles of straw and plaiting materials (20),2339047173.666989
+China,Sector,Sugar,-23469217894.80516
+China,Sector,"Sugar cane, sugar beet",22502701517613.883
+China,Sector,Supporting and auxiliary transport services; travel agency services (63),-205954777145539.5
+China,Sector,Textiles (17),-5006019789596.898
+China,Sector,Textiles waste for treatment: incineration,-13048428156884.045
+China,Sector,Textiles waste for treatment: landfill,-987085514433.2994
+China,Sector,Tobacco products (16),2578161887065.436
+China,Sector,Transmission services of electricity,65796664592463.87
+China,Sector,Transportation services via pipelines,-10116558857400.168
+China,Sector,Uranium and thorium ores (12),-10905523423.219336
+China,Sector,"Vegetables, fruit, nuts",68761302992147.195
+China,Sector,Wearing apparel; furs (18),-56090968058740.016
+China,Sector,Wheat,1022537368716.4833
+China,Sector,White Spirit & SBP,-130981838214.2391
+China,Sector,"Wholesale trade and commission trade services, except of motor vehicles and motorcycles (51)",-77409185782699.31
+China,Sector,Wood and products of wood and cork (except furniture); articles of straw and plaiting materials (20),12047247777566.262
 China,Sector,"Wood material for treatment, Re-processing of secondary wood material into new wood material",0.0
-China,Sector,Wood waste for treatment: incineration,1121114.4167836297
-China,Sector,Wood waste for treatment: landfill,643542.8690218184
-China,Sector,"Wool, silk-worm cocoons",14725267.122296758
-China,Sector,products of Vegetable oils and fats,1063303332.1119533
-EU27+UK,Sector,Additives/Blending Components,43303590.877904475
-EU27+UK,Sector,Air transport services (62),104709417461.08582
-EU27+UK,Sector,Aluminium and aluminium products,1786340761.3237517
-EU27+UK,Sector,Aluminium ores and concentrates,24743504.12828966
-EU27+UK,Sector,Animal products nec,999237339.6155288
-EU27+UK,Sector,Anthracite,76704275.99253456
+China,Sector,Wood waste for treatment: incineration,-13307168991769.844
+China,Sector,Wood waste for treatment: landfill,10682750719987.178
+China,Sector,"Wool, silk-worm cocoons",570530852200.8713
+China,Sector,products of Vegetable oils and fats,-869657138013.778
+EU27+UK,Sector,Additives/Blending Components,-781487323904.4099
+EU27+UK,Sector,Air transport services (62),22962261133717.32
+EU27+UK,Sector,Aluminium and aluminium products,38638464823827.695
+EU27+UK,Sector,Aluminium ores and concentrates,-5166397588178.6045
+EU27+UK,Sector,Animal products nec,882896247601.2062
+EU27+UK,Sector,Anthracite,185277558483.92038
 EU27+UK,Sector,"Ash for treatment, Re-processing of ash into clinker",0.0
-EU27+UK,Sector,Aviation Gasoline,7304047.959423426
-EU27+UK,Sector,BKB/Peat Briquettes,651647589.8796566
-EU27+UK,Sector,Basic iron and steel and of ferro-alloys and first products thereof,3329247586.1002135
-EU27+UK,Sector,Beverages,59894308681.21373
-EU27+UK,Sector,Biodiesels,517693506.8330653
-EU27+UK,Sector,Biogas,23801857.255980715
-EU27+UK,Sector,Biogasoline,561291326.5114201
-EU27+UK,Sector,Bitumen,298847013.2812109
-EU27+UK,Sector,Blast Furnace Gas,10775128.552931271
+EU27+UK,Sector,Aviation Gasoline,-769080588491.3784
+EU27+UK,Sector,BKB/Peat Briquettes,610166684735.4098
+EU27+UK,Sector,Basic iron and steel and of ferro-alloys and first products thereof,-68252272205433.88
+EU27+UK,Sector,Beverages,-14221551279306.045
+EU27+UK,Sector,Biodiesels,-541560607826.24536
+EU27+UK,Sector,Biogas,-56498355315.32613
+EU27+UK,Sector,Biogasoline,-79934554050.31433
+EU27+UK,Sector,Bitumen,-17942918405586.53
+EU27+UK,Sector,Blast Furnace Gas,-9368705355142.654
 EU27+UK,Sector,"Bottles for treatment, Recycling of bottles by direct reuse",0.0
-EU27+UK,Sector,"Bricks, tiles and construction products, in baked clay",630756042.9159687
-EU27+UK,Sector,Cattle,4015823847.59904
-EU27+UK,Sector,"Cement, lime and plaster",2338578625.896557
-EU27+UK,Sector,Ceramic goods,11847156563.315277
-EU27+UK,Sector,Cereal grains nec,4509198169.829889
-EU27+UK,Sector,Charcoal,13233515.222234493
-EU27+UK,Sector,"Chemical and fertilizer minerals, salt and other mining and quarrying products n.e.c.",1075578352.4362936
-EU27+UK,Sector,Chemicals nec,53651011885.80992
-EU27+UK,Sector,Coal Tar,16705822.841253465
-EU27+UK,Sector,Coke Oven Coke,453566979.6817912
-EU27+UK,Sector,Coke oven gas,30744717.861251295
-EU27+UK,Sector,Coking Coal,29811309.88368907
-EU27+UK,Sector,"Collected and purified water, distribution services of water (41)",42562220536.95464
-EU27+UK,Sector,Computer and related services (72),184280533120.0019
-EU27+UK,Sector,Construction work (45),1405723454403.4014
-EU27+UK,Sector,Copper ores and concentrates,338964130.3887935
-EU27+UK,Sector,Copper products,1799042730.673168
-EU27+UK,Sector,Crops nec,11490077047.762508
-EU27+UK,Sector,"Crude petroleum and services related to crude oil extraction, excluding surveying",1097398354.4912462
-EU27+UK,Sector,Dairy products,94694786001.29749
-EU27+UK,Sector,Distribution and trade services of electricity,85698598924.39319
-EU27+UK,Sector,Distribution services of gaseous fuels through mains,26156676033.942432
-EU27+UK,Sector,Dysprosium,0.0
-EU27+UK,Sector,Education services (80),763277371632.703
-EU27+UK,Sector,Electrical machinery and apparatus n.e.c. (31),104748953400.16962
-EU27+UK,Sector,Electricity by Geothermal,6362902.040522967
-EU27+UK,Sector,Electricity by biomass and waste,2378691719.8463964
-EU27+UK,Sector,Electricity by coal,20552353002.445053
-EU27+UK,Sector,Electricity by gas,23288892955.43666
-EU27+UK,Sector,Electricity by hydro,7108662160.697843
-EU27+UK,Sector,Electricity by nuclear,23746446553.5056
-EU27+UK,Sector,Electricity by petroleum and other oil derivatives,3157003842.0804467
-EU27+UK,Sector,Electricity by solar photovoltaic,27059981.734092977
-EU27+UK,Sector,Electricity by solar thermal,0.0007669672138078155
-EU27+UK,Sector,"Electricity by tide, wave, ocean",13905910.753472768
-EU27+UK,Sector,Electricity by wind,1873255577.1052358
-EU27+UK,Sector,Electricity nec,1042268189.1474986
-EU27+UK,Sector,Ethane,3106169.6216026293
+EU27+UK,Sector,"Bricks, tiles and construction products, in baked clay",-9629532182598.137
+EU27+UK,Sector,Cattle,-20307700959117.64
+EU27+UK,Sector,"Cement, lime and plaster",-18656739972627.01
+EU27+UK,Sector,Ceramic goods,-35845887993632.55
+EU27+UK,Sector,Cereal grains nec,-31944637954464.086
+EU27+UK,Sector,Charcoal,17063902354.04411
+EU27+UK,Sector,"Chemical and fertilizer minerals, salt and other mining and quarrying products n.e.c.",39514140671537.95
+EU27+UK,Sector,Chemicals nec,398344533415295.2
+EU27+UK,Sector,Coal Tar,70779980281.10674
+EU27+UK,Sector,Coke Oven Coke,4494911418229.749
+EU27+UK,Sector,Coke oven gas,-549268201929.1953
+EU27+UK,Sector,Coking Coal,-74374248774.75041
+EU27+UK,Sector,"Collected and purified water, distribution services of water (41)",50802838301.06997
+EU27+UK,Sector,Computer and related services (72),26494855997789.777
+EU27+UK,Sector,Construction work (45),5606179484346.0625
+EU27+UK,Sector,Copper ores and concentrates,268274244535.07047
+EU27+UK,Sector,Copper products,41356336752000.13
+EU27+UK,Sector,Crops nec,164262819332953.84
+EU27+UK,Sector,"Crude petroleum and services related to crude oil extraction, excluding surveying",121586402177299.83
+EU27+UK,Sector,Dairy products,11972754647655.02
+EU27+UK,Sector,Disassembler of PV panels,0.0
+EU27+UK,Sector,Disassembler of Wind Turbines,0.0
+EU27+UK,Sector,Distribution and trade services of electricity,-5694100451710.099
+EU27+UK,Sector,Distribution services of gaseous fuels through mains,1710535085917.414
+EU27+UK,Sector,Dysprosium,-1428364.688709441
+EU27+UK,Sector,Education services (80),1473944655733.8496
+EU27+UK,Sector,Electrical machinery and apparatus n.e.c. (31),10508016018958.277
+EU27+UK,Sector,Electricity by Geothermal,9209123845.560356
+EU27+UK,Sector,Electricity by biomass and waste,242076998159.09198
+EU27+UK,Sector,Electricity by coal,-20674741624697.57
+EU27+UK,Sector,Electricity by gas,590018425499.6671
+EU27+UK,Sector,Electricity by hydro,-1553202690226.205
+EU27+UK,Sector,Electricity by nuclear,1358717564273.6238
+EU27+UK,Sector,Electricity by petroleum and other oil derivatives,-11578112396680.139
+EU27+UK,Sector,Electricity by solar photovoltaic,-2204110318288.821
+EU27+UK,Sector,Electricity by solar thermal,15265766948.892076
+EU27+UK,Sector,"Electricity by tide, wave, ocean",-464144500.21747994
+EU27+UK,Sector,Electricity by wind,-3099596433904.171
+EU27+UK,Sector,Electricity nec,72586373880.67552
+EU27+UK,Sector,Ethane,-670604736635.7532
 EU27+UK,Sector,Extra-territorial organizations and bodies,0.0
-EU27+UK,Sector,"Fabricated metal products, except machinery and equipment (28)",79628871083.16441
-EU27+UK,Sector,"Financial intermediation services, except insurance and pension funding services (65)",170094919505.88364
-EU27+UK,Sector,Fish and other fishing products; services incidental of fishing (05),10439731784.397556
-EU27+UK,Sector,Fish products,7795092617.633659
-EU27+UK,Sector,Food products nec,320464661534.39734
-EU27+UK,Sector,Food waste for treatment: biogasification and land application,1234198789.735046
-EU27+UK,Sector,Food waste for treatment: composting and land application,7823638620.051323
-EU27+UK,Sector,Food waste for treatment: incineration,4602276304.063527
-EU27+UK,Sector,Food waste for treatment: landfill,5571984750.558628
-EU27+UK,Sector,Food waste for treatment: waste water treatment,3534002686.0022526
-EU27+UK,Sector,Foundry work services,959729796.6960217
-EU27+UK,Sector,Furniture; other manufactured goods n.e.c. (36),169044904020.5253
+EU27+UK,Sector,"Fabricated metal products, except machinery and equipment (28)",-44310352159226.61
+EU27+UK,Sector,"Financial intermediation services, except insurance and pension funding services (65)",-140017971951752.48
+EU27+UK,Sector,Fish and other fishing products; services incidental of fishing (05),17696258988920.79
+EU27+UK,Sector,Fish products,2794553416356.366
+EU27+UK,Sector,Food products nec,14836096988663.945
+EU27+UK,Sector,Food waste for treatment: biogasification and land application,-291857079591.10504
+EU27+UK,Sector,Food waste for treatment: composting and land application,8697645626874.4375
+EU27+UK,Sector,Food waste for treatment: incineration,433387772810.369
+EU27+UK,Sector,Food waste for treatment: landfill,618844082152.6984
+EU27+UK,Sector,Food waste for treatment: waste water treatment,2627143095234.154
+EU27+UK,Sector,Foundry work services,-1370341813446.4644
+EU27+UK,Sector,Furniture; other manufactured goods n.e.c. (36),-15844946423009.424
 EU27+UK,Sector,Gas Coke,0.0
-EU27+UK,Sector,Gas Works Gas,52046239.419199675
-EU27+UK,Sector,Gas/Diesel Oil,52483329801.83858
-EU27+UK,Sector,Gasoline Type Jet Fuel,978010.795240142
-EU27+UK,Sector,Glass and glass products,1280054829.3053598
-EU27+UK,Sector,Health and social work services (85),1261263120950.5352
-EU27+UK,Sector,Heavy Fuel Oil,2022235228.4611838
-EU27+UK,Sector,Hotel and restaurant services (55),768893495046.119
-EU27+UK,Sector,Inert/metal/hazardous waste for treatment: landfill,6247607508.76981
-EU27+UK,Sector,Inland water transportation services,4895991830.0392275
-EU27+UK,Sector,"Insurance and pension funding services, except compulsory social security services (66)",201040379394.06958
-EU27+UK,Sector,Intert/metal waste for treatment: incineration,7369192482.343423
-EU27+UK,Sector,Iron ores,38889252.50792121
-EU27+UK,Sector,Kerosene,4526408687.050746
-EU27+UK,Sector,Kerosene Type Jet Fuel,1163494507.3758204
-EU27+UK,Sector,"Lead, zinc and tin and products thereof",2163976391.551536
-EU27+UK,Sector,"Lead, zinc and tin ores and concentrates",946352178.549067
-EU27+UK,Sector,Leather and leather products (19),41830699762.06432
-EU27+UK,Sector,Lignite/Brown Coal,362580553.8461577
-EU27+UK,Sector,Liquefied Petroleum Gases (LPG),4041417328.7750974
-EU27+UK,Sector,Lubricants,95575127.56697336
-EU27+UK,Sector,Machinery and equipment n.e.c. (29),408853078357.8225
+EU27+UK,Sector,Gas Works Gas,-2362610086552.195
+EU27+UK,Sector,Gas/Diesel Oil,-52922697049877.9
+EU27+UK,Sector,Gasoline Type Jet Fuel,-1216304826564.1768
+EU27+UK,Sector,Glass and glass products,6309444122843.09
+EU27+UK,Sector,Health and social work services (85),-10838788138.993164
+EU27+UK,Sector,Heavy Fuel Oil,-79160087754813.56
+EU27+UK,Sector,Hotel and restaurant services (55),98844046653163.77
+EU27+UK,Sector,Inert/metal/hazardous waste for treatment: landfill,5937412851245.807
+EU27+UK,Sector,Inland water transportation services,-126997768147.8287
+EU27+UK,Sector,"Insurance and pension funding services, except compulsory social security services (66)",5390217910324.363
+EU27+UK,Sector,Intert/metal waste for treatment: incineration,229120446852.80463
+EU27+UK,Sector,Iron ores,551877951542.1118
+EU27+UK,Sector,Kerosene,-13008897988050.967
+EU27+UK,Sector,Kerosene Type Jet Fuel,-3028394303709.726
+EU27+UK,Sector,Landifill,0.0
+EU27+UK,Sector,"Lead, zinc and tin and products thereof",-17713814404412.008
+EU27+UK,Sector,"Lead, zinc and tin ores and concentrates",29648546444.681774
+EU27+UK,Sector,Leather and leather products (19),22499753156275.805
+EU27+UK,Sector,Lignite/Brown Coal,224874590481.42233
+EU27+UK,Sector,Liquefied Petroleum Gases (LPG),3883478059028.671
+EU27+UK,Sector,Lubricants,137581509551.37918
+EU27+UK,Sector,Machinery and equipment n.e.c. (29),-94598554304383.44
 EU27+UK,Sector,Manure (biogas treatment),0.0
 EU27+UK,Sector,Manure (conventional treatment),0.0
-EU27+UK,Sector,Meat animals nec,7557185911.670979
-EU27+UK,Sector,Meat products nec,92392711236.8473
-EU27+UK,Sector,"Medical, precision and optical instruments, watches and clocks (33)",122690074366.29054
-EU27+UK,Sector,Membership organisation services n.e.c. (91),202311233464.6491
-EU27+UK,Sector,Motor Gasoline,122669512784.92558
-EU27+UK,Sector,"Motor vehicles, trailers and semi-trailers (34)",399292652737.74304
-EU27+UK,Sector,N-fertiliser,87991172.80019225
-EU27+UK,Sector,Naphtha,767681334.8653879
-EU27+UK,Sector,Natural Gas Liquids,589664580.3627423
-EU27+UK,Sector,"Natural gas and services related to natural gas extraction, excluding surveying",9991665360.290976
-EU27+UK,Sector,Neodymium,0.0
-EU27+UK,Sector,Nickel ores and concentrates,2113183.640888925
-EU27+UK,Sector,Non-specified Petroleum Products,91511851.63823901
-EU27+UK,Sector,Nuclear fuel,3866417376.2028704
-EU27+UK,Sector,Office machinery and computers (30),32439162249.344315
+EU27+UK,Sector,Meat animals nec,3739812830992.52
+EU27+UK,Sector,Meat products nec,28448672543116.55
+EU27+UK,Sector,"Medical, precision and optical instruments, watches and clocks (33)",-11369702171789.506
+EU27+UK,Sector,Membership organisation services n.e.c. (91),-4386580183584.1543
+EU27+UK,Sector,Motor Gasoline,-67092894395913.52
+EU27+UK,Sector,"Motor vehicles, trailers and semi-trailers (34)",-6112404800559.93
+EU27+UK,Sector,N-fertiliser,5189734470137.321
+EU27+UK,Sector,Naphtha,8551951108193.241
+EU27+UK,Sector,Natural Gas Liquids,3189308695187.964
+EU27+UK,Sector,"Natural gas and services related to natural gas extraction, excluding surveying",-3502917246012.583
+EU27+UK,Sector,Neodymium,-17070417.77739847
+EU27+UK,Sector,Nickel ores and concentrates,65601925599.78255
+EU27+UK,Sector,Non-specified Petroleum Products,-8123349678455.119
+EU27+UK,Sector,Nuclear fuel,-4339410623680.135
+EU27+UK,Sector,Office machinery and computers (30),35357496648528.41
 EU27+UK,Sector,Offshore wind plants,0.0
-EU27+UK,Sector,Oil seeds,4988670521.4172535
-EU27+UK,Sector,Oil/hazardous waste for treatment: incineration,5556536757.388473
+EU27+UK,Sector,Oil seeds,-2613552794107.626
+EU27+UK,Sector,Oil/hazardous waste for treatment: incineration,74839619890.49635
 EU27+UK,Sector,Onshore wind plants,0.0
-EU27+UK,Sector,Other Bituminous Coal,3289134590.1188283
-EU27+UK,Sector,Other Hydrocarbons,79269675.88750632
-EU27+UK,Sector,Other Liquid Biofuels,184204226.85912898
-EU27+UK,Sector,Other business services (74),286060685733.88617
-EU27+UK,Sector,Other land transportation services,203728268357.33908
-EU27+UK,Sector,Other non-ferrous metal ores and concentrates,48641140.303010084
-EU27+UK,Sector,Other non-ferrous metal products,317320504.73331696
-EU27+UK,Sector,Other non-metallic mineral products,13568967361.459137
-EU27+UK,Sector,Other services (93),124590887382.9625
-EU27+UK,Sector,Other transport equipment (35),111650275960.10211
-EU27+UK,Sector,Other waste for treatment: waste water treatment,5099289541.742713
-EU27+UK,Sector,Oxygen Steel Furnace Gas,58387090.778233215
-EU27+UK,Sector,P- and other fertiliser,720174431.1241512
-EU27+UK,Sector,Paddy rice,845396204.4946706
-EU27+UK,Sector,Paper and paper products,23575595691.587257
-EU27+UK,Sector,Paper and wood waste for treatment: composting and land application,33104068.808337018
-EU27+UK,Sector,Paper for treatment: landfill,3326262781.314868
-EU27+UK,Sector,Paper waste for treatment: biogasification and land application,128471655.60976715
-EU27+UK,Sector,Paper waste for treatment: incineration,5832616856.508516
-EU27+UK,Sector,Paraffin Waxes,16868223.420050297
-EU27+UK,Sector,Patent Fuel,45910079.94494736
-EU27+UK,Sector,Peat,397165567.13486964
-EU27+UK,Sector,Petroleum Coke,42854101.92904672
+EU27+UK,Sector,Other Bituminous Coal,881998986887.4243
+EU27+UK,Sector,Other Hydrocarbons,843592788655.6714
+EU27+UK,Sector,Other Liquid Biofuels,-190267750.722618
+EU27+UK,Sector,Other business services (74),-749918512217533.1
+EU27+UK,Sector,Other land transportation services,238072534939.7791
+EU27+UK,Sector,Other non-ferrous metal ores and concentrates,-2651255825692.1055
+EU27+UK,Sector,Other non-ferrous metal products,15045036590487.266
+EU27+UK,Sector,Other non-metallic mineral products,-21481666881065.95
+EU27+UK,Sector,Other services (93),-339511330473.557
+EU27+UK,Sector,Other transport equipment (35),-27107691079552.098
+EU27+UK,Sector,Other waste for treatment: waste water treatment,1494918207706.4282
+EU27+UK,Sector,Oxygen Steel Furnace Gas,-3967484210607.5215
+EU27+UK,Sector,P- and other fertiliser,-45550208581474.14
+EU27+UK,Sector,Paddy rice,-541767292856.5575
+EU27+UK,Sector,Paper and paper products,17425749990686.19
+EU27+UK,Sector,Paper and wood waste for treatment: composting and land application,-31114694914.797974
+EU27+UK,Sector,Paper for treatment: landfill,2537347710688.984
+EU27+UK,Sector,Paper waste for treatment: biogasification and land application,-10504830260.573265
+EU27+UK,Sector,Paper waste for treatment: incineration,82061274431.68315
+EU27+UK,Sector,Paraffin Waxes,-2265308789826.118
+EU27+UK,Sector,Patent Fuel,-6480508252934.013
+EU27+UK,Sector,Peat,1132090414285.1785
+EU27+UK,Sector,Petroleum Coke,-9807672755117.986
 EU27+UK,Sector,Photovoltaic plants,0.0
-EU27+UK,Sector,Pigs,5428041766.295273
-EU27+UK,Sector,Plant-based fibers,419424015.24799114
-EU27+UK,Sector,Plastic waste for treatment: incineration,5285358535.98392
-EU27+UK,Sector,Plastic waste for treatment: landfill,1093580895.858908
-EU27+UK,Sector,"Plastics, basic",162081761548.69913
-EU27+UK,Sector,Post and telecommunication services (64),274828327332.7203
-EU27+UK,Sector,Poultry,22189990560.190575
-EU27+UK,Sector,Precious metal ores and concentrates,25249999.766861834
-EU27+UK,Sector,Precious metals,1274208338.5136917
-EU27+UK,Sector,Printed matter and recorded media (22),116069131843.11348
-EU27+UK,Sector,Private households with employed persons (95),69453875091.72733
-EU27+UK,Sector,Processed rice,1501196435.8077927
-EU27+UK,Sector,"Products of forestry, logging and related services (02)",11349279131.325705
-EU27+UK,Sector,Products of meat cattle,25581416745.20225
-EU27+UK,Sector,Products of meat pigs,31132336371.891994
-EU27+UK,Sector,Products of meat poultry,53233707549.46397
-EU27+UK,Sector,Public administration and defence services; compulsory social security services (75),1033181884071.7593
-EU27+UK,Sector,Pulp,2411779007.8526697
-EU27+UK,Sector,"Radio, television and communication equipment and apparatus (32)",96372274758.2553
-EU27+UK,Sector,Railway transportation services,92733655579.45572
-EU27+UK,Sector,Raw milk,7176003326.115
-EU27+UK,Sector,Raw silicon,0.0
-EU27+UK,Sector,Real estate services (70),1477215111975.162
-EU27+UK,Sector,"Recreational, cultural and sporting services (92)",359772427530.47815
-EU27+UK,Sector,Refinery Feedstocks,37885291.45511106
-EU27+UK,Sector,Refinery Gas,20181096.02672129
-EU27+UK,Sector,Renting services of machinery and equipment without operator and of personal and household goods (71),46615569013.33461
-EU27+UK,Sector,Research and development services (73),72206348930.03827
-EU27+UK,Sector,"Retail  trade services, except of motor vehicles and motorcycles; repair services of personal and household goods (52)",62777422552.354065
-EU27+UK,Sector,Retail trade services of motor fuel,14388406593.31209
-EU27+UK,Sector,Rubber and plastic products (25),43182243634.467804
-EU27+UK,Sector,"Sale, maintenance, repair of motor vehicles, motor vehicles parts, motorcycles, motor cycles parts and accessoiries",241113046090.48166
-EU27+UK,Sector,Sand and clay,873979498.0031004
-EU27+UK,Sector,Sea and coastal water transportation services,24984208397.980812
+EU27+UK,Sector,Pigs,-250912346300.77966
+EU27+UK,Sector,Plant-based fibers,-2005079360151.7393
+EU27+UK,Sector,Plastic waste for treatment: incineration,-3824209160916.2153
+EU27+UK,Sector,Plastic waste for treatment: landfill,-2555527810140.0293
+EU27+UK,Sector,"Plastics, basic",-30070897427121.27
+EU27+UK,Sector,Post and telecommunication services (64),58052162782394.69
+EU27+UK,Sector,Poultry,-9825249820983.877
+EU27+UK,Sector,Precious metal ores and concentrates,-20730196601.193993
+EU27+UK,Sector,Precious metals,234707538437471.78
+EU27+UK,Sector,Printed matter and recorded media (22),10035546716633.768
+EU27+UK,Sector,Private households with employed persons (95),299986589898.2008
+EU27+UK,Sector,Processed rice,726484941545.6125
+EU27+UK,Sector,"Products of forestry, logging and related services (02)",-15190186541604.164
+EU27+UK,Sector,Products of meat cattle,-220300952747.69998
+EU27+UK,Sector,Products of meat pigs,895474434087.5012
+EU27+UK,Sector,Products of meat poultry,-3000631887211.716
+EU27+UK,Sector,Public administration and defence services; compulsory social security services (75),51125391597026.91
+EU27+UK,Sector,Pulp,-9558533835052.746
+EU27+UK,Sector,"Radio, television and communication equipment and apparatus (32)",23900018033565.285
+EU27+UK,Sector,Railway transportation services,-4509732531644.153
+EU27+UK,Sector,Raw milk,391858444086.4011
+EU27+UK,Sector,Raw silicon,-14600373259.199392
+EU27+UK,Sector,Real estate services (70),32588475027485.87
+EU27+UK,Sector,"Recreational, cultural and sporting services (92)",-396480506889.3846
+EU27+UK,Sector,Refinery Feedstocks,203426746144.0899
+EU27+UK,Sector,Refinery Gas,427363697583.80615
+EU27+UK,Sector,Refinery of Cu in wires of WT and PV,0.0
+EU27+UK,Sector,Refinery of Generators of Offshore Wind Turbines,0.0
+EU27+UK,Sector,Refinery of Generators of Onshore Wind Turbines,0.0
+EU27+UK,Sector,Refinery of Silicon layer in PV panel,0.0
+EU27+UK,Sector,Renting services of machinery and equipment without operator and of personal and household goods (71),1137554726044655.8
+EU27+UK,Sector,Research and development services (73),113807272248005.62
+EU27+UK,Sector,"Retail  trade services, except of motor vehicles and motorcycles; repair services of personal and household goods (52)",-19997243552468.332
+EU27+UK,Sector,Retail trade services of motor fuel,-3858579031360.3496
+EU27+UK,Sector,Rubber and plastic products (25),-187699538330532.0
+EU27+UK,Sector,"Sale, maintenance, repair of motor vehicles, motor vehicles parts, motorcycles, motor cycles parts and accessoiries",-12812029774583.762
+EU27+UK,Sector,Sand and clay,-15397603883508.71
+EU27+UK,Sector,Sea and coastal water transportation services,-162262614658413.4
 EU27+UK,Sector,"Secondary aluminium for treatment, Re-processing of secondary aluminium into new aluminium",0.0
 EU27+UK,Sector,"Secondary construction material for treatment, Re-processing of secondary construction material into aggregates",0.0
 EU27+UK,Sector,"Secondary copper for treatment, Re-processing of secondary copper into new copper",0.0
@@ -383,203 +397,210 @@ EU27+UK,Sector,"Secondary other non-ferrous metals for treatment, Re-processing 
 EU27+UK,Sector,"Secondary paper for treatment, Re-processing of secondary paper into new pulp",0.0
 EU27+UK,Sector,"Secondary plastic for treatment, Re-processing of secondary plastic into new plastic",0.0
 EU27+UK,Sector,"Secondary preciuos metals for treatment, Re-processing of secondary preciuos metals into new preciuos metals",0.0
-EU27+UK,Sector,Secondary raw materials,949246542.312224
+EU27+UK,Sector,Secondary raw materials,1537668248667.143
 EU27+UK,Sector,"Secondary steel for treatment, Re-processing of secondary steel into new steel",0.0
-EU27+UK,Sector,Services auxiliary to financial intermediation (67),27701507826.9501
-EU27+UK,Sector,Sewage sludge for treatment: biogasification and land application,7177944926.358161
-EU27+UK,Sector,Steam and hot water supply services,11643026163.007715
-EU27+UK,Sector,Stone,661276929.0625745
-EU27+UK,Sector,Sub-Bituminous Coal,10359341.889795182
-EU27+UK,Sector,Sugar,7759510999.477718
-EU27+UK,Sector,"Sugar cane, sugar beet",397754004.7697604
-EU27+UK,Sector,Supporting and auxiliary transport services; travel agency services (63),173658581254.783
-EU27+UK,Sector,Textiles (17),57187394089.452965
-EU27+UK,Sector,Textiles waste for treatment: incineration,912874753.4566894
-EU27+UK,Sector,Textiles waste for treatment: landfill,492089330.2872566
-EU27+UK,Sector,Tobacco products (16),20161621063.88342
-EU27+UK,Sector,Transmission services of electricity,16489569592.232296
-EU27+UK,Sector,Transportation services via pipelines,473317971.63965946
-EU27+UK,Sector,Uranium and thorium ores (12),46466979.43319764
-EU27+UK,Sector,"Vegetables, fruit, nuts",70537162881.52045
-EU27+UK,Sector,Wearing apparel; furs (18),100196152039.38795
-EU27+UK,Sector,Wheat,12657459060.921572
-EU27+UK,Sector,White Spirit & SBP,73947567.94872609
-EU27+UK,Sector,"Wholesale trade and commission trade services, except of motor vehicles and motorcycles (51)",72076429438.06564
-EU27+UK,Sector,Wood and products of wood and cork (except furniture); articles of straw and plaiting materials (20),27459382352.97173
+EU27+UK,Sector,Services auxiliary to financial intermediation (67),308991948384771.3
+EU27+UK,Sector,Sewage sludge for treatment: biogasification and land application,-2632621215075.657
+EU27+UK,Sector,Steam and hot water supply services,-593557308369.2626
+EU27+UK,Sector,Stone,612631842998.1669
+EU27+UK,Sector,Sub-Bituminous Coal,219987663072.41257
+EU27+UK,Sector,Sugar,2143081373610.239
+EU27+UK,Sector,"Sugar cane, sugar beet",-565588967807.1055
+EU27+UK,Sector,Supporting and auxiliary transport services; travel agency services (63),-147065464741489.94
+EU27+UK,Sector,Textiles (17),13601523618167.504
+EU27+UK,Sector,Textiles waste for treatment: incineration,-990960823598.6345
+EU27+UK,Sector,Textiles waste for treatment: landfill,-36225803097.47408
+EU27+UK,Sector,Tobacco products (16),3133263865163.837
+EU27+UK,Sector,Transmission services of electricity,328832983073.49854
+EU27+UK,Sector,Transportation services via pipelines,-30749860854219.273
+EU27+UK,Sector,Uranium and thorium ores (12),115207385245.26987
+EU27+UK,Sector,"Vegetables, fruit, nuts",-84075536538477.61
+EU27+UK,Sector,Wearing apparel; furs (18),-1141504436666.5437
+EU27+UK,Sector,Wheat,-11313654857267.69
+EU27+UK,Sector,White Spirit & SBP,5529849340905.334
+EU27+UK,Sector,"Wholesale trade and commission trade services, except of motor vehicles and motorcycles (51)",16462419668.33226
+EU27+UK,Sector,Wood and products of wood and cork (except furniture); articles of straw and plaiting materials (20),12165937541959.906
 EU27+UK,Sector,"Wood material for treatment, Re-processing of secondary wood material into new wood material",0.0
-EU27+UK,Sector,Wood waste for treatment: incineration,2657072263.9790077
-EU27+UK,Sector,Wood waste for treatment: landfill,923679574.5167693
-EU27+UK,Sector,"Wool, silk-worm cocoons",107683854.64386716
-EU27+UK,Sector,products of Vegetable oils and fats,7162595765.129663
-RoW,Sector,Additives/Blending Components,10328229514.388435
-RoW,Sector,Air transport services (62),142551302741.3365
-RoW,Sector,Aluminium and aluminium products,2991205836.1601815
-RoW,Sector,Aluminium ores and concentrates,643063958.4984303
-RoW,Sector,Animal products nec,36818203467.028206
-RoW,Sector,Anthracite,919632853.3755103
+EU27+UK,Sector,Wood waste for treatment: incineration,-362055871876.1713
+EU27+UK,Sector,Wood waste for treatment: landfill,2685717484947.9194
+EU27+UK,Sector,"Wool, silk-worm cocoons",-216330529571.50705
+EU27+UK,Sector,products of Vegetable oils and fats,14429289923044.531
+RoW,Sector,Additives/Blending Components,-352920319961.75854
+RoW,Sector,Air transport services (62),-3734832853529.5073
+RoW,Sector,Aluminium and aluminium products,-169105571181.63696
+RoW,Sector,Aluminium ores and concentrates,-638112008937.1606
+RoW,Sector,Animal products nec,-39405376060.76271
+RoW,Sector,Anthracite,-241779710967.99677
 RoW,Sector,"Ash for treatment, Re-processing of ash into clinker",0.0
-RoW,Sector,Aviation Gasoline,22069889.6426195
-RoW,Sector,BKB/Peat Briquettes,44233381.27917838
-RoW,Sector,Basic iron and steel and of ferro-alloys and first products thereof,15416675121.077238
-RoW,Sector,Beverages,219122611229.8949
-RoW,Sector,Biodiesels,99617228.70047492
-RoW,Sector,Biogas,122577592.17312257
-RoW,Sector,Biogasoline,567051475.1526693
-RoW,Sector,Bitumen,190085629.94853505
-RoW,Sector,Blast Furnace Gas,3468835.071063361
+RoW,Sector,Aviation Gasoline,-2519686290248.4673
+RoW,Sector,BKB/Peat Briquettes,631925123869.0148
+RoW,Sector,Basic iron and steel and of ferro-alloys and first products thereof,4628563506864.455
+RoW,Sector,Beverages,-214756438086.8045
+RoW,Sector,Biodiesels,1521473268600.52
+RoW,Sector,Biogas,-150424804107.5918
+RoW,Sector,Biogasoline,258299160547.44098
+RoW,Sector,Bitumen,103308933033.01617
+RoW,Sector,Blast Furnace Gas,2454730710531.6772
 RoW,Sector,"Bottles for treatment, Recycling of bottles by direct reuse",0.0
-RoW,Sector,"Bricks, tiles and construction products, in baked clay",269435810.3027706
-RoW,Sector,Cattle,10332382484.649715
-RoW,Sector,"Cement, lime and plaster",2117748746.2350216
-RoW,Sector,Ceramic goods,12325740755.666979
-RoW,Sector,Cereal grains nec,35511607029.98918
-RoW,Sector,Charcoal,1039594151.8315436
-RoW,Sector,"Chemical and fertilizer minerals, salt and other mining and quarrying products n.e.c.",4202873906.12739
-RoW,Sector,Chemicals nec,317133729068.17914
-RoW,Sector,Coal Tar,20160595.678738993
-RoW,Sector,Coke Oven Coke,1192218568.9695323
-RoW,Sector,Coke oven gas,4635.1950766432665
-RoW,Sector,Coking Coal,844578227.6743473
-RoW,Sector,"Collected and purified water, distribution services of water (41)",46704167547.39132
-RoW,Sector,Computer and related services (72),353954690113.36035
-RoW,Sector,Construction work (45),2938316573750.429
-RoW,Sector,Copper ores and concentrates,12583724166.428457
-RoW,Sector,Copper products,3658814524.3983436
-RoW,Sector,Crops nec,115571385536.01231
-RoW,Sector,"Crude petroleum and services related to crude oil extraction, excluding surveying",29614300950.62282
-RoW,Sector,Dairy products,86381482702.95293
-RoW,Sector,Distribution and trade services of electricity,73754735987.48615
-RoW,Sector,Distribution services of gaseous fuels through mains,52039460018.8703
-RoW,Sector,Dysprosium,0.0
-RoW,Sector,Education services (80),1050556979975.0836
-RoW,Sector,Electrical machinery and apparatus n.e.c. (31),184167801525.44278
-RoW,Sector,Electricity by Geothermal,724284773.9073906
-RoW,Sector,Electricity by biomass and waste,1397361124.5048335
-RoW,Sector,Electricity by coal,36644951064.79785
-RoW,Sector,Electricity by gas,43207207357.75273
-RoW,Sector,Electricity by hydro,21852253450.645996
-RoW,Sector,Electricity by nuclear,15371073028.358076
-RoW,Sector,Electricity by petroleum and other oil derivatives,18395593338.181866
-RoW,Sector,Electricity by solar photovoltaic,3558081.899133033
-RoW,Sector,Electricity by solar thermal,113601.13348385322
-RoW,Sector,"Electricity by tide, wave, ocean",2173135.319311932
-RoW,Sector,Electricity by wind,251715525.6962301
-RoW,Sector,Electricity nec,243594487.1275608
-RoW,Sector,Ethane,3490147.302945098
+RoW,Sector,"Bricks, tiles and construction products, in baked clay",-629041677746.3457
+RoW,Sector,Cattle,11235579572697.49
+RoW,Sector,"Cement, lime and plaster",1053755600348.7947
+RoW,Sector,Ceramic goods,-12571943124446.162
+RoW,Sector,Cereal grains nec,1423397403130.981
+RoW,Sector,Charcoal,10913048061.492966
+RoW,Sector,"Chemical and fertilizer minerals, salt and other mining and quarrying products n.e.c.",5651543345607.574
+RoW,Sector,Chemicals nec,-47777058134948.46
+RoW,Sector,Coal Tar,-1336733243975.3628
+RoW,Sector,Coke Oven Coke,-8733097583457.849
+RoW,Sector,Coke oven gas,7015584358624.067
+RoW,Sector,Coking Coal,-803060560611.589
+RoW,Sector,"Collected and purified water, distribution services of water (41)",261999830733.94196
+RoW,Sector,Computer and related services (72),-5475704960272.01
+RoW,Sector,Construction work (45),-85190973881703.14
+RoW,Sector,Copper ores and concentrates,5149088502671.207
+RoW,Sector,Copper products,-1106166789428.127
+RoW,Sector,Crops nec,553781853031.9084
+RoW,Sector,"Crude petroleum and services related to crude oil extraction, excluding surveying",-634542660889831.9
+RoW,Sector,Dairy products,-248642307538.4688
+RoW,Sector,Disassembler of PV panels,0.0
+RoW,Sector,Disassembler of Wind Turbines,0.0
+RoW,Sector,Distribution and trade services of electricity,3750936493430.048
+RoW,Sector,Distribution services of gaseous fuels through mains,-2846132749307.0483
+RoW,Sector,Dysprosium,-49691377.66914895
+RoW,Sector,Education services (80),-123472567171.2763
+RoW,Sector,Electrical machinery and apparatus n.e.c. (31),10291161105334.277
+RoW,Sector,Electricity by Geothermal,-59156228884.501755
+RoW,Sector,Electricity by biomass and waste,-706487702397.3274
+RoW,Sector,Electricity by coal,1194823491180.0884
+RoW,Sector,Electricity by gas,1978708880838.7437
+RoW,Sector,Electricity by hydro,-7494409421295.797
+RoW,Sector,Electricity by nuclear,-1127299181603.2478
+RoW,Sector,Electricity by petroleum and other oil derivatives,-1950805282823.7742
+RoW,Sector,Electricity by solar photovoltaic,-38829499934.39012
+RoW,Sector,Electricity by solar thermal,-139819080790.94073
+RoW,Sector,"Electricity by tide, wave, ocean",-728060728.6923918
+RoW,Sector,Electricity by wind,-36666719802.35319
+RoW,Sector,Electricity nec,-646155381624.0347
+RoW,Sector,Ethane,4151137485209.4526
 RoW,Sector,Extra-territorial organizations and bodies,0.0
-RoW,Sector,"Fabricated metal products, except machinery and equipment (28)",163882590793.00336
-RoW,Sector,"Financial intermediation services, except insurance and pension funding services (65)",231735939722.1094
-RoW,Sector,Fish and other fishing products; services incidental of fishing (05),56379337196.28085
-RoW,Sector,Fish products,169653161293.26184
-RoW,Sector,Food products nec,548662579016.41614
-RoW,Sector,Food waste for treatment: biogasification and land application,1334801249.7284732
-RoW,Sector,Food waste for treatment: composting and land application,3263260977.884127
-RoW,Sector,Food waste for treatment: incineration,6805920299.313973
-RoW,Sector,Food waste for treatment: landfill,38558589308.36543
-RoW,Sector,Food waste for treatment: waste water treatment,33136770373.382473
-RoW,Sector,Foundry work services,7674936369.823982
-RoW,Sector,Furniture; other manufactured goods n.e.c. (36),247423739089.08435
-RoW,Sector,Gas Coke,3255.87046323236
-RoW,Sector,Gas Works Gas,99644393.85790281
-RoW,Sector,Gas/Diesel Oil,59098385441.421326
-RoW,Sector,Gasoline Type Jet Fuel,4571346.625353095
-RoW,Sector,Glass and glass products,7169980654.247208
-RoW,Sector,Health and social work services (85),1873176296311.2935
-RoW,Sector,Heavy Fuel Oil,7534221951.554069
-RoW,Sector,Hotel and restaurant services (55),1157427244463.3113
-RoW,Sector,Inert/metal/hazardous waste for treatment: landfill,14741511691.619822
-RoW,Sector,Inland water transportation services,4746632377.056804
-RoW,Sector,"Insurance and pension funding services, except compulsory social security services (66)",373813538455.88104
-RoW,Sector,Intert/metal waste for treatment: incineration,1888837103.8349326
-RoW,Sector,Iron ores,2347011282.1453247
-RoW,Sector,Kerosene,13577053370.06154
-RoW,Sector,Kerosene Type Jet Fuel,4489302111.918533
-RoW,Sector,"Lead, zinc and tin and products thereof",1934580625.961782
-RoW,Sector,"Lead, zinc and tin ores and concentrates",2570934929.1032734
-RoW,Sector,Leather and leather products (19),65726634454.54137
-RoW,Sector,Lignite/Brown Coal,1386966876.5855904
-RoW,Sector,Liquefied Petroleum Gases (LPG),28600206220.956516
-RoW,Sector,Lubricants,929094354.4620966
-RoW,Sector,Machinery and equipment n.e.c. (29),661928262297.9604
+RoW,Sector,"Fabricated metal products, except machinery and equipment (28)",166512798530709.88
+RoW,Sector,"Financial intermediation services, except insurance and pension funding services (65)",-7267331195369.532
+RoW,Sector,Fish and other fishing products; services incidental of fishing (05),-208434251175.7879
+RoW,Sector,Fish products,-84007395502.18727
+RoW,Sector,Food products nec,-639674950311.0553
+RoW,Sector,Food waste for treatment: biogasification and land application,-137284796376.10233
+RoW,Sector,Food waste for treatment: composting and land application,-233931693127.57568
+RoW,Sector,Food waste for treatment: incineration,174022009929.2211
+RoW,Sector,Food waste for treatment: landfill,-835940031170.5591
+RoW,Sector,Food waste for treatment: waste water treatment,-60181830990.84988
+RoW,Sector,Foundry work services,1102314723643.207
+RoW,Sector,Furniture; other manufactured goods n.e.c. (36),-2303756879166.9175
+RoW,Sector,Gas Coke,-137669213520.8866
+RoW,Sector,Gas Works Gas,1019122728418.1016
+RoW,Sector,Gas/Diesel Oil,-291964322078.11395
+RoW,Sector,Gasoline Type Jet Fuel,76821449750.44792
+RoW,Sector,Glass and glass products,27998828551785.445
+RoW,Sector,Health and social work services (85),-168039819091.0809
+RoW,Sector,Heavy Fuel Oil,-6228616000193.694
+RoW,Sector,Hotel and restaurant services (55),-4397017975496.917
+RoW,Sector,Inert/metal/hazardous waste for treatment: landfill,-166588742989.61874
+RoW,Sector,Inland water transportation services,-1714973621285.8955
+RoW,Sector,"Insurance and pension funding services, except compulsory social security services (66)",-3632116775311.0225
+RoW,Sector,Intert/metal waste for treatment: incineration,656142534887.8315
+RoW,Sector,Iron ores,50345570114354.41
+RoW,Sector,Kerosene,-2689375669023.5166
+RoW,Sector,Kerosene Type Jet Fuel,-568943562538.7078
+RoW,Sector,Landifill,0.0
+RoW,Sector,"Lead, zinc and tin and products thereof",3047409150.2417502
+RoW,Sector,"Lead, zinc and tin ores and concentrates",404693372262.1116
+RoW,Sector,Leather and leather products (19),1295917688028.453
+RoW,Sector,Lignite/Brown Coal,-39618546120.73133
+RoW,Sector,Liquefied Petroleum Gases (LPG),-3029512252197.9824
+RoW,Sector,Lubricants,-765067037880.26
+RoW,Sector,Machinery and equipment n.e.c. (29),-70448087292858.69
 RoW,Sector,Manure (biogas treatment),0.0
 RoW,Sector,Manure (conventional treatment),0.0
-RoW,Sector,Meat animals nec,6719903633.509383
-RoW,Sector,Meat products nec,44125103998.92097
-RoW,Sector,"Medical, precision and optical instruments, watches and clocks (33)",169146964341.0914
-RoW,Sector,Membership organisation services n.e.c. (91),154353652798.46994
-RoW,Sector,Motor Gasoline,216117892155.2374
-RoW,Sector,"Motor vehicles, trailers and semi-trailers (34)",636066965775.7539
-RoW,Sector,N-fertiliser,290561045.3522418
-RoW,Sector,Naphtha,1735147604.3105943
-RoW,Sector,Natural Gas Liquids,7525039644.395931
-RoW,Sector,"Natural gas and services related to natural gas extraction, excluding surveying",102122487139.66336
-RoW,Sector,Neodymium,0.0
-RoW,Sector,Nickel ores and concentrates,860788910.6108885
-RoW,Sector,Non-specified Petroleum Products,343160526.788254
-RoW,Sector,Nuclear fuel,3078460454.153745
-RoW,Sector,Office machinery and computers (30),123151444446.36275
+RoW,Sector,Meat animals nec,-131247147242.30876
+RoW,Sector,Meat products nec,183152373185.4788
+RoW,Sector,"Medical, precision and optical instruments, watches and clocks (33)",2216427085545.7036
+RoW,Sector,Membership organisation services n.e.c. (91),-826742761027.061
+RoW,Sector,Motor Gasoline,-2755212652670.744
+RoW,Sector,"Motor vehicles, trailers and semi-trailers (34)",-1986523208040.9539
+RoW,Sector,N-fertiliser,-112231373749.85162
+RoW,Sector,Naphtha,-10622768486962.512
+RoW,Sector,Natural Gas Liquids,-15501820260937.445
+RoW,Sector,"Natural gas and services related to natural gas extraction, excluding surveying",-522641766484.9546
+RoW,Sector,Neodymium,-150044901.14964366
+RoW,Sector,Nickel ores and concentrates,-15564148670.595259
+RoW,Sector,Non-specified Petroleum Products,9571604530763.635
+RoW,Sector,Nuclear fuel,6046045169270.188
+RoW,Sector,Office machinery and computers (30),-2054796083253.6035
 RoW,Sector,Offshore wind plants,0.0
-RoW,Sector,Oil seeds,5534793684.219236
-RoW,Sector,Oil/hazardous waste for treatment: incineration,2083556562.0282137
+RoW,Sector,Oil seeds,-1322049334020.67
+RoW,Sector,Oil/hazardous waste for treatment: incineration,835437379562.74
 RoW,Sector,Onshore wind plants,0.0
-RoW,Sector,Other Bituminous Coal,6643875408.874992
-RoW,Sector,Other Hydrocarbons,1654458026.336324
-RoW,Sector,Other Liquid Biofuels,62960423.07764512
-RoW,Sector,Other business services (74),311297572984.77997
-RoW,Sector,Other land transportation services,373810230172.9761
-RoW,Sector,Other non-ferrous metal ores and concentrates,1062624581.6828811
-RoW,Sector,Other non-ferrous metal products,2840255045.2077494
-RoW,Sector,Other non-metallic mineral products,16777812643.003542
-RoW,Sector,Other services (93),294515918760.58673
-RoW,Sector,Other transport equipment (35),153377696176.95978
-RoW,Sector,Other waste for treatment: waste water treatment,64777009577.673325
-RoW,Sector,Oxygen Steel Furnace Gas,97597881.58095205
-RoW,Sector,P- and other fertiliser,5244444676.714488
-RoW,Sector,Paddy rice,36170928493.00958
-RoW,Sector,Paper and paper products,48917585421.10265
-RoW,Sector,Paper and wood waste for treatment: composting and land application,577198801.3707359
-RoW,Sector,Paper for treatment: landfill,18866304522.610035
-RoW,Sector,Paper waste for treatment: biogasification and land application,95068590.52887726
-RoW,Sector,Paper waste for treatment: incineration,7330884495.554356
-RoW,Sector,Paraffin Waxes,45217071.889989
-RoW,Sector,Patent Fuel,18888684.95404448
-RoW,Sector,Peat,32043295.218539797
-RoW,Sector,Petroleum Coke,336758302.3390086
+RoW,Sector,Other Bituminous Coal,27682430177988.234
+RoW,Sector,Other Hydrocarbons,9415405771487.7
+RoW,Sector,Other Liquid Biofuels,602806113067.985
+RoW,Sector,Other business services (74),1213908846843.6687
+RoW,Sector,Other land transportation services,-341627740215081.8
+RoW,Sector,Other non-ferrous metal ores and concentrates,7413244994633.163
+RoW,Sector,Other non-ferrous metal products,-61644710369.61891
+RoW,Sector,Other non-metallic mineral products,501275443541.9915
+RoW,Sector,Other services (93),-566793718304.2288
+RoW,Sector,Other transport equipment (35),31398961909.16921
+RoW,Sector,Other waste for treatment: waste water treatment,-99034414071.12828
+RoW,Sector,Oxygen Steel Furnace Gas,-291911419885.9625
+RoW,Sector,P- and other fertiliser,-959389770347.2528
+RoW,Sector,Paddy rice,-960406645945.3103
+RoW,Sector,Paper and paper products,-17368903419171.0
+RoW,Sector,Paper and wood waste for treatment: composting and land application,-189273756584.8077
+RoW,Sector,Paper for treatment: landfill,-387688709491.90186
+RoW,Sector,Paper waste for treatment: biogasification and land application,-112674801483.4118
+RoW,Sector,Paper waste for treatment: incineration,504783767146.3476
+RoW,Sector,Paraffin Waxes,-552129521742.2012
+RoW,Sector,Patent Fuel,-1583269327837.903
+RoW,Sector,Peat,156078199792.10962
+RoW,Sector,Petroleum Coke,10716812858822.707
 RoW,Sector,Photovoltaic plants,0.0
-RoW,Sector,Pigs,5879645325.997222
-RoW,Sector,Plant-based fibers,3566775480.8685565
-RoW,Sector,Plastic waste for treatment: incineration,2588611741.942301
-RoW,Sector,Plastic waste for treatment: landfill,13865465918.926224
-RoW,Sector,"Plastics, basic",7831689142.262169
-RoW,Sector,Post and telecommunication services (64),424233977501.8321
-RoW,Sector,Poultry,35467571556.26186
-RoW,Sector,Precious metal ores and concentrates,9700405314.10406
-RoW,Sector,Precious metals,6006902200.867978
-RoW,Sector,Printed matter and recorded media (22),112105745613.64322
-RoW,Sector,Private households with employed persons (95),74766872586.4273
-RoW,Sector,Processed rice,55001542735.44483
-RoW,Sector,"Products of forestry, logging and related services (02)",39555949017.05314
-RoW,Sector,Products of meat cattle,66659693119.42991
-RoW,Sector,Products of meat pigs,34854657279.80956
-RoW,Sector,Products of meat poultry,40929773761.22428
-RoW,Sector,Public administration and defence services; compulsory social security services (75),1784290927047.044
-RoW,Sector,Pulp,2618615196.1594834
-RoW,Sector,"Radio, television and communication equipment and apparatus (32)",271362284137.80518
-RoW,Sector,Railway transportation services,171316738869.81216
-RoW,Sector,Raw milk,69398537247.61493
-RoW,Sector,Raw silicon,0.0
-RoW,Sector,Real estate services (70),1704568178028.3708
-RoW,Sector,"Recreational, cultural and sporting services (92)",393451360748.4207
-RoW,Sector,Refinery Feedstocks,320316643.4486041
-RoW,Sector,Refinery Gas,52840041.01860316
-RoW,Sector,Renting services of machinery and equipment without operator and of personal and household goods (71),143670508552.1389
-RoW,Sector,Research and development services (73),214887975313.28156
-RoW,Sector,"Retail  trade services, except of motor vehicles and motorcycles; repair services of personal and household goods (52)",302054682974.11743
-RoW,Sector,Retail trade services of motor fuel,5955399010.275416
-RoW,Sector,Rubber and plastic products (25),84871930271.30324
-RoW,Sector,"Sale, maintenance, repair of motor vehicles, motor vehicles parts, motorcycles, motor cycles parts and accessoiries",261821479097.11813
-RoW,Sector,Sand and clay,1362897180.056916
-RoW,Sector,Sea and coastal water transportation services,35689997145.28052
+RoW,Sector,Pigs,-1249720624421.5232
+RoW,Sector,Plant-based fibers,-4177440954584.9873
+RoW,Sector,Plastic waste for treatment: incineration,697725940284.5095
+RoW,Sector,Plastic waste for treatment: landfill,-270024078882.96393
+RoW,Sector,"Plastics, basic",29327318456961.37
+RoW,Sector,Post and telecommunication services (64),-1192318130636.0637
+RoW,Sector,Poultry,6005461324421.446
+RoW,Sector,Precious metal ores and concentrates,6304397556652.067
+RoW,Sector,Precious metals,1443813837774.7554
+RoW,Sector,Printed matter and recorded media (22),2759868388545.6255
+RoW,Sector,Private households with employed persons (95),-78685990536.43222
+RoW,Sector,Processed rice,-702995328636.7207
+RoW,Sector,"Products of forestry, logging and related services (02)",18880985331.50081
+RoW,Sector,Products of meat cattle,-186682419382.355
+RoW,Sector,Products of meat pigs,-73405153397.49323
+RoW,Sector,Products of meat poultry,-72850521098.56645
+RoW,Sector,Public administration and defence services; compulsory social security services (75),-888872790501.3035
+RoW,Sector,Pulp,-1634535304334.5662
+RoW,Sector,"Radio, television and communication equipment and apparatus (32)",407920208481.97815
+RoW,Sector,Railway transportation services,2223191736365.6426
+RoW,Sector,Raw milk,3333993818653.6587
+RoW,Sector,Raw silicon,-8415856371.197808
+RoW,Sector,Real estate services (70),-2768966611051.767
+RoW,Sector,"Recreational, cultural and sporting services (92)",-2219588166729.449
+RoW,Sector,Refinery Feedstocks,-8867954961387.082
+RoW,Sector,Refinery Gas,-232724879835.81946
+RoW,Sector,Refinery of Cu in wires of WT and PV,0.0
+RoW,Sector,Refinery of Generators of Offshore Wind Turbines,0.0
+RoW,Sector,Refinery of Generators of Onshore Wind Turbines,0.0
+RoW,Sector,Refinery of Silicon layer in PV panel,0.0
+RoW,Sector,Renting services of machinery and equipment without operator and of personal and household goods (71),-118076557613820.55
+RoW,Sector,Research and development services (73),-11320234311842.256
+RoW,Sector,"Retail  trade services, except of motor vehicles and motorcycles; repair services of personal and household goods (52)",-5936710070830.735
+RoW,Sector,Retail trade services of motor fuel,-393052789076.19934
+RoW,Sector,Rubber and plastic products (25),-4425373509398.921
+RoW,Sector,"Sale, maintenance, repair of motor vehicles, motor vehicles parts, motorcycles, motor cycles parts and accessoiries",943088417861.6528
+RoW,Sector,Sand and clay,10441716220160.455
+RoW,Sector,Sea and coastal water transportation services,-2504966099860.1055
 RoW,Sector,"Secondary aluminium for treatment, Re-processing of secondary aluminium into new aluminium",0.0
 RoW,Sector,"Secondary construction material for treatment, Re-processing of secondary construction material into aggregates",0.0
 RoW,Sector,"Secondary copper for treatment, Re-processing of secondary copper into new copper",0.0
@@ -589,203 +610,210 @@ RoW,Sector,"Secondary other non-ferrous metals for treatment, Re-processing of s
 RoW,Sector,"Secondary paper for treatment, Re-processing of secondary paper into new pulp",0.0
 RoW,Sector,"Secondary plastic for treatment, Re-processing of secondary plastic into new plastic",0.0
 RoW,Sector,"Secondary preciuos metals for treatment, Re-processing of secondary preciuos metals into new preciuos metals",0.0
-RoW,Sector,Secondary raw materials,1725411493.9850535
+RoW,Sector,Secondary raw materials,-132395352942.92865
 RoW,Sector,"Secondary steel for treatment, Re-processing of secondary steel into new steel",0.0
-RoW,Sector,Services auxiliary to financial intermediation (67),111259774672.27577
-RoW,Sector,Sewage sludge for treatment: biogasification and land application,1663693107.1100671
-RoW,Sector,Steam and hot water supply services,3052828714.10453
-RoW,Sector,Stone,1229122709.3297067
-RoW,Sector,Sub-Bituminous Coal,100577082.05654244
-RoW,Sector,Sugar,31754457947.35383
-RoW,Sector,"Sugar cane, sugar beet",564497554.7319206
-RoW,Sector,Supporting and auxiliary transport services; travel agency services (63),210567692445.46027
-RoW,Sector,Textiles (17),145048333907.6243
-RoW,Sector,Textiles waste for treatment: incineration,1681881940.874205
-RoW,Sector,Textiles waste for treatment: landfill,5972082514.977966
-RoW,Sector,Tobacco products (16),82506973753.745
-RoW,Sector,Transmission services of electricity,14772602039.30825
-RoW,Sector,Transportation services via pipelines,2663855375.551605
-RoW,Sector,Uranium and thorium ores (12),7709241697.835399
-RoW,Sector,"Vegetables, fruit, nuts",265000434104.4547
-RoW,Sector,Wearing apparel; furs (18),227008406779.67902
-RoW,Sector,Wheat,29228842204.920143
-RoW,Sector,White Spirit & SBP,18885334.645489767
-RoW,Sector,"Wholesale trade and commission trade services, except of motor vehicles and motorcycles (51)",286004307333.7301
-RoW,Sector,Wood and products of wood and cork (except furniture); articles of straw and plaiting materials (20),25600904831.865337
+RoW,Sector,Services auxiliary to financial intermediation (67),-3521658159803.5195
+RoW,Sector,Sewage sludge for treatment: biogasification and land application,-124748454723.47081
+RoW,Sector,Steam and hot water supply services,-175479389007.05734
+RoW,Sector,Stone,1566317864427.3704
+RoW,Sector,Sub-Bituminous Coal,80026996443.66121
+RoW,Sector,Sugar,-435873211994.21826
+RoW,Sector,"Sugar cane, sugar beet",11405118052235.85
+RoW,Sector,Supporting and auxiliary transport services; travel agency services (63),-40585589061965.25
+RoW,Sector,Textiles (17),-1542059441701.999
+RoW,Sector,Textiles waste for treatment: incineration,781977477317.3829
+RoW,Sector,Textiles waste for treatment: landfill,-156296205308.8122
+RoW,Sector,Tobacco products (16),-61775618512.848145
+RoW,Sector,Transmission services of electricity,16132370797461.008
+RoW,Sector,Transportation services via pipelines,-1701302668744.5564
+RoW,Sector,Uranium and thorium ores (12),2343437175805.218
+RoW,Sector,"Vegetables, fruit, nuts",7085208646599.055
+RoW,Sector,Wearing apparel; furs (18),-903705089517.9387
+RoW,Sector,Wheat,-656800042340.075
+RoW,Sector,White Spirit & SBP,-2882601183497.6553
+RoW,Sector,"Wholesale trade and commission trade services, except of motor vehicles and motorcycles (51)",-65236016785835.88
+RoW,Sector,Wood and products of wood and cork (except furniture); articles of straw and plaiting materials (20),73816045520344.84
 RoW,Sector,"Wood material for treatment, Re-processing of secondary wood material into new wood material",0.0
-RoW,Sector,Wood waste for treatment: incineration,2168373418.3218894
-RoW,Sector,Wood waste for treatment: landfill,7183195692.025952
-RoW,Sector,"Wool, silk-worm cocoons",1863162202.046776
-RoW,Sector,products of Vegetable oils and fats,48308022118.56418
-USA,Sector,Additives/Blending Components,27850595.22929342
-USA,Sector,Air transport services (62),85647803501.39343
-USA,Sector,Aluminium and aluminium products,434034301.2269985
-USA,Sector,Aluminium ores and concentrates,471914.028795836
-USA,Sector,Animal products nec,6949004568.068546
-USA,Sector,Anthracite,17021492.114733357
+RoW,Sector,Wood waste for treatment: incineration,135622156743.55896
+RoW,Sector,Wood waste for treatment: landfill,8144253985594.547
+RoW,Sector,"Wool, silk-worm cocoons",7387170162.904383
+RoW,Sector,products of Vegetable oils and fats,-1934422835538.5574
+USA,Sector,Additives/Blending Components,-25460349887.17521
+USA,Sector,Air transport services (62),-23736234038460.5
+USA,Sector,Aluminium and aluminium products,-36992587495.67438
+USA,Sector,Aluminium ores and concentrates,-390308696239.7697
+USA,Sector,Animal products nec,-269952178429.47845
+USA,Sector,Anthracite,-393219372899.3313
 USA,Sector,"Ash for treatment, Re-processing of ash into clinker",0.0
-USA,Sector,Aviation Gasoline,18372357.029778834
+USA,Sector,Aviation Gasoline,85845399487.12476
 USA,Sector,BKB/Peat Briquettes,0.0
-USA,Sector,Basic iron and steel and of ferro-alloys and first products thereof,1691379085.5163326
-USA,Sector,Beverages,74992150022.52858
-USA,Sector,Biodiesels,7115541.531452632
-USA,Sector,Biogas,47319.90087760457
-USA,Sector,Biogasoline,1072321620.3400654
-USA,Sector,Bitumen,40900123.037346356
-USA,Sector,Blast Furnace Gas,11.179619900771776
+USA,Sector,Basic iron and steel and of ferro-alloys and first products thereof,-337670081750.6537
+USA,Sector,Beverages,119774949829.93823
+USA,Sector,Biodiesels,4543000283.6080265
+USA,Sector,Biogas,-7397657028.88791
+USA,Sector,Biogasoline,917825913.0519795
+USA,Sector,Bitumen,-173782368042.85004
+USA,Sector,Blast Furnace Gas,42761058621.246574
 USA,Sector,"Bottles for treatment, Recycling of bottles by direct reuse",0.0
-USA,Sector,"Bricks, tiles and construction products, in baked clay",43073684.56121898
-USA,Sector,Cattle,563257372.2757211
-USA,Sector,"Cement, lime and plaster",205148522.5124243
-USA,Sector,Ceramic goods,557706216.6269476
-USA,Sector,Cereal grains nec,1719040821.513041
+USA,Sector,"Bricks, tiles and construction products, in baked clay",-20606487079.551277
+USA,Sector,Cattle,-52601623515.50405
+USA,Sector,"Cement, lime and plaster",-20951922784.53665
+USA,Sector,Ceramic goods,76817844097.97867
+USA,Sector,Cereal grains nec,-362893468742.7705
 USA,Sector,Charcoal,0.0
-USA,Sector,"Chemical and fertilizer minerals, salt and other mining and quarrying products n.e.c.",82885233.73319323
-USA,Sector,Chemicals nec,29929482212.4146
-USA,Sector,Coal Tar,10.833511082027961
-USA,Sector,Coke Oven Coke,13256369.49181334
-USA,Sector,Coke oven gas,0.2244090007834591
-USA,Sector,Coking Coal,2338441402.9719048
-USA,Sector,"Collected and purified water, distribution services of water (41)",31550082824.78036
-USA,Sector,Computer and related services (72),361021849707.26886
-USA,Sector,Construction work (45),654840064530.8446
-USA,Sector,Copper ores and concentrates,704390587.3040124
-USA,Sector,Copper products,240929510.9803455
-USA,Sector,Crops nec,3562306905.9704084
-USA,Sector,"Crude petroleum and services related to crude oil extraction, excluding surveying",11540698.910277681
-USA,Sector,Dairy products,42565307012.73132
-USA,Sector,Distribution and trade services of electricity,53840034174.20435
-USA,Sector,Distribution services of gaseous fuels through mains,34464630111.740776
-USA,Sector,Dysprosium,0.0
-USA,Sector,Education services (80),210528809230.0088
-USA,Sector,Electrical machinery and apparatus n.e.c. (31),33912830439.86595
-USA,Sector,Electricity by Geothermal,371474634.8683146
-USA,Sector,Electricity by biomass and waste,1497719492.693729
-USA,Sector,Electricity by coal,39603077513.314804
-USA,Sector,Electricity by gas,20085414866.445103
-USA,Sector,Electricity by hydro,5409732311.797609
-USA,Sector,Electricity by nuclear,16951168333.608963
-USA,Sector,Electricity by petroleum and other oil derivatives,1366492356.4945607
-USA,Sector,Electricity by solar photovoltaic,0.001260580355627673
-USA,Sector,Electricity by solar thermal,12784760.266310552
+USA,Sector,"Chemical and fertilizer minerals, salt and other mining and quarrying products n.e.c.",538681021833.5637
+USA,Sector,Chemicals nec,148612649259685.8
+USA,Sector,Coal Tar,1955562070.3606439
+USA,Sector,Coke Oven Coke,3189331929.579022
+USA,Sector,Coke oven gas,-18945354647.908546
+USA,Sector,Coking Coal,769537482617.7389
+USA,Sector,"Collected and purified water, distribution services of water (41)",-9601500823675.76
+USA,Sector,Computer and related services (72),-828828187148.2722
+USA,Sector,Construction work (45),-1343634706597378.5
+USA,Sector,Copper ores and concentrates,-20523322171.15406
+USA,Sector,Copper products,-14514220529.242836
+USA,Sector,Crops nec,-70564708530.09895
+USA,Sector,"Crude petroleum and services related to crude oil extraction, excluding surveying",69154669040931.5
+USA,Sector,Dairy products,4470260339707.57
+USA,Sector,Disassembler of PV panels,0.0
+USA,Sector,Disassembler of Wind Turbines,0.0
+USA,Sector,Distribution and trade services of electricity,806384709884.1012
+USA,Sector,Distribution services of gaseous fuels through mains,95116774255.99713
+USA,Sector,Dysprosium,-5622454.662216055
+USA,Sector,Education services (80),-227989804709.05475
+USA,Sector,Electrical machinery and apparatus n.e.c. (31),1800349559221.8005
+USA,Sector,Electricity by Geothermal,12345770977.916683
+USA,Sector,Electricity by biomass and waste,40812445440.03987
+USA,Sector,Electricity by coal,2235369120021.915
+USA,Sector,Electricity by gas,1247813462319.5654
+USA,Sector,Electricity by hydro,-1512100945.0299077
+USA,Sector,Electricity by nuclear,705268045488.6942
+USA,Sector,Electricity by petroleum and other oil derivatives,26521611867.683826
+USA,Sector,Electricity by solar photovoltaic,4294057817.3404784
+USA,Sector,Electricity by solar thermal,-1933571466.7936678
 USA,Sector,"Electricity by tide, wave, ocean",0.0
-USA,Sector,Electricity by wind,0.026685685607426374
-USA,Sector,Electricity nec,101093891.01524912
-USA,Sector,Ethane,104863116.20252493
+USA,Sector,Electricity by wind,85646735639.62006
+USA,Sector,Electricity nec,2910908182.2901382
+USA,Sector,Ethane,3312292648785.7163
 USA,Sector,Extra-territorial organizations and bodies,0.0
-USA,Sector,"Fabricated metal products, except machinery and equipment (28)",31254490335.806877
-USA,Sector,"Financial intermediation services, except insurance and pension funding services (65)",246914019498.46353
-USA,Sector,Fish and other fishing products; services incidental of fishing (05),1534358904.6289709
-USA,Sector,Fish products,6556925101.2708435
-USA,Sector,Food products nec,206087313106.31052
+USA,Sector,"Fabricated metal products, except machinery and equipment (28)",-887502003403.5391
+USA,Sector,"Financial intermediation services, except insurance and pension funding services (65)",-287779227970.645
+USA,Sector,Fish and other fishing products; services incidental of fishing (05),-1310533920033.7961
+USA,Sector,Fish products,237696768266.90152
+USA,Sector,Food products nec,705690059883.2917
 USA,Sector,Food waste for treatment: biogasification and land application,0.0
-USA,Sector,Food waste for treatment: composting and land application,55321361.99681699
-USA,Sector,Food waste for treatment: incineration,350270646.5878391
-USA,Sector,Food waste for treatment: landfill,921703725.7302841
-USA,Sector,Food waste for treatment: waste water treatment,10787008320.422853
-USA,Sector,Foundry work services,330537697.8230573
-USA,Sector,Furniture; other manufactured goods n.e.c. (36),137612936812.15225
+USA,Sector,Food waste for treatment: composting and land application,-1527713094.4558542
+USA,Sector,Food waste for treatment: incineration,-21270251948.893547
+USA,Sector,Food waste for treatment: landfill,-58183909443.98526
+USA,Sector,Food waste for treatment: waste water treatment,12395088525017.742
+USA,Sector,Foundry work services,-9485333007.80177
+USA,Sector,Furniture; other manufactured goods n.e.c. (36),616172589860.2875
 USA,Sector,Gas Coke,0.0
-USA,Sector,Gas Works Gas,972.0237872009027
-USA,Sector,Gas/Diesel Oil,8929074211.274666
+USA,Sector,Gas Works Gas,-583636219.9110601
+USA,Sector,Gas/Diesel Oil,-24189720659.20821
 USA,Sector,Gasoline Type Jet Fuel,0.0
-USA,Sector,Glass and glass products,5021149642.017592
-USA,Sector,Health and social work services (85),1124846660702.4116
-USA,Sector,Heavy Fuel Oil,842716583.1714641
-USA,Sector,Hotel and restaurant services (55),623469253063.7609
-USA,Sector,Inert/metal/hazardous waste for treatment: landfill,1483447595.3890235
-USA,Sector,Inland water transportation services,5948712306.379836
-USA,Sector,"Insurance and pension funding services, except compulsory social security services (66)",200595721708.3046
-USA,Sector,Intert/metal waste for treatment: incineration,434711955.1711911
-USA,Sector,Iron ores,5170689908.834445
-USA,Sector,Kerosene,175365729.5990558
-USA,Sector,Kerosene Type Jet Fuel,820259858.056499
-USA,Sector,"Lead, zinc and tin and products thereof",101931313.05567327
-USA,Sector,"Lead, zinc and tin ores and concentrates",37566722.122116804
-USA,Sector,Leather and leather products (19),5387488319.849306
-USA,Sector,Lignite/Brown Coal,2338784.0584301474
-USA,Sector,Liquefied Petroleum Gases (LPG),8643873942.28132
-USA,Sector,Lubricants,11188300.816994222
-USA,Sector,Machinery and equipment n.e.c. (29),260660978642.141
+USA,Sector,Glass and glass products,-478500174081.09326
+USA,Sector,Health and social work services (85),3249954789361.0244
+USA,Sector,Heavy Fuel Oil,-1995968462159.312
+USA,Sector,Hotel and restaurant services (55),-131163774413288.78
+USA,Sector,Inert/metal/hazardous waste for treatment: landfill,-91445160744.43816
+USA,Sector,Inland water transportation services,-17621419699.679394
+USA,Sector,"Insurance and pension funding services, except compulsory social security services (66)",-497058837374097.06
+USA,Sector,Intert/metal waste for treatment: incineration,-26557889954.9133
+USA,Sector,Iron ores,-66596720153.003944
+USA,Sector,Kerosene,-410917271058.9245
+USA,Sector,Kerosene Type Jet Fuel,-48597196742.22804
+USA,Sector,Landifill,0.0
+USA,Sector,"Lead, zinc and tin and products thereof",-19679619454.04277
+USA,Sector,"Lead, zinc and tin ores and concentrates",-1049802045.0359594
+USA,Sector,Leather and leather products (19),2158229878002.9167
+USA,Sector,Lignite/Brown Coal,15936350947.38433
+USA,Sector,Liquefied Petroleum Gases (LPG),-211745492595.80505
+USA,Sector,Lubricants,-5496678138.691849
+USA,Sector,Machinery and equipment n.e.c. (29),-221145541847.70337
 USA,Sector,Manure (biogas treatment),0.0
 USA,Sector,Manure (conventional treatment),0.0
-USA,Sector,Meat animals nec,116570736.78558502
-USA,Sector,Meat products nec,8733333976.56173
-USA,Sector,"Medical, precision and optical instruments, watches and clocks (33)",108477149723.41554
-USA,Sector,Membership organisation services n.e.c. (91),124620675224.35283
-USA,Sector,Motor Gasoline,146564894795.96304
-USA,Sector,"Motor vehicles, trailers and semi-trailers (34)",308411587830.34344
-USA,Sector,N-fertiliser,31224740.810480513
-USA,Sector,Naphtha,0.0136453977699557
-USA,Sector,Natural Gas Liquids,17733623613.129524
-USA,Sector,"Natural gas and services related to natural gas extraction, excluding surveying",56849242852.86909
-USA,Sector,Neodymium,0.0
+USA,Sector,Meat animals nec,1029404263.8657576
+USA,Sector,Meat products nec,-109327244571.86317
+USA,Sector,"Medical, precision and optical instruments, watches and clocks (33)",760173938375.7628
+USA,Sector,Membership organisation services n.e.c. (91),-25257632332755.05
+USA,Sector,Motor Gasoline,793196954453.1003
+USA,Sector,"Motor vehicles, trailers and semi-trailers (34)",-71389688631.61823
+USA,Sector,N-fertiliser,46668827785.8319
+USA,Sector,Naphtha,9237909544.486664
+USA,Sector,Natural Gas Liquids,10161240128067.357
+USA,Sector,"Natural gas and services related to natural gas extraction, excluding surveying",-193052428724.72723
+USA,Sector,Neodymium,3353545.513442948
 USA,Sector,Nickel ores and concentrates,0.0
-USA,Sector,Non-specified Petroleum Products,50312447.24094965
-USA,Sector,Nuclear fuel,141856588.87231854
-USA,Sector,Office machinery and computers (30),66979255614.44729
+USA,Sector,Non-specified Petroleum Products,2322363286569.3794
+USA,Sector,Nuclear fuel,61822479786.014404
+USA,Sector,Office machinery and computers (30),36708677347243.43
 USA,Sector,Offshore wind plants,0.0
-USA,Sector,Oil seeds,922115221.4228054
-USA,Sector,Oil/hazardous waste for treatment: incineration,68844822.52954152
+USA,Sector,Oil seeds,-375827046650.56354
+USA,Sector,Oil/hazardous waste for treatment: incineration,-2941119993.5767026
 USA,Sector,Onshore wind plants,0.0
-USA,Sector,Other Bituminous Coal,812197413.6075886
-USA,Sector,Other Hydrocarbons,9895776676.517511
-USA,Sector,Other Liquid Biofuels,3542436.678538085
-USA,Sector,Other business services (74),10552466361.634428
-USA,Sector,Other land transportation services,111566731730.12996
-USA,Sector,Other non-ferrous metal ores and concentrates,810702.7073009821
-USA,Sector,Other non-ferrous metal products,102326423.99615762
-USA,Sector,Other non-metallic mineral products,2116260807.824588
-USA,Sector,Other services (93),152287909251.03488
-USA,Sector,Other transport equipment (35),96921439674.53802
-USA,Sector,Other waste for treatment: waste water treatment,3098821119.2280087
+USA,Sector,Other Bituminous Coal,4366670451044.098
+USA,Sector,Other Hydrocarbons,-384906421261.15234
+USA,Sector,Other Liquid Biofuels,-14911271922.748167
+USA,Sector,Other business services (74),-28590926164895.914
+USA,Sector,Other land transportation services,-4093495197872.541
+USA,Sector,Other non-ferrous metal ores and concentrates,-96245711971.48817
+USA,Sector,Other non-ferrous metal products,-29640449116.081196
+USA,Sector,Other non-metallic mineral products,-3880801634434.7188
+USA,Sector,Other services (93),6473706804819.672
+USA,Sector,Other transport equipment (35),-90820620313.16064
+USA,Sector,Other waste for treatment: waste water treatment,2515978246072.949
 USA,Sector,Oxygen Steel Furnace Gas,0.0
-USA,Sector,P- and other fertiliser,343063933.102617
-USA,Sector,Paddy rice,482477956.3979579
-USA,Sector,Paper and paper products,35016956276.02043
-USA,Sector,Paper and wood waste for treatment: composting and land application,1153001759.4049401
-USA,Sector,Paper for treatment: landfill,1158223951.0533748
+USA,Sector,P- and other fertiliser,1229961190201.0122
+USA,Sector,Paddy rice,-47267929550.002426
+USA,Sector,Paper and paper products,-407419891568.1009
+USA,Sector,Paper and wood waste for treatment: composting and land application,-77940490006.89722
+USA,Sector,Paper for treatment: landfill,-70681301427.65813
 USA,Sector,Paper waste for treatment: biogasification and land application,0.0
-USA,Sector,Paper waste for treatment: incineration,587410021.179671
-USA,Sector,Paraffin Waxes,26793933.085558575
-USA,Sector,Patent Fuel,18860.563807565923
+USA,Sector,Paper waste for treatment: incineration,-38764367988.02857
+USA,Sector,Paraffin Waxes,71534250696.3148
+USA,Sector,Patent Fuel,-890708943290.7717
 USA,Sector,Peat,0.0
-USA,Sector,Petroleum Coke,96780369.19729917
+USA,Sector,Petroleum Coke,4117194009537.7617
 USA,Sector,Photovoltaic plants,0.0
-USA,Sector,Pigs,17361898.082602967
-USA,Sector,Plant-based fibers,134602884.51574236
-USA,Sector,Plastic waste for treatment: incineration,1282802213.0355237
-USA,Sector,Plastic waste for treatment: landfill,857825897.3258057
-USA,Sector,"Plastics, basic",2319680853.9799643
-USA,Sector,Post and telecommunication services (64),368564896727.7324
-USA,Sector,Poultry,4376099676.408845
-USA,Sector,Precious metal ores and concentrates,22350829.879888657
-USA,Sector,Precious metals,715658273.8352579
-USA,Sector,Printed matter and recorded media (22),64178792039.00885
-USA,Sector,Private households with employed persons (95),17294005414.146774
-USA,Sector,Processed rice,878901919.9401946
-USA,Sector,"Products of forestry, logging and related services (02)",401155566.3652715
-USA,Sector,Products of meat cattle,31222199795.68297
-USA,Sector,Products of meat pigs,19637426948.40427
-USA,Sector,Products of meat poultry,33532497973.342476
-USA,Sector,Public administration and defence services; compulsory social security services (75),2504982996385.0005
-USA,Sector,Pulp,60778350.779992126
-USA,Sector,"Radio, television and communication equipment and apparatus (32)",106005028962.98186
-USA,Sector,Railway transportation services,7945812852.7836485
-USA,Sector,Raw milk,0.39584654194489716
-USA,Sector,Raw silicon,0.0
-USA,Sector,Real estate services (70),1400921619239.0164
-USA,Sector,"Recreational, cultural and sporting services (92)",188058890770.95712
-USA,Sector,Refinery Feedstocks,0.013897134146136591
-USA,Sector,Refinery Gas,0.010885727099936864
-USA,Sector,Renting services of machinery and equipment without operator and of personal and household goods (71),72005946177.29431
-USA,Sector,Research and development services (73),12080526161.122446
-USA,Sector,"Retail  trade services, except of motor vehicles and motorcycles; repair services of personal and household goods (52)",45491487412.44766
-USA,Sector,Retail trade services of motor fuel,840180123.1906658
-USA,Sector,Rubber and plastic products (25),6698823757.63129
-USA,Sector,"Sale, maintenance, repair of motor vehicles, motor vehicles parts, motorcycles, motor cycles parts and accessoiries",236803674133.58932
-USA,Sector,Sand and clay,80613467.01271392
-USA,Sector,Sea and coastal water transportation services,4804964725.404618
+USA,Sector,Pigs,-2117072805.9221447
+USA,Sector,Plant-based fibers,-471775276552.6438
+USA,Sector,Plastic waste for treatment: incineration,-67398828034.40729
+USA,Sector,Plastic waste for treatment: landfill,-46720491790.405876
+USA,Sector,"Plastics, basic",-2748059402005.092
+USA,Sector,Post and telecommunication services (64),-1377039880362.1768
+USA,Sector,Poultry,-39045155642.52544
+USA,Sector,Precious metal ores and concentrates,-463939038795109.06
+USA,Sector,Precious metals,-195206419835.45374
+USA,Sector,Printed matter and recorded media (22),-97406499206.96846
+USA,Sector,Private households with employed persons (95),758460471.1543374
+USA,Sector,Processed rice,184383594720.3502
+USA,Sector,"Products of forestry, logging and related services (02)",5821095394.097423
+USA,Sector,Products of meat cattle,-108770570945.77206
+USA,Sector,Products of meat pigs,-65100833832.38391
+USA,Sector,Products of meat poultry,440222423110.0458
+USA,Sector,Public administration and defence services; compulsory social security services (75),-25365452448.85121
+USA,Sector,Pulp,835969551068.771
+USA,Sector,"Radio, television and communication equipment and apparatus (32)",179622698219.11627
+USA,Sector,Railway transportation services,-40040091508644.734
+USA,Sector,Raw milk,44993.77374956457
+USA,Sector,Raw silicon,2579.909957861824
+USA,Sector,Real estate services (70),-154850727070560.3
+USA,Sector,"Recreational, cultural and sporting services (92)",-106037590468.97894
+USA,Sector,Refinery Feedstocks,6597338568753.211
+USA,Sector,Refinery Gas,893535661104.8981
+USA,Sector,Refinery of Cu in wires of WT and PV,0.0
+USA,Sector,Refinery of Generators of Offshore Wind Turbines,0.0
+USA,Sector,Refinery of Generators of Onshore Wind Turbines,0.0
+USA,Sector,Refinery of Silicon layer in PV panel,0.0
+USA,Sector,Renting services of machinery and equipment without operator and of personal and household goods (71),-1402675439903.3718
+USA,Sector,Research and development services (73),-3280707792869.3867
+USA,Sector,"Retail  trade services, except of motor vehicles and motorcycles; repair services of personal and household goods (52)",-10847562735798.088
+USA,Sector,Retail trade services of motor fuel,-41908998182.16847
+USA,Sector,Rubber and plastic products (25),-300018078790.6017
+USA,Sector,"Sale, maintenance, repair of motor vehicles, motor vehicles parts, motorcycles, motor cycles parts and accessoiries",2916067737529215.0
+USA,Sector,Sand and clay,-230594938750.7156
+USA,Sector,Sea and coastal water transportation services,-77799716480.56448
 USA,Sector,"Secondary aluminium for treatment, Re-processing of secondary aluminium into new aluminium",0.0
 USA,Sector,"Secondary construction material for treatment, Re-processing of secondary construction material into aggregates",0.0
 USA,Sector,"Secondary copper for treatment, Re-processing of secondary copper into new copper",0.0
@@ -795,31 +823,31 @@ USA,Sector,"Secondary other non-ferrous metals for treatment, Re-processing of s
 USA,Sector,"Secondary paper for treatment, Re-processing of secondary paper into new pulp",0.0
 USA,Sector,"Secondary plastic for treatment, Re-processing of secondary plastic into new plastic",0.0
 USA,Sector,"Secondary preciuos metals for treatment, Re-processing of secondary preciuos metals into new preciuos metals",0.0
-USA,Sector,Secondary raw materials,281007803.1876287
+USA,Sector,Secondary raw materials,29.485478325119992
 USA,Sector,"Secondary steel for treatment, Re-processing of secondary steel into new steel",0.0
-USA,Sector,Services auxiliary to financial intermediation (67),821529317.0549935
-USA,Sector,Sewage sludge for treatment: biogasification and land application,3405371151.660365
-USA,Sector,Steam and hot water supply services,10196482.727121009
-USA,Sector,Stone,1977837.378576559
-USA,Sector,Sub-Bituminous Coal,38808821.7109144
-USA,Sector,Sugar,2480629880.0607877
-USA,Sector,"Sugar cane, sugar beet",1.2932456358593587
-USA,Sector,Supporting and auxiliary transport services; travel agency services (63),20177952613.830647
-USA,Sector,Textiles (17),33507962264.65594
-USA,Sector,Textiles waste for treatment: incineration,168919502.15734246
-USA,Sector,Textiles waste for treatment: landfill,268312124.6606068
-USA,Sector,Tobacco products (16),46243120081.34014
-USA,Sector,Transmission services of electricity,12481902413.41707
-USA,Sector,Transportation services via pipelines,1976278462.420832
-USA,Sector,Uranium and thorium ores (12),348209889.11895764
-USA,Sector,"Vegetables, fruit, nuts",56329288517.87649
-USA,Sector,Wearing apparel; furs (18),43551938753.80755
-USA,Sector,Wheat,1038274064.4953201
-USA,Sector,White Spirit & SBP,3019671.097928213
-USA,Sector,"Wholesale trade and commission trade services, except of motor vehicles and motorcycles (51)",66647050750.2286
-USA,Sector,Wood and products of wood and cork (except furniture); articles of straw and plaiting materials (20),6876964916.351201
+USA,Sector,Services auxiliary to financial intermediation (67),-1.424119497563224e+16
+USA,Sector,Sewage sludge for treatment: biogasification and land application,-233431286418.7608
+USA,Sector,Steam and hot water supply services,-1539815520347.1152
+USA,Sector,Stone,-272834808267.6784
+USA,Sector,Sub-Bituminous Coal,19838396167.668056
+USA,Sector,Sugar,254810285178.92746
+USA,Sector,"Sugar cane, sugar beet",-13078432.786533799
+USA,Sector,Supporting and auxiliary transport services; travel agency services (63),-785594039089.3082
+USA,Sector,Textiles (17),1203386437462.4548
+USA,Sector,Textiles waste for treatment: incineration,-8531771015.060481
+USA,Sector,Textiles waste for treatment: landfill,-14993335077.580425
+USA,Sector,Tobacco products (16),-6464696905.433134
+USA,Sector,Transmission services of electricity,567518283751.2842
+USA,Sector,Transportation services via pipelines,-3473411863555.0435
+USA,Sector,Uranium and thorium ores (12),5006950538.935265
+USA,Sector,"Vegetables, fruit, nuts",-289479720138.5761
+USA,Sector,Wearing apparel; furs (18),121060641262.73701
+USA,Sector,Wheat,-781787604553.7778
+USA,Sector,White Spirit & SBP,-1049508877804.8743
+USA,Sector,"Wholesale trade and commission trade services, except of motor vehicles and motorcycles (51)",-1.317912996806739e+16
+USA,Sector,Wood and products of wood and cork (except furniture); articles of straw and plaiting materials (20),-58394167998.0082
 USA,Sector,"Wood material for treatment, Re-processing of secondary wood material into new wood material",0.0
-USA,Sector,Wood waste for treatment: incineration,211107544.8312549
-USA,Sector,Wood waste for treatment: landfill,353898862.2485573
-USA,Sector,"Wool, silk-worm cocoons",11194750.25099942
-USA,Sector,products of Vegetable oils and fats,979340244.4357198
+USA,Sector,Wood waste for treatment: incineration,-12492774261.342505
+USA,Sector,Wood waste for treatment: landfill,-19788563852.128696
+USA,Sector,"Wool, silk-worm cocoons",-13022417147.44245
+USA,Sector,products of Vegetable oils and fats,3003989525309.532

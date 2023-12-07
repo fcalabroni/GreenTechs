@@ -205,6 +205,13 @@ Sector,Wood waste for treatment: incineration,EUR
 Sector,Wood waste for treatment: landfill,EUR
 Sector,"Wool, silk-worm cocoons",EUR
 Sector,products of Vegetable oils and fats,EUR
+Sector,Disassembler of Wind Turbines,0.0
+Sector,Disassembler of PV panels,0.0
+Sector,Refinery of Generators of Onshore Wind Turbines,0.0
+Sector,Refinery of Generators of Offshore Wind Turbines,0.0
+Sector,Refinery of Silicon layer in PV panel,0.0
+Sector,Refinery of Cu in wires of WT and PV,0.0
+Sector,Landifill,0.0
 Factor of production,Taxes less subsidies on products purchased: Total,EUR
 Factor of production,Taxes on products purchased,EUR
 Factor of production,Subsidies on products purchased,EUR
