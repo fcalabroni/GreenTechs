@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 
-user = "CF"
+user = "MBV"
 sN = slice(None)
 years = 2011
 
@@ -339,7 +339,28 @@ for s in sens:
     for i in years:
         SwFD[s][i] = S @ wFD[s][i]
         
+#%% Calculating coefficient matrix SG2 = SW2 * (Xw)^-1
 
+SG2 = {}
+for s in sens:
+    SG2[s]= {}
+    for i in years:
+        SG2[s][i] = pd.DataFrame(0, index= waste_sectors, columns = waste_sectors)
+        
+Xw = {}
+for s in sens:
+    Xw[s] = {}
+    for i in years:
+        Xw[s][i] = pd.DataFrame(0, index= waste_sectors, columns = ['Xw'] )
+        
+for s in sens:
+    for i in years:
+        Xw[s][i] = SW2[s][i].sum(axis = 1) + SwFD[s][i].loc[:,'FD']
+
+for s in sens:
+    for i in range(2010,2101):
+        SG2[s][i] = SW2[s][i] @ np.linalg.inv(np.diag(Xw[s][i]))
+        
 #%% Export Data
 
 
@@ -354,6 +375,11 @@ for s in sens:
         for key, df in SW2[s].items():
             sheet_name = f'{key}'
             df.to_excel(writer, sheet_name=sheet_name, index=True)
+            
+    with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['SG2',user]}\\SG2_{s}.xlsx") as writer:
+        for key, df in SG2[s].items():
+            sheet_name = f'{key}'
+            df.to_excel(writer, sheet_name=sheet_name, index= True)
 
 
 
