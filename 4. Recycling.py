@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 
-user = "LR"
+user = "MBV"
 sN = slice(None)
 years = 2011
 
@@ -19,6 +19,7 @@ Weibull_params =  pd.read_excel(fileParam, "Weibull", index_col=[0,1])
 techs = list(set(Weibull_params.index.get_level_values(0)))
 sens = list(set(Weibull_params.index.get_level_values(1)))
 
+USD_to_EUR = pd.read_excel(fileParam,"USD to EURO", header=0, index_col=None)
 #%% Importing EoL function for Wind and SolarPV
 
 Weib = {}
@@ -42,7 +43,7 @@ for t in techs:
             else:
                 Weib[t][s] += [SF[t][s][ny]]
                 
-#%% Importing Installed capacity for green techs
+#%% Importing Installed capacity and cost for green techs
 WindOff_Capacity = pd.read_excel(fileWind, "Offshore", header=0, index_col=None)
 WindOn_Capacity = pd.read_excel(fileWind, "Onshore", header=0, index_col=None)
 SolarPV_Capacity = pd.read_excel(fileSolar, "SolarPV", header=0, index_col=None)
@@ -50,7 +51,16 @@ CAP = {
    'Onshore wind': WindOn_Capacity,
    'Offshore wind': WindOff_Capacity,
    'PV': SolarPV_Capacity,
-   } #installed capacity
+   } #installed capacity in MW
+
+WindOff_Cost = pd.read_excel(fileWind, "Cost_Offshore", header=0, index_col=None)
+WindOn_Cost = pd.read_excel(fileWind, "Cost_Onshore", header=0, index_col=None)
+SolarPV_Cost = pd.read_excel(fileSolar, "Cost_PV", header=0, index_col=None)
+Cost = {
+        'Onshore wind': WindOn_Cost,
+        'Offshore wind': WindOff_Cost,
+        'PV': SolarPV_Cost,
+        } #cost in USD/kW
 
 #%% Calculation EoL products
 
@@ -70,7 +80,7 @@ for t in techs:
         for i in years[1:]:
             for ii in range(0, (i+1-years[1:][0])):
                 # Check if the key exists in the DataFrame index before accessing it
-                AIC[t][s].loc[0, i] = (CAP[t].loc[0, i] + EoL[t][s].loc[0, i]) - (CAP[t].loc[0, i-1] + EoL[t][s].loc[0, i-1]) 
+                AIC[t][s].loc[0, i] = ((CAP[t].loc[0, i]*1000*Cost[t].loc[0, i]*USD_to_EUR.loc[0, 'EURO/USD']) + EoL[t][s].loc[0, i]) - ((CAP[t].loc[0, i-1]*1000*Cost[t].loc[0, i]*USD_to_EUR.loc[0, 'EURO/USD'])+ EoL[t][s].loc[0, i-1]) 
                 if AIC[t][s].loc[0,i] < 0:
                     AIC[t][s].loc[0,i] = 0
                 # Check if the key exists in the DataFrame index before accessing it
@@ -176,48 +186,51 @@ for m in met:
         met_sum[m][s] = {}  # Dizionario per ogni s
         for u in upgrade:
             met_sum[m][s][u] = pd.DataFrame(0, index=[0], columns=years) # Inizializza la somma a zero
+            for t in techs:
+                for c in comp:
+                    met_sum[m][s][u] += met_recycled_specific[t][s][c][m][u]
+                    
+# for t in techs:
+#     for c in comp:            
+#         met_sum['Cu']['Avg']['Avg'] += met_recycled_specific[t]['Avg'][c]['Cu']['Avg'].sum()
+#         met_sum['Cu']['Max']['Avg'] += met_recycled_specific[t]['Max'][c]['Cu']['Avg'].sum()
+#         met_sum['Cu']['Min']['Avg'] += met_recycled_specific[t]['Min'][c]['Cu']['Avg'].sum()
+#         met_sum['Cu']['Avg']['Min'] += met_recycled_specific[t]['Avg'][c]['Cu']['Min'].sum()
+#         met_sum['Cu']['Max']['Min'] += met_recycled_specific[t]['Max'][c]['Cu']['Min'].sum()
+#         met_sum['Cu']['Min']['Min'] += met_recycled_specific[t]['Min'][c]['Cu']['Min'].sum()
+#         met_sum['Cu']['Avg']['Max'] += met_recycled_specific[t]['Avg'][c]['Cu']['Max'].sum()
+#         met_sum['Cu']['Max']['Max'] += met_recycled_specific[t]['Max'][c]['Cu']['Max'].sum()
+#         met_sum['Cu']['Min']['Max'] += met_recycled_specific[t]['Min'][c]['Cu']['Max'].sum()
 
-for t in techs:
-    for c in comp:            
-        met_sum['Cu']['Avg']['Avg'] += met_recycled_specific[t]['Avg'][c]['Cu']['Avg'].sum()
-        met_sum['Cu']['Max']['Avg'] += met_recycled_specific[t]['Max'][c]['Cu']['Avg'].sum()
-        met_sum['Cu']['Min']['Avg'] += met_recycled_specific[t]['Min'][c]['Cu']['Avg'].sum()
-        met_sum['Cu']['Avg']['Min'] += met_recycled_specific[t]['Avg'][c]['Cu']['Min'].sum()
-        met_sum['Cu']['Max']['Min'] += met_recycled_specific[t]['Max'][c]['Cu']['Min'].sum()
-        met_sum['Cu']['Min']['Min'] += met_recycled_specific[t]['Min'][c]['Cu']['Min'].sum()
-        met_sum['Cu']['Avg']['Max'] += met_recycled_specific[t]['Avg'][c]['Cu']['Max'].sum()
-        met_sum['Cu']['Max']['Max'] += met_recycled_specific[t]['Max'][c]['Cu']['Max'].sum()
-        met_sum['Cu']['Min']['Max'] += met_recycled_specific[t]['Min'][c]['Cu']['Max'].sum()
+#         met_sum['Si']['Avg']['Avg'] += met_recycled_specific[t]['Avg'][c]['Si']['Avg'].sum()
+#         met_sum['Si']['Max']['Avg'] += met_recycled_specific[t]['Max'][c]['Si']['Avg'].sum()
+#         met_sum['Si']['Min']['Avg'] += met_recycled_specific[t]['Min'][c]['Si']['Avg'].sum()
+#         met_sum['Si']['Avg']['Min'] += met_recycled_specific[t]['Avg'][c]['Si']['Min'].sum()
+#         met_sum['Si']['Max']['Min'] += met_recycled_specific[t]['Max'][c]['Si']['Min'].sum()
+#         met_sum['Si']['Min']['Min'] += met_recycled_specific[t]['Min'][c]['Si']['Min'].sum()
+#         met_sum['Si']['Avg']['Max'] += met_recycled_specific[t]['Avg'][c]['Si']['Max'].sum()
+#         met_sum['Si']['Max']['Max'] += met_recycled_specific[t]['Max'][c]['Si']['Max'].sum()
+#         met_sum['Si']['Min']['Max'] += met_recycled_specific[t]['Min'][c]['Si']['Max'].sum()
 
-        met_sum['Si']['Avg']['Avg'] += met_recycled_specific[t]['Avg'][c]['Si']['Avg'].sum()
-        met_sum['Si']['Max']['Avg'] += met_recycled_specific[t]['Max'][c]['Si']['Avg'].sum()
-        met_sum['Si']['Min']['Avg'] += met_recycled_specific[t]['Min'][c]['Si']['Avg'].sum()
-        met_sum['Si']['Avg']['Min'] += met_recycled_specific[t]['Avg'][c]['Si']['Min'].sum()
-        met_sum['Si']['Max']['Min'] += met_recycled_specific[t]['Max'][c]['Si']['Min'].sum()
-        met_sum['Si']['Min']['Min'] += met_recycled_specific[t]['Min'][c]['Si']['Min'].sum()
-        met_sum['Si']['Avg']['Max'] += met_recycled_specific[t]['Avg'][c]['Si']['Max'].sum()
-        met_sum['Si']['Max']['Max'] += met_recycled_specific[t]['Max'][c]['Si']['Max'].sum()
-        met_sum['Si']['Min']['Max'] += met_recycled_specific[t]['Min'][c]['Si']['Max'].sum()
+#         met_sum['Nd']['Avg']['Avg'] += met_recycled_specific[t]['Avg'][c]['Nd']['Avg'].sum()
+#         met_sum['Nd']['Max']['Avg'] += met_recycled_specific[t]['Max'][c]['Nd']['Avg'].sum()
+#         met_sum['Nd']['Min']['Avg'] += met_recycled_specific[t]['Min'][c]['Nd']['Avg'].sum()
+#         met_sum['Nd']['Avg']['Min'] += met_recycled_specific[t]['Avg'][c]['Nd']['Min'].sum()
+#         met_sum['Nd']['Max']['Min'] += met_recycled_specific[t]['Max'][c]['Nd']['Min'].sum()
+#         met_sum['Nd']['Min']['Min'] += met_recycled_specific[t]['Min'][c]['Nd']['Min'].sum()
+#         met_sum['Nd']['Avg']['Max'] += met_recycled_specific[t]['Avg'][c]['Nd']['Max'].sum()
+#         met_sum['Nd']['Max']['Max'] += met_recycled_specific[t]['Max'][c]['Nd']['Max'].sum()
+#         met_sum['Nd']['Min']['Max'] += met_recycled_specific[t]['Min'][c]['Nd']['Max'].sum()
 
-        met_sum['Nd']['Avg']['Avg'] += met_recycled_specific[t]['Avg'][c]['Nd']['Avg'].sum()
-        met_sum['Nd']['Max']['Avg'] += met_recycled_specific[t]['Max'][c]['Nd']['Avg'].sum()
-        met_sum['Nd']['Min']['Avg'] += met_recycled_specific[t]['Min'][c]['Nd']['Avg'].sum()
-        met_sum['Nd']['Avg']['Min'] += met_recycled_specific[t]['Avg'][c]['Nd']['Min'].sum()
-        met_sum['Nd']['Max']['Min'] += met_recycled_specific[t]['Max'][c]['Nd']['Min'].sum()
-        met_sum['Nd']['Min']['Min'] += met_recycled_specific[t]['Min'][c]['Nd']['Min'].sum()
-        met_sum['Nd']['Avg']['Max'] += met_recycled_specific[t]['Avg'][c]['Nd']['Max'].sum()
-        met_sum['Nd']['Max']['Max'] += met_recycled_specific[t]['Max'][c]['Nd']['Max'].sum()
-        met_sum['Nd']['Min']['Max'] += met_recycled_specific[t]['Min'][c]['Nd']['Max'].sum()
-
-        met_sum['Dy']['Avg']['Avg'] += met_recycled_specific[t]['Avg'][c]['Dy']['Avg'].sum()
-        met_sum['Dy']['Max']['Avg'] += met_recycled_specific[t]['Max'][c]['Dy']['Avg'].sum()
-        met_sum['Dy']['Min']['Avg'] += met_recycled_specific[t]['Min'][c]['Dy']['Avg'].sum()
-        met_sum['Dy']['Avg']['Min'] += met_recycled_specific[t]['Avg'][c]['Dy']['Min'].sum()
-        met_sum['Dy']['Max']['Min'] += met_recycled_specific[t]['Max'][c]['Dy']['Min'].sum()
-        met_sum['Dy']['Min']['Min'] += met_recycled_specific[t]['Min'][c]['Dy']['Min'].sum()
-        met_sum['Dy']['Avg']['Max'] += met_recycled_specific[t]['Avg'][c]['Dy']['Max'].sum()
-        met_sum['Dy']['Max']['Max'] += met_recycled_specific[t]['Max'][c]['Dy']['Max'].sum()
-        met_sum['Dy']['Min']['Max'] += met_recycled_specific[t]['Min'][c]['Dy']['Max'].sum()
+#         met_sum['Dy']['Avg']['Avg'] += met_recycled_specific[t]['Avg'][c]['Dy']['Avg'].sum()
+#         met_sum['Dy']['Max']['Avg'] += met_recycled_specific[t]['Max'][c]['Dy']['Avg'].sum()
+#         met_sum['Dy']['Min']['Avg'] += met_recycled_specific[t]['Min'][c]['Dy']['Avg'].sum()
+#         met_sum['Dy']['Avg']['Min'] += met_recycled_specific[t]['Avg'][c]['Dy']['Min'].sum()
+#         met_sum['Dy']['Max']['Min'] += met_recycled_specific[t]['Max'][c]['Dy']['Min'].sum()
+#         met_sum['Dy']['Min']['Min'] += met_recycled_specific[t]['Min'][c]['Dy']['Min'].sum()
+#         met_sum['Dy']['Avg']['Max'] += met_recycled_specific[t]['Avg'][c]['Dy']['Max'].sum()
+#         met_sum['Dy']['Max']['Max'] += met_recycled_specific[t]['Max'][c]['Dy']['Max'].sum()
+#         met_sum['Dy']['Min']['Max'] += met_recycled_specific[t]['Min'][c]['Dy']['Max'].sum()
 
 # met_sum = {}  # Dizionario per la somma del rame
 
