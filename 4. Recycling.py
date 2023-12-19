@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 
-user = "MBV"
+user = "CF"
 sN = slice(None)
 years = 2011
 
@@ -373,7 +373,7 @@ for s in sens:
 for s in sens:
     for i in range(2010,2101):
         SG2[s][i] = SW2[s][i] @ np.linalg.inv(np.diag(Xw[s][i]))
-        
+                
 #%% Reshaping Dictionary AIC
 Tech_FD = {}
 for s in sens:
@@ -385,6 +385,12 @@ for s in sens:
     for t in techs:
         for i in years:
             Tech_FD[s][i].loc[t,'FD']= AIC[t][s].loc[0,i]
+            
+for s in sens:
+    for i in years:
+        Tech_FD[s][i] = Tech_FD[s][i].set_index([pd.Index(['EU27+UK'] * len(techs)),pd.Index(['Sector'] * len(techs)), techs])
+        SwFD[s][i] = SwFD[s][i].set_index([pd.Index(['EU27+UK'] * len(waste_sectors)),pd.Index(['Sector'] * len(waste_sectors)), waste_sectors])
+
 #%% Export Data
 
 

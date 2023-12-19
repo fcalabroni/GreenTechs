@@ -8,7 +8,7 @@ import mario
 import pandas as pd
 import numpy as np
 
-user = "MBV"
+user = "CF"
 sN = slice(None)
 history = range(2000,2021)
 years = range(2021,2101)
@@ -38,7 +38,8 @@ FD = {}
 for year in history:
     #FD[year] = exio_iot[year].Y.sum(axis=1)
     FD[year] = exio_iot[year].Y.groupby(level=[ 0],sort=False, axis=1).sum()
-    
+
+
 #%% Projection FD
 # Calculating average growth from historic data for each sector
 Rn = FD[2020]/FD[2000]
@@ -52,7 +53,7 @@ rn = pd.DataFrame(rn, index=Rn.index, columns = Rn.columns)
 
 FD_elastic = {}
 sn = {}
-fileGDP = f"{pd.read_excel(paths, index_col=[0]).loc['GDP projection',user]}"
+fileGDP = f"{pd.read_excel(paths, index_col=[0]).loc['GDP projections',user]}"
 GDP_rate = pd.read_excel(fileGDP,'GDP rate',header=0,index_col=0)
 for i in years:
     FD_elastic[i] = 0
@@ -79,8 +80,37 @@ for i in range(2022,2101):
     
     
 #%% Building the FD useful for the Database 
-#adding installed capacity in Monetary values 
-#adding SwFD
+fileProjection = f"{pd.read_excel(paths, index_col=[0]).loc['Projections',user]}"
+with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Projections',user]}\\Projections.xlsx") as writer:
+    for key, df in FD_proj.items():
+        sheet_name = f'{key}'
+        df.to_excel(writer, sheet_name=sheet_name, index=True)
 
-        
+# #%%
+# fileSwFD = f"{pd.read_excel(paths, index_col=[0]).loc['SwFD', user]}\\SwFD_Avg.xlsx"
+# fileAIC = f"{pd.read_excel(paths, index_col=[0]).loc['AIC',user]}\\AIC_Avg.xlsx"
+# fileProjection = f"{pd.read_excel(paths, index_col=[0]).loc['Projections',user]}\\Projections.xlsx"
+# merged_dfs = {}
+
+# for year in years:
+#     df_swfd = pd.read_excel(fileSwFD, sheet_name=str(year))
+#     df_aic = pd.read_excel(fileAIC, sheet_name=str(year))
+
+#     # Read DataFrames from Excel files
+#     df_projection = pd.read_excel(fileProjection, sheet_name=str(year))
+
+#     # Concatenate the DataFrames along the columns
+#     dfs_for_year = [df_projection, df_swfd, df_aic]
+#     merged_dfs[year] = pd.concat(dfs_for_year, axis=0)
+
+# # Salva i risultati in un nuovo file Excel
+# output_file = f"{pd.read_excel(paths, index_col=[0]).loc['Merged FD',user]}\\merged_file.xlsx"
+
+# with pd.ExcelWriter(output_file) as writer:
+#     for year, merged_df in merged_dfs.items():
+#         # Scrivi il DataFrame nel file Excel
+#         merged_df.to_excel(writer, sheet_name=str(year), index=False)
+
+# print(f"I dati sono stati uniti e salvati in '{output_file}'.")
+
 

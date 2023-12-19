@@ -45,7 +45,8 @@ for year in years:
     for s in ['Avg']:#sens:
         path_SG2 = f"{pd.read_excel(paths, index_col=[0]).loc['SG2',user]}\\SG2_{s}.xlsx"
         path_SwFD = f"{pd.read_excel(paths, index_col=[0]).loc['SwFD',user]}\\SwFD_{s}.xlsx"
-        path_AIC = f"{pd.read_excel(paths, index_col=[0]).loc['AIC',user]}\\AIC_{s}.xlsx"
+        path_AIC = f"{pd.read_excel(paths, index_col=[0]).loc['AIC',user]}\\AIC_{s}.xlsx" #final demand dei new sectors
+        path_FDproj = f"{pd.read_excel(paths, index_col=[0]).loc['Projections',user]}\\Projections_{s}.xlsx"
         
         SG2 = pd.read_excel(path_SG2,sheet_name=None,index_col=[0])
         SwFD = pd.read_excel(path_SwFD,sheet_name=None,index_col=[0])
