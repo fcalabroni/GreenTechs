@@ -1,7 +1,7 @@
 import mario
 import pandas as pd
 
-user = "LR"
+user = "MBV"
 sN = slice(None)
 years = range(2011,2012)
 
@@ -45,9 +45,11 @@ for year in years:
     for s in ['Avg']:#sens:
         path_SG2 = f"{pd.read_excel(paths, index_col=[0]).loc['SG2',user]}\\SG2_{s}.xlsx"
         path_SwFD = f"{pd.read_excel(paths, index_col=[0]).loc['SwFD',user]}\\SwFD_{s}.xlsx"
+        path_AIC = f"{pd.read_excel(paths, index_col=[0]).loc['AIC',user]}\\AIC_{s}.xlsx"
         
         SG2 = pd.read_excel(path_SG2,sheet_name=None,index_col=[0])
         SwFD = pd.read_excel(path_SwFD,sheet_name=None,index_col=[0])
+        AIC = pd.read_excel(path_AIC, sheet_name=None, index_col=[0])
         
         for y,mat in SG2.items():
             mat.columns = mat.index

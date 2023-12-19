@@ -374,6 +374,17 @@ for s in sens:
     for i in range(2010,2101):
         SG2[s][i] = SW2[s][i] @ np.linalg.inv(np.diag(Xw[s][i]))
         
+#%% Reshaping Dictionary AIC
+Tech_FD = {}
+for s in sens:
+    Tech_FD[s]={}
+    for i in years:
+        Tech_FD[s][i] = pd.DataFrame(0, index=techs, columns=['FD'])
+
+for s in sens:
+    for t in techs:
+        for i in years:
+            Tech_FD[s][i].loc[t,'FD']= AIC[t][s].loc[0,i]
 #%% Export Data
 
 
@@ -393,6 +404,12 @@ for s in sens:
         for key, df in SG2[s].items():
             sheet_name = f'{key}'
             df.to_excel(writer, sheet_name=sheet_name, index= True)
+           
+    with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['AIC',user]}\\AIC_{s}.xlsx") as writer:
+            for key, df in Tech_FD[s].items():
+                sheet_name = f'{key}'
+                df.to_excel(writer, sheet_name=sheet_name, index= True)
+            
 
 
 

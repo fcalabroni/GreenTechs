@@ -8,7 +8,7 @@ import mario
 import pandas as pd
 import numpy as np
 
-user = "CF"
+user = "MBV"
 sN = slice(None)
 history = range(2000,2021)
 years = range(2021,2101)
@@ -26,7 +26,7 @@ for year in history:
 #%% Getting excel templates to aggregate raw Exiobase
 path_aggr_IOT  = r"Aggregations\Aggregation_raw_IOT.xlsx"
 # exio_iot[year].get_aggregation_excel(path_aggr_IOT)
-path_GDP =
+
 #%% Aggregating exiobase as other models
 for year in history:
     exio_iot[year].aggregate(path_aggr_IOT, levels=["Region"])
@@ -81,3 +81,6 @@ for i in range(2022,2101):
 #%% Building the FD useful for the Database 
 #adding installed capacity in Monetary values 
 #adding SwFD
+
+        
+
