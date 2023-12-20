@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 
-user = "MBV"
+user = "CF"
 sN = slice(None)
 years = 2011
 
@@ -189,69 +189,6 @@ for m in met:
             for t in techs:
                 for c in comp:
                     met_sum[m][s][u] += met_recycled_specific[t][s][c][m][u]
-                    
-# for t in techs:
-#     for c in comp:            
-#         met_sum['Cu']['Avg']['Avg'] += met_recycled_specific[t]['Avg'][c]['Cu']['Avg'].sum()
-#         met_sum['Cu']['Max']['Avg'] += met_recycled_specific[t]['Max'][c]['Cu']['Avg'].sum()
-#         met_sum['Cu']['Min']['Avg'] += met_recycled_specific[t]['Min'][c]['Cu']['Avg'].sum()
-#         met_sum['Cu']['Avg']['Min'] += met_recycled_specific[t]['Avg'][c]['Cu']['Min'].sum()
-#         met_sum['Cu']['Max']['Min'] += met_recycled_specific[t]['Max'][c]['Cu']['Min'].sum()
-#         met_sum['Cu']['Min']['Min'] += met_recycled_specific[t]['Min'][c]['Cu']['Min'].sum()
-#         met_sum['Cu']['Avg']['Max'] += met_recycled_specific[t]['Avg'][c]['Cu']['Max'].sum()
-#         met_sum['Cu']['Max']['Max'] += met_recycled_specific[t]['Max'][c]['Cu']['Max'].sum()
-#         met_sum['Cu']['Min']['Max'] += met_recycled_specific[t]['Min'][c]['Cu']['Max'].sum()
-
-#         met_sum['Si']['Avg']['Avg'] += met_recycled_specific[t]['Avg'][c]['Si']['Avg'].sum()
-#         met_sum['Si']['Max']['Avg'] += met_recycled_specific[t]['Max'][c]['Si']['Avg'].sum()
-#         met_sum['Si']['Min']['Avg'] += met_recycled_specific[t]['Min'][c]['Si']['Avg'].sum()
-#         met_sum['Si']['Avg']['Min'] += met_recycled_specific[t]['Avg'][c]['Si']['Min'].sum()
-#         met_sum['Si']['Max']['Min'] += met_recycled_specific[t]['Max'][c]['Si']['Min'].sum()
-#         met_sum['Si']['Min']['Min'] += met_recycled_specific[t]['Min'][c]['Si']['Min'].sum()
-#         met_sum['Si']['Avg']['Max'] += met_recycled_specific[t]['Avg'][c]['Si']['Max'].sum()
-#         met_sum['Si']['Max']['Max'] += met_recycled_specific[t]['Max'][c]['Si']['Max'].sum()
-#         met_sum['Si']['Min']['Max'] += met_recycled_specific[t]['Min'][c]['Si']['Max'].sum()
-
-#         met_sum['Nd']['Avg']['Avg'] += met_recycled_specific[t]['Avg'][c]['Nd']['Avg'].sum()
-#         met_sum['Nd']['Max']['Avg'] += met_recycled_specific[t]['Max'][c]['Nd']['Avg'].sum()
-#         met_sum['Nd']['Min']['Avg'] += met_recycled_specific[t]['Min'][c]['Nd']['Avg'].sum()
-#         met_sum['Nd']['Avg']['Min'] += met_recycled_specific[t]['Avg'][c]['Nd']['Min'].sum()
-#         met_sum['Nd']['Max']['Min'] += met_recycled_specific[t]['Max'][c]['Nd']['Min'].sum()
-#         met_sum['Nd']['Min']['Min'] += met_recycled_specific[t]['Min'][c]['Nd']['Min'].sum()
-#         met_sum['Nd']['Avg']['Max'] += met_recycled_specific[t]['Avg'][c]['Nd']['Max'].sum()
-#         met_sum['Nd']['Max']['Max'] += met_recycled_specific[t]['Max'][c]['Nd']['Max'].sum()
-#         met_sum['Nd']['Min']['Max'] += met_recycled_specific[t]['Min'][c]['Nd']['Max'].sum()
-
-#         met_sum['Dy']['Avg']['Avg'] += met_recycled_specific[t]['Avg'][c]['Dy']['Avg'].sum()
-#         met_sum['Dy']['Max']['Avg'] += met_recycled_specific[t]['Max'][c]['Dy']['Avg'].sum()
-#         met_sum['Dy']['Min']['Avg'] += met_recycled_specific[t]['Min'][c]['Dy']['Avg'].sum()
-#         met_sum['Dy']['Avg']['Min'] += met_recycled_specific[t]['Avg'][c]['Dy']['Min'].sum()
-#         met_sum['Dy']['Max']['Min'] += met_recycled_specific[t]['Max'][c]['Dy']['Min'].sum()
-#         met_sum['Dy']['Min']['Min'] += met_recycled_specific[t]['Min'][c]['Dy']['Min'].sum()
-#         met_sum['Dy']['Avg']['Max'] += met_recycled_specific[t]['Avg'][c]['Dy']['Max'].sum()
-#         met_sum['Dy']['Max']['Max'] += met_recycled_specific[t]['Max'][c]['Dy']['Max'].sum()
-#         met_sum['Dy']['Min']['Max'] += met_recycled_specific[t]['Min'][c]['Dy']['Max'].sum()
-
-# met_sum = {}  # Dizionario per la somma del rame
-
-# # Inizializza la struttura del dizionario
-# for m in met:
-#     met_sum[m] = {}  # Dizionario per ogni m
-#     for s in sens:
-#         met_sum[m][s] = {}  # Dizionario per ogni s
-#         for u in upgrade:
-#             met_sum[m][s][u] = pd.DataFrame(0, index=[0], columns=years)  # Inizializza la somma a zero
-
-# # Mapping tra i metalli e le colonne di met_recycled_specific
-# metal_columns = {'Cu': 'Cu', 'Si': 'Si', 'Nd': 'Nd', 'Dy': 'Dy'}
-
-# for m in met:
-#     for s in sens:
-#         for u in upgrade:
-#             for t in techs:
-#                 for c in comp:
-#                     # Somma il metallo corrente per ogni tecnologia, componente, sens e upgrade
-#                     met_sum[m][s][u] += met_recycled_specific[t][u][c][metal_columns[m]][s].sum()
 
 #%% Estimation of residues
 residues = ['z_dis_WT','z_dis_PV','z_ref_OnGen','z_ref_OffGen','z_ref_Panel', 'z_ref_Wires']
@@ -320,13 +257,13 @@ wFD = {}
 for s in sens:
     wFD[s] = {}
     for i in years:
-        wFD[s][i] = pd.DataFrame(0, index= waste_type, columns = ['FD'] )
+        wFD[s][i] = pd.DataFrame(0, index= waste_type, columns = ['EU27+UK'] )
 
 for s in sens:
     for i in years:
-        wFD[s][i].loc['EoL of Offshore WT','FD'] = EoL['Offshore wind'][s].loc[0, i]
-        wFD[s][i].loc['EoL of Onshore WT','FD'] = EoL['Onshore wind'][s].loc[0, i]
-        wFD[s][i].loc['EoL of PV','FD'] = EoL['PV'][s].loc[0, i] 
+        wFD[s][i].loc['EoL of Offshore WT','EU27+UK'] = EoL['Offshore wind'][s].loc[0, i]
+        wFD[s][i].loc['EoL of Onshore WT','EU27+UK'] = EoL['Onshore wind'][s].loc[0, i]
+        wFD[s][i].loc['EoL of PV','EU27+UK'] = EoL['PV'][s].loc[0, i] 
 
 #%% Calculating SW2 and SwFD
 
@@ -345,12 +282,19 @@ SwFD = {}
 for s in sens:
     SwFD[s] = {}
     for i in years:
-        SwFD[s][i] = pd.DataFrame(0, index= waste_sectors, columns = ['FD'] )
-        
+        SwFD[s][i] = pd.DataFrame(0, index= waste_sectors, columns = ['China','EU27+UK','RoW','USA'] )
+       
+
+SwFD_EU = {}
+for s in sens:
+    SwFD_EU[s] = {}
+    for i in years:
+        SwFD_EU[s][i] = pd.DataFrame(0, index= waste_sectors, columns = ['EU27+UK'] )
         
 for s in sens:
     for i in years:
-        SwFD[s][i] = S @ wFD[s][i]
+        SwFD_EU[s][i]= S @ wFD[s][i]
+        SwFD[s][i].loc[:,'EU27+UK'] = SwFD_EU[s][i].loc[:,'EU27+UK']
         
 #%% Calculating coefficient matrix SG2 = SW2 * (Xw)^-1
 
@@ -368,7 +312,7 @@ for s in sens:
         
 for s in sens:
     for i in years:
-        Xw[s][i] = SW2[s][i].sum(axis = 1) + SwFD[s][i].loc[:,'FD']
+        Xw[s][i] = SW2[s][i].sum(axis = 1) + SwFD[s][i].loc[:,'EU27+UK']
 
 for s in sens:
     for i in range(2010,2101):
@@ -379,17 +323,28 @@ Tech_FD = {}
 for s in sens:
     Tech_FD[s]={}
     for i in years:
-        Tech_FD[s][i] = pd.DataFrame(0, index=techs, columns=['FD'])
+        Tech_FD[s][i] = pd.DataFrame(0, index=techs, columns=['China','EU27+UK','RoW','USA'])
 
 for s in sens:
     for t in techs:
         for i in years:
-            Tech_FD[s][i].loc[t,'FD']= AIC[t][s].loc[0,i]
+            Tech_FD[s][i].loc[t,'EU27+UK']= AIC[t][s].loc[0,i]
             
 for s in sens:
     for i in years:
         Tech_FD[s][i] = Tech_FD[s][i].set_index([pd.Index(['EU27+UK'] * len(techs)),pd.Index(['Sector'] * len(techs)), techs])
         SwFD[s][i] = SwFD[s][i].set_index([pd.Index(['EU27+UK'] * len(waste_sectors)),pd.Index(['Sector'] * len(waste_sectors)), waste_sectors])
+
+for s in sens:
+    for i in years:
+        # Aggiungi gli indici a Tech_FD[s][i]
+            Tech_FD[s][i].index = pd.MultiIndex.from_arrays([['EU27+UK'] * len(techs), ['Sector'] * len(techs), techs],
+                                                           names=['Region', 'Level', 'Item'])
+            
+            # Aggiungi gli indici a SwFD[s][i]
+            SwFD[s][i].index = pd.MultiIndex.from_arrays([['EU27+UK'] * len(waste_sectors), ['Sector'] * len(waste_sectors), waste_sectors],
+                                                         names=['Region', 'Level', 'Item'])
+
 
 #%% Metals recycled for each component
 met_rec_comp = {}

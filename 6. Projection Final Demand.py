@@ -86,31 +86,59 @@ with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Projections',use
         sheet_name = f'{key}'
         df.to_excel(writer, sheet_name=sheet_name, index=True)
 
-# #%%
-# fileSwFD = f"{pd.read_excel(paths, index_col=[0]).loc['SwFD', user]}\\SwFD_Avg.xlsx"
-# fileAIC = f"{pd.read_excel(paths, index_col=[0]).loc['AIC',user]}\\AIC_Avg.xlsx"
-# fileProjection = f"{pd.read_excel(paths, index_col=[0]).loc['Projections',user]}\\Projections.xlsx"
-# merged_dfs = {}
+fileHistory = f"{pd.read_excel(paths, index_col=[0]).loc['History',user]}"
+with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Projections',user]}\\Historical_FD.xlsx") as writer:
+    for key, df in FD.items():
+        sheet_name = f'{key}'
+        df.to_excel(writer, sheet_name=sheet_name, index=True)
 
-# for year in years:
-#     df_swfd = pd.read_excel(fileSwFD, sheet_name=str(year))
-#     df_aic = pd.read_excel(fileAIC, sheet_name=str(year))
-
-#     # Read DataFrames from Excel files
-#     df_projection = pd.read_excel(fileProjection, sheet_name=str(year))
-
-#     # Concatenate the DataFrames along the columns
-#     dfs_for_year = [df_projection, df_swfd, df_aic]
-#     merged_dfs[year] = pd.concat(dfs_for_year, axis=0)
-
-# # Salva i risultati in un nuovo file Excel
-# output_file = f"{pd.read_excel(paths, index_col=[0]).loc['Merged FD',user]}\\merged_file.xlsx"
-
-# with pd.ExcelWriter(output_file) as writer:
-#     for year, merged_df in merged_dfs.items():
-#         # Scrivi il DataFrame nel file Excel
-#         merged_df.to_excel(writer, sheet_name=str(year), index=False)
-
-# print(f"I dati sono stati uniti e salvati in '{output_file}'.")
+#%%
+fileSwFD = f"{pd.read_excel(paths, index_col=[0]).loc['SwFD', user]}\\SwFD_Avg.xlsx"
+fileAIC = f"{pd.read_excel(paths, index_col=[0]).loc['AIC',user]}\\AIC_Avg.xlsx"
+fileProjection = f"{pd.read_excel(paths, index_col=[0]).loc['Projections',user]}\\Projections.xlsx"
+fileHistoric = f"{pd.read_excel(paths, index_col=[0]).loc['History',user]}\\Historical_FD.xlsx"
 
 
+merged_dfs = {}
+merged_dfs_history = {}
+for year in years:
+    df_swfd = pd.read_excel(fileSwFD, sheet_name=str(year))
+    df_aic = pd.read_excel(fileAIC, sheet_name=str(year))
+
+    # Read DataFrames from Excel files
+    df_projection = pd.read_excel(fileProjection, sheet_name=str(year))
+
+    # Concatenate the DataFrames along the columns
+    dfs_for_year_proj = [df_projection, df_swfd, df_aic]
+    merged_dfs[year] = pd.concat(dfs_for_year_proj, axis=0)
+
+# Salva i risultati in un nuovo file Excel
+output_file_proj = f"{pd.read_excel(paths, index_col=[0]).loc['Merged FD',user]}\\FD_proj_merged.xlsx"
+
+with pd.ExcelWriter(output_file_proj) as writer:
+    for year, merged_df in merged_dfs.items():
+        # Scrivi il DataFrame nel file Excel
+        merged_df.to_excel(writer, sheet_name=str(year), index=False)
+
+
+for year_historic in range(2011,2021):
+    df_swfd = pd.read_excel(fileSwFD, sheet_name=str(year_historic))
+    df_aic = pd.read_excel(fileAIC, sheet_name=str(year_historic))
+
+    # Read DataFrames from Excel files
+    df_history = pd.read_excel(fileHistoric, sheet_name=str(year_historic))
+
+    # Concatenate the DataFrames along the columns
+    dfs_for_year_history = [df_history, df_swfd, df_aic]
+    merged_dfs_history[year_historic] = pd.concat(dfs_for_year_history, axis=0)
+
+# Salva i risultati in un nuovo file Excel
+output_file_history = f"{pd.read_excel(paths, index_col=[0]).loc['Merged FD',user]}\\FD_historic_merged.xlsx"
+
+with pd.ExcelWriter(output_file_history) as writer_hist:
+    for year_hist, merged_df_history in merged_dfs_history.items():
+        # Scrivi il DataFrame nel file Excel
+        merged_df_history.to_excel(writer_hist, sheet_name=str(year_hist), index=False)
+
+#%%
+fileFD = f"{pd.read_excel(paths, index_col=[0]).loc['FD', user]}\\FD.xlsx"
