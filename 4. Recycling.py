@@ -406,7 +406,7 @@ for s in sens:
             for i in years:
                 for t in techs:
                     for m in met:
-                        met_rec_comp[s][u][i].loc[m,c] += met_recycled_specific[t][s][c][m][u].loc[0,i]
+                        met_rec_comp[s][u][i].loc[m,c] += -met_recycled_specific[t][s][c][m][u].loc[0,i]
 #%% Export Data
 
 
