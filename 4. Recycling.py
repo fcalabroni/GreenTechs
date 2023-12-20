@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 
-user = "CF"
+user = "MBV"
 sN = slice(None)
 years = 2011
 
@@ -135,7 +135,7 @@ RR_met = pd.read_excel(fileParam, "RR", header = 0, index_col = 0)
 
 Inventory_met = pd.read_excel(fileParam, "Inventory_mat", header = 0, index_col = 0)
 
-upgrade = ['Min', 'Avg', 'Max']
+upgrade = ['b1', 'b2', 'b3']
 RE = {
   'Generator Onshore': RE_comp.loc[0,'Generator Onshore'],
   'Generator Offshore': RE_comp.loc[0,'Generator Offshore'],
@@ -391,6 +391,22 @@ for s in sens:
         Tech_FD[s][i] = Tech_FD[s][i].set_index([pd.Index(['EU27+UK'] * len(techs)),pd.Index(['Sector'] * len(techs)), techs])
         SwFD[s][i] = SwFD[s][i].set_index([pd.Index(['EU27+UK'] * len(waste_sectors)),pd.Index(['Sector'] * len(waste_sectors)), waste_sectors])
 
+#%% Metals recycled for each component
+met_rec_comp = {}
+for s in sens:
+    met_rec_comp[s]={}
+    for u in upgrade:
+        met_rec_comp[s][u]={}
+        for i in years:
+            met_rec_comp[s][u][i] = pd.DataFrame(0, index=met, columns= comp)
+
+for s in sens:
+    for u in upgrade:
+        for c in comp:
+            for i in years:
+                for t in techs:
+                    for m in met:
+                        met_rec_comp[s][u][i].loc[m,c] += met_recycled_specific[t][s][c][m][u].loc[0,i]
 #%% Export Data
 
 
@@ -413,6 +429,12 @@ for s in sens:
            
     with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['AIC',user]}\\AIC_{s}.xlsx") as writer:
             for key, df in Tech_FD[s].items():
+                sheet_name = f'{key}'
+                df.to_excel(writer, sheet_name=sheet_name, index= True)
+    
+    for u in upgrade:
+        with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['metrec',user]}\\metrec_{s}_{u}.xlsx") as writer:
+            for key, df in met_rec_comp[s][u].items():
                 sheet_name = f'{key}'
                 df.to_excel(writer, sheet_name=sheet_name, index= True)
             
