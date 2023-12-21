@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 
-user = "CF"
+user = "MBV"
 sN = slice(None)
 years = 2011
 
@@ -86,8 +86,6 @@ for t in techs:
                 # Check if the key exists in the DataFrame index before accessing it
                 EoL[t][s].loc[0, i+1] = (AIC[t][s].loc[0, i-ii] * Weib[t][s][ii]) + EoL[t][s].loc[0, i+1]
 
-#%% Create allocation matrix (S)
-S = pd.read_excel(fileParam, "S", header = 0, index_col = 0 )
 
 #%% Estimation of scraps trhough Collector and Disassembler
 comp = ['Generator Onshore', 'Generator Offshore', 'Panel', 'Wires']
@@ -230,6 +228,7 @@ waste_type = [
     'Residues',
     ]
 
+
 W2 = {}
 for s in sens:
     W2[s] = {}
@@ -265,8 +264,10 @@ for s in sens:
         wFD[s][i].loc['EoL of Onshore WT','EU27+UK'] = EoL['Onshore wind'][s].loc[0, i]
         wFD[s][i].loc['EoL of PV','EU27+UK'] = EoL['PV'][s].loc[0, i] 
 
-#%% Calculating SW2 and SwFD
+#%% Create allocation matrix (S)
+S = pd.read_excel(fileParam, "S", header = 0, index_col = 0 )
 
+#%% Calculating SW2 and SwFD
 SW2 = {}
 for s in sens:
     SW2[s] = {}
@@ -297,7 +298,7 @@ for s in sens:
         SwFD[s][i].loc[:,'EU27+UK'] = SwFD_EU[s][i].loc[:,'EU27+UK']
         
 #%% Calculating coefficient matrix SG2 = SW2 * (Xw)^-1
-
+                                           
 SG2 = {}
 for s in sens:
     SG2[s]= {}
@@ -317,7 +318,11 @@ for s in sens:
 for s in sens:
     for i in range(2010,2101):
         SG2[s][i] = SW2[s][i] @ np.linalg.inv(np.diag(Xw[s][i]))
-                
+        
+for s in sens:
+    for i in years:        
+        SG2[s][i].index =  pd.MultiIndex.from_arrays([['EU27+UK'] * len(waste_sectors), ['Sector'] * len(waste_sectors), waste_sectors], names=['Region', 'Level', 'Item'])   
+        SG2[s][i].columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(waste_sectors), ['Sector'] * len(waste_sectors), waste_sectors])
 #%% Reshaping Dictionary AIC
 Tech_FD = {}
 for s in sens:
@@ -335,16 +340,19 @@ for s in sens:
         Tech_FD[s][i] = Tech_FD[s][i].set_index([pd.Index(['EU27+UK'] * len(techs)),pd.Index(['Sector'] * len(techs)), techs])
         SwFD[s][i] = SwFD[s][i].set_index([pd.Index(['EU27+UK'] * len(waste_sectors)),pd.Index(['Sector'] * len(waste_sectors)), waste_sectors])
 
+regions = Tech_FD[s][i].columns
 for s in sens:
     for i in years:
         # Aggiungi gli indici a Tech_FD[s][i]
             Tech_FD[s][i].index = pd.MultiIndex.from_arrays([['EU27+UK'] * len(techs), ['Sector'] * len(techs), techs],
                                                            names=['Region', 'Level', 'Item'])
-            
+            Tech_FD[s][i].columns = pd.MultiIndex.from_arrays(
+                    [regions,['Consumption category'] * len(regions), ['Final consumption expenditure by households'] * len(regions)], names=['Region', 'Level', 'Item']    ) 
             # Aggiungi gli indici a SwFD[s][i]
             SwFD[s][i].index = pd.MultiIndex.from_arrays([['EU27+UK'] * len(waste_sectors), ['Sector'] * len(waste_sectors), waste_sectors],
                                                          names=['Region', 'Level', 'Item'])
-
+            SwFD[s][i].columns = pd.MultiIndex.from_arrays(
+                    [regions,['Consumption category'] * len(regions), ['Final consumption expenditure by households'] * len(regions)], names=['Region', 'Level', 'Item']    ) 
 
 #%% Metals recycled for each component
 met_rec_comp = {}
@@ -362,6 +370,16 @@ for s in sens:
                 for t in techs:
                     for m in met:
                         met_rec_comp[s][u][i].loc[m,c] += -met_recycled_specific[t][s][c][m][u].loc[0,i]
+                        
+for s in sens:
+    for u in upgrade:
+        for c in comp:
+            for i in years:
+                for t in techs:
+                    for m in met:
+                        met_rec_comp[s][u][i].index = pd.MultiIndex.from_arrays([['EU27+UK'] * len(comp), ['Sector'] * len(comp), comp],names=['Region', 'Level', 'Item'])
+                        met_rec_comp[s][u][i].columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(met), ['Sector'] * len(met), met])
+            
 #%% Export Data
 
 
