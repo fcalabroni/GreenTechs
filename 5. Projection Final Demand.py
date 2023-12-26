@@ -20,13 +20,12 @@ fileParam = f"{pd.read_excel(paths, index_col=[0]).loc['fileParam',user]}"
 Weibull_params =  pd.read_excel(fileParam, "Weibull", index_col=[0,1])
 sens = list(set(Weibull_params.index.get_level_values(1)))
 
-
 #%% Parsing IOT
 exio_iot = {}
 
 for year in history:
-    exio_iot_path  = pd.read_excel(paths, index_col=[0]).loc['EXIOBASE IOT',user]+f"/IOT_{year}_ixi.zip"
-
+    #exio_iot_path  = pd.read_excel(paths, index_col=[0]).loc['EXIOBASE IOT',user]+f"/IOT_{year}_ixi.zip" #ixi
+    exio_iot_path  = pd.read_excel(paths, index_col=[0]).loc['EXIOBASE IOT',user]+f"/IOT_{year}_pxp.zip" #pxp
     exio_iot[year]  = mario.parse_exiobase(path=exio_iot_path, table='IOT', unit='Monetary')
 
 #%% Getting excel templates to aggregate raw Exiobase
