@@ -12,9 +12,11 @@ paths = 'Paths.xlsx'
 world = {}
 
 for year in years:
-    world[year] = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\d. Baseline\\{year}\\flows", table='SUT', mode="coefficients")
+    world[year] = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\d. Baseline\\2011\\flows", table='SUT', mode="coefficients")
     world[year].to_iot(method='B')
 
+#WIOT = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\d. Baseline\\2011\\flows", table='SUT', mode="coefficients")
+#WIOT.to_iot(method='B')
 #%% creating template for waste sectors
 
 waste_sectors= [
@@ -31,10 +33,12 @@ waste_sectors= [
 path_waste_sector = f"{pd.read_excel(paths, index_col=[0]).loc['Add Sectors',user]}\\new_waste_sector.xlsx"
 world[year].get_add_sectors_excel(new_sectors=waste_sectors, regions= [world[year].get_index('Region')[1]],path=path_waste_sector, item='Sector')
 
+#WIOT.get_add_sectors_excel(new_sectors=waste_sectors, regions= [world[year].get_index('Region')[1]],path=path_waste_sector, item='Sector')
 #%% Adding new commodities and activities (EMPTY)
 for year in years:
     world[year].add_sectors(io=path_waste_sector, new_sectors= waste_sectors, regions= [world[year].get_index('Region')[1]], item='Sectors', inplace=True)
 
+#WIOT.add_sectors(io=path_waste_sector, new_sectors= waste_sectors, regions= [world[year].get_index('Region')[1]], item='Sectors', inplace=True)
 #%%
 fileParam = f"{pd.read_excel(paths, index_col=[0]).loc['fileParam',user]}"
 Weibull_params =  pd.read_excel(fileParam, "Weibull", index_col=[0,1])
@@ -51,39 +55,51 @@ for year in years:
         FD = pd.read_excel(path_FD,sheet_name=None, index_col=[0,1,2], header= [0,1,2]) #check indici
         metrec = pd.read_excel(path_metrec,sheet_name=None, index_col=None, header= None)
         
-        for y,mat in SG2.items():
-         for y,matr in FD.items():
-                #mat.columns = mat.index
-                SG2[y] = mat
-                FD[y] = matr
-                
-                scemario = f"{y} - {s}"
-                world[year].clone_scenario(scenario='baseline',name=scemario)
-                
-                z_new = world[year].matrices[scemario]['z']
-                z_new.update(SG2[y])
-                #z_new.loc[(region,'Sector',list(SG2[y].index)),(region,'Sector',list(SG2[y].columns))] = SG2[y].values
-                
-                Y_new = world[year].matrices[scemario]['Y']
-                Y_new*=0
-                Y_new.update(FD[y])
-                # add GDP projection here
-                #Y_new.loc[(region,'Sector',list(SwFD[y].index)),(region,'Sector','Gross fixed capital formation')] = SwFD[y].values
-                
-                world[year].update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
-                world[year].reset_to_coefficients(scenario=scemario)
-                print(scemario)
+        for y in SG2:
+        #for y,matr in FD.items():
+            #mat.columns = mat.index
+            #SG2[y] = mat
+            #FD[y] = matr
+            
+            scemario = f"{y} - {s}"
+            world[year].clone_scenario(scenario='baseline',name=scemario)
+            #WIOT.clone_scenario(scenario='baseline',name=scemario)
+            
+            z_new = world[year].matrices[scemario]['z']
+            z_new.update(SG2[y])
+            #z_new.loc[(region,'Sector',list(SG2[y].index)),(region,'Sector',list(SG2[y].columns))] = SG2[y].values
+            
+            # z_new = WIOT.matrices[scemario]['z']
+            # z_new.update(SG2[y])
+            
+            
+            Y_new = world[year].matrices[scemario]['Y']
+            Y_new*=0
+            Y_new.update(FD[y])
+            #Y_new.loc[(region,'Sector',list(SwFD[y].index)),(region,'Sector','Gross fixed capital formation')] = SwFD[y].values
+            
+            # Y_new = WIOT.matrices[scemario]['Y']
+            # Y_new*=0
+            # Y_new.update(FD[y])
+            
+            X_new = world[year].matrices[scemario]['X']
+            #X_new = WIOT.matrices[scemario]['X']
+            #z_new2 = metrec[y - 1]/X_new[y - 1]  #il problema è qua
+            
+            # WIOT.update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
+            # WIOT.reset_to_coefficients(scenario=scemario)
+            world[year].update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
+            world[year].reset_to_coefficients(scenario=scemario)
+            #WIOT.to_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\e. WIOT\\{year}", flows=True, coefficients=True)
+            print(scemario)
 
-        # scemario = f"{year} - {s}"  
-        # world[year].clone_scenario(scenario='baseline', name=scemario)
-        
-        # z_new = world[year].matrices[scemario]['z']
-        # z_new.update(SG2[year])
-
-        # world[year].update_scenarios(scenario=scemario, z=z_new)
-        # world[year].reset_to_coefficients(scenario=scemario)
-        # print(scemario)
-
+# for yy in range(2011,2101):
+#     scemario2 = f"scemario_{yy}"
+#     WIOT.clone_scenario(scenario=scemario['{yy} - Avg'],name=scemario2)
+    
+#     z_new2 = WIOT.matrices[scemario2]['z']
+#     z_new2 = metrec[yy -1]/X_new[scemario]
+       
 
         
             
