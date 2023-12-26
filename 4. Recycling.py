@@ -48,18 +48,18 @@ WindOff_Capacity = pd.read_excel(fileWind, "Offshore", header=0, index_col=None)
 WindOn_Capacity = pd.read_excel(fileWind, "Onshore", header=0, index_col=None)
 SolarPV_Capacity = pd.read_excel(fileSolar, "SolarPV", header=0, index_col=None)
 CAP = {
-   'Onshore wind': WindOn_Capacity,
-   'Offshore wind': WindOff_Capacity,
-   'PV': SolarPV_Capacity,
+   'Onshore wind plants': WindOn_Capacity,
+   'Offshore wind plants': WindOff_Capacity,
+   'Photovoltaic plants': SolarPV_Capacity,
    } #installed capacity in MW
 
 WindOff_Cost = pd.read_excel(fileWind, "Cost_Offshore", header=0, index_col=None)
 WindOn_Cost = pd.read_excel(fileWind, "Cost_Onshore", header=0, index_col=None)
 SolarPV_Cost = pd.read_excel(fileSolar, "Cost_PV", header=0, index_col=None)
 Cost = {
-        'Onshore wind': WindOn_Cost,
-        'Offshore wind': WindOff_Cost,
-        'PV': SolarPV_Cost,
+        'Onshore wind plants': WindOn_Cost,
+        'Offshore wind plants': WindOff_Cost,
+        'Photovoltaic plants': SolarPV_Cost,
         } #cost in USD/kW
 
 #%% Calculation EoL products
@@ -95,14 +95,14 @@ DR_tech = pd.read_excel(fileParam, "DR", header = 0 , index_col=None)
 Inventory_comp = pd.read_excel(fileParam, "Inventory_comp", header = 0, index_col = 0)
 
 CR = {
-  'Onshore wind': CR_tech.loc[0,'WT'],
-  'Offshore wind': CR_tech.loc[0,'WT'],
-  'PV': CR_tech.loc[0,'PV'],
+  'Onshore wind plants': CR_tech.loc[0,'WT'],
+  'Offshore wind plants': CR_tech.loc[0,'WT'],
+  'Photovoltaic plants': CR_tech.loc[0,'PV'],
       }
 DR = {
-  'Onshore wind': DR_tech.loc[0,'WT'],
-  'Offshore wind': DR_tech.loc[0,'WT'],
-  'PV': DR_tech.loc[0,'PV'],
+  'Onshore wind plants': DR_tech.loc[0,'WT'],
+  'Offshore wind plants': DR_tech.loc[0,'WT'],
+  'Photovoltaic plants': DR_tech.loc[0,'PV'],
       }
 
 Inv_comp = {
@@ -125,11 +125,12 @@ for t in techs:
             scraps[t][c][s] = EoL[t][s] * DR[t] * CR[t] * Inv_comp[c][t]
 
 #%% Estimation of recycled materials
-met = ['Nd', 'Dy', 'Cu', 'Si']
+met = ['Neodymium', 'Dysprosium', 'Copper ores and concentrates', 'Raw silicon']
 
 RE_comp = pd.read_excel(fileParam, "RE", header = 0, index_col = None)
 RR_met = pd.read_excel(fileParam, "RR", header = 0, index_col = 0)
 
+#met = list(set(RR_met.columns.get_level_values(0)))
 Inventory_met = pd.read_excel(fileParam, "Inventory_mat", header = 0, index_col = 0)
 
 upgrade = ['b1', 'b2', 'b3']
@@ -141,17 +142,17 @@ RE = {
       }
 
 RR = {
-  'Nd': RR_met.loc[:, 'Nd'], 
-  'Dy': RR_met.loc[:, 'Dy'], 
-  'Cu': RR_met.loc[:, 'Cu'], 
-  'Si': RR_met.loc[:, 'Si'],
+  'Neodymium': RR_met.loc[:, 'Neodymium'], 
+  'Dysprosium': RR_met.loc[:, 'Dysprosium'], 
+  'Copper ores and concentrates': RR_met.loc[:, 'Copper ores and concentrates'], 
+  'Raw silicon': RR_met.loc[:, 'Raw silicon'],
       }
 
 Inv_met = {
-   'Nd': Inventory_met.loc['%Nd', :], 
-   'Dy': Inventory_met.loc['%Dy', :], 
-   'Cu': Inventory_met.loc['%Cu', :], 
-   'Si': Inventory_met.loc['%Si', :],
+   'Neodymium': Inventory_met.loc['%Nd', :], 
+   'Dysprosium': Inventory_met.loc['%Dy', :], 
+   'Copper ores and concentrates': Inventory_met.loc['%Cu', :], 
+   'Raw silicon': Inventory_met.loc['%Si', :],
       }
 
 met_recycled_specific = {}
@@ -197,12 +198,12 @@ for r in residues:
         res[r][s] = pd.DataFrame(0, index=[0], columns=list(range(2000,2102)))
 
 for s in sens:
-    res['z_dis_WT'][s] = (1 - (CR_tech.loc[0,'WT']*DR_tech.loc[0,'WT']))* (EoL['Onshore wind'][s] +EoL['Offshore wind'][s]) 
-    res['z_dis_PV'][s] = (1 - (CR_tech.loc[0,'PV']*DR_tech.loc[0,'PV']))* (EoL['PV'][s]) # va in residues il 23.5% dei PV in EoL perché consideri ciò che esce dal disassembler (quindi consideri sia CR che DR (CR*DR = 76.5%))
-    res['z_ref_OnGen'][s] = (1 - RE_comp.loc[0, 'Generator Onshore'])* scraps['Onshore wind']['Generator Onshore'][s]
-    res['z_ref_OffGen'][s] = (1 - RE_comp.loc[0, 'Generator Offshore'])* scraps['Offshore wind']['Generator Offshore'][s]
-    res['z_ref_Panel'][s] = (1 - RE_comp.loc[0, 'Panel'])* scraps['PV']['Panel'][s]
-    res['z_ref_Wires'][s] = (1 - RE_comp.loc[0, 'Wires'])* (scraps['PV']['Wires'][s] + scraps['Onshore wind']['Wires'][s] + scraps['Offshore wind']['Wires'][s])
+    res['z_dis_WT'][s] = (1 - (CR_tech.loc[0,'WT']*DR_tech.loc[0,'WT']))* (EoL['Onshore wind plants'][s] +EoL['Offshore wind plants'][s]) 
+    res['z_dis_PV'][s] = (1 - (CR_tech.loc[0,'PV']*DR_tech.loc[0,'PV']))* (EoL['Photovoltaic plants'][s]) # va in residues il 23.5% dei PV in EoL perché consideri ciò che esce dal disassembler (quindi consideri sia CR che DR (CR*DR = 76.5%))
+    res['z_ref_OnGen'][s] = (1 - RE_comp.loc[0, 'Generator Onshore'])* scraps['Onshore wind plants']['Generator Onshore'][s]
+    res['z_ref_OffGen'][s] = (1 - RE_comp.loc[0, 'Generator Offshore'])* scraps['Offshore wind plants']['Generator Offshore'][s]
+    res['z_ref_Panel'][s] = (1 - RE_comp.loc[0, 'Panel'])* scraps['Photovoltaic plants']['Panel'][s]
+    res['z_ref_Wires'][s] = (1 - RE_comp.loc[0, 'Wires'])* (scraps['Photovoltaic plants']['Wires'][s] + scraps['Onshore wind plants']['Wires'][s] + scraps['Offshore wind plants']['Wires'][s])
 
 #%% Creation of W2 and wFD
 
@@ -236,13 +237,13 @@ for s in sens:
 
 for s in sens:
     for i in years:
-        W2[s][i].loc['Scraps of generator of Offshore WT','Disassembler of Wind Turbines'] = scraps['Offshore wind']['Generator Offshore'][s].loc[0, i]
-        W2[s][i].loc['Scraps of generator of Onshore WT','Disassembler of Wind Turbines'] = scraps['Onshore wind']['Generator Onshore'][s].loc[0, i]
-        W2[s][i].loc['Scraps of wires','Disassembler of Wind Turbines'] = scraps['Offshore wind']['Wires'][s].loc[0, i] + scraps['Onshore wind']['Wires'][s].loc[0, i]
+        W2[s][i].loc['Scraps of generator of Offshore WT','Disassembler of Wind Turbines'] = scraps['Offshore wind plants']['Generator Offshore'][s].loc[0, i]
+        W2[s][i].loc['Scraps of generator of Onshore WT','Disassembler of Wind Turbines'] = scraps['Onshore wind plants']['Generator Onshore'][s].loc[0, i]
+        W2[s][i].loc['Scraps of wires','Disassembler of Wind Turbines'] = scraps['Offshore wind plants']['Wires'][s].loc[0, i] + scraps['Onshore wind plants']['Wires'][s].loc[0, i]
         W2[s][i].loc['Residues','Disassembler of Wind Turbines'] = res['z_dis_WT'][s].loc[0, i]
 
-        W2[s][i].loc['Scraps of wires','Disassembler of PV panels'] = scraps['PV']['Wires'][s].loc[0, i]
-        W2[s][i].loc['Scraps of Silicon layer','Disassembler of PV panels'] = scraps['PV']['Panel'][s].loc[0, i]
+        W2[s][i].loc['Scraps of wires','Disassembler of PV panels'] = scraps['Photovoltaic plants']['Wires'][s].loc[0, i]
+        W2[s][i].loc['Scraps of Silicon layer','Disassembler of PV panels'] = scraps['Photovoltaic plants']['Panel'][s].loc[0, i]
         W2[s][i].loc['Residues','Disassembler of PV panels'] = res['z_dis_PV'][s].loc[0, i]
 
         W2[s][i].loc['Residues','Refinery of Generators of Offshore Wind Turbines'] = res['z_ref_OffGen'][s].loc[0, i]
@@ -259,9 +260,9 @@ for s in sens:
 
 for s in sens:
     for i in years:
-        wFD[s][i].loc['EoL of Offshore WT','EU27+UK'] = EoL['Offshore wind'][s].loc[0, i]
-        wFD[s][i].loc['EoL of Onshore WT','EU27+UK'] = EoL['Onshore wind'][s].loc[0, i]
-        wFD[s][i].loc['EoL of PV','EU27+UK'] = EoL['PV'][s].loc[0, i] 
+        wFD[s][i].loc['EoL of Offshore WT','EU27+UK'] = EoL['Offshore wind plants'][s].loc[0, i]
+        wFD[s][i].loc['EoL of Onshore WT','EU27+UK'] = EoL['Onshore wind plants'][s].loc[0, i]
+        wFD[s][i].loc['EoL of PV','EU27+UK'] = EoL['Photovoltaic plants'][s].loc[0, i] 
 
 #%% Create allocation matrix (S)
 S = pd.read_excel(fileParam, "S", header = 0, index_col = 0 )
