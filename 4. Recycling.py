@@ -63,7 +63,6 @@ Cost = {
         } #cost in USD/kW
 
 #%% Calculation EoL products
-
 # Create DataFrames for EoL products and annual installed capacity
 EoL = {}
 AIC = {} #addition capacity
@@ -302,25 +301,25 @@ for s in sens:
 SG2 = {}
 for s in sens:
     SG2[s]= {}
-    for i in years:
+    for i in range(2011,2101):
         SG2[s][i] = pd.DataFrame(0, index= waste_sectors, columns = waste_sectors)
         
 Xw = {}
 for s in sens:
     Xw[s] = {}
-    for i in years:
+    for i in range(2011,2101):
         Xw[s][i] = pd.DataFrame(0, index= waste_sectors, columns = ['Xw'] )
         
 for s in sens:
-    for i in years:
+    for i in range(2011,2101):
         Xw[s][i] = SW2[s][i].sum(axis = 1) + SwFD[s][i].loc[:,'EU27+UK']
 
 for s in sens:
-    for i in range(2010,2101):
+    for i in range(2011,2101):
         SG2[s][i] = SW2[s][i] @ np.linalg.inv(np.diag(Xw[s][i]))
         
 for s in sens:
-    for i in years:        
+    for i in range(2011,2101):        
         SG2[s][i].index =  pd.MultiIndex.from_arrays([['EU27+UK'] * len(waste_sectors), ['Sector'] * len(waste_sectors), waste_sectors], names=['Region', 'Level', 'Item'])   
         SG2[s][i].columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(waste_sectors), ['Sector'] * len(waste_sectors), waste_sectors])
 #%% Reshaping Dictionary AIC
