@@ -355,6 +355,13 @@ for s in sens:
                     [regions,['Consumption category'] * len(regions), ['Final consumption expenditure by households'] * len(regions)], names=['Region', 'Level', 'Item']    ) 
 
 #%% Metals recycled for each component
+ref = [
+    'Refinery of Generators of Onshore Wind Turbines' ,
+    'Refinery of Generators of Offshore Wind Turbines' ,
+    'Refinery of Silicon layer in PV panel',
+    'Refinery of Cu in wires of WT and PV',
+]
+
 met_rec_comp = {}
 for s in sens:
     met_rec_comp[s]={}
@@ -377,8 +384,8 @@ for s in sens:
             for i in years:
                 for t in techs:
                     for m in met:
-                        met_rec_comp[s][u][i].index = pd.MultiIndex.from_arrays([['EU27+UK'] * len(comp), ['Sector'] * len(comp), comp],names=['Region', 'Level', 'Item'])
-                        met_rec_comp[s][u][i].columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(met), ['Sector'] * len(met), met])
+                        met_rec_comp[s][u][i].columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref],names=['Region', 'Level', 'Item'])
+                        met_rec_comp[s][u][i].index = pd.MultiIndex.from_arrays([['EU27+UK'] * len(met), ['Sector'] * len(met), met])
             
 #%% Export Data
 
