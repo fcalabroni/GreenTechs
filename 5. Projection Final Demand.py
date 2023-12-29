@@ -191,7 +191,7 @@ with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Projections',use
 #             merged_dfs_total.to_excel(writer_total, sheet_name=str(year), index=False)
 
 
-#%%
+#%% Exporting FD total
 output_folder_total = pd.read_excel(paths, index_col=[0]).loc['FD Total', user]
 file_type = 'xlsx'
 

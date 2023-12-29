@@ -16,7 +16,7 @@ paths = 'Paths.xlsx'
 #     world[year] = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\d. Baseline\\2011\\flows", table='SUT', mode="coefficients")
 #     world[year].to_iot(method='B')
 
-WIOT = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\d. Baseline\\2011\\flows", table='SUT', mode="coefficients")
+WIOT = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\d. Baseline\\2011\\coefficients", table='SUT', mode="coefficients")
 WIOT.to_iot(method='B')
 #%% creating template for waste sectors
 
@@ -62,7 +62,23 @@ for s in sens:
     for year in years:
         Critical_met[s][year] = {}
 
-    
+Old = {}  
+for s in sens:
+    Old[s] = {}
+    for year in years:
+        Old[s][year] = {}
+
+Coeff = {}  
+for s in sens:
+    Coeff[s] = {}
+    for year in years:
+        Coeff[s][year] = {}
+
+z = {}  
+for s in sens:
+    z[s] = {}
+    for year in years:
+        z[s][year] = {}
 # for year in years:
 #     for s in ['Avg']:#sens:
 #         path_SG2 = f"{pd.read_excel(paths, index_col=[0]).loc['SG2',user]}\\SG2_{s}.xlsx"
@@ -169,14 +185,16 @@ for year in years:
             Y_new.update(FD)
             
             X_old = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
+            Old[s][year] = X_old[scemario]['X']
             metnat_data = X_old[scemario]['X'].loc[('EU27+UK', 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'production']
             metnat = np.diag(metnat_data)
 
             coeff_rec = pd.DataFrame(0, index= metrec.index, columns = metrec.columns )
             coeff_rec = metrecs[year - 1] @ np.linalg.inv(metnat)  
             coeff_rec.columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref],names=['Region', 'Level', 'Item'])
+            Coeff[s][year] = coeff_rec
             z_new.update(coeff_rec)
-            
+            z[s][year] = z_new
             WIOT.update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
             WIOT.reset_to_coefficients(scenario=scemario)
             print(scemario)

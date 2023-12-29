@@ -60,7 +60,7 @@ Cost = {
         'Onshore wind plants': WindOn_Cost,
         'Offshore wind plants': WindOff_Cost,
         'Photovoltaic plants': SolarPV_Cost,
-        } #cost in USD/kW
+        } #cost in MUSD/kW
 
 #%% Calculation EoL products
 # Create DataFrames for EoL products and annual installed capacity
