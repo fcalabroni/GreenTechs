@@ -68,10 +68,14 @@ for s in sens:
     for year in years:
         Critical_met_world[s][year] = pd.DataFrame(0, index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]), columns=['production'])
 
-Results = {}
+Results_world = {}
 for s in sens:
-    Results[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]), columns = years)
-    
+    Results_world[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]), columns = years)
+
+Results_region = {}
+for s in sens:
+    Results_region[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']*4]), columns = years)
+       
 Old = {}  
 for s in sens:
     Old[s] = {}
@@ -259,11 +263,16 @@ for year in years:
     Critical_met_world[s][year].loc[('World','Sector','Copper ores and concentrates')] = Critical_met[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' ,'Copper ores and concentrates')].sum()
     Critical_met_world[s][year].loc[('World','Sector','Raw silicon')] = Critical_met[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Raw silicon')].sum()
 
-    Results[s].loc[:,float(year)]= Critical_met_world[s][year].loc[:,'production']
+    Results_world[s].loc[:,float(year)]= Critical_met_world[s][year].loc[:,'production']
 
+    Results_region[s].loc[:,float(year)]= Critical_met[s][year].loc[:]
     
 #%%  Export Data
 for s in sens:
-    with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Results_{s}.xlsx") as writer:
+    with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Results_world_{s}.xlsx") as writer:
             sheet_name = "Crit_met_world"
-            Results[s].to_excel(writer, sheet_name=sheet_name, index=True)
+            Results_world[s].to_excel(writer, sheet_name=sheet_name, index=True)
+            
+    with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Results_region_{s}.xlsx") as writer:
+            sheet_name = "Crit_met_world"
+            Results_region[s].to_excel(writer, sheet_name=sheet_name, index=True)

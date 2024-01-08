@@ -323,8 +323,8 @@ for s in sens:
     for i in range(2011,2101):        
         SG2[s][i].index =  pd.MultiIndex.from_arrays([['EU27+UK'] * len(waste_sectors), ['Sector'] * len(waste_sectors), waste_sectors], names=['Region', 'Level', 'Item'])   
         SG2[s][i].columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(waste_sectors), ['Sector'] * len(waste_sectors), waste_sectors])
-        
-#%% Calculating coefficient matrix A2
+
+#%% Creating Allocation Matrix a 
 ref = [
     'Refinery of Generators of Onshore Wind Turbines' ,
     'Refinery of Generators of Offshore Wind Turbines' ,
@@ -332,9 +332,16 @@ ref = [
     'Refinery of Cu in wires of WT and PV',
 ]
 
+a = pd.read_excel(fileParam, "a", header = [0,1], index_col = [0,1])  
+ 
+a.index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 4 * len(met), met*4])
+a.columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref])
+     
+#%% Calculating coefficient matrix A2
+
 coeff_rec = {}
 for u in upgrade:
-    coeff_rec[u] = pd.DataFrame(0, index = met , columns = comp)
+    coeff_rec[u] = pd.DataFrame(0, index = met*4 , columns = comp)
     
 
 for u in upgrade:    
@@ -342,19 +349,30 @@ for u in upgrade:
         for m in met:
             #A2[s][u][i].loc[m][c] = RE[c] * RR[m][u] *Inv_met[m][c]
             coeff_rec[u].loc[m,c] = RE[c] * RR[m][u] *Inv_met[m][c]
+A2_EU = {}
+for s in sens:
+    A2_EU[s] = {}
+    for u in upgrade:
+        A2_EU[s][u] = {}
+        for i in range(2011,2101):
+            A2_EU[s][u][i]= pd.DataFrame(0, index = met*4, columns =  comp)
+            A2_EU[s][u][i] = coeff_rec[u]
+            
+            A2_EU[s][u][i].index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 4 * len(met), met*4])
+            A2_EU[s][u][i].columns= pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref])
+
 A2 = {}
 for s in sens:
     A2[s] = {}
     for u in upgrade:
         A2[s][u] = {}
         for i in range(2011,2101):
-            A2[s][u][i]= pd.DataFrame(0, index = met, columns =  comp)
-            A2[s][u][i] = coeff_rec[u]
+            A2[s][u][i]= pd.DataFrame(0, index = met*4, columns =  comp)
+            A2[s][u][i] = A2_EU[s][u][i]*a
             
-            A2[s][u][i].index = pd.MultiIndex.from_arrays([['EU27+UK'] * len(met), ['Sector'] * len(met), met])
+            A2[s][u][i].index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 4 * len(met), met*4])
             A2[s][u][i].columns= pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref])
-
-
+            
 
 #%% Reshaping Dictionary AIC
 Tech_FD = {}
