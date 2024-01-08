@@ -79,7 +79,7 @@ for t in techs:
         for i in years[1:]:
             for ii in range(0, (i+1-years[1:][0])):
                 # Check if the key exists in the DataFrame index before accessing it
-                AIC[t][s].loc[0, i] = ((CAP[t].loc[0, i]*1000*Cost[t].loc[0, i]*USD_to_EUR.loc[0, 'EURO/USD']) + EoL[t][s].loc[0, i]) - ((CAP[t].loc[0, i-1]*1000*Cost[t].loc[0, i]*USD_to_EUR.loc[0, 'EURO/USD'])+ EoL[t][s].loc[0, i-1]) 
+                AIC[t][s].loc[0, i] = ((CAP[t].loc[0, i]*1000*Cost[t].loc[0, i]*USD_to_EUR.loc[0, 'EURO/USD']) + EoL[t][s].loc[0, i]) - ((CAP[t].loc[0, i-1]*1000*Cost[t].loc[0, i]*USD_to_EUR.loc[0, 'EURO/USD']))#+ EoL[t][s].loc[0, i-1]) 
                 if AIC[t][s].loc[0,i] < 0:
                     AIC[t][s].loc[0,i] = 0
                 # Check if the key exists in the DataFrame index before accessing it
@@ -323,6 +323,39 @@ for s in sens:
     for i in range(2011,2101):        
         SG2[s][i].index =  pd.MultiIndex.from_arrays([['EU27+UK'] * len(waste_sectors), ['Sector'] * len(waste_sectors), waste_sectors], names=['Region', 'Level', 'Item'])   
         SG2[s][i].columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(waste_sectors), ['Sector'] * len(waste_sectors), waste_sectors])
+        
+#%% Calculating coefficient matrix A2
+ref = [
+    'Refinery of Generators of Onshore Wind Turbines' ,
+    'Refinery of Generators of Offshore Wind Turbines' ,
+    'Refinery of Silicon layer in PV panel',
+    'Refinery of Cu in wires of WT and PV',
+]
+
+coeff_rec = {}
+for u in upgrade:
+    coeff_rec[u] = pd.DataFrame(0, index = met , columns = comp)
+    
+
+for u in upgrade:    
+    for c in comp:
+        for m in met:
+            #A2[s][u][i].loc[m][c] = RE[c] * RR[m][u] *Inv_met[m][c]
+            coeff_rec[u].loc[m,c] = RE[c] * RR[m][u] *Inv_met[m][c]
+A2 = {}
+for s in sens:
+    A2[s] = {}
+    for u in upgrade:
+        A2[s][u] = {}
+        for i in range(2011,2101):
+            A2[s][u][i]= pd.DataFrame(0, index = met, columns =  comp)
+            A2[s][u][i] = coeff_rec[u]
+            
+            A2[s][u][i].index = pd.MultiIndex.from_arrays([['EU27+UK'] * len(met), ['Sector'] * len(met), met])
+            A2[s][u][i].columns= pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref])
+
+
+
 #%% Reshaping Dictionary AIC
 Tech_FD = {}
 for s in sens:
@@ -355,13 +388,6 @@ for s in sens:
                     [regions,['Consumption category'] * len(regions), ['Final consumption expenditure by households'] * len(regions)], names=['Region', 'Level', 'Item']    ) 
 
 #%% Metals recycled for each component
-ref = [
-    'Refinery of Generators of Onshore Wind Turbines' ,
-    'Refinery of Generators of Offshore Wind Turbines' ,
-    'Refinery of Silicon layer in PV panel',
-    'Refinery of Cu in wires of WT and PV',
-]
-
 met_rec_comp = {}
 for s in sens:
     met_rec_comp[s]={}
@@ -418,7 +444,11 @@ for s in sens:
                 sheet_name = f'{key}'
                 df.to_excel(writer, sheet_name=sheet_name, index= True)
             
-
+    for u in upgrade:
+        with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['A2',user]}\\A2_{s}_{u}.xlsx") as writer:
+            for key, df in A2[s][u].items():
+                sheet_name = f'{key}'
+                df.to_excel(writer, sheet_name=sheet_name, index= True)
 
 
 

@@ -62,6 +62,16 @@ for s in sens:
     for year in years:
         Critical_met[s][year] = {}
 
+Critical_met_world = {}
+for s in sens:
+    Critical_met_world[s] = {}
+    for year in years:
+        Critical_met_world[s][year] = pd.DataFrame(0, index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]), columns=['production'])
+
+Results = {}
+for s in sens:
+    Results[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]), columns = years)
+    
 Old = {}  
 for s in sens:
     Old[s] = {}
@@ -149,69 +159,111 @@ for year in years:
         path_SG2 = f"{pd.read_excel(paths, index_col=[0]).loc['SG2',user]}\\SG2_{s}.xlsx"
         path_FD = f"{pd.read_excel(paths, index_col=[0]).loc['FD Total',user]}\\FD_total_{s}.xlsx"
         path_metrec = f"{pd.read_excel(paths, index_col=[0]).loc['metrec',user]}\\metrec_{s}_b2.xlsx"
+        path_A2 = f"{pd.read_excel(paths, index_col=[0]).loc['A2',user]}\\A2_{s}_b2.xlsx"
         
         SG2 = pd.read_excel(path_SG2,sheet_name=str(year),index_col=[0,1,2],header= [0,1,2])
-        FD = pd.read_excel(path_FD,sheet_name=str(year), index_col=[0,1,2], header= [0,1,2]) #check indici
+        FD = pd.read_excel(path_FD,sheet_name=str(year), index_col=[0,1,2], header= [0,1,2]) 
         metrec = pd.read_excel(path_metrec,sheet_name=str(year), index_col=[0,1,2], header=[0,1,2])
+        A2 = pd.read_excel(path_A2,sheet_name=str(year), index_col=[0,1,2], header=[0,1,2])
         
         metrecs[year] = metrec
         
         scemario = f"{year} - {s}"
         
-        if year == 2011:
-            WIOT.clone_scenario(scenario='baseline',name=scemario)
+        # if year == 2011:
+        #     WIOT.clone_scenario(scenario='baseline',name=scemario)
             
-            z_new = WIOT.matrices[scemario]['z']
-            z_new.update(SG2)
+        #     z_new = WIOT.matrices[scemario]['z']
+        #     z_new.update(SG2)
             
-            Y_new = WIOT.matrices[scemario]['Y']
-            Y_new*=0
-            Y_new.update(FD)
+        #     Y_new = WIOT.matrices[scemario]['Y']
+        #     Y_new*=0
+        #     Y_new.update(FD)
             
-            WIOT.update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
-            WIOT.reset_to_coefficients(scenario=scemario)
-            print(scemario)
+        #     WIOT.update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
+        #     WIOT.reset_to_coefficients(scenario=scemario)
+        #     print(scemario)
             
-            X = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
+        #     X = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
             
-        else:
-            WIOT.clone_scenario(scenario=f'{year - 1} - {s}',name=scemario)
+        # else:
+        #     WIOT.clone_scenario(scenario=f'{year - 1} - {s}',name=scemario)
                 
-            z_new = WIOT.matrices[scemario]['z']
-            z_new.update(SG2)
+        #     z_new = WIOT.matrices[scemario]['z']
+        #     z_new.update(SG2)
             
-            Y_new = WIOT.matrices[scemario]['Y']
-            Y_new*=0
-            Y_new.update(FD)
+        #     Y_new = WIOT.matrices[scemario]['Y']
+        #     Y_new*=0
+        #     Y_new.update(FD)
             
-            X_old = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
-            Old[s][year] = X_old[scemario]['X']
-            metnat_data = X_old[scemario]['X'].loc[('EU27+UK', 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'production']
-            metnat = np.diag(metnat_data)
+        #     X_old = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
+        #     Old[s][year] = X_old[scemario]['X']
+        #     metnat_data = X_old[scemario]['X'].loc[('EU27+UK', 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'production']
+        #     metnat = np.diag(metnat_data)
 
-            coeff_rec = pd.DataFrame(0, index= metrec.index, columns = metrec.columns )
-            coeff_rec = metrecs[year - 1] @ np.linalg.inv(metnat)  
-            coeff_rec.columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref],names=['Region', 'Level', 'Item'])
-            Coeff[s][year] = coeff_rec
-            z_new.update(coeff_rec)
-            z[s][year] = z_new
-            WIOT.update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
-            WIOT.reset_to_coefficients(scenario=scemario)
-            print(scemario)
+        #     coeff_rec = pd.DataFrame(0, index= metrec.index, columns = metrec.columns )
+        #     coeff_rec = metrecs[year - 1] @ np.linalg.inv(metnat)  
+        #     coeff_rec.columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref],names=['Region', 'Level', 'Item'])
+        #     Coeff[s][year] = coeff_rec
+        #     z_new.update(coeff_rec)
+        #     z[s][year] = z_new
+        #     WIOT.update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
+        #     WIOT.reset_to_coefficients(scenario=scemario)
+        #     print(scemario)
 
-            X = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
+        #     X = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
         
-        Critical_met[s][year] = X[scemario]['X'].loc[('EU27+UK', 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'production']
+        # Critical_met[s][year] = X[scemario]['X'].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'production']
 
 
+    if year == 2011:
+        WIOT.clone_scenario(scenario='baseline',name=scemario)
+        
+        z_new = WIOT.matrices[scemario]['z']
+        z_new.update(SG2)
+        
+        Y_new = WIOT.matrices[scemario]['Y']
+        Y_new*=0
+        Y_new.update(FD)
+        
+        z_new.update(A2)
+        
+        WIOT.update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
+        WIOT.reset_to_coefficients(scenario=scemario)
+        print(scemario)
+        
+        X = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
+        
+    else:
+        WIOT.clone_scenario(scenario=f'{year - 1} - {s}',name=scemario)
+            
+        z_new = WIOT.matrices[scemario]['z']
+        z_new.update(SG2)
+        
+        Y_new = WIOT.matrices[scemario]['Y']
+        Y_new*=0
+        Y_new.update(FD)
+        
+        z_new.update(A2)
+        z[s][year] = z_new
+        WIOT.update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
+        WIOT.reset_to_coefficients(scenario=scemario)
+        print(scemario)
+    
+        X = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
+    
+    Critical_met[s][year] = X[scemario]['X'].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'production']
 
+    Critical_met_world[s][year].loc[('World','Sector','Neodymium')] = Critical_met[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Neodymium')].sum()
+    Critical_met_world[s][year].loc[('World','Sector','Dysprosium')] = Critical_met[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Dysprosium')].sum()
+    Critical_met_world[s][year].loc[('World','Sector','Copper ores and concentrates')] = Critical_met[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' ,'Copper ores and concentrates')].sum()
+    Critical_met_world[s][year].loc[('World','Sector','Raw silicon')] = Critical_met[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Raw silicon')].sum()
 
-
-
-
+    Results[s].loc[:,float(year)]= Critical_met_world[s][year].loc[:,'production']
 
     
-#%%  Aggregated database with new sectors to txt
-for year in years:
-    world[year].to_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\e. WIOT\\{year}", flows=True, coefficients=True)
-
+#%%  Export Data
+for s in sens:
+    with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Results_{s}.xlsx") as writer:
+            sheet_name = "Crit_met_world"
+            Results[s].to_excel(writer, sheet_name=sheet_name, index=True)
