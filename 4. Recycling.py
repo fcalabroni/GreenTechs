@@ -19,7 +19,7 @@ Weibull_params =  pd.read_excel(fileParam, "Weibull", index_col=[0,1])
 techs = list(set(Weibull_params.index.get_level_values(0)))
 sens = list(set(Weibull_params.index.get_level_values(1)))
 
-USD_to_EUR = pd.read_excel(fileParam,"USD to EURO", header=0, index_col=None)
+USD_to_EUR = pd.read_excel(fileParam,"USD to EURO", header=0, index_col=0)
 #%% Importing EoL function for Wind and SolarPV
 
 Weib = {}
@@ -79,7 +79,7 @@ for t in techs:
         for i in years[1:]:
             for ii in range(0, (i+1-years[1:][0])):
                 # Check if the key exists in the DataFrame index before accessing it
-                AIC[t][s].loc[0, i] = ((CAP[t].loc[0, i]*1000*Cost[t].loc[0, i]*USD_to_EUR.loc[0, 'EURO/USD']) + EoL[t][s].loc[0, i]) - ((CAP[t].loc[0, i-1]*1000*Cost[t].loc[0, i]*USD_to_EUR.loc[0, 'EURO/USD']))#+ EoL[t][s].loc[0, i-1]) 
+                AIC[t][s].loc[0, i] = ((CAP[t].loc[0, i]*1000*Cost[t].loc[0, i]*USD_to_EUR.loc['EURO/USD', i]) + EoL[t][s].loc[0, i]) - ((CAP[t].loc[0, i-1]*1000*Cost[t].loc[0, i]*USD_to_EUR.loc['EURO/USD', i]))#+ EoL[t][s].loc[0, i-1]) 
                 if AIC[t][s].loc[0,i] < 0:
                     AIC[t][s].loc[0,i] = 0
                 # Check if the key exists in the DataFrame index before accessing it
@@ -133,7 +133,7 @@ RR_met = pd.read_excel(fileParam, "RR", header = 0, index_col = 0)
 #met = list(set(RR_met.columns.get_level_values(0)))
 Inventory_met = pd.read_excel(fileParam, "Inventory_mat", header = 0, index_col = 0)
 
-upgrade = ['b1', 'b2', 'b3']
+upgrade = ['hist', 'target', 'full']
 RE = {
   'Generator Onshore': RE_comp.loc[0,'Generator Onshore'],
   'Generator Offshore': RE_comp.loc[0,'Generator Offshore'],
@@ -332,10 +332,12 @@ ref = [
     'Refinery of Cu in wires of WT and PV',
 ]
 
-a = pd.read_excel(fileParam, "a", header = [0,1], index_col = [0,1])  
- 
+path_Act = f"{pd.read_excel(paths, index_col=[0]).loc['Act',user]}\\Act coeff.xlsx"
+a = pd.read_excel(path_Act,sheet_name='Allocation matrix', index_col=[0,1,2], header=[0,1,2,3])  
+
 a.index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 4 * len(met), met*4])
-a.columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref])
+#a.index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 4 * len(met), met*4])
+#a.columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref])
      
 #%% Calculating coefficient matrix A2
 
@@ -348,7 +350,7 @@ for u in upgrade:
     for c in comp:
         for m in met:
             #A2[s][u][i].loc[m][c] = RE[c] * RR[m][u] *Inv_met[m][c]
-            coeff_rec[u].loc[m,c] = RE[c] * RR[m][u] *Inv_met[m][c]
+            coeff_rec[u].loc[m,c] = - RE[c] * RR[m][u] *Inv_met[m][c]
 A2_EU = {}
 for s in sens:
     A2_EU[s] = {}
@@ -367,12 +369,36 @@ for s in sens:
     for u in upgrade:
         A2[s][u] = {}
         for i in range(2011,2101):
-            A2[s][u][i]= pd.DataFrame(0, index = met*4, columns =  comp)
-            A2[s][u][i] = A2_EU[s][u][i]*a
-            
-            A2[s][u][i].index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 4 * len(met), met*4])
-            A2[s][u][i].columns= pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref])
-            
+            A2[s][u][i] = pd.DataFrame(0, index = met*4, columns = comp)
+            A2[s][u][i] = A2_EU[s][u][i]*a.loc[:,2023]
+
+A2_act = {}
+for s in sens:
+    A2_act[s] = {}
+    for u in upgrade:
+        A2_act[s][u] = {}
+        for i in range(2011,2101):
+            if i in range(2011,2024):                
+                A2_act[s][u][i]= pd.DataFrame(0, index = met*4, columns =  comp)
+                A2_act[s][u][i] = A2_EU[s][u][i]*a.loc[:,2023]
+                
+                #A2[s][u][i].index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 4 * len(met), met*4])
+                #A2[s][u][i].columns= pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref])
+                
+            elif i in range(2024,2031):
+                A2_act[s][u][i]= pd.DataFrame(0, index = met*4, columns =  comp)
+                A2_act[s][u][i] = A2_EU[s][u][i]*a.loc[:,i]
+                
+                #A2[s][u][i].index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 4 * len(met), met*4])
+                #A2[s][u][i].columns= pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref])
+                
+            else:
+                A2_act[s][u][i]= pd.DataFrame(0, index = met*4, columns =  comp)
+                A2_act[s][u][i] = A2_EU[s][u][i]*a.loc[:,2030]
+                
+                #A2[s][u][i].index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 4 * len(met), met*4])
+                #A2[s][u][i].columns= pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref])
+                
 
 #%% Reshaping Dictionary AIC
 Tech_FD = {}
@@ -463,8 +489,14 @@ for s in sens:
                 df.to_excel(writer, sheet_name=sheet_name, index= True)
             
     for u in upgrade:
-        with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['A2',user]}\\A2_{s}_{u}.xlsx") as writer:
+        with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['A2',user]}\\Baseline\\A2_{s}_{u}.xlsx") as writer:
             for key, df in A2[s][u].items():
+                sheet_name = f'{key}'
+                df.to_excel(writer, sheet_name=sheet_name, index= True)
+        
+    for u in upgrade:
+        with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['A2',user]}\\Act\\A2_act_{s}_{u}.xlsx") as writer:
+            for key, df in A2_act[s][u].items():
                 sheet_name = f'{key}'
                 df.to_excel(writer, sheet_name=sheet_name, index= True)
 

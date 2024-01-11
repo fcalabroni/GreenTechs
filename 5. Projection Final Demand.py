@@ -83,7 +83,7 @@ FD_proj[2021] = FD_GDP[2021]*sn[2021]
 
 for i in range(2022,2101):
     FD_GDP[i] = FD_GDP[i-1].groupby(level=[ 0],sort=False, axis=0).sum()*(1+GDP_rate.loc[:,i])
-    FD_proj[i] = FD_GDP[i]*sn[i]
+    FD_proj[i] = FD_GDP[i]*sn[2021] #Sto tenendo lo share costante come quello del 2021 non corretto
     
 regions = FD_proj[i].columns
 for i in years:
