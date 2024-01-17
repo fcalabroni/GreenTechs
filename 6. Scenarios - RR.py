@@ -10,12 +10,6 @@ paths = 'Paths.xlsx'
 
 #%% Parse and SUT to IOT
 
-# world = {}
-
-# for year in years:
-#     world[year] = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\d. Baseline\\2011\\flows", table='SUT', mode="coefficients")
-#     world[year].to_iot(method='B')
-
 WIOT = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\d. Baseline\\2011\\coefficients", table='SUT', mode="coefficients")
 WIOT.to_iot(method='B')
 #%% creating template for waste sectors
@@ -49,10 +43,12 @@ WIOT.add_sectors(io=path_waste_sector, new_sectors= waste_sectors, regions= [WIO
 
 #%% BASELINE with sensitivity on Recycling Rate (Lifetime = Avg, price = Avg)
 fileParam = f"{pd.read_excel(paths, index_col=[0]).loc['fileParam',user]}"
-RR_upgrade =  pd.read_excel(fileParam, "RR", index_col=[0]) #fix
+RR_upgrade =  pd.read_excel(fileParam, "RR", index_col=[0])
+Weibull_params =  pd.read_excel(fileParam, "Weibull", index_col=[0,1])
 sens = list(set(RR_upgrade.index.get_level_values(0)))
 region = 'EU27+UK'
 scenario = ['Baseline','Act']
+techs = list(set(Weibull_params.index.get_level_values(0)))
 
 price_materials = pd.read_excel(fileParam,sheet_name='price materials', index_col=[0], header=[0])
 price = pd.concat([price_materials] * 4, ignore_index= True) #unit of price [USD/kg]
@@ -73,6 +69,19 @@ for s in sens:
     for year in years:
         Critical_met_world_base[s][year] = pd.DataFrame(0, index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]), columns=['production'])
 
+Greentech_base = {}
+for s in sens:
+    Greentech_base[s] = {}
+    for year in years:
+        Greentech_base[s][year] = {}
+
+Greentech_mat_base = {}
+for s in sens:
+    Greentech_mat_base[s] = {}
+    for year in years:
+        Greentech_mat_base[s][year] = pd.DataFrame(0, index= pd.MultiIndex.from_arrays([['EU27+UK']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]),columns = pd.MultiIndex.from_arrays([['EU27+UK']*3,['Sector']*3,['Offshore wind plants','Onshore wind plants','Photovoltaic plants']]))
+
+        
 Results_world_base = {}
 for s in sens:
     Results_world_base[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]), columns = years)
@@ -81,28 +90,31 @@ Results_region_base = {}
 for s in sens:
     Results_region_base[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']*4]), columns = years)
 
-#Useful only for some check 
-z = {}  
+Cumulative_world_base = {}
 for s in sens:
-    z[s] = {}
-    for year in years:
-        z[s][year] = {}
+    Cumulative_world_base[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]), columns = years)
 
-# metrecs = {}
-# for year in years:
-#     metrecs[year] = {}
-      
-# Old = {}  
-# for s in sens:
-#     Old[s] = {}
-#     for year in years:
-#         Old[s][year] = {}
+Cumulative_region_base = {}
+for s in sens:
+    Cumulative_region_base[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']*4]), columns = years)
 
-# Coeff = {}  
+met_rec = {}    
+for s in sens:
+    met_rec[s] = {}
+
+EOL_RIR_base = {}
+for t in techs:
+    EOL_RIR_base[t] = {}
+    for s in sens:
+        EOL_RIR_base[t][s] = pd.DataFrame(0, index = pd.MultiIndex.from_arrays([['EU27+UK']*4, ['Sector']*4, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]), columns = years)
+         
+#Useful only for some checks 
+# z = {}  
 # for s in sens:
-#     Coeff[s] = {}
+#     z[s] = {}
 #     for year in years:
-#         Coeff[s][year] = {}
+#         z[s][year] = {}
+
 for scen in ['Baseline']:   
     for year in years:
         for s in sens:
@@ -112,6 +124,7 @@ for scen in ['Baseline']:
             path_A2 = f"{pd.read_excel(paths, index_col=[0]).loc['A2',user]}\\Baseline\\A2_Avg_{s}.xlsx"
             path_A2_act = f"{pd.read_excel(paths, index_col=[0]).loc['A2',user]}\\Act\\A2_act_Avg_{s}.xlsx"
             path_Act = f"{pd.read_excel(paths, index_col=[0]).loc['Act',user]}\\Act coeff.xlsx"
+            path_rec = f"{pd.read_excel(paths, index_col=[0]).loc['metrec_tech',user]}\\metrec_tech_Avg_{s}_Avg.xlsx"
             
             SG2 = pd.read_excel(path_SG2,sheet_name=str(year),index_col=[0,1,2],header= [0,1,2])
             FD = pd.read_excel(path_FD,sheet_name=str(year), index_col=[0,1,2], header= [0,1,2]) 
@@ -119,7 +132,7 @@ for scen in ['Baseline']:
             A2 = pd.read_excel(path_A2,sheet_name=str(year), index_col=[0,1,2], header=[0,1,2])
             A1_act = pd.read_excel(path_Act,sheet_name='Target consumption', index_col=[0,1,2], header=[0,1,2,3])
             A2_act = pd.read_excel(path_A2_act,sheet_name=str(year), index_col=[0,1,2], header=[0,1,2])
-            #metrecs[year] = metrec
+            met_rec = pd.read_excel(path_rec, sheet_name=str(year),header= [0,1,2], index_col = [0,1,2])
             
             scemario = f"{scen} - {year} - {s}"
             
@@ -142,6 +155,7 @@ for scen in ['Baseline']:
                     print(scemario)
                     
                     X = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
+                    Z = WIOT.get_data(matrices=['Z'],scenarios= scemario, format='dict',units = False, indeces = False)
                     
                 else:
                     WIOT.clone_scenario(scenario=f'{scen} - {year - 1} - {s}',name=scemario)
@@ -154,43 +168,76 @@ for scen in ['Baseline']:
                     Y_new.update(FD)
                     
                     z_new.update(A2)
-                    z[s][year] = z_new
+                    #z[s][year] = z_new
                     WIOT.update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
                     WIOT.reset_to_coefficients(scenario=scemario)
                     print(scemario)
                 
                     X = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
+                    Z = WIOT.get_data(matrices=['Z'],scenarios= scemario, format='dict',units = False, indeces = False)
                 
+                #Critical materials consumption in physical units [ton] for each region for each year
                 Critical_met_base[s][year] = ((X[scemario]['X'].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'production'] * 10**6 )/ (price.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'Avg'] * USD_to_EUR.loc['EURO/USD',year] ))* 10**-3
-            
-                
+                #Consumption of critical materials by green techs divided in country of origin
+                Greentech_base[s][year] = Z[scemario]['Z'].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),('EU27+UK','Sector',['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])] #monetary units [M€]
+                Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),('EU27+UK','Sector','Offshore wind plants')] = ((Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),('EU27+UK','Sector','Offshore wind plants')]* 10**6 )/ (price.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'Avg'] * USD_to_EUR.loc['EURO/USD',year] ))* 10**-3  #physical unit [ton]
+                Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),('EU27+UK','Sector','Onshore wind plants')] = ((Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),('EU27+UK','Sector','Onshore wind plants')]* 10**6 )/ (price.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'Avg'] * USD_to_EUR.loc['EURO/USD',year] ))* 10**-3
+                Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),('EU27+UK','Sector','Photovoltaic plants')] = ((Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),('EU27+UK','Sector','Photovoltaic plants')]* 10**6 )/ (price.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'Avg'] * USD_to_EUR.loc['EURO/USD',year] ))* 10**-3
+                #Consumption of critical materials by green techs without distinction from country of origin
+                Greentech_mat_base[s][year].loc[('EU27+UK','Sector','Neodymium')] = Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Neodymium')].sum()
+                Greentech_mat_base[s][year].loc[('EU27+UK','Sector','Dysprosium')] = Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Dysprosium')].sum()
+                Greentech_mat_base[s][year].loc[('EU27+UK','Sector','Copper ores and concentrates')] = Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Copper ores and concentrates')].sum()
+                Greentech_mat_base[s][year].loc[('EU27+UK','Sector','Raw silicon')] = Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Raw silicon')].sum()
+                #Critical materials consumption in physical units [ton] in the world           
                 Critical_met_world_base[s][year].loc[('World','Sector','Neodymium')] = Critical_met_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Neodymium')].sum()
                 Critical_met_world_base[s][year].loc[('World','Sector','Dysprosium')] = Critical_met_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Dysprosium')].sum()
                 Critical_met_world_base[s][year].loc[('World','Sector','Copper ores and concentrates')] = Critical_met_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' ,'Copper ores and concentrates')].sum()
                 Critical_met_world_base[s][year].loc[('World','Sector','Raw silicon')] = Critical_met_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Raw silicon')].sum()
-            
+                #Reshaping results to export as wanted
                 Results_world_base[s].loc[:,float(year)]= Critical_met_world_base[s][year].loc[:,'production']
             
                 Results_region_base[s].loc[:,float(year)]= Critical_met_base[s][year].loc[:]
-                
+                #Calculation of cumulative consumption of critical materials
+                if year == 2011:
+                    Cumulative_region_base[s].loc[:,float(year)] = Results_region_base[s].loc[:,float(year)]
+                    Cumulative_world_base[s].loc[:,float(year)] = Results_world_base[s].loc[:,float(year)]
+                else:
+                    Cumulative_region_base[s].loc[:,float(year)] = Cumulative_region_base[s].loc[:,float(year - 1)] + Results_region_base[s].loc[:,float(year)]
+                    Cumulative_world_base[s].loc[:,float(year)] = Cumulative_world_base[s].loc[:,float(year - 1)] + Results_world_base[s].loc[:,float(year)]
 
-        
+                #Calculating EoL- RIR Indicator
+                for t in techs:
+                    EOL_RIR_base[t][s].loc[:,year] = met_rec.loc[:,('EU27+UK','Sector',t)]/(Greentech_mat_base[s][year].loc[:,('EU27+UK','Sector',t)])
+                    EOL_RIR_base[t][s] = EOL_RIR_base[t][s].fillna(0)
+                
 #%%  Export Data BASELINE RR sens
 for s in sens:
     with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Baseline\\RR\\Results_world_base_RR_{s}.xlsx") as writer:
-            sheet_name = "Crit_met_world"
+            sheet_name = "Annual production"
             Results_world_base[s].to_excel(writer, sheet_name=sheet_name, index=True)
+            sheet2_name ="Cumulative"            
+            Cumulative_world_base[s].to_excel(writer, sheet_name = sheet2_name,index = True)
             
     with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Baseline\\RR\\Results_region_base_RR_{s}.xlsx") as writer:
-            sheet_name = "Crit_met_world"
+            sheet_name = "Annual production"
             Results_region_base[s].to_excel(writer, sheet_name=sheet_name, index=True)
+            sheet2_name ="Cumulative"            
+            Cumulative_region_base[s].to_excel(writer, sheet_name = sheet2_name,index = True)
+
+for t in techs:
+        with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Baseline\\EoL-RIR\\EoL-RIR_base_{t}.xlsx") as writer:
+            for key, df in EOL_RIR_base[t].items():
+                sheet_name = f'RR_{key}'
+                df.to_excel(writer, sheet_name=sheet_name, index= True)
             
 #%% ACT with sensitivity on Recycling Rate (Weib = Avg, price = Avg)
 fileParam = f"{pd.read_excel(paths, index_col=[0]).loc['fileParam',user]}"
-RR_upgrade =  pd.read_excel(fileParam, "RR", index_col=[0]) #fix
+RR_upgrade =  pd.read_excel(fileParam, "RR", index_col=[0])
+Weibull_params =  pd.read_excel(fileParam, "Weibull", index_col=[0,1])
 sens = list(set(RR_upgrade.index.get_level_values(0)))
 region = 'EU27+UK'
 scenario = ['Baseline','Act']
+techs = list(set(Weibull_params.index.get_level_values(0)))
 
 price_materials = pd.read_excel(fileParam,sheet_name='price materials', index_col=[0], header=[0])
 price = pd.concat([price_materials] * 4, ignore_index= True) #unit of price [USD/kg]
@@ -211,6 +258,18 @@ for s in sens:
     for year in years:
         Critical_met_world_act[s][year] = pd.DataFrame(0, index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]), columns=['production'])
 
+Greentech_act = {}
+for s in sens:
+    Greentech_act[s] = {}
+    for year in years:
+        Greentech_act[s][year] = {}
+
+Greentech_mat_act = {}
+for s in sens:
+    Greentech_mat_act[s] = {}
+    for year in years:
+        Greentech_mat_act[s][year] = pd.DataFrame(0, index= pd.MultiIndex.from_arrays([['EU27+UK']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]),columns = pd.MultiIndex.from_arrays([['EU27+UK']*3,['Sector']*3,['Offshore wind plants','Onshore wind plants','Photovoltaic plants']]))
+
 Results_world_act = {}
 for s in sens:
     Results_world_act[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]), columns = years)
@@ -219,12 +278,30 @@ Results_region_act = {}
 for s in sens:
     Results_region_act[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']*4]), columns = years)
 
-#Useful only for some check 
-z = {}  
+Cumulative_world_act = {}
 for s in sens:
-    z[s] = {}
-    for year in years:
-        z[s][year] = {}
+    Cumulative_world_act[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]), columns = years)
+
+Cumulative_region_act = {}
+for s in sens:
+    Cumulative_region_act[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']*4]), columns = years)
+
+met_rec = {}    
+for s in sens:
+    met_rec[s] = {}
+
+EOL_RIR_act = {}
+for t in techs:
+    EOL_RIR_act[t] = {}
+    for s in sens:
+        EOL_RIR_act[t][s] = pd.DataFrame(0, index = pd.MultiIndex.from_arrays([['EU27+UK']*4, ['Sector']*4, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]), columns = years)
+         
+#Useful only for some check 
+# z = {}  
+# for s in sens:
+#     z[s] = {}
+#     for year in years:
+#         z[s][year] = {}
         
 for scen in ['Act']:   
     for year in years:
@@ -235,6 +312,7 @@ for scen in ['Act']:
             path_A2 = f"{pd.read_excel(paths, index_col=[0]).loc['A2',user]}\\Baseline\\A2_Avg_{s}.xlsx"
             path_A2_act = f"{pd.read_excel(paths, index_col=[0]).loc['A2',user]}\\Act\\A2_act_Avg_{s}.xlsx"
             path_Act = f"{pd.read_excel(paths, index_col=[0]).loc['Act',user]}\\Act coeff.xlsx"
+            path_rec = f"{pd.read_excel(paths, index_col=[0]).loc['metrec_tech',user]}\\metrec_tech_Avg_{s}_Avg.xlsx"
             
             SG2 = pd.read_excel(path_SG2,sheet_name=str(year),index_col=[0,1,2],header= [0,1,2])
             FD = pd.read_excel(path_FD,sheet_name=str(year), index_col=[0,1,2], header= [0,1,2]) 
@@ -242,7 +320,7 @@ for scen in ['Act']:
             A2 = pd.read_excel(path_A2,sheet_name=str(year), index_col=[0,1,2], header=[0,1,2])
             A1_act = pd.read_excel(path_Act,sheet_name='Target consumption', index_col=[0,1,2], header=[0,1,2,3])
             A2_act = pd.read_excel(path_A2_act,sheet_name=str(year), index_col=[0,1,2], header=[0,1,2])
-            #metrecs[year] = metrec
+            met_rec = pd.read_excel(path_rec, sheet_name=str(year),header= [0,1,2], index_col = [0,1,2])
             
             scemario = f"{scen} - {year} - {s}" 
             
@@ -265,6 +343,7 @@ for scen in ['Act']:
                     print(scemario)
                     
                     X = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
+                    Z = WIOT.get_data(matrices=['Z'],scenarios= scemario, format='dict',units = False, indeces = False)
                     
                 elif year == list(range(2012,2024)):
                     WIOT.clone_scenario(scenario=f'{scen} - {year - 1} - {s}',name=scemario)
@@ -277,13 +356,14 @@ for scen in ['Act']:
                     Y_new.update(FD)
                     
                     z_new.update(A2_act)
-                    z[s][year] = z_new
+                    #z[s][year] = z_new
                     WIOT.update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
                     WIOT.reset_to_coefficients(scenario=scemario)
                     print(scemario)
                 
                     X = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
-                
+                    Z = WIOT.get_data(matrices=['Z'],scenarios= scemario, format='dict',units = False, indeces = False)
+                    
                 elif year == list(range(2024,2031)):
                     WIOT.clone_scenario(scenario=f'{scen} - {year - 1} - {s}',name=scemario)
                         
@@ -296,13 +376,13 @@ for scen in ['Act']:
                     
                     z_new.update(A2_act)
                     z_new.update(A1_act.loc[:,year])
-                    z[s][year] = z_new
+                    #z[s][year] = z_new
                     WIOT.update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
                     WIOT.reset_to_coefficients(scenario=scemario)
                     print(scemario)
                 
                     X = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
-            
+                    Z = WIOT.get_data(matrices=['Z'],scenarios= scemario, format='dict',units = False, indeces = False)
                 else:
                     WIOT.clone_scenario(scenario=f'{scen} - {year - 1} - {s}',name=scemario)
                         
@@ -315,15 +395,26 @@ for scen in ['Act']:
                     
                     z_new.update(A2_act)
                     z_new.update(A1_act.loc[:,2030])
-                    z[s][year] = z_new
+                    #z[s][year] = z_new
                     WIOT.update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
                     WIOT.reset_to_coefficients(scenario=scemario)
                     print(scemario)
                 
                     X = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
-                
+                    Z = WIOT.get_data(matrices=['Z'],scenarios= scemario, format='dict',units = False, indeces = False)
+                    
                 Critical_met_act[s][year] = ((X[scemario]['X'].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'production'] * 10**6 )/ (price.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'Avg'] * USD_to_EUR.loc['EURO/USD',year] ))* 10**-3
-            
+                #Consumption of critical materials by green techs divided in country of origin
+                Greentech_act[s][year] = Z[scemario]['Z'].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),('EU27+UK','Sector',['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])] #monetary units [M€]
+                Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),('EU27+UK','Sector','Offshore wind plants')] = ((Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),('EU27+UK','Sector','Offshore wind plants')]* 10**6 )/ (price.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'Avg'] * USD_to_EUR.loc['EURO/USD',year] ))* 10**-3  #physical unit [ton]
+                Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),('EU27+UK','Sector','Onshore wind plants')] = ((Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),('EU27+UK','Sector','Onshore wind plants')]* 10**6 )/ (price.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'Avg'] * USD_to_EUR.loc['EURO/USD',year] ))* 10**-3
+                Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),('EU27+UK','Sector','Photovoltaic plants')] = ((Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),('EU27+UK','Sector','Photovoltaic plants')]* 10**6 )/ (price.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'Avg'] * USD_to_EUR.loc['EURO/USD',year] ))* 10**-3
+                #Consumption of critical materials by green techs without distinction from country of origin
+                Greentech_mat_act[s][year].loc[('EU27+UK','Sector','Neodymium')] = Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Neodymium')].sum()
+                Greentech_mat_act[s][year].loc[('EU27+UK','Sector','Dysprosium')] = Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Dysprosium')].sum()
+                Greentech_mat_act[s][year].loc[('EU27+UK','Sector','Copper ores and concentrates')] = Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Copper ores and concentrates')].sum()
+                Greentech_mat_act[s][year].loc[('EU27+UK','Sector','Raw silicon')] = Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Raw silicon')].sum()
+                             
                 Critical_met_world_act[s][year].loc[('World','Sector','Neodymium')] = Critical_met_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Neodymium')].sum()
                 Critical_met_world_act[s][year].loc[('World','Sector','Dysprosium')] = Critical_met_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Dysprosium')].sum()
                 Critical_met_world_act[s][year].loc[('World','Sector','Copper ores and concentrates')] = Critical_met_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' ,'Copper ores and concentrates')].sum()
@@ -332,124 +423,37 @@ for scen in ['Act']:
                 Results_world_act[s].loc[:,float(year)]= Critical_met_world_act[s][year].loc[:,'production']
             
                 Results_region_act[s].loc[:,float(year)]= Critical_met_act[s][year].loc[:]
-               
-            
+                
+                if year == 2011:
+                    Cumulative_region_act[s].loc[:,float(year)] = Results_region_act[s].loc[:,float(year)]
+                    Cumulative_world_act[s].loc[:,float(year)] = Results_world_act[s].loc[:,float(year)]
+                else:
+                    Cumulative_region_act[s].loc[:,float(year)] = Cumulative_region_act[s].loc[:,float(year - 1)] + Results_region_act[s].loc[:,float(year)]
+                    Cumulative_world_act[s].loc[:,float(year)] = Cumulative_world_act[s].loc[:,float(year - 1)] + Results_world_act[s].loc[:,float(year)]
+                    
+                #Calculating EoL- RIR Indicator
+                for t in techs:
+                    EOL_RIR_act[t][s].loc[:,year] = met_rec.loc[:,('EU27+UK','Sector',t)]/(Greentech_mat_act[s][year].loc[:,('EU27+UK','Sector',t)])
+                    EOL_RIR_act[t][s] = EOL_RIR_act[t][s].fillna(0)
+                    
 #%% Export Data ACT RR sens 
 for s in sens:    
     with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Act\\RR\\Results_world_act_RR_{s}.xlsx") as writer:
-            sheet_name = "Crit_met_world"
-            Results_world_act[s].to_excel(writer, sheet_name=sheet_name, index=True)
+            sheet_name = "Annual production"
+            Results_world_act[s].to_excel(writer, sheet_name=sheet_name, index=True)            
+            sheet2_name ="Cumulative"            
+            Cumulative_world_act[s].to_excel(writer, sheet_name = sheet2_name,index = True)
             
     with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Act\\RR\\Results_region_act_RR_{s}.xlsx") as writer:
-            sheet_name = "Crit_met_world"
+            sheet_name = "Annual production"
             Results_region_act[s].to_excel(writer, sheet_name=sheet_name, index=True)
-
-
-#%% OLD
-# for year in years:
-#     for s in ['Avg']:#sens:
-#         path_SG2 = f"{pd.read_excel(paths, index_col=[0]).loc['SG2',user]}\\SG2_{s}.xlsx"
-#         path_FD = f"{pd.read_excel(paths, index_col=[0]).loc['FD Total',user]}\\FD_total_{s}.xlsx"
-#         path_metrec = f"{pd.read_excel(paths, index_col=[0]).loc['metrec',user]}\\metrec_{s}_b2.xlsx"
-        
-#         SG2 = pd.read_excel(path_SG2,sheet_name=str(year),index_col=[0,1,2],header= [0,1,2])
-#         FD = pd.read_excel(path_FD,sheet_name=str(year), index_col=[0,1,2], header= [0,1,2]) #check indici
-#         metrec = pd.read_excel(path_metrec,sheet_name=str(year), index_col=[0,1,2], header=[0,1,2])
-        
-#         metrecs[year] = metrec
-#         metnat[year] = pd.DataFrame(0, index= metrec.index, columns = metrec.columns )
-#         #for y in SG2:
-#         #for y,matr in FD.items():
-#             #mat.columns = mat.index
-#             #SG2[y] = mat
-#             #FD[y] = matr
-#             #y = int{y}
+            sheet2_name ="Cumulative"            
+            Cumulative_region_act[s].to_excel(writer, sheet_name = sheet2_name,index = True)
             
-#         scemario = f"{year} - {s}"
-#         #world[year].clone_scenario(scenario='baseline',name=scemario)
-#         WIOT.clone_scenario(scenario='baseline',name=scemario)
+for t in techs:
+        with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Act\\EoL-RIR\\EoL-RIR_act_{t}.xlsx") as writer:
+            for key, df in EOL_RIR_act[t].items():
+                sheet_name = f'RR_{key}'
+                df.to_excel(writer, sheet_name=sheet_name, index= True)
         
-#         # z_new = world[year].matrices[scemario]['z']
-#         # z_new.update(SG2[y])
-#         #z_new.loc[(region,'Sector',list(SG2[y].index)),(region,'Sector',list(SG2[y].columns))] = SG2[y].values
-        
-#         z_new = WIOT.matrices[scemario]['z']
-#         z_new.update(SG2)#[year])
-        
-        
-#         # Y_new = world[year].matrices[scemario]['Y']
-#         # Y_new*=0
-#         # Y_new.update(FD[y])
-#         #Y_new.loc[(region,'Sector',list(SwFD[y].index)),(region,'Sector','Gross fixed capital formation')] = SwFD[y].values
-        
-#         Y_new = WIOT.matrices[scemario]['Y']
-#         Y_new*=0
-#         Y_new.update(FD)#[year])
-        
-#         z_new2 = WIOT.matrices[scemario]['z']
-#         if year == 2011:
-#             coeff_rec = pd.DataFrame(0, index= metrec.index, columns = metrec.columns )
-#             #coeff_rec = 0
-#             #coeff_rec.columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref],names=['Region', 'Level', 'Item']) 
-#         else:
-#             coeff_rec = pd.DataFrame(0, index= metrec.index, columns = metrec.columns )
-#             coeff_rec = metrecs[year - 1] @ np.linalg.inv(metnat[year - 1])  #il problema è qua
-#             coeff_rec.columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref],names=['Region', 'Level', 'Item'])
-#             z_new.update(coeff_rec)
-          
-#         #X_new = world[year].matrices[scemario]['X']
-#         X_new = WIOT.matrices[scemario]['X'] 
-#         metnat[year] =np.diag(X_new.loc[('EU27+UK', 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'production'])
-#         #metnat[year] =np.diag(WIOT['{year} - {s}']['X'].loc[('EU27+UK', 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'production'])
-#         WIOT.update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
-#         WIOT.reset_to_coefficients(scenario=scemario)
-#         # world[year].update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
-#         # world[year].reset_to_coefficients(scenario=scemario)
-#         #WIOT.to_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\e. WIOT\\{year}", flows=True, coefficients=True)
-#         print(scemario)
 
-
-# if year == 2011:
-#     WIOT.clone_scenario(scenario='baseline',name=scemario)
-    
-#     z_new = WIOT.matrices[scemario]['z']
-#     z_new.update(SG2)
-    
-#     Y_new = WIOT.matrices[scemario]['Y']
-#     Y_new*=0
-#     Y_new.update(FD)
-    
-#     WIOT.update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
-#     WIOT.reset_to_coefficients(scenario=scemario)
-#     print(scemario)
-    
-#     X = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
-    
-# else:
-#     WIOT.clone_scenario(scenario=f'{year - 1} - {s}',name=scemario)
-        
-#     z_new = WIOT.matrices[scemario]['z']
-#     z_new.update(SG2)
-    
-#     Y_new = WIOT.matrices[scemario]['Y']
-#     Y_new*=0
-#     Y_new.update(FD)
-    
-#     X_old = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
-#     Old[s][year] = X_old[scemario]['X']
-#     metnat_data = X_old[scemario]['X'].loc[('EU27+UK', 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'production']
-#     metnat = np.diag(metnat_data)
-
-#     coeff_rec = pd.DataFrame(0, index= metrec.index, columns = metrec.columns )
-#     coeff_rec = metrecs[year - 1] @ np.linalg.inv(metnat)  
-#     coeff_rec.columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref],names=['Region', 'Level', 'Item'])
-#     Coeff[s][year] = coeff_rec
-#     z_new.update(coeff_rec)
-#     z[s][year] = z_new
-#     WIOT.update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
-#     WIOT.reset_to_coefficients(scenario=scemario)
-#     print(scemario)
-
-#     X = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
-
-# Critical_met[s][year] = X[scemario]['X'].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'production']

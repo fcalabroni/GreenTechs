@@ -81,6 +81,14 @@ Results_region_base = {}
 for s in sens:
     Results_region_base[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']*4]), columns = years)
 
+Cumulative_world_base = {}
+for s in sens:
+    Cumulative_world_base[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]), columns = years)
+
+Cumulative_region_base = {}
+for s in sens:
+    Cumulative_region_base[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']*4]), columns = years)
+
 #Useful only for some check 
 z = {}  
 for s in sens:
@@ -175,18 +183,26 @@ for scen in ['Baseline']:
                 Results_world_base[s] =Results_world_base[s]
                 Results_region_base[s].loc[:,float(year)]= Critical_met_base[s][year].loc[:]
                 
-
+                if year == 2011:
+                    Cumulative_region_base[s].loc[:,float(year)] = Results_region_base[s].loc[:,float(year)]
+                    Cumulative_world_base[s].loc[:,float(year)] = Results_world_base[s].loc[:,float(year)]
+                else:
+                    Cumulative_region_base[s].loc[:,float(year)] = Cumulative_region_base[s].loc[:,float(year - 1)] + Results_region_base[s].loc[:,float(year)]
+                    Cumulative_world_base[s].loc[:,float(year)] = Cumulative_world_base[s].loc[:,float(year - 1)] + Results_world_base[s].loc[:,float(year)]
         
 #%%  Export Data BASELINE Lifetime sens
 for s in sens:
     with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Baseline\\Lifetime\\Results_world_base_life_{s}.xlsx") as writer:
-            sheet_name = "Crit_met_world"
+            sheet_name = "Annual production"
             Results_world_base[s].to_excel(writer, sheet_name=sheet_name, index=True)
-            
+            sheet2_name ="Cumulative"            
+            Cumulative_world_base[s].to_excel(writer, sheet_name = sheet2_name,index = True)
     with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Baseline\\Lifetime\\Results_region_base_life_{s}.xlsx") as writer:
-            sheet_name = "Crit_met_world"
+            sheet_name = "Annual production"
             Results_region_base[s].to_excel(writer, sheet_name=sheet_name, index=True)
-            
+            sheet2_name ="Cumulative"            
+            Cumulative_region_base[s].to_excel(writer, sheet_name = sheet2_name,index = True)
+
 #%% ACT with sensitivity on Weibull distribution (RR = target, price = Avg)
 fileParam = f"{pd.read_excel(paths, index_col=[0]).loc['fileParam',user]}"
 Weibull_params =  pd.read_excel(fileParam, "Weibull", index_col=[0,1])
@@ -220,6 +236,14 @@ for s in sens:
 Results_region_act = {}
 for s in sens:
     Results_region_act[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']*4]), columns = years)
+
+Cumulative_world_act = {}
+for s in sens:
+    Cumulative_world_act[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]), columns = years)
+
+Cumulative_region_act = {}
+for s in sens:
+    Cumulative_region_act[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']*4]), columns = years)
 
 #Useful only for some check 
 z = {}  
@@ -335,17 +359,26 @@ for scen in ['Act']:
             
                 Results_region_act[s].loc[:,float(year)]= Critical_met_act[s][year].loc[:]
                
+                if year == 2011:
+                    Cumulative_region_act[s].loc[:,float(year)] = Results_region_act[s].loc[:,float(year)]
+                    Cumulative_world_act[s].loc[:,float(year)] = Results_world_act[s].loc[:,float(year)]
+                else:
+                    Cumulative_region_act[s].loc[:,float(year)] = Cumulative_region_act[s].loc[:,float(year - 1)] + Results_region_act[s].loc[:,float(year)]
+                    Cumulative_world_act[s].loc[:,float(year)] = Cumulative_world_act[s].loc[:,float(year - 1)] + Results_world_act[s].loc[:,float(year)]
+        
             
 #%% Export Data ACT Lifetime sens 
 for s in sens:   
     with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Act\\Lifetime\\Results_world_act_life_{s}.xlsx") as writer:
-            sheet_name = "Crit_met_world"
-            Results_world_act[s].to_excel(writer, sheet_name=sheet_name, index=True)
-            
+            sheet_name = "Annual production"
+            Results_world_act[s].to_excel(writer, sheet_name=sheet_name, index=True)            
+            sheet2_name ="Cumulative"            
+            Cumulative_world_act[s].to_excel(writer, sheet_name = sheet2_name,index = True)
     with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Act\\Lifetime\\Results_region_act_life_{s}.xlsx") as writer:
-            sheet_name = "Crit_met_world"
+            sheet_name = "Annual production"
             Results_region_act[s].to_excel(writer, sheet_name=sheet_name, index=True)
-
+            sheet2_name ="Cumulative"            
+            Cumulative_region_act[s].to_excel(writer, sheet_name = sheet2_name,index = True)
 
 #%% OLD
 # for year in years:

@@ -4,7 +4,6 @@ import numpy as np
 
 user = "MBV"
 sN = slice(None)
-years = 2011
 
 paths = 'Paths.xlsx'
 
@@ -122,7 +121,7 @@ for t in techs:
 for t in techs:
     for c in comp:
         for s in sens:
-            scraps[t][c][s] = EoL[t][s] * DR[t] * CR[t] * Inv_comp[c][t]
+            scraps[t][c][s] = EoL[t][s] * DR[t]  * Inv_comp[c][t]
 
 #%% Estimation of recycled materials
 met = ['Neodymium', 'Dysprosium', 'Copper ores and concentrates', 'Raw silicon']
@@ -176,7 +175,7 @@ for t in techs:
  
             
 #%% Estimation of recycled materials pt2
-met_sum = {}  # Dizionario per la somma del rame
+met_sum = {}  # Dizionario per la somma del materiale
 
 for m in met:
     met_sum[m] = {}  # Dizionario per ogni m
@@ -187,7 +186,7 @@ for m in met:
             for t in techs:
                 for c in comp:
                     met_sum[m][s][u] += met_recycled_specific[t][s][c][m][u]
-
+                    
 #%% Estimation of residues
 residues = ['z_dis_WT','z_dis_PV','z_ref_OnGen','z_ref_OffGen','z_ref_Panel', 'z_ref_Wires']
 
@@ -339,7 +338,7 @@ a.index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+U
 #a.index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 4 * len(met), met*4])
 #a.columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref])
      
-#%% Calculating coefficient matrix A2
+#%% Calculating coefficient matrix A2 for both Baseline and Act scenario
 
 coeff_rec = {}
 for u in upgrade:
@@ -482,12 +481,16 @@ for s in sens:
                 sheet_name = f'{key}'
                 df.to_excel(writer, sheet_name=sheet_name, index= True)
     
+    # for u in upgrade:
+    #     with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['metrec',user]}\\metrec_{s}_{u}.xlsx") as writer:
+    #         for key, df in met_rec_comp[s][u].items():
+    #             sheet_name = f'{key}'
+    #             df.to_excel(writer, sheet_name=sheet_name, index= True)
     for u in upgrade:
         with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['metrec',user]}\\metrec_{s}_{u}.xlsx") as writer:
-            for key, df in met_rec_comp[s][u].items():
+            for key, df in met_sum[m][s][u].items():
                 sheet_name = f'{key}'
-                df.to_excel(writer, sheet_name=sheet_name, index= True)
-            
+                df.to_excel(writer, sheet_name=sheet_name, index= True)        
     for u in upgrade:
         with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['A2',user]}\\Baseline\\A2_{s}_{u}.xlsx") as writer:
             for key, df in A2[s][u].items():
@@ -499,6 +502,90 @@ for s in sens:
             for key, df in A2_act[s][u].items():
                 sheet_name = f'{key}'
                 df.to_excel(writer, sheet_name=sheet_name, index= True)
+
+
+#%% Materials recycled in physical units [tons] (questo probabilmente si può ricavare direttamente da X2 una volta che è stato runnato lo scenario desiderato)
+price = pd.read_excel(fileParam,sheet_name='price materials', index_col=[0], header=[0])
+price.index = pd.MultiIndex.from_arrays([['EU27+UK']*4, ['Sector']*4, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']])
+
+USD_to_EUR = pd.read_excel(fileParam,"USD to EURO", header=0, index_col=0)
+
+met_rec_mon = {} #unit M€
+for s in sens:
+    met_rec_mon[s] = {}
+    for u in upgrade:
+        met_rec_mon[s][u] = {}
+        for i in years:
+            met_rec_mon[s][u][i] = pd.DataFrame(0, index=['Recycled'],columns = met)
+            met_rec_mon[s][u][i] = -met_rec_comp[s][u][i].sum(axis =1)
+            
+met_rec = {}    #conversion in tons
+for s in sens:
+    met_rec[s] = {}
+    for u in upgrade:
+        met_rec[s][u] = {}
+        for p in sens:
+            met_rec[s][u][p] = {}
+            for i in years:
+                met_rec[s][u][p][i] = {}
+                met_rec[s][u][p][i] = ((met_rec_mon[s][u][i]* 10**6)/(price.loc[:,p] * USD_to_EUR.loc['EURO/USD',i] ))* 10**-3
+                                         
+            
+for s in sens:
+    for u in upgrade:
+        for p in price:
+            with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['metrec',user]}\\metrec_{s}_{u}_{p}.xlsx") as writer:
+                for key, df in met_rec[s][u][p].items():
+                    sheet_name = f'{key}'
+                    df.to_excel(writer, sheet_name=sheet_name, index= True)
+                    
+#%% Material recycled in each tecnology in physical units [tons]
+price = pd.read_excel(fileParam,sheet_name='price materials', index_col=[0], header=[0])
+#price.index = pd.MultiIndex.from_arrays([['EU27+UK']*4, ['Sector']*4, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']])
+
+USD_to_EUR = pd.read_excel(fileParam,"USD to EURO", header=0, index_col=0)
+
+met_rec_tech_mon = {}
+for s in sens:
+    met_rec_tech_mon[s] = {}
+    for u in upgrade:
+        met_rec_tech_mon[s][u] = {}
+        for i in years:
+            met_rec_tech_mon[s][u][i] = pd.DataFrame(0, index= met ,columns = techs)
+            
+                
+for s in sens:
+    for u in upgrade:
+        for c in comp:
+            for i in years:
+                for t in techs:
+                    for m in met:
+                        met_rec_tech_mon[s][u][i].loc[m,t] += met_recycled_specific[t][s][c][m][u].loc[0,i]
+
+
+met_rec_tech = {}    #conversion in tons
+for s in sens:
+    met_rec_tech[s] = {}
+    for u in upgrade:
+        met_rec_tech[s][u] = {}
+        for p in sens:
+            met_rec_tech[s][u][p] = {}
+            for i in years:
+                met_rec_tech[s][u][p][i] = pd.DataFrame(0, index = met, columns= techs)                
+                met_rec_tech[s][u][p][i].loc[:,'Photovoltaic plants'] = ((met_rec_tech_mon[s][u][i].loc[:,'Photovoltaic plants']* 10**6)/(price.loc[:,p] * USD_to_EUR.loc['EURO/USD',i] ))* 10**-3
+                met_rec_tech[s][u][p][i].loc[:,'Offshore wind plants'] = ((met_rec_tech_mon[s][u][i].loc[:,'Offshore wind plants']* 10**6)/(price.loc[:,p] * USD_to_EUR.loc['EURO/USD',i] ))* 10**-3
+                met_rec_tech[s][u][p][i].loc[:,'Onshore wind plants'] = ((met_rec_tech_mon[s][u][i].loc[:,'Onshore wind plants']* 10**6)/(price.loc[:,p] * USD_to_EUR.loc['EURO/USD',i] ))* 10**-3
+                met_rec_tech[s][u][p][i].index = pd.MultiIndex.from_arrays([['EU27+UK']*4, ['Sector']*4, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']])                               
+                met_rec_tech[s][u][p][i].columns = pd.MultiIndex.from_arrays([['EU27+UK']*3, ['Sector']*3, ['Photovoltaic plants','Offshore wind plants', 'Onshore wind plants']])                               
+
+for s in sens:
+    for u in upgrade:
+        for p in price:
+            with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['metrec_tech',user]}\\metrec_tech_{s}_{u}_{p}.xlsx") as writer:
+                for key, df in met_rec_tech[s][u][p].items():
+                    sheet_name = f'{key}'
+                    df.to_excel(writer, sheet_name=sheet_name, index= True)
+
 
 
 
