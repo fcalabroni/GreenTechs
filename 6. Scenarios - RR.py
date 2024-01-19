@@ -107,7 +107,12 @@ for t in techs:
     EOL_RIR_base[t] = {}
     for s in sens:
         EOL_RIR_base[t][s] = pd.DataFrame(0, index = pd.MultiIndex.from_arrays([['EU27+UK']*4, ['Sector']*4, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]), columns = years)
-         
+
+Z_Cu = {}
+for s in sens:
+    Z_Cu[s] = {}    
+    for year in years:
+        Z_Cu[s][year]= {}
 #Useful only for some checks 
 # z = {}  
 # for s in sens:
@@ -156,7 +161,7 @@ for scen in ['Baseline']:
                     
                     X = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
                     Z = WIOT.get_data(matrices=['Z'],scenarios= scemario, format='dict',units = False, indeces = False)
-                    
+                    Y = WIOT.get_data(matrices=['Y'],scenarios=scemario,format='dict',units = False, indeces = False)
                 else:
                     WIOT.clone_scenario(scenario=f'{scen} - {year - 1} - {s}',name=scemario)
                         
@@ -176,6 +181,7 @@ for scen in ['Baseline']:
                     X = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
                     Z = WIOT.get_data(matrices=['Z'],scenarios= scemario, format='dict',units = False, indeces = False)
                 
+                Z_Cu[s][year] = Z[scemario]['Z'].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Copper ores and concentrates'),:]
                 #Critical materials consumption in physical units [ton] for each region for each year
                 Critical_met_base[s][year] = ((X[scemario]['X'].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'production'] * 10**6 )/ (price.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'Avg'] * USD_to_EUR.loc['EURO/USD',year] ))* 10**-3
                 #Consumption of critical materials by green techs divided in country of origin

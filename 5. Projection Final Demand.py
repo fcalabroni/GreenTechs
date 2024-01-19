@@ -58,46 +58,69 @@ rn = pd.DataFrame(rn, index=Rn.index, columns = Rn.columns)
 
          
             
-FD_elastic = {}
-sn = {}
+# FD_elastic = {}
+# sn = {}
+# fileGDP = f"{pd.read_excel(paths, index_col=[0]).loc['GDP projections',user]}"
+# GDP_rate = pd.read_excel(fileGDP,'GDP rate',header=0,index_col=0)
+# for i in years:
+#     FD_elastic[i] = 0
+#     sn[i] = 0
+    
+# FD_elastic[2021] = FD[2020] * rn
+# for i in years:
+#     FD_elastic[i+1] = FD_elastic[i] * rn
+#     sn[i] = FD_elastic[i]/FD_elastic[i].sum(axis=0)
+    
+# FD_GDP = {}
+# FD_proj = {}
+
+# for i in years:
+#     FD_GDP[i] = 0
+#     FD_proj[i] = 0
+    
+# FD_GDP[2021] = FD[2020].sum(axis=0)*(1+GDP_rate.loc[:,2021])
+# FD_proj[2021] = FD_GDP[2021]*sn[2021]
+
+# for i in range(2022,2101):
+#     FD_GDP[i] = FD_GDP[i-1].groupby(level=[ 0],sort=False, axis=0).sum()*(1+GDP_rate.loc[:,i])
+#     FD_proj[i] = FD_GDP[i]*sn[2021] #Sto tenendo lo share costante come quello del 2021 non corretto
+    
+# regions = FD_proj[i].columns
+# for i in years:
+
+#     # Add indices to FD_proj[i]
+#     FD_proj[i].index = pd.MultiIndex.from_arrays([Rn.index.get_level_values(0), Rn.index.get_level_values(1), Rn.index.get_level_values(2)], names=['Region', 'Level', 'Item']    )     
+#     FD_proj[i].columns = pd.MultiIndex.from_arrays([regions,['Consumption category'] * len(regions), ['Final consumption expenditure by households'] * len(regions)], names=['Region', 'Level', 'Item']) 
+
+# for i in history:
+#     FD[i].index = pd.MultiIndex.from_arrays([Rn.index.get_level_values(0), Rn.index.get_level_values(1), Rn.index.get_level_values(2)], names=['Region', 'Level', 'Item']    )     
+#     FD[i].columns = pd.MultiIndex.from_arrays([regions,['Consumption category'] * len(regions), ['Final consumption expenditure by households'] * len(regions)], names=['Region', 'Level', 'Item'])       
+    
+
+#%% Projecting FD with GDP rate 
 fileGDP = f"{pd.read_excel(paths, index_col=[0]).loc['GDP projections',user]}"
 GDP_rate = pd.read_excel(fileGDP,'GDP rate',header=0,index_col=0)
+
+GDP = {}
 for i in years:
-    FD_elastic[i] = 0
-    sn[i] = 0
+    GDP[i] = pd.DataFrame(0,index= FD[2020].index, columns = FD[2020].columns)
+    GDP[i].loc[:,'EU27+UK'] = GDP_rate.loc['EU27+UK', i]
+    GDP[i].loc[:,'China'] = GDP_rate.loc['China', i]
+    GDP[i].loc[:,'USA'] = GDP_rate.loc['USA', i]
+    GDP[i].loc[:,'RoW'] = GDP_rate.loc['RoW', i]
     
-FD_elastic[2021] = FD[2020] * rn
-for i in years:
-    FD_elastic[i+1] = FD_elastic[i] * rn
-    sn[i] = FD_elastic[i]/FD_elastic[i].sum(axis=0)
-    
-FD_GDP = {}
 FD_proj = {}
+for i in years:
+    FD_proj[i] = pd.DataFrame(0,index= FD[2020].index, columns = FD[2020].columns)
 
 for i in years:
-    FD_GDP[i] = 0
-    FD_proj[i] = 0
-    
-FD_GDP[2021] = FD[2020].sum(axis=0)*(1+GDP_rate.loc[:,2021])
-FD_proj[2021] = FD_GDP[2021]*sn[2021]
-
-for i in range(2022,2101):
-    FD_GDP[i] = FD_GDP[i-1].groupby(level=[ 0],sort=False, axis=0).sum()*(1+GDP_rate.loc[:,i])
-    FD_proj[i] = FD_GDP[i]*sn[2021] #Sto tenendo lo share costante come quello del 2021 non corretto
-    
-regions = FD_proj[i].columns
-for i in years:
-
-    # Add indices to FD_proj[i]
-    FD_proj[i].index = pd.MultiIndex.from_arrays([Rn.index.get_level_values(0), Rn.index.get_level_values(1), Rn.index.get_level_values(2)], names=['Region', 'Level', 'Item']    )     
-    FD_proj[i].columns = pd.MultiIndex.from_arrays([regions,['Consumption category'] * len(regions), ['Final consumption expenditure by households'] * len(regions)], names=['Region', 'Level', 'Item']) 
-
-for i in history:
-    FD[i].index = pd.MultiIndex.from_arrays([Rn.index.get_level_values(0), Rn.index.get_level_values(1), Rn.index.get_level_values(2)], names=['Region', 'Level', 'Item']    )     
-    FD[i].columns = pd.MultiIndex.from_arrays([regions,['Consumption category'] * len(regions), ['Final consumption expenditure by households'] * len(regions)], names=['Region', 'Level', 'Item'])       
-    
-
-
+    if i == 2021:
+        FD_proj[i] = FD[2020]*(1+GDP[i])
+        
+    else:
+        FD_proj[i] = FD_proj[i-1]*(1+GDP[i])
+        
+sn = FD_proj[2100]/FD_proj[2100].sum(axis=0)
 #%% Building the FD useful for the Database 
 fileProjection = f"{pd.read_excel(paths, index_col=[0]).loc['Projections',user]}"
 with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Projections',user]}\\Projections.xlsx") as writer:
@@ -111,84 +134,6 @@ with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Projections',use
         sheet_name = f'{key}'
         df.to_excel(writer, sheet_name=sheet_name, index=True)
 
-#%% Merging projected FD in one file Excel
-
-# output_folder = pd.read_excel(paths, index_col=[0]).loc['Merged FD', user]
-# file_type = 'xlsx'
-
-# for s in sens:
-#     file_swfd = f"{pd.read_excel(paths, index_col=[0]).loc['SwFD', user]}\\SwFD_{s}.{file_type}"
-#     file_aic = f"{pd.read_excel(paths, index_col=[0]).loc['AIC', user]}\\AIC_{s}.{file_type}"
-#     file_projection = f"{pd.read_excel(paths, index_col=[0]).loc['Projections', user]}\\Projections.{file_type}"
-
-#     merged_dfs = {}
-#     for year in years:
-#         df_swfd = pd.read_excel(file_swfd, sheet_name=str(year))
-#         df_aic = pd.read_excel(file_aic, sheet_name=str(year))
-#         df_projection = pd.read_excel(file_projection, sheet_name=str(year))
-
-#         dfs_for_year_proj = [df_projection, df_swfd, df_aic]
-#         merged_dfs[year] = pd.concat(dfs_for_year_proj, axis=0)
-#         #merged_dfs[year].index = pd.MultiIndex.from_arrays([['EU27+UK'] * 671, ['Sector'] * 671, merged_dfs[2021].index], names=['Region', 'Level', 'Item']    )
-#         #merged_dfs[year].columns = pd.MultiIndex.from_arrays([regions,['Consumption category'] * len(regions), ['Final consumption expenditure by households'] * len(regions)], names=['Region', 'Level', 'Item'])
-#     output_file_proj = os.path.join(output_folder, f"FD_proj_merged_{s}.{file_type}")
-#     with pd.ExcelWriter(output_file_proj) as writer:
-#         for year, merged_df in merged_dfs.items():
-#             merged_df.to_excel(writer, sheet_name=str(year), index=False)
-
-
-# #%% Merging historical FD in one file Excel
-
-# output_folder_history = pd.read_excel(paths, index_col=[0]).loc['Historical FD', user]
-
-# for s in sens: 
-#     file_historic = f"{pd.read_excel(paths, index_col=[0]).loc['History', user]}\\Historical_FD.{file_type}"
-
-#     merged_dfs_history = {}
-#     for year_historic in range(2011, 2021):
-#         df_swfd = pd.read_excel(file_swfd, sheet_name=str(year_historic))
-#         df_aic = pd.read_excel(file_aic, sheet_name=str(year_historic))
-#         df_history = pd.read_excel(file_historic, sheet_name=str(year_historic))
-
-#         dfs_for_year_history = [df_history, df_swfd, df_aic]
-#         merged_dfs_history[year_historic] = pd.concat(dfs_for_year_history, axis=0)
-        
-#     output_file_history = os.path.join(output_folder_history, f"FD_historic_merged_{s}.{file_type}")
-#     with pd.ExcelWriter(output_file_history) as writer_hist:
-#         for year_hist, merged_df_history in merged_dfs_history.items():
-#             merged_df_history.to_excel(writer_hist, sheet_name=str(year_hist), index=False)
-
-# #%%
-# output_folder_total = pd.read_excel(paths, index_col=[0]).loc['FD Total', user]
-# file_type = 'xlsx'
-
-# for s in sens:
-#     file_swfd = f"{pd.read_excel(paths, index_col=[0]).loc['SwFD', user]}\\SwFD_{s}.{file_type}"
-#     file_aic = f"{pd.read_excel(paths, index_col=[0]).loc['AIC', user]}\\AIC_{s}.{file_type}"
-#     file_projection = f"{pd.read_excel(paths, index_col=[0]).loc['Projections', user]}\\Projections.{file_type}"
-#     file_historic = f"{pd.read_excel(paths, index_col=[0]).loc['History', user]}\\Historical_FD.{file_type}"
-    
-#     merged_dfs_total = {}
-#     for year in range(2011, 2101):
-#         if year <= 2020:
-#             df_swfd = pd.read_excel(file_swfd, sheet_name=str(year))
-#             df_aic = pd.read_excel(file_aic, sheet_name=str(year))
-#             df_history = pd.read_excel(file_historic, sheet_name=str(year))
-            
-#             dfs_for_year_history = [df_history, df_swfd, df_aic]
-#             merged_dfs_total = pd.concat(dfs_for_year_history, axis=0)
-#         else:
-#             df_swfd = pd.read_excel(file_swfd, sheet_name=str(year))
-#             df_aic = pd.read_excel(file_aic, sheet_name=str(year))
-#             df_projection = pd.read_excel(file_projection, sheet_name=str(year))
-
-#             dfs_for_year_proj = [df_projection, df_swfd, df_aic]
-#             merged_dfs_total = pd.concat(dfs_for_year_proj, axis=0)
-    
-#     output_file_total = os.path.join(output_folder_total, f"FD_total_{s}.{file_type}")
-#     with pd.ExcelWriter(output_file_total) as writer_total:
-#         for year_tot,merged_df_total in merged_dfs_total.items():
-#             merged_dfs_total.to_excel(writer_total, sheet_name=str(year), index=False)
 
 
 #%% Exporting FD total
