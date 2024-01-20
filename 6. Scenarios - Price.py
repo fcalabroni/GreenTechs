@@ -54,7 +54,7 @@ scenario = ['Baseline','Act']
 
 price_materials = pd.read_excel(fileParam,sheet_name='price materials', index_col=[0], header=[0])
 price = pd.concat([price_materials] * 4, ignore_index= True) #unit of price [USD/kg]
-price.index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']*4])
+price.index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']*4])
 
 USD_to_EUR = pd.read_excel(fileParam,"USD to EURO", header=0, index_col=0)
 
@@ -71,23 +71,23 @@ Critical_met_world_base = {}
 for s in sens:
     Critical_met_world_base[s] = {}
     for year in years:
-        Critical_met_world_base[s][year] = pd.DataFrame(0, index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]), columns=['production'])
+        Critical_met_world_base[s][year] = pd.DataFrame(0, index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']]), columns=['production'])
 
 Results_world_base = {}
 for s in sens:
-    Results_world_base[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]), columns = years)
+    Results_world_base[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']]), columns = years)
 
 Results_region_base = {}
 for s in sens:
-    Results_region_base[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']*4]), columns = years)
+    Results_region_base[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']*4]), columns = years)
 
 Cumulative_world_base = {}
 for s in sens:
-    Cumulative_world_base[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]), columns = years)
+    Cumulative_world_base[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']]), columns = years)
 
 Cumulative_region_base = {}
 for s in sens:
-    Cumulative_region_base[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']*4]), columns = years)
+    Cumulative_region_base[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']*4]), columns = years)
 
 #Useful only for some check 
 z = {}  
@@ -170,11 +170,11 @@ for scen in ['Baseline']:
                 
                     X = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
                 
-                Critical_met_base[s][year] = ((X[scemario]['X'].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'production'] * 10**6 )/ (price.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),s] * USD_to_EUR.loc['EURO/USD',year] ))* 10**-3
+                Critical_met_base[s][year] = ((X[scemario]['X'].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']),'production'] * 10**6 )/ (price.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']),s] * USD_to_EUR.loc['EURO/USD',year] ))* 10**-3
             
                 Critical_met_world_base[s][year].loc[('World','Sector','Neodymium')] = Critical_met_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Neodymium')].sum()
                 Critical_met_world_base[s][year].loc[('World','Sector','Dysprosium')] = Critical_met_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Dysprosium')].sum()
-                Critical_met_world_base[s][year].loc[('World','Sector','Copper ores and concentrates')] = Critical_met_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' ,'Copper ores and concentrates')].sum()
+                Critical_met_world_base[s][year].loc[('World','Sector','Copper')] = Critical_met_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' ,'Copper')].sum()
                 Critical_met_world_base[s][year].loc[('World','Sector','Raw silicon')] = Critical_met_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Raw silicon')].sum()
             
                 Results_world_base[s].loc[:,float(year)]= Critical_met_world_base[s][year].loc[:,'production']
@@ -209,7 +209,7 @@ scenario = ['Baseline','Act']
 
 price_materials = pd.read_excel(fileParam,sheet_name='price materials', index_col=[0], header=[0])
 price = pd.concat([price_materials] * 4, ignore_index= True) #unit of price [USD/kg]
-price.index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']*4])
+price.index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']*4])
 
 USD_to_EUR = pd.read_excel(fileParam,"USD to EURO", header=0, index_col=0)
 
@@ -226,23 +226,23 @@ Critical_met_world_act = {}
 for s in sens:
     Critical_met_world_act[s] = {}
     for year in years:
-        Critical_met_world_act[s][year] = pd.DataFrame(0, index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]), columns=['production'])
+        Critical_met_world_act[s][year] = pd.DataFrame(0, index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']]), columns=['production'])
 
 Results_world_act = {}
 for s in sens:
-    Results_world_act[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]), columns = years)
+    Results_world_act[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']]), columns = years)
 
 Results_region_act = {}
 for s in sens:
-    Results_region_act[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']*4]), columns = years)
+    Results_region_act[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']*4]), columns = years)
 
 Cumulative_world_act = {}
 for s in sens:
-    Cumulative_world_act[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']]), columns = years)
+    Cumulative_world_act[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['World']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']]), columns = years)
 
 Cumulative_region_act = {}
 for s in sens:
-    Cumulative_region_act[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']*4]), columns = years)
+    Cumulative_region_act[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']*4]), columns = years)
 
 #Useful only for some check 
 z = {}  
@@ -347,11 +347,11 @@ for scen in ['Act']:
                 
                     X = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
                 
-                Critical_met_act[s][year] = ((X[scemario]['X'].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'production'] * 10**6 )/ (price.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),s] * USD_to_EUR.loc['EURO/USD',year] ))* 10**-3
+                Critical_met_act[s][year] = ((X[scemario]['X'].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']),'production'] * 10**6 )/ (price.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']),s] * USD_to_EUR.loc['EURO/USD',year] ))* 10**-3
             
                 Critical_met_world_act[s][year].loc[('World','Sector','Neodymium')] = Critical_met_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Neodymium')].sum()
                 Critical_met_world_act[s][year].loc[('World','Sector','Dysprosium')] = Critical_met_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Dysprosium')].sum()
-                Critical_met_world_act[s][year].loc[('World','Sector','Copper ores and concentrates')] = Critical_met_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' ,'Copper ores and concentrates')].sum()
+                Critical_met_world_act[s][year].loc[('World','Sector','Copper')] = Critical_met_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' ,'Copper')].sum()
                 Critical_met_world_act[s][year].loc[('World','Sector','Raw silicon')] = Critical_met_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Raw silicon')].sum()
             
                 Results_world_act[s].loc[:,float(year)]= Critical_met_world_act[s][year].loc[:,'production']

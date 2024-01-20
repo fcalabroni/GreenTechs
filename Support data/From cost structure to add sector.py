@@ -1,7 +1,7 @@
 #%%
 import pandas as pd
 
-user = 'CF'
+user = 'MBV'
 
 # Create a dictionary with the name of tech and level file with key equal to something.xlsx, column_pos equale to 0 and PV, onshore_wind and offshore_wind as keys
 
@@ -98,6 +98,7 @@ path = {
     'NG': r'C:\Users\nicog\Desktop\Nicolò\GitHub\GreenTechs',
     'LR': r'C:\Users\loren\Documents\GitHub\MARIO Organization\GreenTechs',
     'CF': r'C:\Users\carol\Desktop\UNI\MAGISTRALE\TESI\GitHub\GreenTechs',
+    'MBV': r'C:\Users\matti\OneDrive - Politecnico di Milano\Documenti\GitHub\GreenTechs',
     }
 
 

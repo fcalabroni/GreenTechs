@@ -6,7 +6,7 @@ import numpy as np
 from openpyxl import load_workbook
 import os
 
-user = "CF"
+user = "MBV"
 sN = slice(None)
 years = range(2011,2012)
 
@@ -66,7 +66,7 @@ for year in years:
 
 #%% Shocked database to txt as Baseline
 for year in years:
-    world[year].to_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\c. CRMs\\{year}", scenario="CRMs", flows=True, coefficients=True)
+    world[year].to_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\c. CRMs\\{year}", scenario="CRMs", flows=False, coefficients=True, units = True)
 
 #%% parse and endogenize capital
 for year in years:
@@ -75,7 +75,7 @@ for year in years:
 
 #%% Shocked database to txt as Baseline
 for year in years:
-    world[year].to_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\d. Baseline\\{year}", scenario="EndCap", flows=True, coefficients=True)
+    world[year].to_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\d. Baseline\\{year}", scenario="EndCap", flows=False, coefficients=True, units = True)
 
 #%% parse and check table
 for year in years:

@@ -197,6 +197,7 @@ Commodity,Coking Coal,EUR
 Commodity,"Collected and purified water, distribution services of water (41)",EUR
 Commodity,Computer and related services (72),EUR
 Commodity,Construction work (45),EUR
+Commodity,Copper,0.0
 Commodity,Copper ores and concentrates,EUR
 Commodity,Copper products,EUR
 Commodity,Crops nec,EUR

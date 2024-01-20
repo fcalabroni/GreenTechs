@@ -1,7 +1,7 @@
 import mario
 import pandas as pd
 
-user = "CF"
+user = "MBV"
 sN = slice(None)
 years = range(2011,2012)
 
@@ -21,6 +21,7 @@ new_sectors = {
         'Neodymium',
         'Dysprosium',
         'Raw silicon',
+        'Copper'
         ],
     
     'activities': [
@@ -33,8 +34,8 @@ new_sectors = {
 #%% Getting excel templates to add new commodities
 path_commodities = f"{pd.read_excel(paths, index_col=[0]).loc['Add Sectors',user]}\\new_commodities.xlsx"
 path_activities  = f"{pd.read_excel(paths, index_col=[0]).loc['Add Sectors',user]}\\new_activities.xlsx"
-# world[year].get_add_sectors_excel(new_sectors = new_sectors['commodities'],regions= [world[year].get_index('Region')[0]],path=path_commodities, item='Commodity')
-# world[year].get_add_sectors_excel(new_sectors = new_sectors['activities'],regions= [world[year].get_index('Region')[0]],path=path_activities, item='Activity')
+#world[year].get_add_sectors_excel(new_sectors = new_sectors['commodities'],regions= [world[year].get_index('Region')[0]],path=path_commodities, item='Commodity')
+#world[year].get_add_sectors_excel(new_sectors = new_sectors['activities'],regions= [world[year].get_index('Region')[0]],path=path_activities, item='Activity')
 
 #%% Adding new commodities and activities
 for year in years:
@@ -48,6 +49,6 @@ for year in years:
 
 #%% Aggregated database with new sectors to txt
 for year in years:
-    world[year].to_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\b. Aggregated & new sectors SUT\\{year}", flows=True, coefficients=True)
+    world[year].to_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\b. Aggregated & new sectors SUT\\{year}", flows=False, coefficients=True, units = True)
    
 #%%

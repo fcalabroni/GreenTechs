@@ -371,6 +371,7 @@ Commodity,Offshore wind plants,0.0
 Commodity,Neodymium,0.0
 Commodity,Dysprosium,0.0
 Commodity,Raw silicon,0.0
+Commodity,Copper,0.0
 Factor of production,Taxes less subsidies on products purchased: Total,EUR
 Factor of production,Taxes on products purchased,EUR
 Factor of production,Subsidies on products purchased,EUR

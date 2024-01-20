@@ -124,7 +124,7 @@ for t in techs:
             scraps[t][c][s] = EoL[t][s] * DR[t]  * Inv_comp[c][t]
 
 #%% Estimation of recycled materials
-met = ['Neodymium', 'Dysprosium', 'Copper ores and concentrates', 'Raw silicon']
+met = ['Neodymium', 'Dysprosium', 'Copper', 'Raw silicon']
 
 RE_comp = pd.read_excel(fileParam, "RE", header = 0, index_col = None)
 RR_met = pd.read_excel(fileParam, "RR", header = 0, index_col = 0)
@@ -143,14 +143,14 @@ RE = {
 RR = {
   'Neodymium': RR_met.loc[:, 'Neodymium'], 
   'Dysprosium': RR_met.loc[:, 'Dysprosium'], 
-  'Copper ores and concentrates': RR_met.loc[:, 'Copper ores and concentrates'], 
+  'Copper': RR_met.loc[:, 'Copper'], 
   'Raw silicon': RR_met.loc[:, 'Raw silicon'],
       }
 
 Inv_met = {
    'Neodymium': Inventory_met.loc['%Nd', :], 
    'Dysprosium': Inventory_met.loc['%Dy', :], 
-   'Copper ores and concentrates': Inventory_met.loc['%Cu', :], 
+   'Copper': Inventory_met.loc['%Cu', :], 
    'Raw silicon': Inventory_met.loc['%Si', :],
       }
 
@@ -506,7 +506,7 @@ for s in sens:
 
 #%% Materials recycled in physical units [tons] (questo probabilmente si può ricavare direttamente da X2 una volta che è stato runnato lo scenario desiderato)
 price = pd.read_excel(fileParam,sheet_name='price materials', index_col=[0], header=[0])
-price.index = pd.MultiIndex.from_arrays([['EU27+UK']*4, ['Sector']*4, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']])
+price.index = pd.MultiIndex.from_arrays([['EU27+UK']*4, ['Sector']*4, ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']])
 
 USD_to_EUR = pd.read_excel(fileParam,"USD to EURO", header=0, index_col=0)
 
@@ -575,7 +575,7 @@ for s in sens:
                 met_rec_tech[s][u][p][i].loc[:,'Photovoltaic plants'] = ((met_rec_tech_mon[s][u][i].loc[:,'Photovoltaic plants']* 10**6)/(price.loc[:,p] * USD_to_EUR.loc['EURO/USD',i] ))* 10**-3
                 met_rec_tech[s][u][p][i].loc[:,'Offshore wind plants'] = ((met_rec_tech_mon[s][u][i].loc[:,'Offshore wind plants']* 10**6)/(price.loc[:,p] * USD_to_EUR.loc['EURO/USD',i] ))* 10**-3
                 met_rec_tech[s][u][p][i].loc[:,'Onshore wind plants'] = ((met_rec_tech_mon[s][u][i].loc[:,'Onshore wind plants']* 10**6)/(price.loc[:,p] * USD_to_EUR.loc['EURO/USD',i] ))* 10**-3
-                met_rec_tech[s][u][p][i].index = pd.MultiIndex.from_arrays([['EU27+UK']*4, ['Sector']*4, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']])                               
+                met_rec_tech[s][u][p][i].index = pd.MultiIndex.from_arrays([['EU27+UK']*4, ['Sector']*4, ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']])                               
                 met_rec_tech[s][u][p][i].columns = pd.MultiIndex.from_arrays([['EU27+UK']*3, ['Sector']*3, ['Photovoltaic plants','Offshore wind plants', 'Onshore wind plants']])                               
 
 for s in sens:
