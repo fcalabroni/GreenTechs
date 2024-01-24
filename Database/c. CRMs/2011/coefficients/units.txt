@@ -123,9 +123,9 @@ Activity,"Production of electricity by tide, wave, ocean",EUR
 Activity,Production of electricity by wind,EUR
 Activity,Production of electricity nec,EUR
 Activity,Production of meat products nec,EUR
-Activity,Production of offshore wind plants,0.0
-Activity,Production of onshore wind plants,0.0
-Activity,Production of photovoltaic plants,0.0
+Activity,Production of offshore wind plants,EUR
+Activity,Production of onshore wind plants,EUR
+Activity,Production of photovoltaic plants,EUR
 Activity,Public administration and defence; compulsory social security (75),EUR
 Activity,"Publishing, printing and reproduction of recorded media (22)",EUR
 Activity,Pulp,EUR

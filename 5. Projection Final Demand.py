@@ -119,7 +119,18 @@ for i in years:
         
     else:
         FD_proj[i] = FD_proj[i-1]*(1+GDP[i])
-        
+
+regions = FD_proj[i].columns
+for i in years:
+
+    # Add indices to FD_proj[i]
+    FD_proj[i].index = pd.MultiIndex.from_arrays([Rn.index.get_level_values(0), Rn.index.get_level_values(1), Rn.index.get_level_values(2)], names=['Region', 'Level', 'Item']    )     
+    FD_proj[i].columns = pd.MultiIndex.from_arrays([regions,['Consumption category'] * len(regions), ['Final consumption expenditure by households'] * len(regions)], names=['Region', 'Level', 'Item']) 
+
+for i in history:
+    FD[i].index = pd.MultiIndex.from_arrays([Rn.index.get_level_values(0), Rn.index.get_level_values(1), Rn.index.get_level_values(2)], names=['Region', 'Level', 'Item']    )     
+    FD[i].columns = pd.MultiIndex.from_arrays([regions,['Consumption category'] * len(regions), ['Final consumption expenditure by households'] * len(regions)], names=['Region', 'Level', 'Item'])       
+           
 sn = FD_proj[2100]/FD_proj[2100].sum(axis=0)
 #%% Building the FD useful for the Database 
 fileProjection = f"{pd.read_excel(paths, index_col=[0]).loc['Projections',user]}"

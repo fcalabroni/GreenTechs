@@ -43,18 +43,20 @@ for t in techs:
                 Weib[t][s] += [SF[t][s][ny]]
                 
 #%% Importing Installed capacity and cost for green techs
-WindOff_Capacity = pd.read_excel(fileWind, "Offshore", header=0, index_col=None)
-WindOn_Capacity = pd.read_excel(fileWind, "Onshore", header=0, index_col=None)
-SolarPV_Capacity = pd.read_excel(fileSolar, "SolarPV", header=0, index_col=None)
+WindOff_Capacity = pd.read_excel(fileWind, "Offshore", header=0, index_col=0)
+WindOn_Capacity = pd.read_excel(fileWind, "Onshore", header=0, index_col=0)
+SolarPV_Capacity = pd.read_excel(fileSolar, "SolarPV", header=0, index_col=0)
+region = list(WindOff_Capacity.index.get_level_values(0))
+
 CAP = {
    'Onshore wind plants': WindOn_Capacity,
    'Offshore wind plants': WindOff_Capacity,
    'Photovoltaic plants': SolarPV_Capacity,
    } #installed capacity in MW
 
-WindOff_Cost = pd.read_excel(fileWind, "Cost_Offshore", header=0, index_col=None)
-WindOn_Cost = pd.read_excel(fileWind, "Cost_Onshore", header=0, index_col=None)
-SolarPV_Cost = pd.read_excel(fileSolar, "Cost_PV", header=0, index_col=None)
+WindOff_Cost = pd.read_excel(fileWind, "Cost_Offshore", header=0, index_col=0)
+WindOn_Cost = pd.read_excel(fileWind, "Cost_Onshore", header=0, index_col=0)
+SolarPV_Cost = pd.read_excel(fileSolar, "Cost_PV", header=0, index_col=0)
 Cost = {
         'Onshore wind plants': WindOn_Cost,
         'Offshore wind plants': WindOff_Cost,
@@ -69,8 +71,8 @@ for t in techs:
     EoL[t] = {}
     AIC[t] = {}
     for s in sens:
-        EoL[t][s] = pd.DataFrame(0, index=[0], columns=list(range(2000,2102)))
-        AIC[t][s] = pd.DataFrame(0, index=[0], columns=years)
+        EoL[t][s] = pd.DataFrame(0, index=region, columns=list(range(2000,2102)))
+        AIC[t][s] = pd.DataFrame(0, index=region, columns=years)
 
 # Calculation loop
 for t in techs:
@@ -78,11 +80,12 @@ for t in techs:
         for i in years[1:]:
             for ii in range(0, (i+1-years[1:][0])):
                 # Check if the key exists in the DataFrame index before accessing it
-                AIC[t][s].loc[0, i] = ((CAP[t].loc[0, i]*1000*Cost[t].loc[0, i]*USD_to_EUR.loc['EURO/USD', i]) + EoL[t][s].loc[0, i]) - ((CAP[t].loc[0, i-1]*1000*Cost[t].loc[0, i]*USD_to_EUR.loc['EURO/USD', i]))#+ EoL[t][s].loc[0, i-1]) 
-                if AIC[t][s].loc[0,i] < 0:
-                    AIC[t][s].loc[0,i] = 0
+                AIC[t][s].loc[:, i] = ((CAP[t].loc[:, i]*1000*Cost[t].loc[:, i]*USD_to_EUR.loc['EURO/USD', i]) + EoL[t][s].loc[:, i]) - ((CAP[t].loc[:, i-1]*1000*Cost[t].loc[:, i]*USD_to_EUR.loc['EURO/USD', i]))#+ EoL[t][s].loc[0, i-1]) 
+                for r in region:
+                    if AIC[t][s].loc[r,i] < 0:
+                        AIC[t][s].loc[r,i] = 0
                 # Check if the key exists in the DataFrame index before accessing it
-                EoL[t][s].loc[0, i+1] = (AIC[t][s].loc[0, i-ii] * Weib[t][s][ii]) + EoL[t][s].loc[0, i+1]
+                EoL[t][s].loc[:, i+1] = (AIC[t][s].loc[:, i-ii] * Weib[t][s][ii]) + EoL[t][s].loc[:, i+1]
 
 
 #%% Estimation of scraps trhough Collector and Disassembler
@@ -92,7 +95,7 @@ CR_tech = pd.read_excel(fileParam, "CR", header = 0 , index_col=None)
 DR_tech = pd.read_excel(fileParam, "DR", header = 0 , index_col=None)
 
 Inventory_comp = pd.read_excel(fileParam, "Inventory_comp", header = 0, index_col = 0)
-
+#comp = list(Inventory_comp.get_level_values(0))
 CR = {
   'Onshore wind plants': CR_tech.loc[0,'WT'],
   'Offshore wind plants': CR_tech.loc[0,'WT'],
@@ -127,9 +130,9 @@ for t in techs:
 met = ['Neodymium', 'Dysprosium', 'Copper', 'Raw silicon']
 
 RE_comp = pd.read_excel(fileParam, "RE", header = 0, index_col = None)
-RR_met = pd.read_excel(fileParam, "RR", header = 0, index_col = 0)
+RR_met = pd.read_excel(fileParam, "RR", header = [0,1], index_col = 0)
 
-#met = list(set(RR_met.columns.get_level_values(0)))
+#met = list((RR_met.columns.get_level_values(1)))
 Inventory_met = pd.read_excel(fileParam, "Inventory_mat", header = 0, index_col = 0)
 
 upgrade = ['hist', 'target', 'full']
@@ -140,12 +143,12 @@ RE = {
   'Wires': RE_comp.loc[0,'Wires'],
       }
 
-RR = {
-  'Neodymium': RR_met.loc[:, 'Neodymium'], 
-  'Dysprosium': RR_met.loc[:, 'Dysprosium'], 
-  'Copper': RR_met.loc[:, 'Copper'], 
-  'Raw silicon': RR_met.loc[:, 'Raw silicon'],
-      }
+RR = {}
+for u in upgrade:
+    RR[u] = {}
+    RR[u] = pd.DataFrame(0,index = met, columns = years)
+    for i in years:
+        RR[u].loc[:,i] = RR_met.loc[i,(u,met)].values
 
 Inv_met = {
    'Neodymium': Inventory_met.loc['%Nd', :], 
@@ -171,7 +174,7 @@ for t in techs:
         for s in sens:
             for m in  met:
                 for u in upgrade:
-                    met_recycled_specific[t][s][c][m][u] = scraps[t][c][s] * RE[c] * RR[m][u] *Inv_met[m][c]
+                    met_recycled_specific[t][s][c][m][u] = scraps[t][c][s] * RE[c] * RR[u].loc[m,:] *Inv_met[m][c]
  
             
 #%% Estimation of recycled materials pt2
@@ -182,7 +185,7 @@ for m in met:
     for s in sens:
         met_sum[m][s] = {}  # Dizionario per ogni s
         for u in upgrade:
-            met_sum[m][s][u] = pd.DataFrame(0, index=[0], columns=years) # Inizializza la somma a zero
+            met_sum[m][s][u] = pd.DataFrame(0, index=region, columns=years) # Inizializza la somma a zero
             for t in techs:
                 for c in comp:
                     met_sum[m][s][u] += met_recycled_specific[t][s][c][m][u]
@@ -232,136 +235,153 @@ W2 = {}
 for s in sens:
     W2[s] = {}
     for i in years:
-        W2[s][i] = pd.DataFrame(0, index= waste_type, columns = waste_sectors )
+        W2[s][i] = pd.DataFrame(0, index= 4*waste_type, columns = 4*waste_sectors )
+        W2[s][i].index = pd.MultiIndex.from_arrays([['EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','China', 'China', 'China', 'China','China','China','China','China','USA', 'USA', 'USA', 'USA','USA', 'USA', 'USA', 'USA','RoW', 'RoW', 'RoW', 'RoW','RoW', 'RoW', 'RoW', 'RoW'],['Sector'] * len(waste_type)*4, 4*waste_type], names=['Region', 'Level', 'Item'])
+        W2[s][i].columns = pd.MultiIndex.from_arrays([['EU27+UK', 'EU27+UK', 'EU27+UK','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','China', 'China', 'China', 'China','China','China','China','USA', 'USA', 'USA', 'USA','USA', 'USA', 'USA','RoW', 'RoW', 'RoW', 'RoW','RoW', 'RoW', 'RoW'], ['Sector'] * len(waste_sectors)*4, 4*waste_sectors], names=['Region', 'Level', 'Item'])
+        
 
 for s in sens:
     for i in years:
-        W2[s][i].loc['Scraps of generator of Offshore WT','Disassembler of Wind Turbines'] = scraps['Offshore wind plants']['Generator Offshore'][s].loc[0, i]
-        W2[s][i].loc['Scraps of generator of Onshore WT','Disassembler of Wind Turbines'] = scraps['Onshore wind plants']['Generator Onshore'][s].loc[0, i]
-        W2[s][i].loc['Scraps of wires','Disassembler of Wind Turbines'] = scraps['Offshore wind plants']['Wires'][s].loc[0, i] + scraps['Onshore wind plants']['Wires'][s].loc[0, i]
-        W2[s][i].loc['Residues','Disassembler of Wind Turbines'] = res['z_dis_WT'][s].loc[0, i]
-
-        W2[s][i].loc['Scraps of wires','Disassembler of PV panels'] = scraps['Photovoltaic plants']['Wires'][s].loc[0, i]
-        W2[s][i].loc['Scraps of Silicon layer','Disassembler of PV panels'] = scraps['Photovoltaic plants']['Panel'][s].loc[0, i]
-        W2[s][i].loc['Residues','Disassembler of PV panels'] = res['z_dis_PV'][s].loc[0, i]
-
-        W2[s][i].loc['Residues','Refinery of Generators of Offshore Wind Turbines'] = res['z_ref_OffGen'][s].loc[0, i]
-        W2[s][i].loc['Residues','Refinery of Generators of Onshore Wind Turbines'] = res['z_ref_OnGen'][s].loc[0, i]
-        W2[s][i].loc['Residues','Refinery of Silicon layer in PV panel'] = res['z_ref_Panel'][s].loc[0, i]
-        W2[s][i].loc['Residues','Refinery of Cu in wires of WT and PV'] = res['z_ref_Wires'][s].loc[0, i]
-
-
+        for r in region:
+            W2[s][i].loc[(r,'Sector','Scraps of generator of Offshore WT'),(r,'Sector','Disassembler of Wind Turbines')] = scraps['Offshore wind plants']['Generator Offshore'][s].loc[r, i]
+            W2[s][i].loc[(r,'Sector','Scraps of generator of Onshore WT'),(r,'Sector','Disassembler of Wind Turbines')] = scraps['Onshore wind plants']['Generator Onshore'][s].loc[r, i]
+            W2[s][i].loc[(r,'Sector','Scraps of wires'),(r,'Sector','Disassembler of Wind Turbines')] = scraps['Offshore wind plants']['Wires'][s].loc[r, i] + scraps['Onshore wind plants']['Wires'][s].loc[r, i]
+            W2[s][i].loc[(r,'Sector','Residues'),(r,'Sector','Disassembler of Wind Turbines')] = res['z_dis_WT'][s].loc[r, i]
+    
+            W2[s][i].loc[(r,'Sector','Scraps of wires'),(r,'Sector','Disassembler of PV panels')] = scraps['Photovoltaic plants']['Wires'][s].loc[r, i]
+            W2[s][i].loc[(r,'Sector','Scraps of Silicon layer'),(r,'Sector','Disassembler of PV panels')] = scraps['Photovoltaic plants']['Panel'][s].loc[r, i]
+            W2[s][i].loc[(r,'Sector','Residues'),(r,'Sector','Disassembler of PV panels')] = res['z_dis_PV'][s].loc[r, i]
+    
+            W2[s][i].loc[(r,'Sector','Residues'),(r,'Sector','Refinery of Generators of Offshore Wind Turbines')] = res['z_ref_OffGen'][s].loc[r, i]
+            W2[s][i].loc[(r,'Sector','Residues'),(r,'Sector','Refinery of Generators of Onshore Wind Turbines')] = res['z_ref_OnGen'][s].loc[r, i]
+            W2[s][i].loc[(r,'Sector','Residues'),(r,'Sector','Refinery of Silicon layer in PV panel')] = res['z_ref_Panel'][s].loc[r, i]
+            W2[s][i].loc[(r,'Sector','Residues'),(r,'Sector','Refinery of Cu in wires of WT and PV')] = res['z_ref_Wires'][s].loc[r, i]
+    
+#region_FD = ['EU27+UK','USA','RoW','China'] 
 wFD = {}
 for s in sens:
     wFD[s] = {}
     for i in years:
-        wFD[s][i] = pd.DataFrame(0, index= waste_type, columns = ['EU27+UK'] )
-
+        wFD[s][i] = pd.DataFrame(0, index= waste_type*4, columns = region )
+        wFD[s][i].index = W2[s][i].index
+        
 for s in sens:
     for i in years:
-        wFD[s][i].loc['EoL of Offshore WT','EU27+UK'] = EoL['Offshore wind plants'][s].loc[0, i]
-        wFD[s][i].loc['EoL of Onshore WT','EU27+UK'] = EoL['Onshore wind plants'][s].loc[0, i]
-        wFD[s][i].loc['EoL of PV','EU27+UK'] = EoL['Photovoltaic plants'][s].loc[0, i] 
+        for r in region:
+            wFD[s][i].loc[(r,'Sector','EoL of Offshore WT'),r] = EoL['Offshore wind plants'][s].loc[r, i]
+            wFD[s][i].loc[(r,'Sector','EoL of Onshore WT'),r] = EoL['Onshore wind plants'][s].loc[r, i]
+            wFD[s][i].loc[(r,'Sector','EoL of PV'),r] = EoL['Photovoltaic plants'][s].loc[r, i] 
 
 #%% Create allocation matrix (S)
-S = pd.read_excel(fileParam, "S", header = 0, index_col = 0 )
+S_matrix = pd.read_excel(fileParam, "S", header = 0, index_col = 0 )
+S = pd.DataFrame(0,index = W2[s][i].columns , columns = W2[s][i].index )
+for r in region:
+    S.loc[(r,'Sector',waste_sectors),(r,'Sector',waste_type)] = S_matrix.values
 
 #%% Calculating SW2 and SwFD
 SW2 = {}
 for s in sens:
     SW2[s] = {}
     for i in years:
-        SW2[s][i] = pd.DataFrame(0, index= waste_sectors, columns = waste_sectors )
+        SW2[s][i] = pd.DataFrame(0, index= W2[s][i].columns, columns = W2[s][i].columns )
 
 for s in sens:
     for i in years:
-        SW2[s][i] = S @ W2[s][i]
+        SW2[s][i] = S @ W2[s][i] 
 
 
 SwFD = {}
 for s in sens:
     SwFD[s] = {}
     for i in years:
-        SwFD[s][i] = pd.DataFrame(0, index= waste_sectors, columns = ['China','EU27+UK','RoW','USA'] )
-       
+        SwFD[s][i] = pd.DataFrame(0, index= waste_sectors*4, columns = region )
+        SwFD[s][i].index = W2[s][i].columns
 
-SwFD_EU = {}
-for s in sens:
-    SwFD_EU[s] = {}
-    for i in years:
-        SwFD_EU[s][i] = pd.DataFrame(0, index= waste_sectors, columns = ['EU27+UK'] )
-        
 for s in sens:
     for i in years:
-        SwFD_EU[s][i]= S @ wFD[s][i]
-        SwFD[s][i].loc[:,'EU27+UK'] = SwFD_EU[s][i].loc[:,'EU27+UK']
-        
+        SwFD[s][i]= S @ wFD[s][i]
+
+
+           
 #%% Calculating coefficient matrix SG2 = SW2 * (Xw)^-1
                                            
 SG2 = {}
 for s in sens:
     SG2[s]= {}
     for i in range(2011,2101):
-        SG2[s][i] = pd.DataFrame(0, index= waste_sectors, columns = waste_sectors)
+        SG2[s][i] = pd.DataFrame(0, index= W2[s][i].columns, columns = W2[s][i].columns)
         
 Xw = {}
 for s in sens:
     Xw[s] = {}
     for i in range(2011,2101):
-        Xw[s][i] = pd.DataFrame(0, index= waste_sectors, columns = ['Xw'] )
+        Xw[s][i] = pd.DataFrame(0, index= W2[s][i].columns, columns = ['Xw'] )
         
 for s in sens:
     for i in range(2011,2101):
-        Xw[s][i] = SW2[s][i].sum(axis = 1) + SwFD[s][i].loc[:,'EU27+UK']
+        Xw[s][i] = SW2[s][i].sum(axis = 1) + SwFD[s][i].sum(axis = 1)
 
 for s in sens:
     for i in range(2011,2101):
-        SG2[s][i] = SW2[s][i] @ np.linalg.inv(np.diag(Xw[s][i]))
+        #SG2[s][i] = SW2[s][i] @ np.linalg.inv(np.diag(Xw[s][i]))
+        reg_term = 1e-9  # Puoi regolare questo valore
+        SG2[s][i] = SW2[s][i] @ np.linalg.inv(np.diag(Xw[s][i]) + reg_term * np.eye(len(Xw[s][i])))
+        SG2[s][i].columns= W2[s][i].columns
+# det = np.linalg.det(np.diag(Xw[s][i]))
+# if np.isclose(det, 0.0):
+#     print("La matrice è singolare.")
         
-for s in sens:
-    for i in range(2011,2101):        
-        SG2[s][i].index =  pd.MultiIndex.from_arrays([['EU27+UK'] * len(waste_sectors), ['Sector'] * len(waste_sectors), waste_sectors], names=['Region', 'Level', 'Item'])   
-        SG2[s][i].columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(waste_sectors), ['Sector'] * len(waste_sectors), waste_sectors])
+# for s in sens:
+#     for i in range(2011,2101):        
+#         SG2[s][i].index =  pd.MultiIndex.from_arrays([['EU27+UK'] * len(waste_sectors), ['Sector'] * len(waste_sectors), waste_sectors], names=['Region', 'Level', 'Item'])   
+#         SG2[s][i].columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(waste_sectors), ['Sector'] * len(waste_sectors), waste_sectors])
 
 #%% Creating Allocation Matrix a 
-ref = [
-    'Refinery of Generators of Onshore Wind Turbines' ,
-    'Refinery of Generators of Offshore Wind Turbines' ,
-    'Refinery of Silicon layer in PV panel',
-    'Refinery of Cu in wires of WT and PV',
-]
+# ref = [
+#     'Refinery of Generators of Onshore Wind Turbines' ,
+#     'Refinery of Generators of Offshore Wind Turbines' ,
+#     'Refinery of Silicon layer in PV panel',
+#     'Refinery of Cu in wires of WT and PV',
+# ]
 
 path_Act = f"{pd.read_excel(paths, index_col=[0]).loc['Act',user]}\\Act coeff.xlsx"
-a = pd.read_excel(path_Act,sheet_name='Allocation matrix', index_col=[0,1,2], header=[0,1,2,3])  
-
-a.index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 4 * len(met), met*4])
+a_base = pd.read_excel(path_Act,sheet_name='Allocation matrix base', index_col=[0,1,2], header=[0,1,2])  #far cambiare per baseline e per act
+a_act = pd.read_excel(path_Act,sheet_name='Allocation matrix act', index_col=[0,1,2], header=[0,1,2,3])  #far cambiare per baseline e per act
+ref = list((a_act.columns.get_level_values(3)))
+ref = ref[:4]
+a_act.index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 4 * len(met), met*4])
+a_base.index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 4 * len(met), met*4])
 #a.index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 4 * len(met), met*4])
 #a.columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref])
      
-#%% Calculating coefficient matrix A2 for both Baseline and Act scenario
+#%% Calculating coefficient matrix A2 for both Baseline and Act scenario 
 
 coeff_rec = {}
 for u in upgrade:
-    coeff_rec[u] = pd.DataFrame(0, index = met*4 , columns = comp)
+    coeff_rec[u] = {}
+    for i in years:
+        coeff_rec[u][i] = pd.DataFrame(0, index = a_base.index , columns = 4*comp)
     
+for u in upgrade:
+    for i in years:
+        for c in comp:
+            for m in met:
+                for r in region:
+                    #A2[s][u][i].loc[m][c] = RE[c] * RR[m][u] *Inv_met[m][c]
+                    coeff_rec[u][i].loc[(r,'Sector',m),c] = - RE[c] * RR[u].loc[m,i] *Inv_met[m][c]
+                    
+for u in upgrade:
+    for i in years:
+        coeff_rec[u][i].columns = a_base.columns
 
-for u in upgrade:    
-    for c in comp:
-        for m in met:
-            #A2[s][u][i].loc[m][c] = RE[c] * RR[m][u] *Inv_met[m][c]
-            coeff_rec[u].loc[m,c] = - RE[c] * RR[m][u] *Inv_met[m][c]
-A2_EU = {}
+A2_all = {}
 for s in sens:
-    A2_EU[s] = {}
+    A2_all[s] = {}
     for u in upgrade:
-        A2_EU[s][u] = {}
+        A2_all[s][u] = {}
         for i in range(2011,2101):
-            A2_EU[s][u][i]= pd.DataFrame(0, index = met*4, columns =  comp)
-            A2_EU[s][u][i] = coeff_rec[u]
+            A2_all[s][u][i] = coeff_rec[u][i]
             
-            A2_EU[s][u][i].index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 4 * len(met), met*4])
-            A2_EU[s][u][i].columns= pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref])
-
 A2 = {}
 for s in sens:
     A2[s] = {}
@@ -369,7 +389,7 @@ for s in sens:
         A2[s][u] = {}
         for i in range(2011,2101):
             A2[s][u][i] = pd.DataFrame(0, index = met*4, columns = comp)
-            A2[s][u][i] = A2_EU[s][u][i]*a.loc[:,2023]
+            A2[s][u][i] = A2_all[s][u][i]*a_base
 
 A2_act = {}
 for s in sens:
@@ -379,83 +399,99 @@ for s in sens:
         for i in range(2011,2101):
             if i in range(2011,2024):                
                 A2_act[s][u][i]= pd.DataFrame(0, index = met*4, columns =  comp)
-                A2_act[s][u][i] = A2_EU[s][u][i]*a.loc[:,2023]
+                A2_act[s][u][i] = A2_all[s][u][i]*a_act.loc[:,2023]
+                for r in region:
+                    if r != 'EU27+UK':
+                       A2_act[s][u][i].loc[:,(r,'Sector', ref)] = A2[s][u][i].loc[:,(r,'Sector', ref)]
                 
                 #A2[s][u][i].index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 4 * len(met), met*4])
                 #A2[s][u][i].columns= pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref])
                 
             elif i in range(2024,2031):
                 A2_act[s][u][i]= pd.DataFrame(0, index = met*4, columns =  comp)
-                A2_act[s][u][i] = A2_EU[s][u][i]*a.loc[:,i]
-                
+                A2_act[s][u][i] = A2_all[s][u][i]*a_act.loc[:,i]
+                for r in region:
+                    if r != 'EU27+UK':
+                       A2_act[s][u][i].loc[:,(r,'Sector', ref)] = A2[s][u][i].loc[:,(r,'Sector', ref)]
                 #A2[s][u][i].index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 4 * len(met), met*4])
                 #A2[s][u][i].columns= pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref])
                 
             else:
                 A2_act[s][u][i]= pd.DataFrame(0, index = met*4, columns =  comp)
-                A2_act[s][u][i] = A2_EU[s][u][i]*a.loc[:,2030]
-                
+                A2_act[s][u][i] = A2_all[s][u][i]*a_act.loc[:,2030]
+                for r in region:
+                    if r != 'EU27+UK':
+                       A2_act[s][u][i].loc[:,(r,'Sector', ref)] = A2[s][u][i].loc[:,(r,'Sector', ref)]
                 #A2[s][u][i].index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 4 * len(met), met*4])
                 #A2[s][u][i].columns= pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref])
                 
 
 #%% Reshaping Dictionary AIC
-Tech_FD = {}
+Tech_FD = {}        
 for s in sens:
     Tech_FD[s]={}
     for i in years:
-        Tech_FD[s][i] = pd.DataFrame(0, index=techs, columns=['China','EU27+UK','RoW','USA'])
-
+        Tech_FD[s][i] = pd.DataFrame(0, index=techs*4, columns=region)
+        Tech_FD[s][i].index = pd.MultiIndex.from_arrays([['EU27+UK','EU27+UK','EU27+UK','USA','USA','USA','RoW','RoW','RoW','China','China','China'],['Sector']*len(techs)*len(region),techs*len(region)], names=['Region', 'Level', 'Item'])
+       
 for s in sens:
     for t in techs:
         for i in years:
-            Tech_FD[s][i].loc[t,'EU27+UK']= AIC[t][s].loc[0,i]
-            
+            for r in region:
+                Tech_FD[s][i].loc[(r,'Sector',t),r]= AIC[t][s].loc[r,i]
+                Tech_FD[s][i].columns = pd.MultiIndex.from_arrays([region,['Consumption category'] * len(region), ['Final consumption expenditure by households'] * len(region)], names=['Region', 'Level', 'Item']    ) 
+                SwFD[s][i].columns = pd.MultiIndex.from_arrays([region,['Consumption category'] * len(region), ['Final consumption expenditure by households'] * len(region)], names=['Region', 'Level', 'Item']    ) 
+
+new_order = ['EU27+UK', 'USA', 'RoW', 'China']  # Nuovo ordine delle colonne
 for s in sens:
     for i in years:
-        Tech_FD[s][i] = Tech_FD[s][i].set_index([pd.Index(['EU27+UK'] * len(techs)),pd.Index(['Sector'] * len(techs)), techs])
-        SwFD[s][i] = SwFD[s][i].set_index([pd.Index(['EU27+UK'] * len(waste_sectors)),pd.Index(['Sector'] * len(waste_sectors)), waste_sectors])
+        SwFD[s][i] = SwFD[s][i][new_order]
+        Tech_FD[s][i] = Tech_FD[s][i][new_order]              
+# for s in sens:
+#     for i in years:
+#         Tech_FD[s][i] = Tech_FD[s][i].set_index([pd.Index(['EU27+UK'] * len(techs)),pd.Index(['Sector'] * len(techs)), techs])
+#         SwFD[s][i] = SwFD[s][i].set_index([pd.Index(['EU27+UK'] * len(waste_sectors)),pd.Index(['Sector'] * len(waste_sectors)), waste_sectors])
 
-regions = Tech_FD[s][i].columns
-for s in sens:
-    for i in years:
-        # Aggiungi gli indici a Tech_FD[s][i]
-            Tech_FD[s][i].index = pd.MultiIndex.from_arrays([['EU27+UK'] * len(techs), ['Sector'] * len(techs), techs],
-                                                           names=['Region', 'Level', 'Item'])
-            Tech_FD[s][i].columns = pd.MultiIndex.from_arrays(
-                    [regions,['Consumption category'] * len(regions), ['Final consumption expenditure by households'] * len(regions)], names=['Region', 'Level', 'Item']    ) 
-            # Aggiungi gli indici a SwFD[s][i]
-            SwFD[s][i].index = pd.MultiIndex.from_arrays([['EU27+UK'] * len(waste_sectors), ['Sector'] * len(waste_sectors), waste_sectors],
-                                                         names=['Region', 'Level', 'Item'])
-            SwFD[s][i].columns = pd.MultiIndex.from_arrays(
-                    [regions,['Consumption category'] * len(regions), ['Final consumption expenditure by households'] * len(regions)], names=['Region', 'Level', 'Item']    ) 
+# regions = Tech_FD[s][i].columns
+# for s in sens:
+#     for i in years:
+#         # Aggiungi gli indici a Tech_FD[s][i]
+#             Tech_FD[s][i].index = pd.MultiIndex.from_arrays([['EU27+UK'] * len(techs), ['Sector'] * len(techs), techs],
+#                                                            names=['Region', 'Level', 'Item'])
+#             Tech_FD[s][i].columns = pd.MultiIndex.from_arrays(
+#                     [regions,['Consumption category'] * len(regions), ['Final consumption expenditure by households'] * len(regions)], names=['Region', 'Level', 'Item']    ) 
+#             # Aggiungi gli indici a SwFD[s][i]
+#             SwFD[s][i].index = pd.MultiIndex.from_arrays([['EU27+UK'] * len(waste_sectors), ['Sector'] * len(waste_sectors), waste_sectors],
+#                                                          names=['Region', 'Level', 'Item'])
+#             SwFD[s][i].columns = pd.MultiIndex.from_arrays(
+#                     [regions,['Consumption category'] * len(regions), ['Final consumption expenditure by households'] * len(regions)], names=['Region', 'Level', 'Item']    ) 
 
-#%% Metals recycled for each component
-met_rec_comp = {}
-for s in sens:
+#%% Metals recycled for each component 
+met_rec_comp = {} 
+for s in sens:              
     met_rec_comp[s]={}
     for u in upgrade:
         met_rec_comp[s][u]={}
         for i in years:
-            met_rec_comp[s][u][i] = pd.DataFrame(0, index=met, columns= comp)
+            met_rec_comp[s][u][i] = pd.DataFrame(0, index=a_base.index, columns = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 4 * len(comp), comp*4]))
 
 for s in sens:
     for u in upgrade:
-        for c in comp:
-            for i in years:
-                for t in techs:
-                    for m in met:
-                        met_rec_comp[s][u][i].loc[m,c] += -met_recycled_specific[t][s][c][m][u].loc[0,i]
-                        
-for s in sens:
+        for i in years:
+            for r in region:
+                for m in met:
+                    for c in comp:           
+                        for t in techs:
+                            met_rec_comp[s][u][i].loc[(r,'Sector',m),(r,'Sector',c)] += -met_recycled_specific[t][s][c][m][u].loc[r,i]
+                            
+for s in sens:   
     for u in upgrade:
         for c in comp:
             for i in years:
                 for t in techs:
                     for m in met:
-                        met_rec_comp[s][u][i].columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref],names=['Region', 'Level', 'Item'])
-                        met_rec_comp[s][u][i].index = pd.MultiIndex.from_arrays([['EU27+UK'] * len(met), ['Sector'] * len(met), met])
-            
+                        met_rec_comp[s][u][i].columns = a_base.columns #pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref],names=['Region', 'Level', 'Item'])
+                        
 #%% Export Data
 
 
@@ -505,8 +541,9 @@ for s in sens:
 
 
 #%% Materials recycled in physical units [tons] (questo probabilmente si può ricavare direttamente da X2 una volta che è stato runnato lo scenario desiderato)
-price = pd.read_excel(fileParam,sheet_name='price materials', index_col=[0], header=[0])
-price.index = pd.MultiIndex.from_arrays([['EU27+UK']*4, ['Sector']*4, ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']])
+price_materials = pd.read_excel(fileParam,sheet_name='price materials', index_col=[0], header=[0])
+price = pd.concat([price_materials] * 4, ignore_index= True) #unit of price [USD/kg]
+price.index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']*4])
 
 USD_to_EUR = pd.read_excel(fileParam,"USD to EURO", header=0, index_col=0)
 
@@ -516,7 +553,7 @@ for s in sens:
     for u in upgrade:
         met_rec_mon[s][u] = {}
         for i in years:
-            met_rec_mon[s][u][i] = pd.DataFrame(0, index=['Recycled'],columns = met)
+            met_rec_mon[s][u][i] = {} #pd.DataFrame(0, index=['Recycled'],columns = met)
             met_rec_mon[s][u][i] = -met_rec_comp[s][u][i].sum(axis =1)
             
 met_rec = {}    #conversion in tons
@@ -527,10 +564,10 @@ for s in sens:
         for p in sens:
             met_rec[s][u][p] = {}
             for i in years:
-                met_rec[s][u][p][i] = {}
-                met_rec[s][u][p][i] = ((met_rec_mon[s][u][i]* 10**6)/(price.loc[:,p] * USD_to_EUR.loc['EURO/USD',i] ))* 10**-3
-                                         
-            
+                for r in region:
+                    met_rec[s][u][p][i] = {}
+                    met_rec[s][u][p][i] = ((met_rec_mon[s][u][i] * 10**6)/(price.loc[:,p] * USD_to_EUR.loc['EURO/USD',i] ))* 10**-3
+                                             
 for s in sens:
     for u in upgrade:
         for p in price:
@@ -540,8 +577,9 @@ for s in sens:
                     df.to_excel(writer, sheet_name=sheet_name, index= True)
                     
 #%% Material recycled in each tecnology in physical units [tons]
-price = pd.read_excel(fileParam,sheet_name='price materials', index_col=[0], header=[0])
-#price.index = pd.MultiIndex.from_arrays([['EU27+UK']*4, ['Sector']*4, ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']])
+price_materials = pd.read_excel(fileParam,sheet_name='price materials', index_col=[0], header=[0])
+price = pd.concat([price_materials] * 4, ignore_index= True) #unit of price [USD/kg]
+price.index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']*4])
 
 USD_to_EUR = pd.read_excel(fileParam,"USD to EURO", header=0, index_col=0)
 
@@ -551,7 +589,7 @@ for s in sens:
     for u in upgrade:
         met_rec_tech_mon[s][u] = {}
         for i in years:
-            met_rec_tech_mon[s][u][i] = pd.DataFrame(0, index= met ,columns = techs)
+            met_rec_tech_mon[s][u][i] = pd.DataFrame(0, index=a_base.index ,columns = pd.MultiIndex.from_arrays([['China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'RoW', 'RoW', 'RoW', 'USA', 'USA', 'USA'],['Sector']*len(techs)*len(region),techs*len(region)]))
             
                 
 for s in sens:
@@ -560,7 +598,8 @@ for s in sens:
             for i in years:
                 for t in techs:
                     for m in met:
-                        met_rec_tech_mon[s][u][i].loc[m,t] += met_recycled_specific[t][s][c][m][u].loc[0,i]
+                        for r in region:
+                            met_rec_tech_mon[s][u][i].loc[(r,'Sector',m),(r,'Sector',t)] += met_recycled_specific[t][s][c][m][u].loc[r,i]
 
 
 met_rec_tech = {}    #conversion in tons
@@ -571,13 +610,17 @@ for s in sens:
         for p in sens:
             met_rec_tech[s][u][p] = {}
             for i in years:
-                met_rec_tech[s][u][p][i] = pd.DataFrame(0, index = met, columns= techs)                
-                met_rec_tech[s][u][p][i].loc[:,'Photovoltaic plants'] = ((met_rec_tech_mon[s][u][i].loc[:,'Photovoltaic plants']* 10**6)/(price.loc[:,p] * USD_to_EUR.loc['EURO/USD',i] ))* 10**-3
-                met_rec_tech[s][u][p][i].loc[:,'Offshore wind plants'] = ((met_rec_tech_mon[s][u][i].loc[:,'Offshore wind plants']* 10**6)/(price.loc[:,p] * USD_to_EUR.loc['EURO/USD',i] ))* 10**-3
-                met_rec_tech[s][u][p][i].loc[:,'Onshore wind plants'] = ((met_rec_tech_mon[s][u][i].loc[:,'Onshore wind plants']* 10**6)/(price.loc[:,p] * USD_to_EUR.loc['EURO/USD',i] ))* 10**-3
-                met_rec_tech[s][u][p][i].index = pd.MultiIndex.from_arrays([['EU27+UK']*4, ['Sector']*4, ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']])                               
-                met_rec_tech[s][u][p][i].columns = pd.MultiIndex.from_arrays([['EU27+UK']*3, ['Sector']*3, ['Photovoltaic plants','Offshore wind plants', 'Onshore wind plants']])                               
-
+                met_rec_tech[s][u][p][i] = pd.DataFrame(0, index = a_base.index, columns= met_rec_tech_mon[s][u][i].columns)                
+                
+                
+for s in sens:
+    for u in upgrade:
+        for p in sens:
+            for i in years:               
+                for r in region:
+                    for t in techs:
+                        met_rec_tech[s][u][p][i].loc[:,(r,'Sector',t)] = ((met_rec_tech_mon[s][u][i].loc[:,(r,'Sector',t)]* 10**6)/(price.loc[:,p] * USD_to_EUR.loc['EURO/USD',i] ))* 10**-3
+                        
 for s in sens:
     for u in upgrade:
         for p in price:

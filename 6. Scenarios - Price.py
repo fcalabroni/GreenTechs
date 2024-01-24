@@ -9,13 +9,6 @@ years = range(2011,2101)
 paths = 'Paths.xlsx'
 
 #%% Parse and SUT to IOT
-
-# world = {}
-
-# for year in years:
-#     world[year] = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\d. Baseline\\2011\\flows", table='SUT', mode="coefficients")
-#     world[year].to_iot(method='B')
-
 WIOT = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\d. Baseline\\2011\\coefficients", table='SUT', mode="coefficients")
 WIOT.to_iot(method='B')
 #%% creating template for waste sectors
@@ -42,14 +35,12 @@ path_waste_sector = f"{pd.read_excel(paths, index_col=[0]).loc['Add Sectors',use
 
 WIOT.get_add_sectors_excel(new_sectors=waste_sectors, regions= [WIOT.get_index('Region')[1]],path=path_waste_sector, item='Sector')
 #%% Adding new commodities and activities (EMPTY)
-# for year in years:
-#     world[year].add_sectors(io=path_waste_sector, new_sectors= waste_sectors, regions= [world[year].get_index('Region')[1]], item='Sectors', inplace=True)
-
 WIOT.add_sectors(io=path_waste_sector, new_sectors= waste_sectors, regions= [WIOT.get_index('Region')[1]], item='Sectors', inplace=True)
 
 #%% BASELINE with sensitivity on Price Materials (Lifetime = Avg ,RR = hist)
 fileParam = f"{pd.read_excel(paths, index_col=[0]).loc['fileParam',user]}"
-region = 'EU27+UK'
+region = pd.read_excel(fileParam, "region",header = None, index_col=[0])
+region = list(region.index.get_level_values(0))
 scenario = ['Baseline','Act']
 
 price_materials = pd.read_excel(fileParam,sheet_name='price materials', index_col=[0], header=[0])
@@ -90,27 +81,11 @@ for s in sens:
     Cumulative_region_base[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']*4]), columns = years)
 
 #Useful only for some check 
-z = {}  
-for s in sens:
-    z[s] = {}
-    for year in years:
-        z[s][year] = {}
-
-# metrecs = {}
-# for year in years:
-#     metrecs[year] = {}
-      
-# Old = {}  
+# z = {}  
 # for s in sens:
-#     Old[s] = {}
+#     z[s] = {}
 #     for year in years:
-#         Old[s][year] = {}
-
-# Coeff = {}  
-# for s in sens:
-#     Coeff[s] = {}
-#     for year in years:
-#         Coeff[s][year] = {}
+#         z[s][year] = {}
 
 for scen in ['Baseline']:   
     for year in years:
@@ -128,6 +103,7 @@ for scen in ['Baseline']:
             A2 = pd.read_excel(path_A2,sheet_name=str(year), index_col=[0,1,2], header=[0,1,2])
             A1_act = pd.read_excel(path_Act,sheet_name='Target consumption', index_col=[0,1,2], header=[0,1,2,3])
             A2_act = pd.read_excel(path_A2_act,sheet_name=str(year), index_col=[0,1,2], header=[0,1,2])
+            A1_act.index = A2_act.index
             #metrecs[year] = metrec
             
             scemario = f"{scen} - {year} - {s}"
@@ -163,7 +139,7 @@ for scen in ['Baseline']:
                     Y_new.update(FD)
                     
                     z_new.update(A2)
-                    z[s][year] = z_new
+                    #z[s][year] = z_new
                     WIOT.update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
                     WIOT.reset_to_coefficients(scenario=scemario)
                     print(scemario)
@@ -204,7 +180,8 @@ for s in sens:
             
 #%% ACT with sensitivity on Price Materials (Lifetime = Avg ,RR = target)
 fileParam = f"{pd.read_excel(paths, index_col=[0]).loc['fileParam',user]}"
-region = 'EU27+UK'
+region = pd.read_excel(fileParam, "region",header = None, index_col=[0])
+region = list(region.index.get_level_values(0))
 scenario = ['Baseline','Act']
 
 price_materials = pd.read_excel(fileParam,sheet_name='price materials', index_col=[0], header=[0])
@@ -245,11 +222,11 @@ for s in sens:
     Cumulative_region_act[s] = pd.DataFrame(0,index= pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']*4]), columns = years)
 
 #Useful only for some check 
-z = {}  
-for s in sens:
-    z[s] = {}
-    for year in years:
-        z[s][year] = {}
+# z = {}  
+# for s in sens:
+#     z[s] = {}
+#     for year in years:
+#         z[s][year] = {}
         
 for scen in ['Act']:   
     for year in years:
@@ -267,6 +244,7 @@ for scen in ['Act']:
             A2 = pd.read_excel(path_A2,sheet_name=str(year), index_col=[0,1,2], header=[0,1,2])
             A1_act = pd.read_excel(path_Act,sheet_name='Target consumption', index_col=[0,1,2], header=[0,1,2,3])
             A2_act = pd.read_excel(path_A2_act,sheet_name=str(year), index_col=[0,1,2], header=[0,1,2])
+            A1_act.index = A2_act.index
             #metrecs[year] = metrec
             
             scemario = f"{scen} - {year} - {s}"  
@@ -302,7 +280,7 @@ for scen in ['Act']:
                     Y_new.update(FD)
                     
                     z_new.update(A2)
-                    z[s][year] = z_new
+                    #z[s][year] = z_new
                     WIOT.update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
                     WIOT.reset_to_coefficients(scenario=scemario)
                     print(scemario)
@@ -321,7 +299,7 @@ for scen in ['Act']:
                     
                     z_new.update(A2_act)
                     z_new.update(A1_act.loc[:,year])
-                    z[s][year] = z_new
+                    #z[s][year] = z_new
                     WIOT.update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
                     WIOT.reset_to_coefficients(scenario=scemario)
                     print(scemario)
@@ -340,7 +318,7 @@ for scen in ['Act']:
                     
                     z_new.update(A2_act)
                     z_new.update(A1_act.loc[:,2030])
-                    z[s][year] = z_new
+                    #z[s][year] = z_new
                     WIOT.update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
                     WIOT.reset_to_coefficients(scenario=scemario)
                     print(scemario)
@@ -380,111 +358,3 @@ for s in sens:
             sheet2_name ="Cumulative"            
             Cumulative_region_act[s].to_excel(writer, sheet_name = sheet2_name,index = True)
 
-#%% OLD
-# for year in years:
-#     for s in ['Avg']:#sens:
-#         path_SG2 = f"{pd.read_excel(paths, index_col=[0]).loc['SG2',user]}\\SG2_{s}.xlsx"
-#         path_FD = f"{pd.read_excel(paths, index_col=[0]).loc['FD Total',user]}\\FD_total_{s}.xlsx"
-#         path_metrec = f"{pd.read_excel(paths, index_col=[0]).loc['metrec',user]}\\metrec_{s}_b2.xlsx"
-        
-#         SG2 = pd.read_excel(path_SG2,sheet_name=str(year),index_col=[0,1,2],header= [0,1,2])
-#         FD = pd.read_excel(path_FD,sheet_name=str(year), index_col=[0,1,2], header= [0,1,2]) #check indici
-#         metrec = pd.read_excel(path_metrec,sheet_name=str(year), index_col=[0,1,2], header=[0,1,2])
-        
-#         metrecs[year] = metrec
-#         metnat[year] = pd.DataFrame(0, index= metrec.index, columns = metrec.columns )
-#         #for y in SG2:
-#         #for y,matr in FD.items():
-#             #mat.columns = mat.index
-#             #SG2[y] = mat
-#             #FD[y] = matr
-#             #y = int{y}
-            
-#         scemario = f"{year} - {s}"
-#         #world[year].clone_scenario(scenario='baseline',name=scemario)
-#         WIOT.clone_scenario(scenario='baseline',name=scemario)
-        
-#         # z_new = world[year].matrices[scemario]['z']
-#         # z_new.update(SG2[y])
-#         #z_new.loc[(region,'Sector',list(SG2[y].index)),(region,'Sector',list(SG2[y].columns))] = SG2[y].values
-        
-#         z_new = WIOT.matrices[scemario]['z']
-#         z_new.update(SG2)#[year])
-        
-        
-#         # Y_new = world[year].matrices[scemario]['Y']
-#         # Y_new*=0
-#         # Y_new.update(FD[y])
-#         #Y_new.loc[(region,'Sector',list(SwFD[y].index)),(region,'Sector','Gross fixed capital formation')] = SwFD[y].values
-        
-#         Y_new = WIOT.matrices[scemario]['Y']
-#         Y_new*=0
-#         Y_new.update(FD)#[year])
-        
-#         z_new2 = WIOT.matrices[scemario]['z']
-#         if year == 2011:
-#             coeff_rec = pd.DataFrame(0, index= metrec.index, columns = metrec.columns )
-#             #coeff_rec = 0
-#             #coeff_rec.columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref],names=['Region', 'Level', 'Item']) 
-#         else:
-#             coeff_rec = pd.DataFrame(0, index= metrec.index, columns = metrec.columns )
-#             coeff_rec = metrecs[year - 1] @ np.linalg.inv(metnat[year - 1])  #il problema è qua
-#             coeff_rec.columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref],names=['Region', 'Level', 'Item'])
-#             z_new.update(coeff_rec)
-          
-#         #X_new = world[year].matrices[scemario]['X']
-#         X_new = WIOT.matrices[scemario]['X'] 
-#         metnat[year] =np.diag(X_new.loc[('EU27+UK', 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'production'])
-#         #metnat[year] =np.diag(WIOT['{year} - {s}']['X'].loc[('EU27+UK', 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'production'])
-#         WIOT.update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
-#         WIOT.reset_to_coefficients(scenario=scemario)
-#         # world[year].update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
-#         # world[year].reset_to_coefficients(scenario=scemario)
-#         #WIOT.to_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\e. WIOT\\{year}", flows=True, coefficients=True)
-#         print(scemario)
-
-
-# if year == 2011:
-#     WIOT.clone_scenario(scenario='baseline',name=scemario)
-    
-#     z_new = WIOT.matrices[scemario]['z']
-#     z_new.update(SG2)
-    
-#     Y_new = WIOT.matrices[scemario]['Y']
-#     Y_new*=0
-#     Y_new.update(FD)
-    
-#     WIOT.update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
-#     WIOT.reset_to_coefficients(scenario=scemario)
-#     print(scemario)
-    
-#     X = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
-    
-# else:
-#     WIOT.clone_scenario(scenario=f'{year - 1} - {s}',name=scemario)
-        
-#     z_new = WIOT.matrices[scemario]['z']
-#     z_new.update(SG2)
-    
-#     Y_new = WIOT.matrices[scemario]['Y']
-#     Y_new*=0
-#     Y_new.update(FD)
-    
-#     X_old = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
-#     Old[s][year] = X_old[scemario]['X']
-#     metnat_data = X_old[scemario]['X'].loc[('EU27+UK', 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'production']
-#     metnat = np.diag(metnat_data)
-
-#     coeff_rec = pd.DataFrame(0, index= metrec.index, columns = metrec.columns )
-#     coeff_rec = metrecs[year - 1] @ np.linalg.inv(metnat)  
-#     coeff_rec.columns = pd.MultiIndex.from_arrays([['EU27+UK'] * len(ref), ['Sector'] * len(ref), ref],names=['Region', 'Level', 'Item'])
-#     Coeff[s][year] = coeff_rec
-#     z_new.update(coeff_rec)
-#     z[s][year] = z_new
-#     WIOT.update_scenarios(scenario=scemario, z=z_new, Y=Y_new)
-#     WIOT.reset_to_coefficients(scenario=scemario)
-#     print(scemario)
-
-#     X = WIOT.get_data(matrices=['X'],scenarios= scemario, format='dict',units = False, indeces = False)
-
-# Critical_met[s][year] = X[scemario]['X'].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper ores and concentrates', 'Raw silicon']),'production']

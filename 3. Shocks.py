@@ -66,7 +66,7 @@ for year in years:
 
 #%% Shocked database to txt as Baseline
 for year in years:
-    world[year].to_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\c. CRMs\\{year}", scenario="CRMs", flows=False, coefficients=True, units = True)
+    world[year].to_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\c. CRMs\\{year}", scenario="CRMs", flows=True, coefficients=True, units = True)
 
 #%% parse and endogenize capital
 for year in years:
@@ -75,11 +75,11 @@ for year in years:
 
 #%% Shocked database to txt as Baseline
 for year in years:
-    world[year].to_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\d. Baseline\\{year}", scenario="EndCap", flows=False, coefficients=True, units = True)
+    world[year].to_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\d. Baseline\\{year}", scenario="EndCap", flows=True, coefficients=True, units = True)
 
 #%% parse and check table
 for year in years:
-    world[year] = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\d. Baseline\\{year}\\flows", table='SUT', mode="flows")
+    world[year] = mario.parse_from_txt(f"{pd.read_excel(paths, index_col=[0]).loc['Database',user]}\\d. Baseline\\{year}\\coefficients", table='SUT', mode="coefficients")
     f = world[year].f.loc['CO2 - combustion - air',('EU27+UK','Commodity','Offshore wind plants')]
     Y = world[year].Y.loc[('EU27+UK','Commodity','Offshore wind plants'),:]
 

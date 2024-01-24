@@ -162,9 +162,9 @@ Activity,"Recreational, cultural and sporting activities (92)",EUR
 Activity,Other service activities (93),EUR
 Activity,Private households with employed persons (95),EUR
 Activity,Extra-territorial organizations and bodies,EUR
-Activity,Production of photovoltaic plants,0.0
-Activity,Production of onshore wind plants,0.0
-Activity,Production of offshore wind plants,0.0
+Activity,Production of photovoltaic plants,EUR
+Activity,Production of onshore wind plants,EUR
+Activity,Production of offshore wind plants,EUR
 Commodity,Paddy rice,EUR
 Commodity,Wheat,EUR
 Commodity,Cereal grains nec,EUR
