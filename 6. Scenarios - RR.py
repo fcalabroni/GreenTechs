@@ -53,8 +53,9 @@ techs = list(set(Weibull_params.index.get_level_values(0)))
 
 price_materials = pd.read_excel(fileParam,sheet_name='price materials', index_col=[0], header=[0])
 price = pd.concat([price_materials] * 4, ignore_index= True) #unit of price [USD/kg]
-price.index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']*4])
+price.index = pd.MultiIndex.from_arrays([['EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','China', 'China', 'China', 'China','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']*4])
 
+met = list(price_materials.index.get_level_values(0))
 USD_to_EUR = pd.read_excel(fileParam,"USD to EURO", header=0, index_col=0)
 
 #Dictionary for data from Baseline scenario
@@ -76,11 +77,17 @@ for s in sens:
     for year in years:
         Greentech_base[s][year] = {}
 
-Greentech_mat_base = {}
+Greentech_tot_base = {}
 for s in sens:
-    Greentech_mat_base[s] = {}
+    Greentech_tot_base[s] = {}
     for year in years:
-        Greentech_mat_base[s][year] = {} #pd.DataFrame(0, index= pd.MultiIndex.from_arrays([['EU27+UK']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']]),columns = pd.MultiIndex.from_arrays([['EU27+UK']*3,['Sector']*3,['Offshore wind plants','Onshore wind plants','Photovoltaic plants']]))
+        Greentech_tot_base[s][year] = pd.DataFrame(0, index= met ,columns = pd.MultiIndex.from_arrays([region,['Green Tech']*len(region)]))
+
+# Greentech_mat_base = {}
+# for s in sens:
+#     Greentech_mat_base[s] = {}
+#     for year in years:
+#         Greentech_mat_base[s][year] = pd.DataFrame(0, index= price_materials.index ,columns = pd.MultiIndex.from_arrays([['EU27+UK']*3,['Sector']*3,['Offshore wind plants','Onshore wind plants','Photovoltaic plants']]))
 
         
 Results_world_base = {}
@@ -103,11 +110,14 @@ met_rec = {}
 for s in sens:
     met_rec[s] = {}
 
+met_rec_tot = {}
+met_rec_tot = pd.DataFrame(0, index= met, columns = Greentech_tot_base[s][year].columns)
+    
 EOL_RIR_base = {}
-for t in techs:
-    EOL_RIR_base[t] = {}
-    for s in sens:
-        EOL_RIR_base[t][s] = pd.DataFrame(0, index = pd.MultiIndex.from_arrays([['EU27+UK']*4, ['Sector']*4, ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']]), columns = years)
+for s in sens:
+    EOL_RIR_base[s] = {}
+    for m in met:
+        EOL_RIR_base[s][m] = pd.DataFrame(0, index = region, columns = years)
 
 # Z_Cu = {}
 # for s in sens:
@@ -192,11 +202,21 @@ for scen in ['Baseline']:
                     Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']),(r,'Sector','Offshore wind plants')] = ((Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']),(r,'Sector','Offshore wind plants')]* 10**6 )/ (price.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']),'Avg'] * USD_to_EUR.loc['EURO/USD',year] ))* 10**-3  #physical unit [ton]
                     Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']),(r,'Sector','Onshore wind plants')] = ((Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']),(r,'Sector','Onshore wind plants')]* 10**6 )/ (price.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']),'Avg'] * USD_to_EUR.loc['EURO/USD',year] ))* 10**-3
                     Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']),(r,'Sector','Photovoltaic plants')] = ((Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']),(r,'Sector','Photovoltaic plants')]* 10**6 )/ (price.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']),'Avg'] * USD_to_EUR.loc['EURO/USD',year] ))* 10**-3
+                    #Consumption of critical materials by green techs wthout disction from the technologies
+                    Greentech_tot_base[s][year].loc['Neodymium',(r,'Green Tech')] = Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Neodymium'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum().sum()
+                    Greentech_tot_base[s][year].loc['Dysprosium',(r,'Green Tech')] = Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Dysprosium'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum().sum()
+                    Greentech_tot_base[s][year].loc['Copper',(r,'Green Tech')] = Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Copper'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum().sum()
+                    Greentech_tot_base[s][year].loc['Raw silicon',(r,'Green Tech')] = Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Raw silicon'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum().sum()
+                    #Critical materials recycled by green techs wthout disction from the technologies
+                    met_rec_tot.loc['Neodymium',(r,'Green Tech')] = met_rec.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Neodymium'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum().sum()
+                    met_rec_tot.loc['Dysprosium',(r,'Green Tech')] = met_rec.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Dysprosium'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum().sum()
+                    met_rec_tot.loc['Copper',(r,'Green Tech')] = met_rec.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Copper'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum().sum()
+                    met_rec_tot.loc['Raw silicon',(r,'Green Tech')] = met_rec.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Raw silicon'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum().sum()                                        
                     #Consumption of critical materials by green techs without distinction from country of origin
-                    Greentech_mat_base[s][year].loc[(r,'Sector','Neodymium')] = Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Neodymium'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum()
-                    Greentech_mat_base[s][year].loc[(r,'Sector','Dysprosium')] = Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Dysprosium'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum()
-                    Greentech_mat_base[s][year].loc[(r,'Sector','Copper')] = Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Copper'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum()
-                    Greentech_mat_base[s][year].loc[(r,'Sector','Raw silicon')] = Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Raw silicon'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum()
+                    # Greentech_mat_base[s][year].loc[(r,'Sector','Neodymium')] = Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Neodymium'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum()
+                    # Greentech_mat_base[s][year].loc[(r,'Sector','Dysprosium')] = Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Dysprosium'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum()
+                    # Greentech_mat_base[s][year].loc[(r,'Sector','Copper')] = Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Copper'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum()
+                    # Greentech_mat_base[s][year].loc[(r,'Sector','Raw silicon')] = Greentech_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Raw silicon'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum()
                 #Critical materials consumption in physical units [ton] in the world           
                 Critical_met_world_base[s][year].loc[('World','Sector','Neodymium')] = Critical_met_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Neodymium')].sum()
                 Critical_met_world_base[s][year].loc[('World','Sector','Dysprosium')] = Critical_met_base[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Dysprosium')].sum()
@@ -215,10 +235,11 @@ for scen in ['Baseline']:
                     Cumulative_world_base[s].loc[:,float(year)] = Cumulative_world_base[s].loc[:,float(year - 1)] + Results_world_base[s].loc[:,float(year)]
 
                 #Calculating EoL- RIR Indicator
-                # for t in techs:
-                #     EOL_RIR_base[t][s].loc[:,year] = met_rec.loc[:,('EU27+UK','Sector',t)]/(Greentech_mat_base[s][year].loc[:,('EU27+UK','Sector',t)])
-                #     EOL_RIR_base[t][s] = EOL_RIR_base[t][s].fillna(0)
-                
+                for m in met:
+                    for r in region:
+                        EOL_RIR_base[s][m].loc[r,year] = met_rec_tot.loc[m,(r,'Green Tech')]/(Greentech_tot_base[s][year].loc[m,(r,'Green Tech')])
+                        EOL_RIR_base[s][m] = EOL_RIR_base[s][m].fillna(0)
+                    
 #%%  Export Data BASELINE RR sens
 for s in sens:
     with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Baseline\\RR\\Results_world_base_RR_{s}.xlsx") as writer:
@@ -233,11 +254,11 @@ for s in sens:
             sheet2_name ="Cumulative"            
             Cumulative_region_base[s].to_excel(writer, sheet_name = sheet2_name,index = True)
 
-# for t in techs:
-#         with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Baseline\\EoL-RIR\\EoL-RIR_base_{t}.xlsx") as writer:
-#             for key, df in EOL_RIR_base[t].items():
-#                 sheet_name = f'RR_{key}'
-#                 df.to_excel(writer, sheet_name=sheet_name, index= True)
+
+    with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Baseline\\EoL-RIR\\EoL-RIR_base_{s}.xlsx") as writer:
+        for key, df in EOL_RIR_base[s].items():
+            sheet_name = f'{key}'
+            df.to_excel(writer, sheet_name=sheet_name, index= True)
             
 #%% ACT with sensitivity on Recycling Rate (Weib = Avg, price = Avg)
 fileParam = f"{pd.read_excel(paths, index_col=[0]).loc['fileParam',user]}"
@@ -254,6 +275,7 @@ price_materials = pd.read_excel(fileParam,sheet_name='price materials', index_co
 price = pd.concat([price_materials] * 4, ignore_index= True) #unit of price [USD/kg]
 price.index = pd.MultiIndex.from_arrays([['China', 'China', 'China', 'China','EU27+UK', 'EU27+UK', 'EU27+UK', 'EU27+UK','RoW', 'RoW', 'RoW', 'RoW','USA', 'USA', 'USA', 'USA'], ['Sector'] * 16, ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']*4])
 
+met = list(price_materials.index.get_level_values(0))
 USD_to_EUR = pd.read_excel(fileParam,"USD to EURO", header=0, index_col=0)
 
 #Dictionaries for data from Act scenario
@@ -275,11 +297,17 @@ for s in sens:
     for year in years:
         Greentech_act[s][year] = {}
 
-Greentech_mat_act = {}
+Greentech_tot_act = {}
 for s in sens:
-    Greentech_mat_act[s] = {}
+    Greentech_tot_act[s] = {}
     for year in years:
-        Greentech_mat_act[s][year] = {}#pd.DataFrame(0, index= pd.MultiIndex.from_arrays([['EU27+UK']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']]),columns = pd.MultiIndex.from_arrays([['EU27+UK']*3,['Sector']*3,['Offshore wind plants','Onshore wind plants','Photovoltaic plants']]))
+        Greentech_tot_act[s][year] = pd.DataFrame(0, index= met ,columns = pd.MultiIndex.from_arrays([region,['Green Tech']*len(region)]))
+
+# Greentech_mat_act = {}
+# for s in sens:
+#     Greentech_mat_act[s] = {}
+#     for year in years:
+#         Greentech_mat_act[s][year] = {}#pd.DataFrame(0, index= pd.MultiIndex.from_arrays([['EU27+UK']*4, ['Sector']*4 , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']]),columns = pd.MultiIndex.from_arrays([['EU27+UK']*3,['Sector']*3,['Offshore wind plants','Onshore wind plants','Photovoltaic plants']]))
 
 Results_world_act = {}
 for s in sens:
@@ -301,12 +329,16 @@ met_rec = {}
 for s in sens:
     met_rec[s] = {}
 
+met_rec_tot = {}
+for s in sens:
+    met_rec_tot[s] = pd.DataFrame(0, index= met, columns = Greentech_tot_act[s][year].columns)
+    
 EOL_RIR_act = {}
-for t in techs:
-    EOL_RIR_act[t] = {}
-    for s in sens:
-        EOL_RIR_act[t][s] = pd.DataFrame(0, index = pd.MultiIndex.from_arrays([['EU27+UK']*4, ['Sector']*4, ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']]), columns = years)
-         
+for s in sens:
+    EOL_RIR_act[s] = {}
+    for m in met:
+        EOL_RIR_act[s][m] = pd.DataFrame(0, index = region, columns = years)
+
 #Useful only for some check 
 # z = {}  
 # for s in sens:
@@ -422,11 +454,21 @@ for scen in ['Act']:
                     Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']),(r,'Sector','Offshore wind plants')] = ((Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']),(r,'Sector','Offshore wind plants')]* 10**6 )/ (price.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']),'Avg'] * USD_to_EUR.loc['EURO/USD',year] ))* 10**-3  #physical unit [ton]
                     Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']),(r,'Sector','Onshore wind plants')] = ((Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']),(r,'Sector','Onshore wind plants')]* 10**6 )/ (price.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']),'Avg'] * USD_to_EUR.loc['EURO/USD',year] ))* 10**-3
                     Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']),(r,'Sector','Photovoltaic plants')] = ((Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']),(r,'Sector','Photovoltaic plants')]* 10**6 )/ (price.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , ['Neodymium','Dysprosium', 'Copper', 'Raw silicon']),'Avg'] * USD_to_EUR.loc['EURO/USD',year] ))* 10**-3
+                    #Consumption of critical materials by green techs wthout disction from the technologies
+                    Greentech_tot_act[s][year].loc['Neodymium',(r,'Green Tech')] = Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Neodymium'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum().sum()
+                    Greentech_tot_act[s][year].loc['Dysprosium',(r,'Green Tech')] = Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Dysprosium'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum().sum()
+                    Greentech_tot_act[s][year].loc['Copper',(r,'Green Tech')] = Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Copper'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum().sum()
+                    Greentech_tot_act[s][year].loc['Raw silicon',(r,'Green Tech')] = Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Raw silicon'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum().sum()
+                    #Critical materials recycled by green techs wthout disction from the technologies
+                    met_rec_tot[s].loc['Neodymium',(r,'Green Tech')] = met_rec.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Neodymium'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum().sum()
+                    met_rec_tot[s].loc['Dysprosium',(r,'Green Tech')] = met_rec.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Dysprosium'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum().sum()
+                    met_rec_tot[s].loc['Copper',(r,'Green Tech')] = met_rec.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Copper'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum().sum()
+                    met_rec_tot[s].loc['Raw silicon',(r,'Green Tech')] = met_rec.loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Raw silicon'),(r, 'Sector', ['Offshore wind plants','Onshore wind plants','Photovoltaic plants'])].sum().sum()                                        
                     #Consumption of critical materials by green techs without distinction from country of origin
-                    Greentech_mat_act[s][year].loc[('EU27+UK','Sector','Neodymium')] = Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Neodymium')].sum()
-                    Greentech_mat_act[s][year].loc[('EU27+UK','Sector','Dysprosium')] = Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Dysprosium')].sum()
-                    Greentech_mat_act[s][year].loc[('EU27+UK','Sector','Copper')] = Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Copper')].sum()
-                    Greentech_mat_act[s][year].loc[('EU27+UK','Sector','Raw silicon')] = Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Raw silicon')].sum()
+                    # Greentech_mat_act[s][year].loc[('EU27+UK','Sector','Neodymium')] = Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Neodymium')].sum()
+                    # Greentech_mat_act[s][year].loc[('EU27+UK','Sector','Dysprosium')] = Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Dysprosium')].sum()
+                    # Greentech_mat_act[s][year].loc[('EU27+UK','Sector','Copper')] = Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Copper')].sum()
+                    # Greentech_mat_act[s][year].loc[('EU27+UK','Sector','Raw silicon')] = Greentech_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Raw silicon')].sum()
                                  
                 Critical_met_world_act[s][year].loc[('World','Sector','Neodymium')] = Critical_met_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Neodymium')].sum()
                 Critical_met_world_act[s][year].loc[('World','Sector','Dysprosium')] = Critical_met_act[s][year].loc[(['EU27+UK','China','RoW','USA'], 'Sector' , 'Dysprosium')].sum()
@@ -444,10 +486,11 @@ for scen in ['Act']:
                     Cumulative_region_act[s].loc[:,float(year)] = Cumulative_region_act[s].loc[:,float(year - 1)] + Results_region_act[s].loc[:,float(year)]
                     Cumulative_world_act[s].loc[:,float(year)] = Cumulative_world_act[s].loc[:,float(year - 1)] + Results_world_act[s].loc[:,float(year)]
                     
-                # #Calculating EoL- RIR Indicator
-                # for t in techs:
-                #     EOL_RIR_act[t][s].loc[:,year] = met_rec.loc[:,('EU27+UK','Sector',t)]/(Greentech_mat_act[s][year].loc[:,('EU27+UK','Sector',t)])
-                #     EOL_RIR_act[t][s] = EOL_RIR_act[t][s].fillna(0)
+                #Calculating EoL- RIR Indicator
+                for m in met:
+                    for r in region:
+                        EOL_RIR_act[s][m].loc[r,year] = met_rec_tot[s].loc[m,(r,'Green Tech')]/(Greentech_tot_act[s][year].loc[m,(r,'Green Tech')])
+                        EOL_RIR_act[s][m] = EOL_RIR_act[s][m].fillna(0)
                     
 #%% Export Data ACT RR sens 
 for s in sens:    
@@ -463,10 +506,10 @@ for s in sens:
             sheet2_name ="Cumulative"            
             Cumulative_region_act[s].to_excel(writer, sheet_name = sheet2_name,index = True)
             
-# for t in techs:
-#         with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Act\\EoL-RIR\\EoL-RIR_act_{t}.xlsx") as writer:
-#             for key, df in EOL_RIR_act[t].items():
-#                 sheet_name = f'RR_{key}'
-#                 df.to_excel(writer, sheet_name=sheet_name, index= True)
+
+    with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Act\\EoL-RIR\\EoL-RIR_act_{s}.xlsx") as writer:
+        for key, df in EOL_RIR_act[s].items():
+            sheet_name = f'{key}'
+            df.to_excel(writer, sheet_name=sheet_name, index= True)
         
 

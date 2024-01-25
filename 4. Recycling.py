@@ -522,11 +522,11 @@ for s in sens:
     #         for key, df in met_rec_comp[s][u].items():
     #             sheet_name = f'{key}'
     #             df.to_excel(writer, sheet_name=sheet_name, index= True)
-    for u in upgrade:
-        with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['metrec',user]}\\metrec_{s}_{u}.xlsx") as writer:
-            for key, df in met_sum[m][s][u].items():
-                sheet_name = f'{key}'
-                df.to_excel(writer, sheet_name=sheet_name, index= True)        
+    # for u in upgrade:
+    #     with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['metrec',user]}\\metrec_{s}_{u}.xlsx") as writer:
+    #         for key, df in met_sum[m][s][u].items():
+    #             sheet_name = f'{key}'
+    #             df.to_excel(writer, sheet_name=sheet_name, index= True)        
     for u in upgrade:
         with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['A2',user]}\\Baseline\\A2_{s}_{u}.xlsx") as writer:
             for key, df in A2[s][u].items():
