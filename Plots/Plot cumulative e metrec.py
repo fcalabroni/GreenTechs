@@ -89,16 +89,17 @@ years_subset = range(2011, 2101)
 
 with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
     fig = plt.figure(figsize=(12, 10))
-    gs = GridSpec(2, 1, height_ratios=[3, 2], hspace=0.1)
+    gs = GridSpec(2, 1, height_ratios=[3, 2], hspace=0.1)   
+
 
     # Main plot with lines
     ax1 = fig.add_subplot(gs[0])
-    ax1.plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Neodymium'), :], label='Cumulative with Full RR', linestyle='-.', linewidth=3, markersize=8, color='limegreen')
-    ax1.plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Neodymium'), :], label='Cumulative with Target RR', linestyle='-', linewidth=3, markersize=8, color='orangered')
-    ax1.plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Neodymium'), :], label='Cumulative with Hist RR', linestyle='--', linewidth=3, markersize=8, color='deepskyblue')
+    ax1.plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Neodymium'), :], label='Cumulative with Full RR', linestyle='-.', linewidth=3, markersize=8, color='#3498db')
+    ax1.plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Neodymium'), :], label='Cumulative with Target RR', linestyle='-', linewidth=3, markersize=8, color='#ff6b81')
+    ax1.plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Neodymium'), :], label='Cumulative with Hist RR', linestyle='--', linewidth=3, markersize=8, color='#239d58')
 
     # Add labels, title, and legend
-    # ax1.legend(fontsize='x-large')
+    # ax1.legend(fontsize='x-large')239d58
     ax1.set_xlabel('Year', fontsize='x-large')
     ax1.set_title('Cumulative Neodymium and recycled metal', fontsize='xx-large')
 
@@ -117,9 +118,9 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
     met_rec_data_hist_Nd = met_rec_cumulative['hist'].loc['Neodymium', 2011:2100].values
 
     # Add histogram for the 'Target' sensitivity to the second y-axis (positive downward) and invert the y-axis
-    ax2.bar(years_subset, met_rec_data_full_Nd, alpha=0.7, label='Full Met Rec Cumulative', color='limegreen', edgecolor='limegreen')
-    ax2.bar(years_subset, met_rec_data_target_Nd, alpha=0.7, label='Target Met Rec Cumulative', color='orangered', edgecolor='orangered')
-    ax2.bar(years_subset, met_rec_data_hist_Nd, alpha=0.7, label='Hist Met Rec Cumulative', color='deepskyblue', edgecolor='deepskyblue')
+    ax2.bar(years_subset, met_rec_data_full_Nd, alpha=0.7, label='Full Met Rec Cumulative', color='#3498db', edgecolor='#3498db')
+    ax2.bar(years_subset, met_rec_data_target_Nd, alpha=0.7, label='Target Met Rec Cumulative', color='#ff6b81', edgecolor='#ff6b81')
+    ax2.bar(years_subset, met_rec_data_hist_Nd, alpha=0.7, label='Hist Met Rec Cumulative', color='#239d58', edgecolor='#239d58')
 
     ax2.invert_yaxis()
 
@@ -133,7 +134,8 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
     handles += handles2
     labels += labels2
     ax2.legend(handles, labels, fontsize='x-large', loc='lower left')
-
+    ax1.set_xlim(2011, 2100)
+    ax2.set_xlim(2011, 2100)
     plt.tight_layout()
     plt.show()
 #%% cumulative + met rec Dy
@@ -143,9 +145,9 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
 
     # Main plot with lines
     ax1 = fig.add_subplot(gs[0])
-    ax1.plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Dysprosium'), :], label='Cumulative with Full RR', linestyle='-.', linewidth=3, markersize=8, color='limegreen')
-    ax1.plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Dysprosium'), :], label='Cumulative with Target RR', linestyle='-', linewidth=3, markersize=8, color='orangered')
-    ax1.plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Dysprosium'), :], label='Cumulative with Hist RR', linestyle='--', linewidth=3, markersize=8, color='deepskyblue')
+    ax1.plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Dysprosium'), :], label='Cumulative with Full RR', linestyle='-.', linewidth=3, markersize=8, color='#3498db')
+    ax1.plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Dysprosium'), :], label='Cumulative with Target RR', linestyle='-', linewidth=3, markersize=8, color='#ff6b81')
+    ax1.plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Dysprosium'), :], label='Cumulative with Hist RR', linestyle='--', linewidth=3, markersize=8, color='#239d58')
 
     # Add labels, title, and legend
     # ax1.legend(fontsize='x-large')
@@ -167,9 +169,9 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
     met_rec_data_hist_Dy = met_rec_cumulative['hist'].loc['Dysprosium', 2011:2100].values
 
     # Add histogram for the 'Target' sensitivity to the second y-axis (positive downward) and invert the y-axis
-    ax2.bar(years_subset, met_rec_data_full_Dy, alpha=0.7, label='Full Met Rec Cumulative', color='limegreen', edgecolor='limegreen')
-    ax2.bar(years_subset, met_rec_data_target_Dy, alpha=0.7, label='Target Met Rec Cumulative', color='orangered', edgecolor='orangered')
-    ax2.bar(years_subset, met_rec_data_hist_Dy, alpha=0.7, label='Hist Met Rec Cumulative', color='deepskyblue', edgecolor='deepskyblue')
+    ax2.bar(years_subset, met_rec_data_full_Dy, alpha=0.7, label='Full Met Rec Cumulative', color='#3498db', edgecolor='#3498db')
+    ax2.bar(years_subset, met_rec_data_target_Dy, alpha=0.7, label='Target Met Rec Cumulative', color='#ff6b81', edgecolor='#ff6b81')
+    ax2.bar(years_subset, met_rec_data_hist_Dy, alpha=0.7, label='Hist Met Rec Cumulative', color='#239d58', edgecolor='#239d58')
 
     ax2.invert_yaxis()
 
@@ -183,7 +185,8 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
     handles += handles2
     labels += labels2
     ax2.legend(handles, labels, fontsize='x-large', loc='lower left')
-  
+    ax1.set_xlim(2011, 2100)
+    ax2.set_xlim(2011, 2100)
     plt.tight_layout()
     plt.show()
     
@@ -194,9 +197,9 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
 
     # Main plot with lines
     ax1 = fig.add_subplot(gs[0])
-    ax1.plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Copper'), :], label='Cumulative with Full RR', linestyle='-.', linewidth=3, markersize=8, color='limegreen')
-    ax1.plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Copper'), :], label='Cumulative with Target RR', linestyle='-', linewidth=3, markersize=8, color='orangered')
-    ax1.plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Copper'), :], label='Cumulative with Hist RR', linestyle='--', linewidth=3, markersize=8, color='deepskyblue')
+    ax1.plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Copper'), :], label='Cumulative with Full RR', linestyle='-.', linewidth=3, markersize=8, color='#3498db')
+    ax1.plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Copper'), :], label='Cumulative with Target RR', linestyle='-', linewidth=3, markersize=8, color='#ff6b81')
+    ax1.plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Copper'), :], label='Cumulative with Hist RR', linestyle='--', linewidth=3, markersize=8, color='#239d58')
 
     # Add labels, title, and legend
     # ax1.legend(fontsize='x-large')
@@ -218,9 +221,9 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
     met_rec_data_hist_Cu = met_rec_cumulative['hist'].loc['Copper', 2011:2100].values
 
     # Add histogram for the 'Target' sensitivity to the second y-axis (positive downward) and invert the y-axis
-    ax2.bar(years_subset, met_rec_data_full_Cu, alpha=0.7, label='Full Met Rec Cumulative', color='limegreen', edgecolor='limegreen')
-    ax2.bar(years_subset, met_rec_data_target_Cu, alpha=0.7, label='Target Met Rec Cumulative', color='orangered', edgecolor='orangered')
-    ax2.bar(years_subset, met_rec_data_hist_Cu, alpha=0.7, label='Hist Met Rec Cumulative', color='deepskyblue', edgecolor='deepskyblue')
+    ax2.bar(years_subset, met_rec_data_full_Cu, alpha=0.7, label='Full Met Rec Cumulative', color='#3498db', edgecolor='#3498db')
+    ax2.bar(years_subset, met_rec_data_target_Cu, alpha=0.7, label='Target Met Rec Cumulative', color='#ff6b81', edgecolor='#ff6b81')
+    ax2.bar(years_subset, met_rec_data_hist_Cu, alpha=0.7, label='Hist Met Rec Cumulative', color='#239d58', edgecolor='#239d58')
 
     ax2.invert_yaxis()
 
@@ -234,7 +237,8 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
     handles += handles2
     labels += labels2
     ax2.legend(handles, labels, fontsize='x-large', loc='lower left')
-
+    ax1.set_xlim(2011, 2100)
+    ax2.set_xlim(2011, 2100)
     plt.tight_layout()
     plt.show()
 
@@ -245,9 +249,9 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
 
     # Main plot with lines
     ax1 = fig.add_subplot(gs[0])
-    ax1.plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Raw silicon'), :], label='Cumulative with Full RR', linestyle='-.', linewidth=3, markersize=8, color='limegreen')
-    ax1.plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Raw silicon'), :], label='Cumulative with Target RR', linestyle='-', linewidth=3, markersize=8, color='orangered')
-    ax1.plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Raw silicon'), :], label='Cumulative with Hist RR', linestyle='--', linewidth=3, markersize=8, color='deepskyblue')
+    ax1.plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Raw silicon'), :], label='Cumulative with Full RR', linestyle='-.', linewidth=3, markersize=8, color='#3498db')
+    ax1.plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Raw silicon'), :], label='Cumulative with Target RR', linestyle='-', linewidth=3, markersize=8, color='#ff6b81')
+    ax1.plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Raw silicon'), :], label='Cumulative with Hist RR', linestyle='--', linewidth=3, markersize=8, color='#239d58')
 
     # Add labels, title, and legend
     # ax1.legend(fontsize='x-large')
@@ -260,18 +264,20 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
     # Add a background color
     ax1.axhspan(0, max(res_base_RR['full'].loc[('World', 'Sector', 'Raw silicon'), :]), facecolor='#f2f2f2', alpha=0.2)
     ax1.tick_params(axis='both', which='major', labelsize='x-large')
+    
     # Create the second y-axis (positive downward)
     ax2 = fig.add_subplot(gs[1])
     ax2.yaxis.grid(True,linestyle='-', alpha=0.7)
+    
     # Add histogram for the 'Target' sensitivity to the second y-axis (positive downward) and invert the y-axis
     met_rec_data_target_Si = met_rec_cumulative['target'].loc['Raw silicon', 2011:2100].values
     met_rec_data_full_Si = met_rec_cumulative['full'].loc['Raw silicon', 2011:2100].values
     met_rec_data_hist_Si = met_rec_cumulative['hist'].loc['Raw silicon', 2011:2100].values
 
     # Add histogram for the 'Target' sensitivity to the second y-axis (positive downward) and invert the y-axis
-    ax2.bar(years_subset, met_rec_data_full_Si, alpha=0.7, label='Full Met Rec Cumulative', color='limegreen', edgecolor='limegreen')
-    ax2.bar(years_subset, met_rec_data_target_Si, alpha=0.7, label='Target Met Rec Cumulative', color='orangered', edgecolor='orangered')
-    ax2.bar(years_subset, met_rec_data_hist_Si, alpha=0.7, label='Hist Met Rec Cumulative', color='deepskyblue', edgecolor='deepskyblue')
+    ax2.bar(years_subset, met_rec_data_full_Si, alpha=0.7, label='Full Met Rec Cumulative', color='#3498db', edgecolor='#3498db')
+    ax2.bar(years_subset, met_rec_data_target_Si, alpha=0.7, label='Target Met Rec Cumulative', color='#ff6b81', edgecolor='#ff6b81')
+    ax2.bar(years_subset, met_rec_data_hist_Si, alpha=0.7, label='Hist Met Rec Cumulative', color='#239d58', edgecolor='#239d58')
 
     ax2.invert_yaxis()
 
@@ -279,6 +285,7 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
     ax1.tick_params(axis='y', labelsize='x-large')
     ax2.tick_params(axis='y', labelsize='x-large')
     ax2.set_xticks([]) 
+
     # Add a single legend for both subplots
     handles, labels = ax1.get_legend_handles_labels()
     handles2, labels2 = ax2.get_legend_handles_labels()
@@ -286,8 +293,16 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
     labels += labels2
     ax2.legend(handles, labels, fontsize='x-large', loc='lower left')
 
+    # Imposta i limiti dell'asse x per rimuovere i margini prima del 2011 e dopo il 2100
+    ax1.set_xlim(2011, 2100)
+    ax2.set_xlim(2011, 2100)
+
+    # Aggiungi una linea verticale nel grafico principale per indicare il 2011
+    ax1.axvline(x=2011, color='gray', linestyle='--', linewidth=2, alpha=0.7)
+
     plt.tight_layout()
     plt.show()
+
 
 #%%
 
@@ -296,9 +311,9 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
 #     fig, axs = plt.subplots(4, 2, figsize=(30, 25),gridspec_kw={'height_ratios': [3, 2, 3, 2], 'hspace': 0.3})
 
 #     # Plot per Neodymium
-#     axs[0, 0].plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Neodymium'), :], label='Full RR', linestyle='-.', linewidth=3, markersize=8, color='limegreen')
-#     axs[0, 0].plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Neodymium'), :], label='Target RR', linestyle='-', linewidth=3, markersize=8, color='orangered')
-#     axs[0, 0].plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Neodymium'), :], label='Hist RR', linestyle='--', linewidth=3, markersize=8, color='deepskyblue')
+#     axs[0, 0].plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Neodymium'), :], label='Full RR', linestyle='-.', linewidth=3, markersize=8, color='3498db')
+#     axs[0, 0].plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Neodymium'), :], label='Target RR', linestyle='-', linewidth=3, markersize=8, color='#ff6b81')
+#     axs[0, 0].plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Neodymium'), :], label='Hist RR', linestyle='--', linewidth=3, markersize=8, color='#ff6b81')
 #     axs[0, 0].set_xlabel('Year', fontsize='x-large')
 #     axs[0, 0].set_title('Neodymium', fontsize='xx-large')
 #     axs[0, 0].yaxis.grid(True, linestyle='-', alpha=0.7)
@@ -306,17 +321,17 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
 #     axs[0, 0].tick_params(axis='both', which='major', labelsize='x-large')
 
 #     # Plot per il grafico dell'istogramma di Neodymium
-#     axs[1, 0].bar(years_subset, met_rec_data_full_Nd, alpha=0.7, label='Full Met Rec Cumulative', color='limegreen', edgecolor='limegreen')
-#     axs[1, 0].bar(years_subset, met_rec_data_target_Nd, alpha=0.7, label='Target Met Rec Cumulative', color='orangered', edgecolor='orangered')
-#     axs[1, 0].bar(years_subset, met_rec_data_hist_Nd, alpha=0.7, label='Hist Met Rec Cumulative', color='deepskyblue', edgecolor='deepskyblue')
+#     axs[1, 0].bar(years_subset, met_rec_data_full_Nd, alpha=0.7, label='Full Met Rec Cumulative', color='3498db', edgecolor='3498db')
+#     axs[1, 0].bar(years_subset, met_rec_data_target_Nd, alpha=0.7, label='Target Met Rec Cumulative', color='#ff6b81', edgecolor='#ff6b81')
+#     axs[1, 0].bar(years_subset, met_rec_data_hist_Nd, alpha=0.7, label='Hist Met Rec Cumulative', color='#ff6b81', edgecolor='#ff6b81')
 #     axs[1, 0].invert_yaxis()
 #     axs[1, 0].tick_params(axis='y', labelsize='x-large')
 #     axs[1, 0].set_xticks([])
 
 #     # Plot per Dysprosium
-#     axs[0, 1].plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Dysprosium'), :], label='Full RR', linestyle='-.', linewidth=3, markersize=8, color='limegreen')
-#     axs[0, 1].plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Dysprosium'), :], label='Target RR', linestyle='-', linewidth=3, markersize=8, color='orangered')
-#     axs[0, 1].plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Dysprosium'), :], label='Hist RR', linestyle='--', linewidth=3, markersize=8, color='deepskyblue')
+#     axs[0, 1].plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Dysprosium'), :], label='Full RR', linestyle='-.', linewidth=3, markersize=8, color='3498db')
+#     axs[0, 1].plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Dysprosium'), :], label='Target RR', linestyle='-', linewidth=3, markersize=8, color='#ff6b81')
+#     axs[0, 1].plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Dysprosium'), :], label='Hist RR', linestyle='--', linewidth=3, markersize=8, color='#ff6b81')
 #     axs[0, 1].set_xlabel('Year', fontsize='x-large')
 #     axs[0, 1].set_title('Dysprosium', fontsize='xx-large')
 #     axs[0, 1].yaxis.grid(True, linestyle='-', alpha=0.7)
@@ -324,17 +339,17 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
 #     axs[0, 1].tick_params(axis='both', which='major', labelsize='x-large')
 
 #     # Plot per il grafico dell'istogramma di Dysprosium
-#     axs[1, 1].bar(years_subset, met_rec_data_full_Dy, alpha=0.7, label='Full Met Rec Cumulative', color='limegreen', edgecolor='limegreen')
-#     axs[1, 1].bar(years_subset, met_rec_data_target_Dy, alpha=0.7, label='Target Met Rec Cumulative', color='orangered', edgecolor='orangered')
-#     axs[1, 1].bar(years_subset, met_rec_data_hist_Dy, alpha=0.7, label='Hist Met Rec Cumulative', color='deepskyblue', edgecolor='deepskyblue')
+#     axs[1, 1].bar(years_subset, met_rec_data_full_Dy, alpha=0.7, label='Full Met Rec Cumulative', color='3498db', edgecolor='3498db')
+#     axs[1, 1].bar(years_subset, met_rec_data_target_Dy, alpha=0.7, label='Target Met Rec Cumulative', color='#ff6b81', edgecolor='#ff6b81')
+#     axs[1, 1].bar(years_subset, met_rec_data_hist_Dy, alpha=0.7, label='Hist Met Rec Cumulative', color='#ff6b81', edgecolor='#ff6b81')
 #     axs[1, 1].invert_yaxis()
 #     axs[1, 1].tick_params(axis='y', labelsize='x-large')
 #     axs[1, 1].set_xticks([])
 
 #     # Plot per Copper
-#     axs[2, 0].plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Copper'), :], label='Full RR', linestyle='-.', linewidth=3, markersize=8, color='limegreen')
-#     axs[2, 0].plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Copper'), :], label='Target RR', linestyle='-', linewidth=3, markersize=8, color='orangered')
-#     axs[2, 0].plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Copper'), :], label='Hist RR', linestyle='--', linewidth=3, markersize=8, color='deepskyblue')
+#     axs[2, 0].plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Copper'), :], label='Full RR', linestyle='-.', linewidth=3, markersize=8, color='3498db')
+#     axs[2, 0].plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Copper'), :], label='Target RR', linestyle='-', linewidth=3, markersize=8, color='#ff6b81')
+#     axs[2, 0].plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Copper'), :], label='Hist RR', linestyle='--', linewidth=3, markersize=8, color='#ff6b81')
 #     axs[2, 0].set_xlabel('Year', fontsize='x-large')
 #     axs[2, 0].set_title('Copper', fontsize='xx-large')
 #     axs[2, 0].yaxis.grid(True, linestyle='-', alpha=0.7)
@@ -342,17 +357,17 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
 #     axs[2, 0].tick_params(axis='both', which='major', labelsize='x-large')
 
 #     # Plot per il grafico dell'istogramma di Copper
-#     axs[3,0].bar(years_subset, met_rec_data_full_Cu, alpha=0.7, label='Full Met Rec Cumulative', color='limegreen', edgecolor='limegreen')
-#     axs[3,0].bar(years_subset, met_rec_data_target_Cu, alpha=0.7, label='Target Met Rec Cumulative', color='orangered', edgecolor='orangered')
-#     axs[3,0].bar(years_subset, met_rec_data_hist_Cu, alpha=0.7, label='Hist Met Rec Cumulative', color='deepskyblue', edgecolor='deepskyblue')
+#     axs[3,0].bar(years_subset, met_rec_data_full_Cu, alpha=0.7, label='Full Met Rec Cumulative', color='3498db', edgecolor='3498db')
+#     axs[3,0].bar(years_subset, met_rec_data_target_Cu, alpha=0.7, label='Target Met Rec Cumulative', color='#ff6b81', edgecolor='#ff6b81')
+#     axs[3,0].bar(years_subset, met_rec_data_hist_Cu, alpha=0.7, label='Hist Met Rec Cumulative', color='#ff6b81', edgecolor='#ff6b81')
 #     axs[3,0].invert_yaxis()
 #     axs[3,0].tick_params(axis='y', labelsize='x-large')
 #     axs[3,0].set_xticks([])
 
 #     # Plot per Silicon
-#     axs[2,1].plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Raw silicon'), :], label='Full RR', linestyle='-.', linewidth=3, markersize=8, color='limegreen')
-#     axs[2,1].plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Raw silicon'), :], label='Target RR', linestyle='-', linewidth=3, markersize=8, color='orangered')
-#     axs[2,1].plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Raw silicon'), :], label='Hist RR', linestyle='--', linewidth=3, markersize=8, color='deepskyblue')
+#     axs[2,1].plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Raw silicon'), :], label='Full RR', linestyle='-.', linewidth=3, markersize=8, color='3498db')
+#     axs[2,1].plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Raw silicon'), :], label='Target RR', linestyle='-', linewidth=3, markersize=8, color='#ff6b81')
+#     axs[2,1].plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Raw silicon'), :], label='Hist RR', linestyle='--', linewidth=3, markersize=8, color='#ff6b81')
 #     axs[2,1].set_xlabel('Year', fontsize='x-large')
 #     axs[2,1].set_title('Raw silicon', fontsize='xx-large')
 #     axs[2,1].yaxis.grid(True, linestyle='-', alpha=0.7)
@@ -360,9 +375,9 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
 #     axs[2,1].tick_params(axis='both', which='major', labelsize='x-large')
 
 #     # Plot per il grafico dell'istogramma di Silicon
-#     axs[3,1].bar(years_subset, met_rec_data_full_Si, alpha=0.7, label='Full Met Rec Cumulative', color='limegreen', edgecolor='limegreen')
-#     axs[3,1].bar(years_subset, met_rec_data_target_Si, alpha=0.7, label='Target Met Rec Cumulative', color='orangered', edgecolor='orangered')
-#     axs[3,1].bar(years_subset, met_rec_data_hist_Si, alpha=0.7, label='Hist Met Rec Cumulative', color='deepskyblue', edgecolor='deepskyblue')
+#     axs[3,1].bar(years_subset, met_rec_data_full_Si, alpha=0.7, label='Full Met Rec Cumulative', color='3498db', edgecolor='3498db')
+#     axs[3,1].bar(years_subset, met_rec_data_target_Si, alpha=0.7, label='Target Met Rec Cumulative', color='#ff6b81', edgecolor='#ff6b81')
+#     axs[3,1].bar(years_subset, met_rec_data_hist_Si, alpha=0.7, label='Hist Met Rec Cumulative', color='#ff6b81', edgecolor='#ff6b81')
 #     axs[3,1].invert_yaxis()
 #     axs[3,1].tick_params(axis='y', labelsize='x-large')
 #     axs[3,1].set_xticks([])
@@ -381,12 +396,12 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
 from matplotlib.ticker import FuncFormatter
 
 with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
-    fig, axs = plt.subplots(2, 4, figsize=(34, 15),gridspec_kw={'height_ratios': [2, 1], 'hspace': 0.1})
+    fig, axs = plt.subplots(2, 4, figsize=(34, 15),gridspec_kw={'height_ratios': [2, 1], 'hspace': 0.1, 'wspace': 0.2})
 
     # Plot per Neodymium
-    axs[0, 0].plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Neodymium'), :], label='Full RR', linestyle='-.', linewidth=3, markersize=8, color='limegreen')
-    axs[0, 0].plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Neodymium'), :], label='Target RR', linestyle='-', linewidth=3, markersize=8, color='orangered')
-    axs[0, 0].plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Neodymium'), :], label='Hist RR', linestyle='--', linewidth=3, markersize=8, color='deepskyblue')
+    axs[0, 0].plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Neodymium'), :], label='Full RR', linestyle='-', linewidth=4, markersize=8, color='#3498db')
+    axs[0, 0].plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Neodymium'), :], label='Target RR', linestyle='-', linewidth=4, markersize=8, color='#ff6b81')
+    axs[0, 0].plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Neodymium'), :], label='Hist RR', linestyle='-', linewidth=4, markersize=8, color='#239d58')
    # axs[0, 0].set_xlabel('Year', fontsize='x-large')
     axs[0, 0].set_title('Neodymium', fontsize='25')
     axs[0, 0].yaxis.grid(True, linestyle='-', alpha=0.7)
@@ -394,17 +409,17 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
     axs[0, 0].tick_params(axis='both', which='major', labelsize='x-large')
 
     # Plot per il grafico dell'istogramma di Neodymium
-    axs[1, 0].bar(years_subset, met_rec_data_full_Nd, alpha=0.7, label='Full Met Rec Cumulative', color='limegreen', edgecolor='limegreen')
-    axs[1, 0].bar(years_subset, met_rec_data_target_Nd, alpha=0.7, label='Target Met Rec Cumulative', color='orangered', edgecolor='orangered')
-    axs[1, 0].bar(years_subset, met_rec_data_hist_Nd, alpha=0.7, label='Hist Met Rec Cumulative', color='deepskyblue', edgecolor='deepskyblue')
+    axs[1, 0].bar(years_subset, met_rec_data_full_Nd, alpha=0.7, label='Full Met Rec Cumulative', color='#3498db', edgecolor='#3498db')
+    axs[1, 0].bar(years_subset, met_rec_data_target_Nd, alpha=0.7, label='Target Met Rec Cumulative', color='#ff6b81', edgecolor='#ff6b81')
+    axs[1, 0].bar(years_subset, met_rec_data_hist_Nd, alpha=0.7, label='Hist Met Rec Cumulative', color='#239d58', edgecolor='#239d58')
     axs[1, 0].invert_yaxis()
     axs[1, 0].tick_params(axis='y', labelsize='x-large')
     axs[1, 0].set_xticks([])
 
     # Plot per Dysprosium
-    axs[0, 1].plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Dysprosium'), :], label='Full RR', linestyle='-.', linewidth=3, markersize=8, color='limegreen')
-    axs[0, 1].plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Dysprosium'), :], label='Target RR', linestyle='-', linewidth=3, markersize=8, color='orangered')
-    axs[0, 1].plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Dysprosium'), :], label='Hist RR', linestyle='--', linewidth=3, markersize=8, color='deepskyblue')
+    axs[0, 1].plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Dysprosium'), :], label='Full RR', linestyle='-', linewidth=3, markersize=8, color='#3498db')
+    axs[0, 1].plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Dysprosium'), :], label='Target RR', linestyle='-', linewidth=3, markersize=8, color='#ff6b81')
+    axs[0, 1].plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Dysprosium'), :], label='Hist RR', linestyle='-', linewidth=3, markersize=8, color='#239d58')
    # axs[0, 1].set_xlabel('Year', fontsize='x-large')
     axs[0, 1].set_title('Dysprosium', fontsize='25')
     axs[0, 1].yaxis.grid(True, linestyle='-', alpha=0.7)
@@ -412,17 +427,17 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
     axs[0, 1].tick_params(axis='both', which='major', labelsize='x-large')
 
     # Plot per il grafico dell'istogramma di Dysprosium
-    axs[1, 1].bar(years_subset, met_rec_data_full_Dy, alpha=0.7, label='Full Met Rec Cumulative', color='limegreen', edgecolor='limegreen')
-    axs[1, 1].bar(years_subset, met_rec_data_target_Dy, alpha=0.7, label='Target Met Rec Cumulative', color='orangered', edgecolor='orangered')
-    axs[1, 1].bar(years_subset, met_rec_data_hist_Dy, alpha=0.7, label='Hist Met Rec Cumulative', color='deepskyblue', edgecolor='deepskyblue')
+    axs[1, 1].bar(years_subset, met_rec_data_full_Dy, alpha=0.7, label='Full Met Rec Cumulative', color='#3498db', edgecolor='#3498db')
+    axs[1, 1].bar(years_subset, met_rec_data_target_Dy, alpha=0.7, label='Target Met Rec Cumulative', color='#ff6b81', edgecolor='#ff6b81')
+    axs[1, 1].bar(years_subset, met_rec_data_hist_Dy, alpha=0.7, label='Hist Met Rec Cumulative', color='#239d58', edgecolor='#239d58')
     axs[1, 1].invert_yaxis()
     axs[1, 1].tick_params(axis='y', labelsize='x-large')
     axs[1, 1].set_xticks([])
 
     # Plot per Copper
-    axs[0, 2].plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Copper'), :], label='Full RR', linestyle='-.', linewidth=3, markersize=8, color='limegreen')
-    axs[0, 2].plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Copper'), :], label='Target RR', linestyle='-', linewidth=3, markersize=8, color='orangered')
-    axs[0, 2].plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Copper'), :], label='Hist RR', linestyle='--', linewidth=3, markersize=8, color='deepskyblue')
+    axs[0, 2].plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Copper'), :], label='Full RR', linestyle='-', linewidth=3, markersize=8, color='#3498db')
+    axs[0, 2].plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Copper'), :], label='Target RR', linestyle='-', linewidth=3, markersize=8, color='#ff6b81')
+    axs[0, 2].plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Copper'), :], label='Hist RR', linestyle='-', linewidth=3, markersize=8, color='#239d58')
    # axs[0, 2].set_xlabel('Year', fontsize='x-large')
     axs[0, 2].set_title('Copper', fontsize='25')
     axs[0, 2].yaxis.grid(True, linestyle='-', alpha=0.7)
@@ -430,17 +445,17 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
     axs[0, 2].tick_params(axis='both', which='major', labelsize='x-large')
 
     # Plot per il grafico dell'istogramma di Copper
-    axs[1, 2].bar(years_subset, met_rec_data_full_Cu, alpha=0.7, label='Full Met Rec Cumulative', color='limegreen', edgecolor='limegreen')
-    axs[1, 2].bar(years_subset, met_rec_data_target_Cu, alpha=0.7, label='Target Met Rec Cumulative', color='orangered', edgecolor='orangered')
-    axs[1, 2].bar(years_subset, met_rec_data_hist_Cu, alpha=0.7, label='Hist Met Rec Cumulative', color='deepskyblue', edgecolor='deepskyblue')
+    axs[1, 2].bar(years_subset, met_rec_data_full_Cu, alpha=0.7, label='Full Met Rec Cumulative', color='#3498db', edgecolor='#3498db')
+    axs[1, 2].bar(years_subset, met_rec_data_target_Cu, alpha=0.7, label='Target Met Rec Cumulative', color='#ff6b81', edgecolor='#ff6b81')
+    axs[1, 2].bar(years_subset, met_rec_data_hist_Cu, alpha=0.7, label='Hist Met Rec Cumulative', color='#239d58', edgecolor='#239d58')
     axs[1, 2].invert_yaxis()
     axs[1, 2].tick_params(axis='y', labelsize='x-large')
     axs[1, 2].set_xticks([])
 
     # Plot per Silicon
-    axs[0, 3].plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Raw silicon'), :], label='Full RR', linestyle='-.', linewidth=3, markersize=8, color='limegreen')
-    axs[0, 3].plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Raw silicon'), :], label='Target RR', linestyle='-', linewidth=3, markersize=8, color='orangered')
-    axs[0, 3].plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Raw silicon'), :], label='Hist RR', linestyle='--', linewidth=3, markersize=8, color='deepskyblue')
+    axs[0, 3].plot(years, res_base_RR['full'].loc[('World', 'Sector', 'Raw silicon'), :], label='Full RR', linestyle='-', linewidth=3, markersize=8, color='#3498db')
+    axs[0, 3].plot(years, res_base_RR['target'].loc[('World', 'Sector', 'Raw silicon'), :], label='Target RR', linestyle='-', linewidth=3, markersize=8, color='#ff6b81')
+    axs[0, 3].plot(years, res_base_RR['hist'].loc[('World', 'Sector', 'Raw silicon'), :], label='Hist RR', linestyle='-', linewidth=3, markersize=8, color='#239d58')
   #  axs[0, 3].set_xlabel('Year', fontsize='x-large')
     axs[0, 3].set_title('Raw silicon', fontsize='25')
     axs[0, 3].yaxis.grid(True, linestyle='-', alpha=0.7)
@@ -448,9 +463,9 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
     axs[0, 3].tick_params(axis='both', which='major', labelsize='x-large')
 
     # Plot per il grafico dell'istogramma di Silicon
-    axs[1, 3].bar(years_subset, met_rec_data_full_Si, alpha=0.7, label='Full Met Rec Cumulative', color='limegreen', edgecolor='limegreen')
-    axs[1, 3].bar(years_subset, met_rec_data_target_Si, alpha=0.7, label='Target Met Rec Cumulative', color='orangered', edgecolor='orangered')
-    axs[1, 3].bar(years_subset, met_rec_data_hist_Si, alpha=0.7, label='Hist Met Rec Cumulative', color='deepskyblue', edgecolor='deepskyblue')
+    axs[1, 3].bar(years_subset, met_rec_data_full_Si, alpha=0.7, label='Full Met Rec Cumulative', color='#3498db', edgecolor='#3498db')
+    axs[1, 3].bar(years_subset, met_rec_data_target_Si, alpha=0.7, label='Target Met Rec Cumulative', color='#ff6b81', edgecolor='#ff6b81')
+    axs[1, 3].bar(years_subset, met_rec_data_hist_Si, alpha=0.7, label='Hist Met Rec Cumulative', color='#239d58', edgecolor='#239d58')
     axs[1, 3].invert_yaxis()
     axs[1, 3].tick_params(axis='y', labelsize='x-large')
     axs[1, 3].set_xticks([])
@@ -477,17 +492,53 @@ with plt.style.context('default'):  # Utilizzo dello stile di base di Matplotlib
     axs[1, 0].legend(handles, labels, fontsize='x-large', loc='lower left')
 
     # Add a general title
-    plt.suptitle('Cumulative production of metals and cumulative recycled metal [Mtons/year]', fontsize='40')
+    plt.suptitle('Cumulative production of metals and cumulative recycled metal',fontsize='30')
     
     # Etichetta esplicita per il primo valore sull'asse x del primo grafico e impostazione dei ticks personalizzati
-    axs[0, 0].set_xlabel('Year', fontsize='x-large')
   
+    axs[1, 0].set_xticks(custom_xticks_first_plot)
+    axs[1, 1].set_xticks(custom_xticks_first_plot)
+    axs[1, 2].set_xticks(custom_xticks_first_plot)
+    axs[1, 3].set_xticks(custom_xticks_first_plot)
+
+    axs[1, 0].set_xticklabels(custom_xticks_first_plot,fontsize='x-large')
+    axs[1, 1].set_xticklabels(custom_xticks_first_plot,fontsize='x-large')
+    axs[1, 2].set_xticklabels(custom_xticks_first_plot,fontsize='x-large')
+    axs[1, 3].set_xticklabels(custom_xticks_first_plot,fontsize='x-large')
+    
     axs[0, 0].set_xticks(custom_xticks_first_plot)
     axs[0, 1].set_xticks(custom_xticks_first_plot)
     axs[0, 2].set_xticks(custom_xticks_first_plot)
     axs[0, 3].set_xticks(custom_xticks_first_plot)
 
-    axs[0, 0].set_xticklabels(custom_xticks_first_plot)
+    axs[0, 0].set_xticklabels(custom_xticks_first_plot,fontsize='x-large')
+    axs[0, 1].set_xticklabels(custom_xticks_first_plot,fontsize='x-large')
+    axs[0, 2].set_xticklabels(custom_xticks_first_plot,fontsize='x-large')
+    axs[0, 3].set_xticklabels(custom_xticks_first_plot,fontsize='x-large')
+                          
+    # Imposta i limiti dell'asse x per tutti gli assi
+    axs[0,0].set_xlim(2011, 2100)
+    axs[0,1].set_xlim(2011, 2100)
+    axs[0,2].set_xlim(2011, 2100)
+    axs[0,3].set_xlim(2011, 2100)
+    axs[0,0].set_ylim(0, )
+    axs[0,1].set_ylim(0, )
+    axs[0,2].set_ylim(0, )
+    axs[0,3].set_ylim(0, )
+
+    # Imposta i limiti dell'asse x per tutti gli assi
+    axs[1,0].set_xlim(2011, 2100)
+    axs[1,1].set_xlim(2011, 2100)
+    axs[1,2].set_xlim(2011, 2100)
+    axs[1,3].set_xlim(2011, 2100)
+    for ax in axs.flat:
+        ax.set_ylabel('Mtons', fontsize='x-large',labelpad = 11)
     
+    for ax in axs[1]:
+        ax.yaxis.grid(True, linestyle='-', alpha=0.7)
+
+    for ax in axs[0, :]:
+        ax.set_xticks([])
+
     plt.tight_layout()
     plt.show()

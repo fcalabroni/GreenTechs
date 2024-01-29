@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd 
-import seaborn as sns
+
 from matplotlib.gridspec import GridSpec
 
 user = 'CF'
@@ -62,7 +62,6 @@ for s in sens:
             else:
                 met_rec_cumulative[s].loc[:,y] = met_rec_cumulative[s].loc[:,y - 1] + met_rec_world[s].loc[:,y]
 
-#%% Cumulative Nd
 #%% Cumulative Nd
 with plt.style.context('fivethirtyeight'):
     plt.figure(figsize=(12, 8))
@@ -261,25 +260,26 @@ with plt.style.context('fivethirtyeight'):
     
 #%% Ratio between cumulative demand in 2100 and reserves (Nd, Dy, Si)
 # Crea la legenda con spiegazione per ogni colonna
-legend_labels = ['Full', 'Hist', 'Target']
+legend_labels = ['Hist', 'Target','Full']
 
-with plt.style.context('fivethirtyeight'):
+with plt.style.context('default'):
     fig, ax = plt.subplots(figsize=(18, 6))
 
     # Plot per Dysprosium
-    for offset, label, data, color in zip(offsets, ['full', 'hist', 'target'], [dysprosium_last_year_values_full, dysprosium_last_year_values_hist, dysprosium_last_year_values_target], ['skyblue', 'lightcoral', 'lightgreen']):
-        ax.bar([0 + offset], [data], width=bar_width, edgecolor='black', label=f'{label}', color=color)
+    for offset, label, data, color in zip(offsets, ['hist', 'target','full'], [dysprosium_last_year_values_hist, dysprosium_last_year_values_target,dysprosium_last_year_values_full], ['#239d58', '#ff6b81','#3498db']):
+        ax.bar([0 + offset], [data], width=0.2, edgecolor=['#239d58', '#ff6b81','#3498db'], label=f'{label}', color=color)
 
     # Plot per Neodymium
-    for offset, label, data, color in zip(offsets, ['full', 'hist', 'target'], [neodymium_last_year_values_full, neodymium_last_year_values_hist, neodymium_last_year_values_target], ['skyblue', 'lightcoral', 'lightgreen']):
-        ax.bar([1 + offset], [data], width=bar_width, edgecolor='black', color=color)
+    for offset, label, data, color in zip(offsets, ['hist', 'target','full'], [neodymium_last_year_values_hist, neodymium_last_year_values_target,neodymium_last_year_values_full], ['#239d58', '#ff6b81','#3498db']):
+        ax.bar([1 + offset], [data], width=0.2, edgecolor=['#239d58', '#ff6b81','#3498db'], color=color)
 
     # Plot per Copper
-    for offset, label, data, color in zip(offsets, ['full', 'hist', 'target'], [copper_last_year_values_full, copper_last_year_values_hist, copper_last_year_values_target], ['skyblue', 'lightcoral', 'lightgreen']):
-        ax.bar([2 + offset], [data], width=bar_width, edgecolor='black',  color=color)
+    for offset, label, data, color in zip(offsets, ['hist', 'target','full'], [copper_last_year_values_hist, copper_last_year_values_target,copper_last_year_values_full], ['#239d58', '#ff6b81','#3498db']):
+        ax.bar([2 + offset], [data], width=0.2, edgecolor=['#239d58', '#ff6b81','#3498db'],  color=color)
 
     # Retta orizzontale comune a tutti i gruppi
     ax.axhline(y=1, linestyle='--', color='gray', label='Reserves')
+
 
     # Impostazione della legenda
     ax.legend(loc='upper left', bbox_to_anchor=(0, 1), fontsize=14)
@@ -292,7 +292,6 @@ with plt.style.context('fivethirtyeight'):
     ax.set_xticklabels(['Dysprosium', 'Neodymium', 'Copper'], fontsize=14)
 
     # Aggiunta di effetti di sfondo
-    ax.set_facecolor('#f0f0f0')
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
 
