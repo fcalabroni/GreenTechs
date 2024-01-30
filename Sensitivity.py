@@ -26,7 +26,7 @@ price = ['Avg','Max','Min']
 lifetime = ['Min','Avg','Max']
 # Weibull_params =  pd.read_excel(fileParam, "Weibull", index_col=[0,1])
 # lifetime = sens = list(set(Weibull_params.index.get_level_values(1)))
-y = [2011,2020,2050,2100]
+y = [2011,2030,2050,2100]
 
 Greentech_tot_s = {}
 for rr in RR:
@@ -63,7 +63,7 @@ for rr in RR:
     for s in lifetime:
         EOL_RIR_s[rr][s] = {}
         for m in met: 
-            EOL_RIR_s[rr][s][m] = pd.DataFrame(0, index = region, columns = [2011,2020,2050,2100])
+            EOL_RIR_s[rr][s][m] = pd.DataFrame(0, index = region, columns = [2011,2030,2050,2100])
             
 EOL_RIR_p = {}
 for rr in RR:
@@ -71,7 +71,7 @@ for rr in RR:
     for p in price:
         EOL_RIR_p[rr][p] = {} 
         for m in met:
-            EOL_RIR_p[rr][p][m] = pd.DataFrame(0, index = region, columns = [2011,2020,2050,2100])
+            EOL_RIR_p[rr][p][m] = pd.DataFrame(0, index = region, columns = [2011,2030,2050,2100])
     
             
 for year in y:
