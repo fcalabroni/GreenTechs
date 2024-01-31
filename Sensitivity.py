@@ -106,9 +106,9 @@ for p in price:
     for m in met:
         for r in region:
             for year in y:
-                EOL_RIR_s['target'][p][m].loc[r,year] = met_rec['Avg']['target'][p][year].loc[m,(r,'Green Tech')]/(Greentech_tot_s['target'][p][year].loc[m,(r,'Green Tech')])
-                EOL_RIR_s['hist'][p][m].loc[r,year] = met_rec['Avg']['hist'][p][year].loc[m,(r,'Green Tech')]/(Greentech_tot_s['hist'][p][year].loc[m,(r,'Green Tech')])
-                EOL_RIR_s['full'][p][m].loc[r,year] = met_rec['Avg']['full'][p][year].loc[m,(r,'Green Tech')]/(Greentech_tot_s['full'][p][year].loc[m,(r,'Green Tech')])
+                EOL_RIR_p['target'][p][m].loc[r,year] = met_rec['Avg']['target'][p][year].loc[m,(r,'Green Tech')]/(Greentech_tot_p['target'][p][year].loc[m,(r,'Green Tech')])
+                EOL_RIR_p['hist'][p][m].loc[r,year] = met_rec['Avg']['hist'][p][year].loc[m,(r,'Green Tech')]/(Greentech_tot_p['hist'][p][year].loc[m,(r,'Green Tech')])
+                EOL_RIR_p['full'][p][m].loc[r,year] = met_rec['Avg']['full'][p][year].loc[m,(r,'Green Tech')]/(Greentech_tot_p['full'][p][year].loc[m,(r,'Green Tech')])
                 
                 
 #%% Export Data 
@@ -121,7 +121,7 @@ for rr in RR:
                  
     for p in price:
         with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Sensitivity\\EOL-RIR\\Price\\EOL_RIR_{rr}_price_{p}.xlsx") as writer: 
-             for key, df in EOL_RIR_s[rr][p].items():
+             for key, df in EOL_RIR_p[rr][p].items():
                  sheet_name = f'{key}'
                  df.to_excel(writer, sheet_name=sheet_name, index= True)
      
