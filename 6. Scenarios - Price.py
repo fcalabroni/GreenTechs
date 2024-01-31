@@ -2,7 +2,7 @@ import mario
 import pandas as pd
 import numpy as np
 
-user = "MBV"
+user = "CF"
 sN = slice(None)
 years = range(2011,2101)
 
@@ -106,8 +106,8 @@ for scen in ['Baseline']:
             path_SG2 = f"{pd.read_excel(paths, index_col=[0]).loc['SG2',user]}\\SG2_Avg.xlsx"
             path_FD = f"{pd.read_excel(paths, index_col=[0]).loc['FD Total',user]}\\FD_total_Avg.xlsx"
             #path_metrec = f"{pd.read_excel(paths, index_col=[0]).loc['metrec',user]}\\metrec_{s}_b2.xlsx"
-            path_A2 = f"{pd.read_excel(paths, index_col=[0]).loc['A2',user]}\\Baseline\\A2_Avg_hist.xlsx"
-            path_A2_act = f"{pd.read_excel(paths, index_col=[0]).loc['A2',user]}\\Act\\A2_act_Avg_hist.xlsx"
+            path_A2 = f"{pd.read_excel(paths, index_col=[0]).loc['A2',user]}\\Baseline\\A2_Avg_full.xlsx"
+            path_A2_act = f"{pd.read_excel(paths, index_col=[0]).loc['A2',user]}\\Act\\A2_act_Avg_full.xlsx"
             path_Act = f"{pd.read_excel(paths, index_col=[0]).loc['Act',user]}\\Act coeff.xlsx"
             
             SG2 = pd.read_excel(path_SG2,sheet_name=str(year),index_col=[0,1,2],header= [0,1,2])
@@ -193,13 +193,13 @@ for scen in ['Baseline']:
         
 #%%  Export Data BASELINE Price Materials sens
 for s in sens:
-    with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Baseline\\Price\\Results_world_base_price_{s}.xlsx") as writer:
-            sheet_name = "Annual production"
+    with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Baseline\\Price\\Results_world_base_full_price_{s}.xlsx") as writer:
+            # sheet_name = "Annual production"
             Results_world_base[s].to_excel(writer, sheet_name=sheet_name, index=True)
             sheet2_name ="Cumulative"            
             Cumulative_world_base[s].to_excel(writer, sheet_name = sheet2_name,index = True)
             
-    with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Baseline\\Price\\Results_region_base_price_{s}.xlsx") as writer:
+    with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Baseline\\Price\\Results_region_base_full_price_{s}.xlsx") as writer:
             sheet_name = "Annual production"
             Results_region_base[s].to_excel(writer, sheet_name=sheet_name, index=True)
             sheet2_name ="Cumulative"            
