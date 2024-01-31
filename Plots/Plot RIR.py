@@ -10,34 +10,73 @@ paths = 'Paths.xlsx'
 #%%
 sens = ['hist', 'target', 'full']
 met = ['Dysprosium','Neodymium','Copper','Raw silicon']
+price = ['Min','Max','Avg']
+
 RIR = {}
+
+RIR_lifetime_hist = {}
+RIR_lifetime_target = {}
+RIR_lifetime_full = {}
 
 for s in sens:
     RIR[s] = {}
     for m in met:
         RIR[s][m] = {}
-            
+        
+for p in price:
+    RIR_lifetime_hist[p] = {}
+    RIR_lifetime_target[p] = {}
+    RIR_lifetime_full[p] = {}
+    for m in met:
+       RIR_lifetime_hist[p][m] = {}
+       RIR_lifetime_target[p][m] = {}
+       RIR_lifetime_full[p][m] = {}  
 for s in sens:
     for m in met:
         fileResults = f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Baseline\\EoL-RIR\\EoL-RIR_base_{s}.xlsx"
         RIR[s][m] =  pd.read_excel(fileResults, f"{m}", index_col=[0])
-        
+for p in price:
+    fileSens_hist_lifetime = f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Sensitivity\\EOL-RIR\\Price\\EOL_RIR_hist_price_{p}.xlsx"
+    fileSens_target_lifetime = f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Sensitivity\\EOL-RIR\\Price\\EOL_RIR_target_price_{p}.xlsx"
+    fileSens_full_lifetime = f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Sensitivity\\EOL-RIR\\Price\\EOL_RIR_full_price_{p}.xlsx"
+    for m in met:
+        RIR_lifetime_hist[p][m] = pd.read_excel(fileSens_hist_lifetime, f"{m}", index_col=[0])
+        RIR_lifetime_target[p][m] = pd.read_excel(fileSens_target_lifetime, f"{m}", index_col=[0])
+        RIR_lifetime_full[p][m] = pd.read_excel(fileSens_full_lifetime, f"{m}", index_col=[0])
+       
 #%%
 years = range(2011,2101)
+selected_years = RIR_lifetime_hist['Avg']['Copper'].columns
 RIR_EU = {}
+RIR_lifetime_hist_EU = {}
+RIR_lifetime_target_EU = {}
+RIR_lifetime_full_EU = {}
 for s in sens:
     RIR_EU[s] = pd.DataFrame(0,index=met, columns=years)
+    
+for p in price:
+    RIR_lifetime_hist_EU[p] = pd.DataFrame(0,index=met, columns=selected_years)
+    RIR_lifetime_target_EU[p] = pd.DataFrame(0,index=met, columns=selected_years)
+    RIR_lifetime_full_EU[p] = pd.DataFrame(0,index=met, columns=selected_years)
     
 for s in sens:
     for m in met:
         RIR_EU[s].loc[m,years] = RIR[s][m].loc['EU27+UK',:]
-        
+
+for p in price:
+    for m in met:
+        RIR_lifetime_hist_EU[p].loc[m,selected_years] = RIR_lifetime_hist[p][m].loc['EU27+UK',:]
+        RIR_lifetime_target_EU[p].loc[m,selected_years] = RIR_lifetime_target[p][m].loc['EU27+UK',:]
+        RIR_lifetime_full_EU[p].loc[m,selected_years] = RIR_lifetime_full[p][m].loc['EU27+UK',:]
+
+
 #%% RIR dy
 # Definizione delle dimensioni del grafico
 fig, ax = plt.subplots(figsize=(16, 10))
 
 # Anni selezionati
 years_elected = [2011, 2030, 2050, 2100]
+sensitivities = ['hist', 'target', 'full']
 
 # Larghezza delle barre
 bar_width = 0.2
@@ -51,12 +90,78 @@ colors = {'hist': '#95a5a6', 'target': '#e74c3c', 'full': '#3498db'}
 # Metallo selezionato
 metal = 'Dysprosium'
 
+dysprosium_2011_hist_lifetime_min = RIR_lifetime_hist_EU['Min'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[0]]
+dysprosium_2030_hist_lifetime_min = RIR_lifetime_hist_EU['Min'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[1]]
+dysprosium_2050_hist_lifetime_min = RIR_lifetime_hist_EU['Min'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[2]]
+dysprosium_2100_hist_lifetime_min = RIR_lifetime_hist_EU['Min'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[-1]]
+
+dysprosium_2011_hist_lifetime_max = RIR_lifetime_hist_EU['Max'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[0]]
+dysprosium_2030_hist_lifetime_max = RIR_lifetime_hist_EU['Max'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[1]]
+dysprosium_2050_hist_lifetime_max = RIR_lifetime_hist_EU['Max'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[2]]
+dysprosium_2100_hist_lifetime_max = RIR_lifetime_hist_EU['Max'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[-1]]
+
+
+dysprosium_2011_target_lifetime_min = RIR_lifetime_target_EU['Min'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[0]]
+dysprosium_2030_target_lifetime_min = RIR_lifetime_target_EU['Min'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[1]]
+dysprosium_2050_target_lifetime_min = RIR_lifetime_target_EU['Min'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[2]]
+dysprosium_2100_target_lifetime_min = RIR_lifetime_target_EU['Min'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[-1]]
+
+dysprosium_2011_target_lifetime_max = RIR_lifetime_target_EU['Max'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[0]]
+dysprosium_2030_target_lifetime_max = RIR_lifetime_target_EU['Max'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[1]]
+dysprosium_2050_target_lifetime_max = RIR_lifetime_target_EU['Max'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[2]]
+dysprosium_2100_target_lifetime_max = RIR_lifetime_target_EU['Max'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[-1]]
+
+
+dysprosium_2011_full_lifetime_min = RIR_lifetime_full_EU['Min'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[0]]
+dysprosium_2030_full_lifetime_min = RIR_lifetime_full_EU['Min'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[1]]
+dysprosium_2050_full_lifetime_min = RIR_lifetime_full_EU['Min'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[2]]
+dysprosium_2100_full_lifetime_min = RIR_lifetime_full_EU['Min'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[-1]]
+
+dysprosium_2011_full_lifetime_max = RIR_lifetime_full_EU['Max'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[0]]
+dysprosium_2030_full_lifetime_max = RIR_lifetime_full_EU['Max'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[1]]
+dysprosium_2050_full_lifetime_max = RIR_lifetime_full_EU['Max'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[2]]
+dysprosium_2100_full_lifetime_max = RIR_lifetime_full_EU['Max'].loc[['Dysprosium'], RIR_lifetime_hist_EU['Min'].columns[-1]]
+
+
+dysprosium_RIR_EU_hist_2011 = RIR_EU['hist'].loc['Dysprosium', 2011]
+dysprosium_RIR_EU_hist_2030 = RIR_EU['hist'].loc['Dysprosium', 2030]
+dysprosium_RIR_EU_hist_2050 = RIR_EU['hist'].loc['Dysprosium', 2050]
+dysprosium_RIR_EU_hist_2100 = RIR_EU['hist'].loc['Dysprosium', 2100]
+
+dysprosium_RIR_EU_target_2011 = RIR_EU['target'].loc['Dysprosium', 2011]
+dysprosium_RIR_EU_target_2030 = RIR_EU['target'].loc['Dysprosium', 2030]
+dysprosium_RIR_EU_target_2050 = RIR_EU['target'].loc['Dysprosium', 2050]
+dysprosium_RIR_EU_target_2100 = RIR_EU['target'].loc['Dysprosium', 2100]
+
+dysprosium_RIR_EU_full_2011 = RIR_EU['full'].loc['Dysprosium', 2011]
+dysprosium_RIR_EU_full_2030 = RIR_EU['full'].loc['Dysprosium', 2030]
+dysprosium_RIR_EU_full_2050 = RIR_EU['full'].loc['Dysprosium', 2050]
+dysprosium_RIR_EU_full_2100 = RIR_EU['full'].loc['Dysprosium', 2100]
+
+
+min_lifetime_Dy = {}
+max_lifetime_Dy = {}
+metal = 'Dysprosium'
+
+for sensitivity in sensitivities:
+    min_lifetime_Dy[sensitivity] = pd.DataFrame(0, index = ['Dysprosium'],columns=[2011,2020,2050,2100])
+    max_lifetime_Dy[sensitivity] = pd.DataFrame(0, index = ['Dysprosium'],columns=[2011,2020,2050,2100])
+
+
+min_lifetime_Dy['full'] = RIR_lifetime_full_EU['Min'].loc[['Dysprosium'], :]
+min_lifetime_Dy['target'] = RIR_lifetime_target_EU['Min'].loc[['Dysprosium'], :]
+min_lifetime_Dy['hist'] = RIR_lifetime_hist_EU['Min'].loc[['Dysprosium'], :]
+max_lifetime_Dy['full'] = RIR_lifetime_full_EU['Max'].loc[['Dysprosium'], :]
+max_lifetime_Dy['target'] = RIR_lifetime_target_EU['Max'].loc[['Dysprosium'], :]
+max_lifetime_Dy['hist'] = RIR_lifetime_hist_EU['Max'].loc[['Dysprosium'], :]
+
+# Example access: min_lifetime_data['hist'][2011]['dysprosium_2011_hist_lifetime_min']
+# Example access: max_lifetime_data['hist'][2011]['dysprosium_2011_hist_lifetime_max']
+
+
 for i, sensitivity in enumerate(colors.keys()):
     # Barre cumulative per ogni metallo
     bottom = np.zeros_like(years_elected, dtype=float)
-
-    # Barre trasparenti
-    ax.bar(positions + i * bar_width, 1, label=f'{sensitivity.capitalize()} - {metal}', bottom=bottom, color=colors[sensitivity], alpha=0.2, width=bar_width)
 
     # Barre non trasparenti
     bars = ax.bar(positions + i * bar_width, RIR_EU[sensitivity].loc[metal, years_elected], width=bar_width, label=f'{sensitivity.capitalize()} - {metal}', color=colors[sensitivity], alpha=0.8)
@@ -70,6 +175,13 @@ for i, sensitivity in enumerate(colors.keys()):
         else:
             label_text = '{:.2f}'.format(yval)
         ax.text(bar.get_x() + bar.get_width() / 2, yval + 0.01, label_text, ha='center', va='bottom', fontsize='x-large')
+
+    # Aggiungi la banda di errore con ax.errorbar
+    
+    x_positions = positions + i * bar_width
+    
+    # Access the specific sensitivity and year in the error bar section
+    ax.errorbar(x_positions, RIR_EU[sensitivity].loc[metal, years_elected], yerr=[RIR_EU[sensitivity].loc[metal, years_elected] - max_lifetime_Dy[sensitivity].loc['Dysprosium', years_elected],min_lifetime_Dy[sensitivity].loc['Dysprosium', years_elected] - RIR_EU[sensitivity].loc['Dysprosium', years_elected]  ], fmt='_', color=colors[sensitivity], capsize=5, label='Error Band')
 
 # Aggiungi etichette e legenda
 ax.set_xlabel('Year', fontsize='xx-large')
@@ -107,6 +219,21 @@ colors = {'hist': '#95a5a6', 'target': '#e74c3c', 'full': '#3498db'}
 # Metallo selezionato
 metal = 'Neodymium'
 
+min_lifetime_Nd = {}
+max_lifetime_Nd = {}
+
+for sensitivity in sensitivities:
+    min_lifetime_Nd[sensitivity] = pd.DataFrame(0, index = ['Neodymium'],columns=[2011,2020,2050,2100])
+    max_lifetime_Nd[sensitivity] = pd.DataFrame(0, index = ['Neodymium'],columns=[2011,2020,2050,2100])
+
+
+min_lifetime_Nd['full'] = RIR_lifetime_full_EU['Min'].loc[['Neodymium'], :]
+min_lifetime_Nd['target'] = RIR_lifetime_target_EU['Min'].loc[['Neodymium'], :]
+min_lifetime_Nd['hist'] = RIR_lifetime_hist_EU['Min'].loc[['Neodymium'], :]
+max_lifetime_Nd['full'] = RIR_lifetime_full_EU['Max'].loc[['Neodymium'], :]
+max_lifetime_Nd['target'] = RIR_lifetime_target_EU['Max'].loc[['Neodymium'], :]
+max_lifetime_Nd['hist'] = RIR_lifetime_hist_EU['Max'].loc[['Neodymium'], :]
+
 for i, sensitivity in enumerate(colors.keys()):
     # Barre cumulative per ogni metallo
     bottom = np.zeros_like(years_elected, dtype=float)
@@ -126,6 +253,11 @@ for i, sensitivity in enumerate(colors.keys()):
         else:
             label_text = '{:.2f}'.format(yval)
         ax.text(bar.get_x() + bar.get_width() / 2, yval + 0.01, label_text, ha='center', va='bottom', fontsize='x-large')
+     
+    x_positions = positions + i * bar_width
+     
+     # Access the specific sensitivity and year in the error bar section
+    ax.errorbar(x_positions, RIR_EU[sensitivity].loc[metal, years_elected], yerr=[RIR_EU[sensitivity].loc[metal, years_elected] - max_lifetime_Nd[sensitivity].loc[metal, years_elected],min_lifetime_Nd[sensitivity].loc[metal, years_elected] - RIR_EU[sensitivity].loc[metal, years_elected]  ], fmt='_', color=colors[sensitivity], capsize=5, label='Error Band')
 
 # Aggiungi etichette e legenda
 ax.set_xlabel('Year', fontsize='xx-large')
@@ -160,6 +292,20 @@ colors = {'hist': '#2ecc71', 'target': '#e74c3c', 'full': '#3498db'}
 
 # Metallo selezionato
 metal = 'Copper'
+min_lifetime_Cu = {}
+max_lifetime_Cu = {}
+
+for sensitivity in sensitivities:
+    min_lifetime_Cu[sensitivity] = pd.DataFrame(0, index = ['Copper'],columns=[2011,2020,2050,2100])
+    max_lifetime_Cu[sensitivity] = pd.DataFrame(0, index = ['Copper'],columns=[2011,2020,2050,2100])
+
+
+min_lifetime_Cu['full'] = RIR_lifetime_full_EU['Min'].loc[['Copper'], :]
+min_lifetime_Cu['target'] = RIR_lifetime_target_EU['Min'].loc[['Copper'], :]
+min_lifetime_Cu['hist'] = RIR_lifetime_hist_EU['Min'].loc[['Copper'], :]
+max_lifetime_Cu['full'] = RIR_lifetime_full_EU['Max'].loc[['Copper'], :]
+max_lifetime_Cu['target'] = RIR_lifetime_target_EU['Max'].loc[['Copper'], :]
+max_lifetime_Cu['hist'] = RIR_lifetime_hist_EU['Max'].loc[['Copper'], :]
 
 for i, sensitivity in enumerate(colors.keys()):
     # Barre cumulative per ogni metallo
@@ -180,6 +326,10 @@ for i, sensitivity in enumerate(colors.keys()):
         else:
             label_text = '{:.2f}'.format(yval)
         ax.text(bar.get_x() + bar.get_width() / 2, yval + 0.01, label_text, ha='center', va='bottom', fontsize='x-large')
+    x_positions = positions + i * bar_width
+      
+      # Access the specific sensitivity and year in the error bar section
+    ax.errorbar(x_positions, RIR_EU[sensitivity].loc[metal, years_elected], yerr=[RIR_EU[sensitivity].loc[metal, years_elected] - max_lifetime_Cu[sensitivity].loc[metal, years_elected],min_lifetime_Cu[sensitivity].loc[metal, years_elected] - RIR_EU[sensitivity].loc[metal, years_elected]  ], fmt='_', color=colors[sensitivity], capsize=5, label='Error Band')
 
 # Aggiungi etichette e legenda
 ax.set_xlabel('Year', fontsize='xx-large')
@@ -214,6 +364,20 @@ colors = {'hist': '#95a5a6', 'target': '#e74c3c', 'full': '#3498db'}
 
 # Metallo selezionato
 metal = 'Raw silicon'
+min_lifetime_Si = {}
+max_lifetime_Si = {}
+
+for sensitivity in sensitivities:
+    min_lifetime_Si[sensitivity] = pd.DataFrame(0, index = ['Raw silicon'],columns=[2011,2020,2050,2100])
+    max_lifetime_Si[sensitivity] = pd.DataFrame(0, index = ['Raw silicon'],columns=[2011,2020,2050,2100])
+
+
+min_lifetime_Si['full'] = RIR_lifetime_full_EU['Min'].loc[['Raw silicon'], :]
+min_lifetime_Si['target'] = RIR_lifetime_target_EU['Min'].loc[['Raw silicon'], :]
+min_lifetime_Si['hist'] = RIR_lifetime_hist_EU['Min'].loc[['Raw silicon'], :]
+max_lifetime_Si['full'] = RIR_lifetime_full_EU['Max'].loc[['Raw silicon'], :]
+max_lifetime_Si['target'] = RIR_lifetime_target_EU['Max'].loc[['Raw silicon'], :]
+max_lifetime_Si['hist'] = RIR_lifetime_hist_EU['Max'].loc[['Raw silicon'], :]
 
 for i, sensitivity in enumerate(colors.keys()):
     # Barre cumulative per ogni metallo
@@ -234,6 +398,10 @@ for i, sensitivity in enumerate(colors.keys()):
         else:
             label_text = '{:.2f}'.format(yval)
         ax.text(bar.get_x() + bar.get_width() / 2, yval + 0.01, label_text, ha='center', va='bottom', fontsize='x-large')
+    x_positions = positions + i * bar_width
+     
+     # Access the specific sensitivity and year in the error bar section
+    ax.errorbar(x_positions, RIR_EU[sensitivity].loc[metal, years_elected], yerr=[RIR_EU[sensitivity].loc[metal, years_elected] - max_lifetime_Si[sensitivity].loc[metal, years_elected],min_lifetime_Si[sensitivity].loc[metal, years_elected] - RIR_EU[sensitivity].loc[metal, years_elected]  ], fmt='_', color=colors[sensitivity], capsize=5, label='Error Band')
 
 # Aggiungi etichette e legenda
 ax.set_xlabel('Year', fontsize='xx-large')
@@ -254,59 +422,85 @@ plt.show()
 
 import matplotlib.pyplot as plt
 
-# Definizione delle dimensioni del grafico complessivo
+# Define the overall plot size
 fig, axs = plt.subplots(2, 2, figsize=(16, 12))
 
-# Lista dei metalli
+# List of metals
 metals = ['Dysprosium', 'Neodymium', 'Copper', 'Raw silicon']
+min_lifetime = {}
+max_lifetime = {}
 
-# Itera attraverso i sottografi e i metalli
+for sensitivity in sensitivities:
+    min_lifetime[sensitivity] = pd.DataFrame(0, index=[metals], columns=[2011, 2020, 2050, 2100])
+    max_lifetime[sensitivity] = pd.DataFrame(0, index=[metals], columns=[2011, 2020, 2050, 2100])
+
+min_lifetime['full'] = RIR_lifetime_full_EU['Min'].loc[metals, :]
+min_lifetime['target'] = RIR_lifetime_target_EU['Min'].loc[metals, :]
+min_lifetime['hist'] = RIR_lifetime_hist_EU['Min'].loc[metals, :]
+max_lifetime['full'] = RIR_lifetime_full_EU['Max'].loc[metals, :]
+max_lifetime['target'] = RIR_lifetime_target_EU['Max'].loc[metals, :]
+max_lifetime['hist'] = RIR_lifetime_hist_EU['Max'].loc[metals, :]
+
+# Iterate through subplots and metals
 for i, ax in enumerate(axs.flat):
     metal = metals[i]
 
-    # Anni selezionati
+    # Selected years
     years_elected = [2011, 2030, 2050, 2100]
 
-    # Larghezza delle barre
+    # Bar width
     bar_width = 0.3
 
-    # Posizioni delle barre per ogni anno
+    # Positions of the bars for each year
     positions = np.arange(len(years_elected))
-    # Colori per ogni sensibilità
+
+    # Colors for each sensitivity
     colors = {'hist': '#239d58', 'target': '#ff6b81', 'full': '#3498db'}
+
     for j, sensitivity in enumerate(colors.keys()):
-        # Barre cumulative per ogni metallo
+        # Cumulative bars for each metal
         bottom = np.zeros_like(years_elected, dtype=float)
-        # Barre trasparenti
+
+        # Transparent bars
         ax.bar(positions + j * bar_width, 1, bottom=bottom, color=colors[sensitivity], alpha=0.2, width=bar_width)
 
-        # Barre non trasparenti
+        # Non-transparent bars
         bars = ax.bar(positions + j * bar_width, RIR_EU[sensitivity].loc[metal, years_elected], width=bar_width, label=f'{sensitivity.capitalize()} - {metal}', color=colors[sensitivity], alpha=0.8)
 
-        # Aggiungi etichette sui dati non trasparenti se il valore è diverso da zero
+        # Add labels on non-transparent bars if the value is non-zero
         for bar in bars:
             yval = bar.get_height()
-            # Formatta il testo dell'etichetta
+            # Format label text
             if yval == 0.0 or (0 < yval < 0.01):
                 label_text = '0'
             else:
                 label_text = '{:.2f}'.format(yval)
             ax.text(bar.get_x() + bar.get_width() / 2, yval + 0.01, label_text, ha='center', va='bottom', fontsize='x-large')
 
-    # Aggiungi etichette e legenda
+        # Access the specific sensitivity and year in the error bar section
+        x_positions = positions + j * bar_width
+        ax.errorbar(x_positions, RIR_EU[sensitivity].loc[metal, years_elected],
+                    yerr=[RIR_EU[sensitivity].loc[metal, years_elected] - max_lifetime[sensitivity].loc[metal, years_elected],
+                          min_lifetime[sensitivity].loc[metal, years_elected] - RIR_EU[sensitivity].loc[metal, years_elected]],
+                    fmt='_', color=colors[sensitivity], capsize=5, label='Error Band')
+
+    # Add labels and legend
     ax.set_xlabel('Year', fontsize='xx-large')
     ax.set_ylabel('Percentage (%)', fontsize='xx-large')
     ax.set_title(f'RIR for {metal} Over Time', fontsize=20)
     ax.set_xticks(positions + bar_width)
-    
+
     ax.legend(fontsize='xx-large', loc='upper left')
 
     ax.tick_params(axis='both', labelsize='xx-large')
-    # Aggiungi una griglia
+    # Add a grid
     ax.grid(axis='y', linestyle='--', alpha=0.7)
 
-# Aggiusta la disposizione dei sottografi
+# Adjust subplot layout
 plt.tight_layout()
 
-# Mostra il grafico complessivo
+# Show the overall plot
 plt.show()
+
+
+#%%
