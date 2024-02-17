@@ -186,22 +186,29 @@ for s in sens:
 E_Cum_Total_Demand = {}
 E_Cum_Effective = {}
 E_Cum_Recycled_Avoided = {}
+E_Cum_Primary_Supply = {}
+E_Cum_Recycled_Supply = {}
+
 for s in sens:
     E_Cum_Total_Demand[s] = pd.DataFrame(0,index= ['Neodymium','Dysprosium', 'Copper', 'Raw silicon'], columns = years)
     E_Cum_Effective[s] = pd.DataFrame(0,index= ['Neodymium','Dysprosium', 'Copper', 'Raw silicon'], columns = years)
     E_Cum_Recycled_Avoided[s] = pd.DataFrame(0,index= ['Neodymium','Dysprosium', 'Copper', 'Raw silicon'], columns = years)
-    
+    E_Cum_Primary_Supply[s] = pd.DataFrame(0,index= ['Neodymium','Dysprosium', 'Copper', 'Raw silicon'], columns = years)
+    E_Cum_Recycled_Supply[s] = pd.DataFrame(0,index= ['Neodymium','Dysprosium', 'Copper', 'Raw silicon'], columns = years)
 for s in sens:
     for year in years:
         if year == 2011:
             E_Cum_Total_Demand[s].loc[:,float(year)] = E_Total_Demand[s].loc[:,float(year)]
             E_Cum_Effective[s].loc[:,float(year)] = E_Effective[s].loc[:,float(year)]
             E_Cum_Recycled_Avoided[s].loc[:,float(year)] = E_Recycled_Avoided[s].loc[:,float(year)]
+            E_Cum_Primary_Supply[s].loc[:,float(year)] =  E_Primary_Supply[s].loc[:,float(year)]
+            E_Cum_Recycled_Supply[s].loc[:,float(year)] = E_Recycled_Supply[s].loc[:,float(year)]
         else:
             E_Cum_Total_Demand[s].loc[:,float(year)] = E_Cum_Total_Demand[s].loc[:,float(year - 1)] + E_Total_Demand[s].loc[:,float(year)]
             E_Cum_Effective[s].loc[:,float(year)] = E_Cum_Effective[s].loc[:,float(year - 1)] + E_Effective[s].loc[:,float(year)]
             E_Cum_Recycled_Avoided[s].loc[:,float(year)] = E_Cum_Recycled_Avoided[s].loc[:,float(year - 1)] + E_Recycled_Avoided[s].loc[:,float(year)]
-        
+            E_Cum_Primary_Supply[s].loc[:,float(year)] = E_Cum_Primary_Supply[s].loc[:,float(year - 1)] + E_Primary_Supply[s].loc[:,float(year)]
+            E_Cum_Recycled_Supply[s].loc[:,float(year)] = E_Cum_Recycled_Supply[s].loc[:,float(year - 1)] + E_Recycled_Supply[s].loc[:,float(year)]
 
 #%% Export Data
 for s in sens:
@@ -211,7 +218,11 @@ for s in sens:
             sheet2_name ="Effective"            
             E_Effective[s].to_excel(writer, sheet_name = sheet2_name,index = True)
             sheet3_name ="Avoided"            
-            E_Recycled_Avoided[s].to_excel(writer, sheet_name = sheet3_name,index = True)            
+            E_Recycled_Avoided[s].to_excel(writer, sheet_name = sheet3_name,index = True)
+            sheet4_name ="Primary"            
+            E_Primary_Supply[s].to_excel(writer, sheet_name = sheet4_name,index = True)
+            sheet5_name ="Secondary"            
+            E_Recycled_Supply[s].to_excel(writer, sheet_name = sheet5_name,index = True)            
             
     with pd.ExcelWriter(f"{pd.read_excel(paths, index_col=[0]).loc['Results',user]}\\Emissions\\RR\\Cumulative_Emission_{s}.xlsx") as writer:
             sheet_name = "Total"
@@ -220,3 +231,7 @@ for s in sens:
             E_Cum_Effective[s].to_excel(writer, sheet_name = sheet2_name,index = True)
             sheet3_name ="Avoided"            
             E_Cum_Recycled_Avoided[s].to_excel(writer, sheet_name = sheet3_name,index = True)
+            sheet4_name ="Primary"            
+            E_Cum_Primary_Supply[s].to_excel(writer, sheet_name = sheet4_name,index = True)
+            sheet5_name ="Secondary"            
+            E_Cum_Recycled_Supply[s].to_excel(writer, sheet_name = sheet5_name,index = True) 
