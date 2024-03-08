@@ -419,17 +419,19 @@ ax.grid(axis='y', linestyle='--', alpha=0.7)
 plt.show()
 
 #%%
-
 import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
 
 # Define the overall plot size
-fig, axs = plt.subplots(2, 2, figsize=(16, 12))
+fig, axs = plt.subplots(2, 2, figsize=(16, 12), sharey=True)
 
 # List of metals
 metals = ['Dysprosium', 'Neodymium', 'Copper', 'Raw silicon']
 min_price = {}
 max_price = {}
 
+# Assume 'sensitivities' is defined elsewhere in your code
 for sensitivity in sensitivities:
     min_price[sensitivity] = pd.DataFrame(0, index=[metals], columns=[2011, 2020, 2050, 2100])
     max_price[sensitivity] = pd.DataFrame(0, index=[metals], columns=[2011, 2020, 2050, 2100])
@@ -462,10 +464,10 @@ for i, ax in enumerate(axs.flat):
         bottom = np.zeros_like(years_elected, dtype=float)
 
         # Transparent bars
-      #  ax.bar(positions + j * bar_width, 1, bottom=bottom, color=colors[sensitivity], alpha=0.2, width=bar_width)
+        # ax.bar(positions + j * bar_width, 1, bottom=bottom, color=colors[sensitivity], alpha=0.2, width=bar_width)
 
         # Non-transparent bars
-        bars = ax.bar(positions + j * bar_width, RIR_EU[sensitivity].loc[metal, years_elected], width=bar_width, label=f'{sensitivity.capitalize()} - {metal}', color=colors[sensitivity], alpha=0.8)
+        bars = ax.bar(positions + j * bar_width, RIR_EU[sensitivity].loc[metal, years_elected], width=bar_width, label=f'{sensitivity.capitalize()} - {metal}', color=colors[sensitivity], edgecolor = colors[sensitivity] ,alpha=0.9)
 
         # Add labels on non-transparent bars if the value is non-zero
         for bar in bars:
@@ -479,28 +481,40 @@ for i, ax in enumerate(axs.flat):
 
         # Access the specific sensitivity and year in the error bar section
         x_positions = positions + j * bar_width
+        axs[0,0].legend(labels = sens, fontsize='xx-large', loc='upper left')
+        
+       
+       
         ax.errorbar(x_positions, RIR_EU[sensitivity].loc[metal, years_elected],
                     yerr=[RIR_EU[sensitivity].loc[metal, years_elected] - max_price[sensitivity].loc[metal, years_elected],
                           min_price[sensitivity].loc[metal, years_elected] - RIR_EU[sensitivity].loc[metal, years_elected]],
-                    fmt='_', color=colors[sensitivity], capsize=5, label='Error Band')
+                    fmt='_', color='black', capsize=5, alpha=0.6)  # label='Error Band')
 
     # Add labels and legend
-    ax.set_xlabel('Year', fontsize='xx-large')
-    ax.set_ylabel('Percentage (%)', fontsize='xx-large')
-    ax.set_title(f'RIR for {metal} Over Time', fontsize=20)
+  #  ax.set_xlabel('Year', fontsize='xx-large')
+   # ax.set_ylabel('Percentage (%)', fontsize='xx-large')
+    ax.set_title(f'{metal}', fontsize='xx-large')
     ax.set_xticks(positions + bar_width)
+    ax.set_xticklabels([str(year) for year in years_elected])  # Set the years as x-tick labels
 
-    ax.legend(fontsize='xx-large', loc='upper left')
 
     ax.tick_params(axis='both', labelsize='xx-large')
     # Add a grid
     ax.grid(axis='y', linestyle='--', alpha=0.7)
+# sens = ['Historic','Target','Ideal']
+# handles, labels = ax.get_legend_handles_labels()
+# axs[0,0].legend(handles[::2],labels = sens, fontsize='xx-large', loc='upper left')
 
 # Adjust subplot layout
 plt.tight_layout()
+# Ottenere il riferimento all'oggetto Figure corrente
+fig = plt.gcf()
 
+# Impostare una risoluzione elevata (dpi) per una migliore qualità
+dpi = 300
+
+# Esportare come PNG con alta risoluzione
+fig.savefig('RIR___.png', dpi=dpi, bbox_inches='tight')
 # Show the overall plot
 plt.show()
-
-
 #%%
